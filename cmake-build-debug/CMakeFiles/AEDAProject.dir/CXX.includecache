@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/matiasfg/Documents/AEDAProject/airportSystem/airport.cpp
+airport.h
+/Users/matiasfg/Documents/AEDAProject/airportSystem/airport.h
+
+/Users/matiasfg/Documents/AEDAProject/airportSystem/airport.h
+
+/Users/matiasfg/Documents/AEDAProject/airportSystem/flight.cpp
+flight.h
+/Users/matiasfg/Documents/AEDAProject/airportSystem/flight.h
+
+/Users/matiasfg/Documents/AEDAProject/airportSystem/flight.h
+
+/Users/matiasfg/Documents/AEDAProject/airportSystem/maintanceServices.cpp
+maintanceServices.h
+/Users/matiasfg/Documents/AEDAProject/airportSystem/maintanceServices.h
+
+/Users/matiasfg/Documents/AEDAProject/airportSystem/maintanceServices.h
+
+/Users/matiasfg/Documents/AEDAProject/airportSystem/passenger.cpp
+passenger.h
+/Users/matiasfg/Documents/AEDAProject/airportSystem/passenger.h
+
+/Users/matiasfg/Documents/AEDAProject/airportSystem/passenger.h
+
+/Users/matiasfg/Documents/AEDAProject/airportSystem/plane.cpp
+plane.h
+/Users/matiasfg/Documents/AEDAProject/airportSystem/plane.h
+
+/Users/matiasfg/Documents/AEDAProject/airportSystem/plane.h
+
+/Users/matiasfg/Documents/AEDAProject/main.cpp
+iostream
+-
+climits
+-
+algorithm
+-
+

@@ -1,0 +1,5 @@
+"/Users/matiasfg/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/212.5457.51/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" /Users/matiasfg/Documents/AEDAProject
+Doxygen build started
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/matiasfg/Documents/AEDAProject/cmake-build-debug
