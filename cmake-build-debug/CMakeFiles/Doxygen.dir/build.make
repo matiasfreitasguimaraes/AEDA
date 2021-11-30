@@ -53,10 +53,10 @@ RM = "/Users/matiasfg/Library/Application Support/JetBrains/Toolbox/apps/CLion/c
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/matiasfg/Documents/AEDAProject
+CMAKE_SOURCE_DIR = /Users/matiasfg/Documents/AEDA
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/matiasfg/Documents/AEDAProject/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/matiasfg/Documents/AEDA/cmake-build-debug
 
 # Utility rule file for Doxygen.
 
@@ -67,8 +67,8 @@ include CMakeFiles/Doxygen.dir/compiler_depend.make
 include CMakeFiles/Doxygen.dir/progress.make
 
 CMakeFiles/Doxygen:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/Users/matiasfg/Documents/AEDAProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating API documentation with Doxygen"
-	/usr/local/bin/doxygen /Users/matiasfg/Documents/AEDAProject/cmake-build-debug/Doxyfile
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/Users/matiasfg/Documents/AEDA/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating API documentation with Doxygen"
+	/usr/local/bin/doxygen /Users/matiasfg/Documents/AEDA/cmake-build-debug/Doxyfile
 
 Doxygen: CMakeFiles/Doxygen
 Doxygen: CMakeFiles/Doxygen.dir/build.make
@@ -83,6 +83,6 @@ CMakeFiles/Doxygen.dir/clean:
 .PHONY : CMakeFiles/Doxygen.dir/clean
 
 CMakeFiles/Doxygen.dir/depend:
-	cd /Users/matiasfg/Documents/AEDAProject/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/matiasfg/Documents/AEDAProject /Users/matiasfg/Documents/AEDAProject /Users/matiasfg/Documents/AEDAProject/cmake-build-debug /Users/matiasfg/Documents/AEDAProject/cmake-build-debug /Users/matiasfg/Documents/AEDAProject/cmake-build-debug/CMakeFiles/Doxygen.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/matiasfg/Documents/AEDA/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/matiasfg/Documents/AEDA /Users/matiasfg/Documents/AEDA /Users/matiasfg/Documents/AEDA/cmake-build-debug /Users/matiasfg/Documents/AEDA/cmake-build-debug /Users/matiasfg/Documents/AEDA/cmake-build-debug/CMakeFiles/Doxygen.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Doxygen.dir/depend
 

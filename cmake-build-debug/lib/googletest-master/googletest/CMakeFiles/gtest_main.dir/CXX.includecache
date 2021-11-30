@@ -332,9 +332,9 @@ cxxabi.h
 acxx_demangle.h
 -
 
-/Users/matiasfg/Documents/AEDAProject/lib/googletest-master/googletest/src/gtest_main.cc
+/Users/matiasfg/Documents/AEDA/lib/googletest-master/googletest/src/gtest_main.cc
 cstdio
 -
 gtest/gtest.h
-/Users/matiasfg/Documents/AEDAProject/lib/googletest-master/googletest/src/gtest/gtest.h
+/Users/matiasfg/Documents/AEDA/lib/googletest-master/googletest/src/gtest/gtest.h
 

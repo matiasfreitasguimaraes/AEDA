@@ -6,6 +6,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/AEDAProject.dir/airportSystem/maintanceServices.cpp.o"
   "CMakeFiles/AEDAProject.dir/airportSystem/passenger.cpp.o"
   "CMakeFiles/AEDAProject.dir/airportSystem/plane.cpp.o"
+  "CMakeFiles/AEDAProject.dir/airportSystem/ticket.cpp.o"
   "CMakeFiles/AEDAProject.dir/main.cpp.o"
 )
 

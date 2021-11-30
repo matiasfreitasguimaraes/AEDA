@@ -57,10 +57,10 @@ RM = "/Users/matiasfg/Library/Application Support/JetBrains/Toolbox/apps/CLion/c
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/matiasfg/Documents/AEDAProject
+CMAKE_SOURCE_DIR = /Users/matiasfg/Documents/AEDA
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/matiasfg/Documents/AEDAProject/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/matiasfg/Documents/AEDA/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -132,9 +132,9 @@ list_install_components/fast: list_install_components
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/matiasfg/Documents/AEDAProject/cmake-build-debug/CMakeFiles /Users/matiasfg/Documents/AEDAProject/cmake-build-debug//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/matiasfg/Documents/AEDA/cmake-build-debug/CMakeFiles /Users/matiasfg/Documents/AEDA/cmake-build-debug//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/matiasfg/Documents/AEDAProject/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/matiasfg/Documents/AEDA/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -359,6 +359,30 @@ airportSystem/plane.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AEDAProject.dir/build.make CMakeFiles/AEDAProject.dir/airportSystem/plane.cpp.s
 .PHONY : airportSystem/plane.cpp.s
 
+airportSystem/ticket.o: airportSystem/ticket.cpp.o
+.PHONY : airportSystem/ticket.o
+
+# target to build an object file
+airportSystem/ticket.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AEDAProject.dir/build.make CMakeFiles/AEDAProject.dir/airportSystem/ticket.cpp.o
+.PHONY : airportSystem/ticket.cpp.o
+
+airportSystem/ticket.i: airportSystem/ticket.cpp.i
+.PHONY : airportSystem/ticket.i
+
+# target to preprocess a source file
+airportSystem/ticket.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AEDAProject.dir/build.make CMakeFiles/AEDAProject.dir/airportSystem/ticket.cpp.i
+.PHONY : airportSystem/ticket.cpp.i
+
+airportSystem/ticket.s: airportSystem/ticket.cpp.s
+.PHONY : airportSystem/ticket.s
+
+# target to generate assembly for a file
+airportSystem/ticket.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AEDAProject.dir/build.make CMakeFiles/AEDAProject.dir/airportSystem/ticket.cpp.s
+.PHONY : airportSystem/ticket.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -416,6 +440,9 @@ help:
 	@echo "... airportSystem/plane.o"
 	@echo "... airportSystem/plane.i"
 	@echo "... airportSystem/plane.s"
+	@echo "... airportSystem/ticket.o"
+	@echo "... airportSystem/ticket.i"
+	@echo "... airportSystem/ticket.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

@@ -528,13 +528,13 @@ cxxabi.h
 acxx_demangle.h
 -
 
-/Users/matiasfg/Documents/AEDAProject/lib/googletest-master/googlemock/src/gmock_main.cc
+/Users/matiasfg/Documents/AEDA/lib/googletest-master/googlemock/src/gmock_main.cc
 iostream
 -
 gmock/gmock.h
-/Users/matiasfg/Documents/AEDAProject/lib/googletest-master/googlemock/src/gmock/gmock.h
+/Users/matiasfg/Documents/AEDA/lib/googletest-master/googlemock/src/gmock/gmock.h
 gtest/gtest.h
-/Users/matiasfg/Documents/AEDAProject/lib/googletest-master/googlemock/src/gtest/gtest.h
+/Users/matiasfg/Documents/AEDA/lib/googletest-master/googlemock/src/gtest/gtest.h
 tchar.h
 -
 

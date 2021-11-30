@@ -9,7 +9,7 @@ add_executable(AEDAProject main.cpp
         airportSystem/flight.cpp airportSystem/flight.h
         airportSystem/maintanceServices.cpp airportSystem/maintanceServices.h
         airportSystem/passenger.cpp airportSystem/passenger.h
-        airportSystem/plane.cpp airportSystem/plane.h)
+        airportSystem/plane.cpp airportSystem/plane.h airportSystem/ticket.cpp airportSystem/ticket.h)
 
 # Doxygen Build
 find_package(Doxygen)
