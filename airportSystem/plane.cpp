@@ -15,35 +15,35 @@ Plane::Plane(unsigned planeCapacity, string type, string planeRegister, vector<F
 /**
  * @return the plane's capacity
  */
-unsigned Plane::getCapacity(){
+unsigned Plane::getCapacity() const {
     return capacity;
 }
 
 /**
  * @return the plane type
  */
-string Plane::getPlaneType(){
+string Plane::getPlaneType() const {
     return planeType;
 }
 
 /**
  * @return the plane's register
  */
-string Plane::getRegis(){
+string Plane::getRegis() const {
     return regis;
 }
 
 /**
  * @return the plane's list of flights
  */
-vector<Flight> Plane::getListOfFlights(){
+vector<Flight> Plane::getListOfFlights() const {
     return listOfFlights;
 }
 
 /**
  * @return the numbers of existing planes
  */
-unsigned int Plane::getNumberOfInstances(){
+unsigned int Plane::getNumberOfInstances() const {
     return instances;
 }
 
@@ -66,7 +66,7 @@ void Plane::setListOfFlights(vector<Flight> &flights) {
  * @param plane instance of Plane
  * @return all the plane information
  */
-ostream& operator<<(ostream &out, Plane &plane) {
+ostream& operator<<(ostream &out, const Plane &plane) {
     out << "Plane's capacity: " << plane.getCapacity() << endl;
     out << "Plane's register: " << plane.getRegis() << endl;
     out << "Plane type: " << plane.getPlaneType() << endl;

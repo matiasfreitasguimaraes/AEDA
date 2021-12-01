@@ -11,21 +11,21 @@ using namespace std;
 
 class Plane {
 private:
-    unsigned capacity;
-    string planeType;
+    const unsigned capacity;
+    const string planeType;
     string regis;
     vector<Flight> listOfFlights;
     static unsigned instances;
 public:
     Plane(unsigned capacity, string planeType, string regis, vector<Flight> flights);
-    unsigned getCapacity();
-    unsigned getNumberOfInstances();
-    string getPlaneType();
-    string getRegis();
-    vector<Flight> getListOfFlights();
+    unsigned getCapacity() const;
+    unsigned getNumberOfInstances() const;
+    string getPlaneType() const;
+    string getRegis() const;
+    vector<Flight> getListOfFlights() const;
     void setRegis(string newRegister);
     void setListOfFlights(vector<Flight> &flights);
-    friend ostream& operator<<(ostream &out, Plane &plane);
+    friend ostream& operator<<(ostream &out, const Plane &plane);
 };
 
 

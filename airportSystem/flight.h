@@ -16,18 +16,18 @@ private:
     static unsigned instances;
 public:
     Flight(string number, string flightDepartureDate, string flightArrivalDate, string flightOrigin, string flightDestination);
-    string getNumberOfFlight();
-    unsigned getNumberOfInstances();
-    string getDepartureDate();
-    string getArrivalDate();
-    string getOrigin();
-    string getDestination();
+    string getNumberOfFlight() const;
+    unsigned getNumberOfInstances() const;
+    string getDepartureDate() const;
+    string getArrivalDate() const;
+    string getOrigin() const;
+    string getDestination() const;
     void setNumberOfFlight(string number);
     void setDepartureDate(string flightDepartureDate);
     void setArrivalDate(string flightArrivalDate);
     void setOrigin(string flightOrigin);
     void setDestination(string flightDestination);
-    friend ostream& operator<<(ostream &out, Flight &flight);
+    friend ostream& operator<<(ostream &out, const Flight &flight);
 };
 
 

@@ -19,42 +19,42 @@ Flight::Flight(string number, string flightDepartureDate, string flightArrivalDa
 /**
  * @return the flight's origin
  */
-string Flight::getOrigin(){
+string Flight::getOrigin() const{
     return origin;
 }
 
 /**
  * @return the flight's destination
  */
-string Flight::getDestination(){
+string Flight::getDestination() const{
     return destination;
 }
 
 /**
  * @return the flight's departure date
  */
-string Flight::getDepartureDate(){
+string Flight::getDepartureDate() const{
     return departureDate;
 }
 
 /**
  * @return the flight's arrival date
  */
-string Flight::getArrivalDate(){
+string Flight::getArrivalDate() const{
     return arrivalDate;
 }
 
 /**
  * @return the flight's number
  */
-string Flight::getNumberOfFlight(){
+string Flight::getNumberOfFlight() const{
     return numberOfFlight;
 }
 
 /**
  * @return the number of existing flights
  */
-unsigned Flight::getNumberOfInstances(){
+unsigned Flight::getNumberOfInstances() const {
     return instances;
 }
 
@@ -77,7 +77,7 @@ void Flight::setDestination(string flightDestination) {
  * @param flight instance of Flight
  * @return all the flight information
  */
-ostream& operator<<(ostream &out, Flight &flight) {
+ostream& operator<<(ostream &out, const Flight &flight) {
     out << "Flight number: " << flight.getNumberOfFlight() << endl;
     out << "Flight's departure date: " << flight.getDepartureDate() << endl;
     out << "Flight's arrival date: " << flight.getArrivalDate() << endl;
