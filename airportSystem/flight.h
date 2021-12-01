@@ -20,7 +20,6 @@ private:
     string destination;
     static unsigned instances;
 public:
-    Flight();
     Flight(unsigned number, string flightDepartureDate, string flightArrivalDate, string flightOrigin, string flightDestination);
     unsigned getNumberOfFlight() const;
     unsigned getNumberOfInstances() const;

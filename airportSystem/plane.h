@@ -21,7 +21,6 @@ private:
     vector<Flight> listOfFlights;
     static unsigned instances;
 public:
-    Plane();
     Plane(unsigned capacity, string planeType, string regis, vector<Flight> flights);
     unsigned getCapacity() const;
     unsigned getNumberOfInstances() const;
