@@ -6,41 +6,61 @@
 
 #IncludeRegexTransform: 
 
-/Users/matiasfg/Documents/AEDA/airportSystem/airport.cpp
+C:/Users/jorge/CLionProjects/AEDA/airportSystem/airport.cpp
 airport.h
-/Users/matiasfg/Documents/AEDA/airportSystem/airport.h
+C:/Users/jorge/CLionProjects/AEDA/airportSystem/airport.h
 
-/Users/matiasfg/Documents/AEDA/airportSystem/airport.h
+C:/Users/jorge/CLionProjects/AEDA/airportSystem/airport.h
 
-/Users/matiasfg/Documents/AEDA/airportSystem/flight.cpp
+C:/Users/jorge/CLionProjects/AEDA/airportSystem/flight.cpp
+iostream
+-
 flight.h
-/Users/matiasfg/Documents/AEDA/airportSystem/flight.h
+C:/Users/jorge/CLionProjects/AEDA/airportSystem/flight.h
 
-/Users/matiasfg/Documents/AEDA/airportSystem/flight.h
+C:/Users/jorge/CLionProjects/AEDA/airportSystem/flight.h
+string
+-
 
-/Users/matiasfg/Documents/AEDA/airportSystem/maintanceServices.cpp
+C:/Users/jorge/CLionProjects/AEDA/airportSystem/maintanceServices.cpp
 maintanceServices.h
-/Users/matiasfg/Documents/AEDA/airportSystem/maintanceServices.h
+C:/Users/jorge/CLionProjects/AEDA/airportSystem/maintanceServices.h
 
-/Users/matiasfg/Documents/AEDA/airportSystem/maintanceServices.h
+C:/Users/jorge/CLionProjects/AEDA/airportSystem/maintanceServices.h
 
-/Users/matiasfg/Documents/AEDA/airportSystem/passenger.cpp
+C:/Users/jorge/CLionProjects/AEDA/airportSystem/passenger.cpp
 passenger.h
-/Users/matiasfg/Documents/AEDA/airportSystem/passenger.h
+C:/Users/jorge/CLionProjects/AEDA/airportSystem/passenger.h
 
-/Users/matiasfg/Documents/AEDA/airportSystem/passenger.h
+C:/Users/jorge/CLionProjects/AEDA/airportSystem/passenger.h
 
-/Users/matiasfg/Documents/AEDA/airportSystem/plane.cpp
+C:/Users/jorge/CLionProjects/AEDA/airportSystem/plane.cpp
 plane.h
-/Users/matiasfg/Documents/AEDA/airportSystem/plane.h
+C:/Users/jorge/CLionProjects/AEDA/airportSystem/plane.h
 
-/Users/matiasfg/Documents/AEDA/airportSystem/plane.h
+C:/Users/jorge/CLionProjects/AEDA/airportSystem/plane.h
+flight.h
+C:/Users/jorge/CLionProjects/AEDA/airportSystem/flight.h
+string
+-
+fstream
+-
+vector
+-
 
-/Users/matiasfg/Documents/AEDA/main.cpp
+C:/Users/jorge/CLionProjects/AEDA/airportSystem/ticket.cpp
+ticket.h
+C:/Users/jorge/CLionProjects/AEDA/airportSystem/ticket.h
+
+C:/Users/jorge/CLionProjects/AEDA/airportSystem/ticket.h
+
+C:/Users/jorge/CLionProjects/AEDA/main.cpp
 iostream
 -
 climits
 -
 algorithm
 -
+airportSystem/plane.h
+C:/Users/jorge/CLionProjects/AEDA/airportSystem/plane.h
 

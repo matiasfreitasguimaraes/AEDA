@@ -13,7 +13,7 @@
 
 Para João: Airport, MaintanceServices.
 
-Para Jorge: Flight, Plance.
+Para Jorge: Flight, Plane.
 
 Para Matias: Testes e Arquivos.
 
