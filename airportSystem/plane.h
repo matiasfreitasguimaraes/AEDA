@@ -15,14 +15,16 @@ using namespace std;
 
 class Plane {
 private:
-    const unsigned int capacity;
+    const unsigned capacity;
     const string planeType;
     string regis;
     vector<Flight> listOfFlights;
+    static unsigned instances;
 public:
     Plane();
     Plane(unsigned capacity, string planeType, string regis, vector<Flight> flights);
-    int getCapacity() const;
+    unsigned getCapacity() const;
+    unsigned getNumberOfInstances() const;
     string getPlaneType() const;
     string getRegis() const;
     vector<Flight> getListOfFlights() const;

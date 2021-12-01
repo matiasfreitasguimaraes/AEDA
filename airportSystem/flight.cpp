@@ -8,17 +8,6 @@
 using namespace std;
 
 /**
- * @brief default constructor
- */
-Flight::Flight() {
-    this->numberOfFlight = -1;
-    this->departureDate = "";
-    this->arrivalDate = "";
-    this->origin = "";
-    this->destination = "";
-}
-
-/**
  * @param numberOfFlight the flight's number
  * @param departureDate the flight's departure date
  * @param arrivalDate the flight's arrival date
@@ -26,12 +15,10 @@ Flight::Flight() {
  * @param destination the flight's destination
  */
 Flight::Flight(unsigned int number, string flightDepartureDate, string flightArrivalDate, string flightOrigin,
-               string flightDestination) {
-    this->numberOfFlight = number;
-    this->departureDate = flightDepartureDate;
+               string flightDestination) : numberOfFlight(number) , departureDate(flightDepartureDate), origin(flightOrigin){
     this->arrivalDate = flightArrivalDate;
-    this->origin = flightOrigin;
     this->destination = flightDestination;
+    instances++;
 }
 
 /**
@@ -65,8 +52,15 @@ string Flight::getArrivalDate() const {
 /**
  * @return the flight's number
  */
-unsigned int Flight::getNumberOfFlight() const {
+unsigned Flight::getNumberOfFlight() const {
     return numberOfFlight;
+}
+
+/**
+ * @return the number of existing flights
+ */
+unsigned Flight::getNumberOfInstances() const {
+    return instances;
 }
 
 /**
@@ -77,31 +71,10 @@ void Flight::setArrivalDate(string flightArrivalDate) {
 }
 
 /**
- * @param departureDate the flight's new departure date in format dd/mm/yyyy
- */
-void Flight::setDepartureDate(string flightDepartureDate) {
-    this->departureDate = flightDepartureDate;
-}
-
-/**
  * @param destination the flight's new destination
  */
 void Flight::setDestination(string flightDestination) {
     this->destination = flightDestination;
-}
-
-/**
- * @param origin the flight's new origin
- */
-void Flight::setOrigin(string flightOrigin) {
-    this->origin = flightOrigin;
-}
-
-/**
- * @param numberOfFlight the flight's new number
- */
-void Flight::setNumberOfFlight(unsigned int number) {
-    this->numberOfFlight = number;
 }
 
 /**

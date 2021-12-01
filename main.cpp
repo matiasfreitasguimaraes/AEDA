@@ -6,8 +6,6 @@
 #include <climits>
 #include <algorithm>
 
-#include "airportSystem/plane.h"
-
 int main() {
     return 0;
 }

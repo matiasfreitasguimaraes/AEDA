@@ -5,14 +5,6 @@
 #include "plane.h"
 
 /**
- * @brief default constructor
- */
-Plane::Plane() : capacity(0), planeType("") {
-    regis = "";
-    listOfFlights = {};
-}
-
-/**
  * @param capacity the plane's capacity
  * @param planeType the plane type
  * @param regis the plane's register
@@ -21,12 +13,13 @@ Plane::Plane() : capacity(0), planeType("") {
 Plane::Plane(unsigned planeCapacity, string type, string planeRegister, vector<Flight> flights) : capacity(planeCapacity), planeType(type) {
     this->regis = planeRegister;
     this->listOfFlights = flights;
+    instances++;
 }
 
 /**
  * @return the plane's capacity
  */
-int Plane::getCapacity() const {
+unsigned Plane::getCapacity() const {
     return capacity;
 }
 
@@ -49,6 +42,13 @@ string Plane::getRegis() const {
  */
 vector<Flight> Plane::getListOfFlights() const {
     return listOfFlights;
+}
+
+/**
+ * @return the numbers of existing planes
+ */
+unsigned int Plane::getNumberOfInstances() const {
+    return instances;
 }
 
 /**

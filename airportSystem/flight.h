@@ -13,15 +13,17 @@ using namespace std;
 
 class Flight {
 private:
-    unsigned numberOfFlight;
-    string departureDate;
+    const unsigned numberOfFlight;
+    const string departureDate;
     string arrivalDate;
-    string origin;
+    const string origin;
     string destination;
+    static unsigned instances;
 public:
     Flight();
     Flight(unsigned number, string flightDepartureDate, string flightArrivalDate, string flightOrigin, string flightDestination);
     unsigned getNumberOfFlight() const;
+    unsigned getNumberOfInstances() const;
     string getDepartureDate() const;
     string getArrivalDate() const;
     string getOrigin() const;
