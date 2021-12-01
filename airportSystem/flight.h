@@ -6,6 +6,8 @@
 #define AEDAPROJECT_FLIGHT_H
 
 #include <string>
+#include <iostream>
+#include <iostream>
 
 using namespace std;
 

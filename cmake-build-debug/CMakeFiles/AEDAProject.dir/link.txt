@@ -1,3 +1,0 @@
-"C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\AEDAProject.dir/objects.a
-C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\ar.exe cr CMakeFiles\AEDAProject.dir/objects.a @CMakeFiles\AEDAProject.dir\objects1.rsp
-C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE  -Wall -g -fsanitize=address -fsanitize=undefined -fno-omit-frame-pointer -g -Wl,--whole-archive CMakeFiles\AEDAProject.dir/objects.a -Wl,--no-whole-archive -o AEDAProject.exe -Wl,--out-implib,libAEDAProject.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\AEDAProject.dir\linklibs.rsp

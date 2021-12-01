@@ -2,7 +2,7 @@
 // Created by Matias Freitas Guimarães on 29/11/2021.
 //
 
-#include <iostream>
+
 #include "flight.h"
 
 using namespace std;
@@ -109,10 +109,11 @@ void Flight::setNumberOfFlight(unsigned int numberOfFlight) {
  * @param flight instance of Flight
  * @return all the flight information
  */
-ostream& operator<<(ostream &out, const Flight flight) {
+ostream& operator<<(ostream &out, const Flight &flight) {
     out << "Flight number: " << flight.getNumberOfFlight() << endl;
     out << "Flight's departure date: " << flight.getDepartureDate() << endl;
     out << "Flight's arrival date: " << flight.getArrivalDate() << endl;
     out << "Flight's origin: "  << flight.getOrigin() << endl;
     out << "Flight's destination: " << flight.getDestination() << endl;
+    return out;
 }
