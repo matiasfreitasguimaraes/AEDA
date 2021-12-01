@@ -25,13 +25,13 @@ Flight::Flight() {
  * @param origin the flight's origin
  * @param destination the flight's destination
  */
-Flight::Flight(unsigned int numberOfFlight, string departureDate, string arrivalDate, string origin,
-               string destination) {
-    this->numberOfFlight = numberOfFlight;
-    this->departureDate = departureDate;
-    this->arrivalDate = arrivalDate;
-    this->origin = origin;
-    this->destination = destination;
+Flight::Flight(unsigned int number, string flightDepartureDate, string flightArrivalDate, string flightOrigin,
+               string flightDestination) {
+    this->numberOfFlight = number;
+    this->departureDate = flightDepartureDate;
+    this->arrivalDate = flightArrivalDate;
+    this->origin = flightOrigin;
+    this->destination = flightDestination;
 }
 
 /**
@@ -72,36 +72,36 @@ unsigned int Flight::getNumberOfFlight() const {
 /**
  * @param arrivalDate the flight's new arrival date in format dd/mm/yyyy
  */
-void Flight::setArrivalDate(string arrivalDate) {
-    this->arrivalDate = arrivalDate;
+void Flight::setArrivalDate(string flightArrivalDate) {
+    this->arrivalDate = flightArrivalDate;
 }
 
 /**
  * @param departureDate the flight's new departure date in format dd/mm/yyyy
  */
-void Flight::setDepartureDate(string departureDate) {
-    this->departureDate = departureDate;
+void Flight::setDepartureDate(string flightDepartureDate) {
+    this->departureDate = flightDepartureDate;
 }
 
 /**
  * @param destination the flight's new destination
  */
-void Flight::setDestination(string destination) {
-    this->destination = destination;
+void Flight::setDestination(string flightDestination) {
+    this->destination = flightDestination;
 }
 
 /**
  * @param origin the flight's new origin
  */
-void Flight::setOrigin(string origin) {
-    this->origin = origin;
+void Flight::setOrigin(string flightOrigin) {
+    this->origin = flightOrigin;
 }
 
 /**
  * @param numberOfFlight the flight's new number
  */
-void Flight::setNumberOfFlight(unsigned int numberOfFlight) {
-    this->numberOfFlight = numberOfFlight;
+void Flight::setNumberOfFlight(unsigned int number) {
+    this->numberOfFlight = number;
 }
 
 /**

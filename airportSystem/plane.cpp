@@ -18,8 +18,8 @@ Plane::Plane() : capacity(0), planeType("") {
  * @param regis the plane's register
  * @param flights the plane's list of flights
  */
-Plane::Plane(unsigned capacity, string planeType, string regis, vector<Flight> flights) : capacity(capacity), planeType(planeType) {
-    this->regis = regis;
+Plane::Plane(unsigned planeCapacity, string type, string planeRegister, vector<Flight> flights) : capacity(planeCapacity), planeType(type) {
+    this->regis = planeRegister;
     this->listOfFlights = flights;
 }
 
@@ -78,4 +78,5 @@ ostream& operator<<(ostream &out, const Plane &plane) {
     for (unsigned i = 0; i < plane.getListOfFlights().size(); i++) {
         out << "Flight " << i << ": " <<  plane.getListOfFlights().at(i) << endl;
     }
+    return out;
 }
