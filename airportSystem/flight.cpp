@@ -1,8 +1,3 @@
-//
-// Created by Matias Freitas Guimarães on 29/11/2021.
-//
-
-
 #include "flight.h"
 
 using namespace std;
@@ -14,7 +9,7 @@ using namespace std;
  * @param origin the flight's origin
  * @param destination the flight's destination
  */
-Flight::Flight(unsigned int number, string flightDepartureDate, string flightArrivalDate, string flightOrigin,
+Flight::Flight(string number, string flightDepartureDate, string flightArrivalDate, string flightOrigin,
                string flightDestination) : numberOfFlight(number) , departureDate(flightDepartureDate), origin(flightOrigin){
     this->arrivalDate = flightArrivalDate;
     this->destination = flightDestination;
@@ -24,42 +19,42 @@ Flight::Flight(unsigned int number, string flightDepartureDate, string flightArr
 /**
  * @return the flight's origin
  */
-string Flight::getOrigin() const {
+string Flight::getOrigin(){
     return origin;
 }
 
 /**
  * @return the flight's destination
  */
-string Flight::getDestination() const {
+string Flight::getDestination(){
     return destination;
 }
 
 /**
  * @return the flight's departure date
  */
-string Flight::getDepartureDate() const {
+string Flight::getDepartureDate(){
     return departureDate;
 }
 
 /**
  * @return the flight's arrival date
  */
-string Flight::getArrivalDate() const {
+string Flight::getArrivalDate(){
     return arrivalDate;
 }
 
 /**
  * @return the flight's number
  */
-unsigned Flight::getNumberOfFlight() const {
+string Flight::getNumberOfFlight(){
     return numberOfFlight;
 }
 
 /**
  * @return the number of existing flights
  */
-unsigned Flight::getNumberOfInstances() const {
+unsigned Flight::getNumberOfInstances(){
     return instances;
 }
 
@@ -82,7 +77,7 @@ void Flight::setDestination(string flightDestination) {
  * @param flight instance of Flight
  * @return all the flight information
  */
-ostream& operator<<(ostream &out, const Flight &flight) {
+ostream& operator<<(ostream &out, Flight &flight) {
     out << "Flight number: " << flight.getNumberOfFlight() << endl;
     out << "Flight's departure date: " << flight.getDepartureDate() << endl;
     out << "Flight's arrival date: " << flight.getArrivalDate() << endl;
@@ -90,3 +85,5 @@ ostream& operator<<(ostream &out, const Flight &flight) {
     out << "Flight's destination: " << flight.getDestination() << endl;
     return out;
 }
+
+unsigned Flight::instances = 0;

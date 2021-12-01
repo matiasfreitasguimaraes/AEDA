@@ -1,6 +1,3 @@
-//
-// Created by Matias Freitas Guimarães on 29/11/2021.
-//
 
 #include "plane.h"
 
@@ -10,44 +7,43 @@
  * @param regis the plane's register
  * @param flights the plane's list of flights
  */
-Plane::Plane(unsigned planeCapacity, string type, string planeRegister, vector<Flight> flights) : capacity(planeCapacity), planeType(type) {
+Plane::Plane(unsigned planeCapacity, string type, string planeRegister, vector<Flight> flights) : capacity(planeCapacity), planeType(type), listOfFlights(flights) {
     this->regis = planeRegister;
-    this->listOfFlights = flights;
     instances++;
 }
 
 /**
  * @return the plane's capacity
  */
-unsigned Plane::getCapacity() const {
+unsigned Plane::getCapacity(){
     return capacity;
 }
 
 /**
  * @return the plane type
  */
-string Plane::getPlaneType() const {
+string Plane::getPlaneType(){
     return planeType;
 }
 
 /**
  * @return the plane's register
  */
-string Plane::getRegis() const {
+string Plane::getRegis(){
     return regis;
 }
 
 /**
  * @return the plane's list of flights
  */
-vector<Flight> Plane::getListOfFlights() const {
+vector<Flight> Plane::getListOfFlights(){
     return listOfFlights;
 }
 
 /**
  * @return the numbers of existing planes
  */
-unsigned int Plane::getNumberOfInstances() const {
+unsigned int Plane::getNumberOfInstances(){
     return instances;
 }
 
@@ -70,7 +66,7 @@ void Plane::setListOfFlights(vector<Flight> &flights) {
  * @param plane instance of Plane
  * @return all the plane information
  */
-ostream& operator<<(ostream &out, const Plane &plane) {
+ostream& operator<<(ostream &out, Plane &plane) {
     out << "Plane's capacity: " << plane.getCapacity() << endl;
     out << "Plane's register: " << plane.getRegis() << endl;
     out << "Plane type: " << plane.getPlaneType() << endl;
@@ -80,3 +76,5 @@ ostream& operator<<(ostream &out, const Plane &plane) {
     }
     return out;
 }
+
+unsigned Plane::instances = 0;
