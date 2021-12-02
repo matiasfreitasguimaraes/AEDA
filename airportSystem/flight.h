@@ -17,14 +17,11 @@ private:
 public:
     Flight(string number, string flightDepartureDate, string flightArrivalDate, string flightOrigin, string flightDestination);
     string getNumberOfFlight() const;
-    unsigned getNumberOfInstances() const;
+    static unsigned getNumberOfInstances() ;
     string getDepartureDate() const;
     string getArrivalDate() const;
     string getOrigin() const;
     string getDestination() const;
-    void setNumberOfFlight(string number);
-    void setDepartureDate(string flightDepartureDate);
-    void setArrivalDate(string flightArrivalDate);
     void setOrigin(string flightOrigin);
     void setDestination(string flightDestination);
     friend ostream& operator<<(ostream &out, const Flight &flight);

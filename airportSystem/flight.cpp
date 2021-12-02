@@ -54,16 +54,10 @@ string Flight::getNumberOfFlight() const{
 /**
  * @return the number of existing flights
  */
-unsigned Flight::getNumberOfInstances() const {
+unsigned Flight::getNumberOfInstances() {
     return instances;
 }
 
-/**
- * @param arrivalDate the flight's new arrival date in format dd/mm/yyyy
- */
-void Flight::setArrivalDate(string flightArrivalDate) {
-    this->arrivalDate = flightArrivalDate;
-}
 
 /**
  * @param destination the flight's new destination
