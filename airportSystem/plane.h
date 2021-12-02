@@ -2,10 +2,12 @@
 #define AEDAPROJECT_PLANE_H
 
 #include "flight.h"
+#include "maintanceService.h"
 
 #include <string>
 #include <fstream>
 #include <vector>
+#include <queue>
 
 using namespace std;
 
@@ -16,6 +18,8 @@ private:
     string regis;
     vector<Flight> listOfFlights;
     static unsigned instances;
+    vector<MaintenanceService> serviceRegister;
+    queue<MaintenanceService> serviceQueue;
 public:
     Plane(unsigned capacity, string planeType, string regis, vector<Flight> flights);
     unsigned getCapacity() const;

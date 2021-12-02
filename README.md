@@ -11,11 +11,18 @@
 
 6. Fazer testes!
 
-Para João: Airport, MaintanceServices.
+7. Criar menu (classe)!
+
+Para João: Airport, MaintanceServices, Menu.
 
 Para Jorge: Flight, Plane.
 
 Para Matias: Testes e Arquivos.
 
+Sugestoes para menu:
 
+Joao:
 
+Jorge:
+
+Matias:

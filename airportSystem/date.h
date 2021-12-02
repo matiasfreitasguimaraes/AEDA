@@ -6,18 +6,18 @@
 #define AEDAPROJECT_DATA_H
 
 
-class Date {
+class date {
 private:
 public:
-    Date(unsigned int h, unsigned int min);
-    Date(unsigned int y, unsigned int mon, unsigned int d);
-    Date(unsigned int y, unsigned int mon, unsigned int d, unsigned int h, unsigned int min);
+    date(unsigned int h, unsigned int min);
+    date(unsigned int y, unsigned int mon, unsigned int d);
+    date(unsigned int y, unsigned int mon, unsigned int d, unsigned int h, unsigned int min);
     const unsigned int year;
     const unsigned int month;
     const unsigned int day;
     const unsigned int hour;
     const unsigned int minute;
-    bool operator>(const Date &date);
+    bool operator>(const date &date);
 };
 
 

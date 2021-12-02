@@ -4,7 +4,7 @@
 
 #include "groundTransport.h"
 
-GroundTransport::GroundTransport(string itsName, string typeName, vector<tm> sched, double airDis) : name(itsName), type(typeName), airportDistance(airDis) {
+GroundTransport::GroundTransport(string itsName, string typeName, vector<date> sched, double airDis) : name(itsName), type(typeName), airportDistance(airDis) {
     this->schedule = sched;
 }
 
@@ -21,18 +21,10 @@ double GroundTransport::getAirportDistance() const {
 }
 
 void GroundTransport::sortSchedule() {
-    sort(schedule.begin(), schedule.end(), compareTimes);
+    sort(schedule.begin(), schedule.end());
 }
 
-bool GroundTransport::compareTimes(tm sooner, tm latter) {
-    if (latter.tm_hour > sooner.tm_hour)
-        return true;
-    else if (latter.tm_hour == sooner.tm_hour)
-        return latter.tm_min > sooner.tm_min;
-    else return false;
-}
-
-void GroundTransport::addToSchedule(tm newTime) {
+void GroundTransport::addToSchedule(date newTime) {
     this->schedule.push_back(newTime);
     sortSchedule();
 }

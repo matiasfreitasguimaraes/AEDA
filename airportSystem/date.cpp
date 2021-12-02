@@ -2,21 +2,21 @@
 // Created by Matias Freitas Guimarães on 02/12/2021.
 //
 
-#include "Date.h"
+#include "date.h"
 
-Date::Date(unsigned int h, unsigned int min) :year(0), month(0), day(0), hour(h), minute(min){
+date::date(unsigned int h, unsigned int min) : year(0), month(0), day(0), hour(h), minute(min){
 
 }
 
-Date::Date(unsigned int y, unsigned int mon, unsigned int d) :year(y), month(mon), day(d), hour(0), minute(0){
+date::date(unsigned int y, unsigned int mon, unsigned int d) : year(y), month(mon), day(d), hour(0), minute(0){
 }
 
 
-Date::Date(unsigned int y, unsigned int mon, unsigned int d, unsigned int h, unsigned int min) :year(y), month(mon), day(d), hour(h), minute(min){
+date::date(unsigned int y, unsigned int mon, unsigned int d, unsigned int h, unsigned int min) : year(y), month(mon), day(d), hour(h), minute(min){
 }
 
 
-bool Date::operator>(const Date &date) {
+bool date::operator>(const date &date) {
     if (this->year > date.year){
         return true;
     }else if(this->year != date.year){
