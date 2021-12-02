@@ -1,32 +1,28 @@
-//
-// Created by Matias Freitas Guimarães on 29/11/2021.
-//
-
 #ifndef AEDAPROJECT_FLIGHT_H
 #define AEDAPROJECT_FLIGHT_H
 
 #include <string>
-#include <iostream>
 #include <iostream>
 
 using namespace std;
 
 class Flight {
 private:
-    unsigned numberOfFlight;
+    string numberOfFlight;
     string departureDate;
     string arrivalDate;
     string origin;
     string destination;
+    static unsigned instances;
 public:
-    Flight();
-    Flight(unsigned number, string flightDepartureDate, string flightArrivalDate, string flightOrigin, string flightDestination);
-    unsigned getNumberOfFlight() const;
+    Flight(string number, string flightDepartureDate, string flightArrivalDate, string flightOrigin, string flightDestination);
+    string getNumberOfFlight() const;
+    unsigned getNumberOfInstances() const;
     string getDepartureDate() const;
     string getArrivalDate() const;
     string getOrigin() const;
     string getDestination() const;
-    void setNumberOfFlight(unsigned number);
+    void setNumberOfFlight(string number);
     void setDepartureDate(string flightDepartureDate);
     void setArrivalDate(string flightArrivalDate);
     void setOrigin(string flightOrigin);

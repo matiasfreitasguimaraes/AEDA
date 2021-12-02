@@ -1,22 +1,6 @@
-//
-// Created by Matias Freitas Guimarães on 29/11/2021.
-//
-
-
 #include "flight.h"
 
 using namespace std;
-
-/**
- * @brief default constructor
- */
-Flight::Flight() {
-    this->numberOfFlight = -1;
-    this->departureDate = "";
-    this->arrivalDate = "";
-    this->origin = "";
-    this->destination = "";
-}
 
 /**
  * @param numberOfFlight the flight's number
@@ -25,48 +9,53 @@ Flight::Flight() {
  * @param origin the flight's origin
  * @param destination the flight's destination
  */
-Flight::Flight(unsigned int number, string flightDepartureDate, string flightArrivalDate, string flightOrigin,
-               string flightDestination) {
-    this->numberOfFlight = number;
-    this->departureDate = flightDepartureDate;
+Flight::Flight(string number, string flightDepartureDate, string flightArrivalDate, string flightOrigin,
+               string flightDestination) : numberOfFlight(number) , departureDate(flightDepartureDate), origin(flightOrigin){
     this->arrivalDate = flightArrivalDate;
-    this->origin = flightOrigin;
     this->destination = flightDestination;
+    instances++;
 }
 
 /**
  * @return the flight's origin
  */
-string Flight::getOrigin() const {
+string Flight::getOrigin() const{
     return origin;
 }
 
 /**
  * @return the flight's destination
  */
-string Flight::getDestination() const {
+string Flight::getDestination() const{
     return destination;
 }
 
 /**
  * @return the flight's departure date
  */
-string Flight::getDepartureDate() const {
+string Flight::getDepartureDate() const{
     return departureDate;
 }
 
 /**
  * @return the flight's arrival date
  */
-string Flight::getArrivalDate() const {
+string Flight::getArrivalDate() const{
     return arrivalDate;
 }
 
 /**
  * @return the flight's number
  */
-unsigned int Flight::getNumberOfFlight() const {
+string Flight::getNumberOfFlight() const{
     return numberOfFlight;
+}
+
+/**
+ * @return the number of existing flights
+ */
+unsigned Flight::getNumberOfInstances() const {
+    return instances;
 }
 
 /**
@@ -77,31 +66,10 @@ void Flight::setArrivalDate(string flightArrivalDate) {
 }
 
 /**
- * @param departureDate the flight's new departure date in format dd/mm/yyyy
- */
-void Flight::setDepartureDate(string flightDepartureDate) {
-    this->departureDate = flightDepartureDate;
-}
-
-/**
  * @param destination the flight's new destination
  */
 void Flight::setDestination(string flightDestination) {
     this->destination = flightDestination;
-}
-
-/**
- * @param origin the flight's new origin
- */
-void Flight::setOrigin(string flightOrigin) {
-    this->origin = flightOrigin;
-}
-
-/**
- * @param numberOfFlight the flight's new number
- */
-void Flight::setNumberOfFlight(unsigned int number) {
-    this->numberOfFlight = number;
 }
 
 /**
@@ -117,3 +85,5 @@ ostream& operator<<(ostream &out, const Flight &flight) {
     out << "Flight's destination: " << flight.getDestination() << endl;
     return out;
 }
+
+unsigned Flight::instances = 0;

@@ -1,7 +1,3 @@
-//
-// Created by Matias Freitas Guimarães on 29/11/2021.
-//
-
 #ifndef AEDAPROJECT_PLANE_H
 #define AEDAPROJECT_PLANE_H
 
@@ -15,14 +11,15 @@ using namespace std;
 
 class Plane {
 private:
-    const unsigned int capacity;
+    const unsigned capacity;
     const string planeType;
     string regis;
     vector<Flight> listOfFlights;
+    static unsigned instances;
 public:
-    Plane();
     Plane(unsigned capacity, string planeType, string regis, vector<Flight> flights);
-    int getCapacity() const;
+    unsigned getCapacity() const;
+    unsigned getNumberOfInstances() const;
     string getPlaneType() const;
     string getRegis() const;
     vector<Flight> getListOfFlights() const;
@@ -30,5 +27,6 @@ public:
     void setListOfFlights(vector<Flight> &flights);
     friend ostream& operator<<(ostream &out, const Plane &plane);
 };
+
 
 #endif //AEDAPROJECT_PLANE_H
