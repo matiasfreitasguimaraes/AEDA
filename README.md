@@ -13,16 +13,20 @@
 
 7. Criar menu (classe)!
 
-Para João: Airport, MaintanceServices, Menu.
+Para João: Airport, MaintanceServices, Menu, Task 2.
 
-Para Jorge: Flight, Plane.
+Para Jorge: Flight, Plane, Task 3.
 
 Para Matias: Testes e Arquivos.
 
-Sugestoes para menu:
+Ideias - 
+1. Conversar com o prof a respeito de limitaçoes dos carrinhos e a possibilidade de haverem multiplos 
+carrinhos para cada vôo.
 
-Joao:
+---------------------------------------------
 
-Jorge:
-
-Matias:
+Tasks -
+1. Implementar método buyTicket() em vôo. Implementar método que verifica a possibilidade de se comprar um ticket pra um determinado vôo. Ou seja, checa se há lugares dispooníveis.
+2. Implementar classe ticket. ticket é um objeto que guara informaçoes de um passageiro
+   que o comprou e cada vôo guardará informaçoes referentes. Na classe ticket, implementar um booleano que guarda se o passageiro deseja check-in de bagagem automático ou nao.
+3. Implementar classe luggageCar. Cada vôo possui um luggageCar associado.
