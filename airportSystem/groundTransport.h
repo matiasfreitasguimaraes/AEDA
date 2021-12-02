@@ -19,6 +19,7 @@ public:
     GroundTransport(string typeName, vector<tm> sched, double airDis);
     string getType() const;
     double getAirportDistance() const;
+    static bool compareTimes(tm latter, tm sooner);
     void sortSchedule();
     void addToSchedule(tm newTime);
     void removeFromSchedule(int hour, int minutes);

@@ -16,8 +16,21 @@ double GroundTransport::getAirportDistance() const {
     return this->airportDistance;
 }
 
+void GroundTransport::sortSchedule() {
+    sort(schedule.begin(), schedule.end(), compareTimes);
+}
+
+bool GroundTransport::compareTimes(tm sooner, tm latter) {
+    if (latter.tm_hour > sooner.tm_hour)
+        return true;
+    else if (latter.tm_hour == sooner.tm_hour)
+        return latter.tm_min > sooner.tm_min;
+    else return false;
+}
+
 void GroundTransport::addToSchedule(tm newTime) {
     this->schedule.push_back(newTime);
+    sortSchedule();
 }
 
 void GroundTransport::removeFromSchedule(int hour, int minutes) {
