@@ -4,7 +4,7 @@
 
 #include "groundTransport.h"
 
-GroundTransport::GroundTransport(string itsName, string typeName, vector<date> sched, double airDis) : name(itsName), type(typeName), airportDistance(airDis) {
+GroundTransport::GroundTransport(string itsName, string typeName, vector<Date> sched, double airDis) : name(itsName), type(typeName), airportDistance(airDis) {
     this->schedule = sched;
 }
 
@@ -24,23 +24,20 @@ void GroundTransport::sortSchedule() {
     sort(schedule.begin(), schedule.end());
 }
 
-void GroundTransport::addToSchedule(date newTime) {
-    this->schedule.push_back(newTime);
+void GroundTransport::addToSchedule(Date newDate) {
+    this->schedule.push_back(newDate);
     sortSchedule();
 }
 
-void GroundTransport::removeFromSchedule(int hour, int minutes) {
-    for (unsigned i = 0; i < schedule.size(); i++) {
-        if (schedule[i].tm_hour == hour && schedule[i].tm_min == minutes)
-            schedule.erase(schedule.begin() + i);
-    }
+int GroundTransport::removeFromSchedule(Date date) {
+    return -1;
 }
 
 ostream& operator<<(ostream &out, const GroundTransport &groundTransport) {
     out << groundTransport.getName() << " " << groundTransport.getType() << "station." << endl;
     out << "Schedule:" << endl;
-    for (tm time : groundTransport.schedule) {
-        out << time.tm_hour << ":" << time.tm_min << " ";
+    for (Date date : groundTransport.schedule) {
+        out << date.hour << ":" << date.minute << " ";
     }
     out << endl;
     out << "Distance: " << groundTransport.getAirportDistance() << " meters from the airport." << endl;

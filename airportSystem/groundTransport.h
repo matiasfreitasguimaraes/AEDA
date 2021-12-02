@@ -16,15 +16,15 @@ class GroundTransport {
     const string name;
     const string type;
     const double airportDistance;
-    vector<date> schedule;
+    vector<Date> schedule;
 public:
-    GroundTransport(string itsName, string typeName, vector<date> sched, double airDis);
+    GroundTransport(string itsName, string typeName, vector<Date> sched, double airDis);
     string getName() const;
     string getType() const;
     double getAirportDistance() const;
     void sortSchedule();
-    void addToSchedule(date newTime);
-    void removeFromSchedule(int hour, int minutes);
+    void addToSchedule(Date newDate);
+    int removeFromSchedule(Date date);
     friend ostream& operator<<(ostream &out, const GroundTransport &groundTransport);
 };
 

@@ -4,19 +4,14 @@
 
 #include "date.h"
 
-date::date(unsigned int h, unsigned int min) : year(0), month(0), day(0), hour(h), minute(min){
+Date::Date(unsigned int h, unsigned int min) : year(0), month(0), day(0), hour(h), minute(min){}
 
-}
+Date::Date(unsigned int y, unsigned int mon, unsigned int d) : year(y), month(mon), day(d), hour(0), minute(0) {}
 
-date::date(unsigned int y, unsigned int mon, unsigned int d) : year(y), month(mon), day(d), hour(0), minute(0){
-}
-
-
-date::date(unsigned int y, unsigned int mon, unsigned int d, unsigned int h, unsigned int min) : year(y), month(mon), day(d), hour(h), minute(min){
-}
+Date::Date(unsigned int y, unsigned int mon, unsigned int d, unsigned int h, unsigned int min) : year(y), month(mon), day(d), hour(h), minute(min) {}
 
 
-bool date::operator>(const date &date) {
+bool Date::operator>(const Date &date) {
     if (this->year > date.year){
         return true;
     }else if(this->year != date.year){
