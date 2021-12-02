@@ -13,7 +13,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
 add_executable(AEDAProject main.cpp
         airportSystem/airport.cpp airportSystem/airport.h
         airportSystem/flight.cpp airportSystem/flight.h
-        airportSystem/maintanceServices.cpp airportSystem/maintanceServices.h
+        airportSystem/maintanceService.cpp airportSystem/maintanceService.h
         airportSystem/passenger.cpp airportSystem/passenger.h
         airportSystem/plane.cpp airportSystem/plane.h airportSystem/ticket.cpp airportSystem/ticket.h)
 
