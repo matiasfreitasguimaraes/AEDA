@@ -7,7 +7,7 @@
  * @param regis the plane's register
  * @param flights the plane's list of flights
  */
-Plane::Plane(unsigned planeCapacity, string type, string planeRegister, vector<Flight> flights) : capacity(planeCapacity), planeType(type), listOfFlights(flights) {
+Plane::Plane(unsigned planeCapacity, string type, string planeRegister) : capacity(planeCapacity), planeType(type) {
     this->regis = planeRegister;
     instances++;
 }

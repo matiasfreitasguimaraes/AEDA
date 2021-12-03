@@ -14,7 +14,7 @@ int main() {
     ifstream myfile;
     myfile.open("input.txt", ios::in);
     if(myfile.is_open()){
-        cout << "oi";
+        cout << "oi\n";
     }
     myfile >> nPlanes;
     vector<Plane> PlanesVec;
@@ -25,26 +25,24 @@ int main() {
         string planeRegis;
         string planeType;
         int capacity;
+
+        myfile >> planeType >> planeRegis >> capacity;
+        Plane plane(capacity, planeType, planeRegis);
         for (int j = 0; j < nFlights; ++j) {
             string flightCode;
             string apertureData;
             string arrivalData;
             string apertureLocal;
             string arrivalLocal;
-            myfile >> flightCode;
-            myfile >> apertureData;
-            myfile >> arrivalData;
-            myfile >> apertureLocal;
-            myfile >> arrivalLocal;
+
+            myfile >> flightCode >> apertureData >> arrivalData >> apertureLocal >> arrivalLocal;
             FlightVec.push_back(Flight(flightCode, apertureData, arrivalData, apertureLocal, arrivalLocal));
         }
-        myfile >> planeRegis;
-        myfile >> planeType;
-        myfile >> capacity;
-        PlanesVec.push_back(Plane(capacity, planeType, planeRegis, FlightVec));
+        plane.setListOfFlights(FlightVec);
+        PlanesVec.push_back(plane);
     }
     for(auto plane: PlanesVec){
-        cout << plane;
+        cout << plane << endl;
     }
     return 0;
 }
