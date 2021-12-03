@@ -13,8 +13,8 @@ using namespace std;
 
 class Plane {
 private:
-    const unsigned capacity;
-    const string planeType;
+    unsigned capacity;
+    string planeType;
     string regis;
     vector<Flight> listOfFlights;
     static unsigned instances;
