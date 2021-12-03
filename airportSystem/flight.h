@@ -24,7 +24,7 @@ public:
     string getDestination() const;
     void setDestination(string flightDestination);
     friend ostream& operator<<(ostream &out, const Flight &flight);
-    int updateBoughtTickets(int nTickets);
+    void updateBoughtTickets(int nTickets);
 };
 
 

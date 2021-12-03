@@ -21,7 +21,7 @@ private:
     vector<MaintenanceService> serviceRegister;
     queue<MaintenanceService> serviceQueue;
 public:
-    Plane(unsigned capacity, string planeType, string regis, vector<Flight> flights);
+    Plane(unsigned capacity, string planeType, string regis);
     unsigned getCapacity() const;
     unsigned getNumberOfInstances() const;
     string getPlaneType() const;

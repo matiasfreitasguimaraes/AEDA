@@ -13,6 +13,7 @@ Flight::Flight(string number, string flightDepartureDate, string flightArrivalDa
                string flightDestination) : numberOfFlight(number) , departureDate(flightDepartureDate), origin(flightOrigin){
     this->arrivalDate = flightArrivalDate;
     this->destination = flightDestination;
+    this->boughtTickets = 0;
 }
 
 /**
@@ -72,15 +73,10 @@ ostream& operator<<(ostream &out, const Flight &flight) {
     return out;
 }
 
-
-
 /**
- * @param out output stream
- * @param flight instance of Flight
- * @return all the flight information
+ * @param nTickets number of tickets bought
  */
-int Flight::updateBoughtTickets(int nTickets) {
-    boughtTickets -= nTickets;
-    return boughtTickets;
+void Flight::updateBoughtTickets(int nTickets) {
+    boughtTickets += nTickets;
 }
 
