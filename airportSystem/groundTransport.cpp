@@ -4,9 +4,10 @@
 
 #include "groundTransport.h"
 
-GroundTransport::GroundTransport(string itsName, string typeName, vector<Date> sched, double airDis) : name(itsName), type(typeName), airportDistance(airDis) {
-    this->schedule = sched;
-    sortSchedule();
+GroundTransport::GroundTransport(string itsName, string typeName, vector<Date> sched, double airDis) : name(itsName),
+                                                                                                       type(typeName),
+                                                                                                       airportDistance(airDis),
+                                                                                                       schedule(sched) {
 }
 
 string GroundTransport::getName() const {
@@ -31,20 +32,14 @@ void GroundTransport::addToSchedule(Date newDate) {
 }
 
 int GroundTransport::removeFromSchedule(Date date) {
-    for (unsigned i = 0; i < this->schedule.size(); i++) {
-        if (this->schedule[i] == date) {
-            this->schedule.erase(schedule.begin() + i);
-            return 1;
-        }
-    }
-    return 0;
+    return date.getYear();
 }
 
 ostream& operator<<(ostream &out, const GroundTransport &groundTransport) {
     out << groundTransport.getName() << " " << groundTransport.getType() << "station." << endl;
     out << "Schedule:" << endl;
-    for (auto date : groundTransport.schedule) {
-        out << date.hour << ":" << date.minute << " ";
+    for (Date date : groundTransport.schedule) {
+        out << date.getHour() << ":" << date.getHour() << " ";
     }
     out << endl;
     out << "Distance: " << groundTransport.getAirportDistance() << " meters from the airport." << endl;

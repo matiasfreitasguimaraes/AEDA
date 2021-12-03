@@ -10,36 +10,63 @@ Date::Date(unsigned int y, unsigned int mon, unsigned int d) : year(y), month(mo
 
 Date::Date(unsigned int y, unsigned int mon, unsigned int d, unsigned int h, unsigned int min) : year(y), month(mon), day(d), hour(h), minute(min) {}
 
-bool Date::operator>(const Date &date) const {
-    if (this->year > date.year){
+int Date::getYear(){
+    return this->year;
+}
+
+int Date::getMonth(){
+    return this->month;
+}
+
+int Date::getDay(){
+    return this->day;
+}
+
+int Date::getHour(){
+    return this->hour;
+}
+
+int Date::getMinute(){
+    return this->minute;
+}
+
+bool operator>(Date dateMax, Date dateMin) {
+    if (dateMax.getYear() > dateMin.getYear()){
         return true;
-    }else if(this->year != date.year){
+    }else if(dateMax.getYear() != dateMin.getYear()){
         return false;
     }
-    if (this->month > date.month){
+    if (dateMax.getMonth() > dateMin.getMonth()){
         return true;
-    }else if(this->month != date.month){
+    }else if(dateMax.getMonth() != dateMin.getMonth()){
         return false;
     }
-    if (this->day > date.day){
+    if (dateMax.getDay() > dateMin.getDay()){
         return true;
-    }else if(this->day != date.day){
+    }else if(dateMax.getDay() != dateMin.getDay()){
         return false;
     }
-    if (this->hour > date.hour){
+    if (dateMax.getHour() > dateMin.getHour()){
         return true;
-    }else if(this->hour != date.hour){
+    }else if(dateMax.getHour() != dateMin.getHour()){
         return false;
     }
-    if (this->minute > date.minute){
+    if (dateMax.getMinute() > dateMin.getMinute()){
         return true;
     }else{
         return false;
     }
 }
 
-bool Date::operator==(const Date &date) const {
-    return (this->year == date.year && this->month == date.month && this->day == date.day && this->hour == date.hour && this->minute == date.minute);
+bool operator<(Date dateMin, Date dateMax) {
+    return !(dateMin > dateMax || dateMin==dateMax);
 }
 
 
+bool operator==(Date dateL, Date dateR) {
+    return (dateL.getYear() == dateR.getYear()
+            && dateL.getMonth() == dateR.getMonth()
+            && dateL.getDay() == dateR.getDay()
+            && dateL.getHour() == dateR.getHour()
+            && dateL.getMinute() == dateR.getMinute());
+}
