@@ -13,7 +13,6 @@ Flight::Flight(string number, string flightDepartureDate, string flightArrivalDa
                string flightDestination) : numberOfFlight(number) , departureDate(flightDepartureDate), origin(flightOrigin){
     this->arrivalDate = flightArrivalDate;
     this->destination = flightDestination;
-    instances++;
 }
 
 /**
@@ -51,13 +50,6 @@ string Flight::getNumberOfFlight() const{
     return numberOfFlight;
 }
 
-/**
- * @return the number of existing flights
- */
-unsigned Flight::getNumberOfInstances() {
-    return instances;
-}
-
 
 /**
  * @param destination the flight's new destination
@@ -80,4 +72,15 @@ ostream& operator<<(ostream &out, const Flight &flight) {
     return out;
 }
 
-unsigned Flight::instances = 0;
+
+
+/**
+ * @param out output stream
+ * @param flight instance of Flight
+ * @return all the flight information
+ */
+int Flight::updateBoughtTickets(int nTickets) {
+    boughtTickets -= nTickets;
+    return boughtTickets;
+}
+

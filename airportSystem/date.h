@@ -8,17 +8,23 @@
 
 class Date {
 private:
+    unsigned int year;
+    unsigned int month;
+    unsigned int day;
+    unsigned int hour;
+    unsigned int minute;
 public:
     Date(unsigned int h, unsigned int min);
     Date(unsigned int y, unsigned int mon, unsigned int d);
     Date(unsigned int y, unsigned int mon, unsigned int d, unsigned int h, unsigned int min);
-    const unsigned int year;
-    const unsigned int month;
-    const unsigned int day;
-    const unsigned int hour;
-    const unsigned int minute;
-    bool operator>(const Date &date);
+    int getYear();
+    int getMonth();
+    int getDay();
+    int getHour();
+    int getMinute();
 };
 
-
+bool operator==(Date dateL, Date dateR);
+bool operator>(Date dateMin, Date dateMax);
+bool operator<(Date dateMax, Date dateMin);
 #endif //AEDAPROJECT_DATA_H

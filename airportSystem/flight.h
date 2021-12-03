@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 
+
 using namespace std;
 
 class Flight {
@@ -13,18 +14,17 @@ private:
     string arrivalDate;
     string origin;
     string destination;
-    static unsigned instances;
+    unsigned int boughtTickets;
 public:
     Flight(string number, string flightDepartureDate, string flightArrivalDate, string flightOrigin, string flightDestination);
     string getNumberOfFlight() const;
-    static unsigned getNumberOfInstances() ;
     string getDepartureDate() const;
     string getArrivalDate() const;
     string getOrigin() const;
     string getDestination() const;
-    void setOrigin(string flightOrigin);
     void setDestination(string flightDestination);
     friend ostream& operator<<(ostream &out, const Flight &flight);
+    int updateBoughtTickets(int nTickets);
 };
 
 

@@ -14,9 +14,9 @@ string MaintenanceService::getResponsible() const {
     return responsible;
 }
 
-ostream& operator<<(ostream &out, const MaintenanceService &maintenanceService) {
+ostream& operator<<(ostream &out, MaintenanceService &maintenanceService) {
     out << maintenanceService.getType() << " service." << std::endl;
-    out << "Scheduled for " << maintenanceService.date.day << "/" << maintenanceService.date.month << "/" << maintenanceService.date.year;
-    out << " at " << maintenanceService.date.hour << ":" << maintenanceService.date.minute << "." << endl;
+    out << "Scheduled for " << maintenanceService.getDate().getDay() << "/" << maintenanceService.getDate().getMonth() << "/" << maintenanceService.getDate().getYear();
+    out << " at " << maintenanceService.getDate().getHour() << ":" << maintenanceService.getDate().getMinute() << "." << endl;
     return out;
 }
