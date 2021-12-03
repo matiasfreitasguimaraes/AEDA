@@ -6,6 +6,7 @@
 
 GroundTransport::GroundTransport(string itsName, string typeName, vector<Date> sched, double airDis) : name(itsName), type(typeName), airportDistance(airDis) {
     this->schedule = sched;
+    sortSchedule();
 }
 
 string GroundTransport::getName() const {
@@ -30,13 +31,19 @@ void GroundTransport::addToSchedule(Date newDate) {
 }
 
 int GroundTransport::removeFromSchedule(Date date) {
-    return -1;
+    for (unsigned i = 0; i < this->schedule.size(); i++) {
+        if (this->schedule[i] == date) {
+            this->schedule.erase(schedule.begin() + i);
+            return 1;
+        }
+    }
+    return 0;
 }
 
 ostream& operator<<(ostream &out, const GroundTransport &groundTransport) {
     out << groundTransport.getName() << " " << groundTransport.getType() << "station." << endl;
     out << "Schedule:" << endl;
-    for (Date date : groundTransport.schedule) {
+    for (auto date : groundTransport.schedule) {
         out << date.hour << ":" << date.minute << " ";
     }
     out << endl;

@@ -10,8 +10,7 @@ Date::Date(unsigned int y, unsigned int mon, unsigned int d) : year(y), month(mo
 
 Date::Date(unsigned int y, unsigned int mon, unsigned int d, unsigned int h, unsigned int min) : year(y), month(mon), day(d), hour(h), minute(min) {}
 
-
-bool Date::operator>(const Date &date) {
+bool Date::operator>(const Date &date) const {
     if (this->year > date.year){
         return true;
     }else if(this->year != date.year){
@@ -37,6 +36,10 @@ bool Date::operator>(const Date &date) {
     }else{
         return false;
     }
+}
+
+bool Date::operator==(const Date &date) const {
+    return (this->year == date.year && this->month == date.month && this->day == date.day && this->hour == date.hour && this->minute == date.minute);
 }
 
 

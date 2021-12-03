@@ -17,7 +17,8 @@ public:
     const unsigned int day;
     const unsigned int hour;
     const unsigned int minute;
-    bool operator>(const Date &date);
+    bool operator>(const Date &date) const;
+    bool operator==(const Date &date) const;
 };
 
 
