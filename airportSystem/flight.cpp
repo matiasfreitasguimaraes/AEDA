@@ -9,10 +9,13 @@ using namespace std;
  * @param origin the flight's origin
  * @param destination the flight's destination
  */
-Flight::Flight(string number, string flightDepartureDate, string flightArrivalDate, string flightOrigin,
-               string flightDestination) : numberOfFlight(number) , departureDate(flightDepartureDate), origin(flightOrigin){
+Flight::Flight(string number, string flightDepartureDate, string flightArrivalDate, string flightOrigin, string flightDestination, Plane plane) {
+    this->numberOfFlight = number;
+    this->departureDate = flightDepartureDate;
     this->arrivalDate = flightArrivalDate;
+    this->origin = flightOrigin;
     this->destination = flightDestination;
+    this->assignedPlane = plane;
     this->boughtTickets = 0;
 }
 
@@ -51,7 +54,6 @@ string Flight::getNumberOfFlight() const{
     return numberOfFlight;
 }
 
-
 /**
  * @param destination the flight's new destination
  */
@@ -80,3 +82,16 @@ void Flight::updateBoughtTickets(int nTickets) {
     boughtTickets += nTickets;
 }
 
+/**
+ * @return the number of tickets bought
+ */
+unsigned Flight::getnumberOfTicketsBought() const {
+    return boughtTickets;
+}
+
+/**
+ * @return true if a ticket for a flight can be bought, false otherwise
+ */
+bool Flight::canBuyTicket() {
+    return boughtTickets < assignedPlane.getCapacity();
+}
