@@ -36,7 +36,7 @@ int main() {
             string arrivalLocal;
 
             myfile >> flightCode >> apertureData >> arrivalData >> apertureLocal >> arrivalLocal;
-            FlightVec.push_back(Flight(flightCode, apertureData, arrivalData, apertureLocal, arrivalLocal));
+            FlightVec.push_back(Flight(flightCode, apertureData, arrivalData, apertureLocal, arrivalLocal, plane));
         }
         plane.setListOfFlights(FlightVec);
         PlanesVec.push_back(plane);
