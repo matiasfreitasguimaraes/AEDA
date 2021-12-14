@@ -1,7 +1,3 @@
-//
-// Created by jpdat on 01/12/21.
-//
-
 #ifndef AEDAPROJECT_GROUNDTRANSPORT_H
 #define AEDAPROJECT_GROUNDTRANSPORT_H
 

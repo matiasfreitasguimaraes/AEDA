@@ -2,10 +2,10 @@
 #define PROGP5_AIRPORT_H
 
 
-class airport {
+class Airport {
 private:
 public:
-    airport() {}
+    Airport() {}
 
 };
 
