@@ -1,5 +1,4 @@
 #include <iostream>
-#include <climits>
 #include <algorithm>
 #include "airportSystem/plane.h"
 #include "airportSystem/flight.h"
@@ -40,8 +39,8 @@ void readInputData(ifstream &file) {
 }
 
 int main() {
-    ifstream myfile;
+    ifstream myFile;
 
-    readInputData(myfile);
+    readInputData(myFile);
     return 0;
 }

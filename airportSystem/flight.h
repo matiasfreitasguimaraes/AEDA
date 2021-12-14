@@ -3,7 +3,12 @@
 
 #include <string>
 #include <iostream>
+#include <vector>
+
 #include "plane.h"
+#include "passenger.h"
+
+class Ticket;
 
 using namespace std;
 
@@ -16,6 +21,7 @@ private:
     string destination;
     unsigned int boughtTickets;
     Plane assignedPlane;
+    vector<Ticket> tickets;
 public:
     Flight(string &number, string &flightDepartureDate, string &flightArrivalDate, string &flightOrigin, string &flightDestination, Plane &plane);
     string getNumberOfFlight() const;
@@ -27,6 +33,7 @@ public:
     void updateBoughtTickets(int nTickets);
     unsigned getnumberOfTicketsBought() const;
     bool canBuyTicket();
+    void buyTicket(Passenger &passenger);
     friend ostream& operator<<(ostream &out, const Flight &flight);
 };
 

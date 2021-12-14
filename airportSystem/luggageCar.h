@@ -9,7 +9,7 @@ class LuggageCar {
 private:
     const unsigned numberOfCarriages;
     const unsigned numberOfPiles;
-    const unsigned numberOfsuitcasesPerPile;
+    const unsigned numberOfSuitcasesPerPile;
     unsigned carCapacity;
     unsigned numberOfOccupiedSlots;
 public:
@@ -20,8 +20,5 @@ public:
     bool carIsFull();
     friend ostream& operator<<(ostream& out, const LuggageCar &car);
 };
-
-
-
 
 #endif //AEDAPROJECT_LUGGAGECAR_H

@@ -9,6 +9,7 @@ private:
     Passenger passenger;
     Flight flight;
 public:
+    Ticket(Flight &flight1, Passenger pass);
     Passenger getPassenger() const;
     Flight getFlight() const;
 };

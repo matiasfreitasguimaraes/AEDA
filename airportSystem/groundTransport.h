@@ -22,7 +22,7 @@ public:
     double getAirportDistance() const;
     void sortSchedule();
     void addToSchedule(Date newDate);
-    int removeFromSchedule(Date date);
+    void removeFromSchedule(Date date);
     friend ostream& operator<<(ostream &out, const GroundTransport &groundTransport);
 };
 

@@ -1,4 +1,5 @@
 #include "flight.h"
+#include "ticket.h"
 
 using namespace std;
 
@@ -17,6 +18,7 @@ Flight::Flight(string &number, string &flightDepartureDate, string &flightArriva
     this->origin = flightOrigin;
     this->destination = flightDestination;
     this->boughtTickets = 0;
+    this->assignedPlane = plane;
 }
 
 /**
@@ -94,4 +96,11 @@ unsigned Flight::getnumberOfTicketsBought() const {
  */
 bool Flight::canBuyTicket() {
     return boughtTickets < assignedPlane.getCapacity();
+}
+
+void Flight::buyTicket(Passenger &passenger) {
+    if (canBuyTicket()) {
+        tickets.push_back(Ticket(*this, passenger));
+        boughtTickets++;
+    }
 }

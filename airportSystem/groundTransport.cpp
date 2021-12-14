@@ -43,8 +43,11 @@ void GroundTransport::addToSchedule(Date newDate) {
 /**
  * @param date date to remove from schedule
  */
-int GroundTransport::removeFromSchedule(Date date) {
-    return date.getYear();
+void GroundTransport::removeFromSchedule(Date date) {
+    for (Date &d: schedule) {
+        if (date == d)
+            std::remove(schedule.begin(), schedule.end(), date);
+    }
 }
 
 /**
