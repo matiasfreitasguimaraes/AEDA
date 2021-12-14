@@ -1,7 +1,3 @@
-//
-// Created by Matias Freitas Guimarães on 29/11/2021.
-//
-
 #include <iostream>
 #include <climits>
 #include <algorithm>
@@ -9,25 +5,25 @@
 #include "airportSystem/flight.h"
 
 using namespace std;
-int main() {
-    int nPlanes;
-    ifstream myfile;
-    myfile.open("input.txt", ios::in);
-    if(myfile.is_open()){
-        cout << "oi\n";
-    }
-    myfile >> nPlanes;
+
+void readInputData(ifstream &file) {
+    unsigned nPlanes;
+    file >> nPlanes;
     vector<Plane> PlanesVec;
-    for (int i = 0; i < nPlanes; ++i) {
+
+    file.open("input.txt", ios::in);
+
+    for (unsigned i = 0; i < nPlanes; ++i) {
         int nFlights;
-        myfile >> nFlights;
+        file >> nFlights;
         vector<Flight> FlightVec;
         string planeRegis;
         string planeType;
         int capacity;
 
-        myfile >> planeType >> planeRegis >> capacity;
+        file >> planeType >> planeRegis >> capacity;
         Plane plane(capacity, planeType, planeRegis);
+        
         for (int j = 0; j < nFlights; ++j) {
             string flightCode;
             string apertureData;
@@ -35,14 +31,19 @@ int main() {
             string apertureLocal;
             string arrivalLocal;
 
-            myfile >> flightCode >> apertureData >> arrivalData >> apertureLocal >> arrivalLocal;
+            file >> flightCode >> apertureData >> arrivalData >> apertureLocal >> arrivalLocal;
             FlightVec.push_back(Flight(flightCode, apertureData, arrivalData, apertureLocal, arrivalLocal, plane));
         }
         plane.setListOfFlights(FlightVec);
         PlanesVec.push_back(plane);
     }
-    for(auto plane: PlanesVec){
-        cout << plane << endl;
-    }
+}
+
+int main() {
+    int nPlanes;
+    ifstream myfile;
+
+    readInputData(myfile);
+
     return 0;
 }
