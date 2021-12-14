@@ -4,6 +4,8 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <algorithm>
+
 #include "date.h"
 
 using namespace std;

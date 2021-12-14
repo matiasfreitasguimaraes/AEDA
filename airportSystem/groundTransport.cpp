@@ -1,14 +1,7 @@
-//
-// Created by jpdat on 01/12/21.
-//
-
 #include "groundTransport.h"
 
-GroundTransport::GroundTransport(string itsName, string typeName, vector<Date> sched, double airDis) : name(itsName),
-                                                                                                       type(typeName),
-                                                                                                       airportDistance(airDis),
-                                                                                                       schedule(sched) {
-}
+GroundTransport::GroundTransport(string itsName, string typeName, vector<Date> sched, double airDis)
+    : name(itsName), type(typeName), airportDistance(airDis), schedule(sched) {}
 
 /**
  * @return the ground transport name
@@ -32,10 +25,10 @@ double GroundTransport::getAirportDistance() const {
 }
 
 /**
- * @brief sorts the schedule from closest transport to the airport to the farthest
+ * @brief sorts the schedule from the next transport to arrive to the last
  */
 void GroundTransport::sortSchedule() {
-    sort(schedule.begin(), schedule.end());
+    sort(schedule.begin(), schedule.end(), [](Date &d1, Date &d2) { return d1 > d2; });
 }
 
 /**
