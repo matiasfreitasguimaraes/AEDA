@@ -10,31 +10,55 @@ GroundTransport::GroundTransport(string itsName, string typeName, vector<Date> s
                                                                                                        schedule(sched) {
 }
 
+/**
+ * @return the ground transport name
+ */
 string GroundTransport::getName() const {
     return this->name;
 }
 
+/**
+ * @return the type of ground transport
+ */
 string GroundTransport::getType() const {
     return this->type;
 }
 
+/**
+ * @return the distance from the airport to the ground transport
+ */
 double GroundTransport::getAirportDistance() const {
     return this->airportDistance;
 }
 
+/**
+ * @brief sorts the schedule from closest transport to the airport to the farthest
+ */
 void GroundTransport::sortSchedule() {
     sort(schedule.begin(), schedule.end());
 }
 
+/**
+ * @brief adds date to the schedule
+ * @param newDate date to add to the schedule
+ */
 void GroundTransport::addToSchedule(Date newDate) {
     this->schedule.push_back(newDate);
     sortSchedule();
 }
 
+/**
+ * @param date date to remove from schedule
+ */
 int GroundTransport::removeFromSchedule(Date date) {
     return date.getYear();
 }
 
+/**
+ * @param out output stream
+ * @param groundTransport groundTransport instance
+ * @return all the information related to a ground transport
+ */
 ostream& operator<<(ostream &out, const GroundTransport &groundTransport) {
     out << groundTransport.getName() << " " << groundTransport.getType() << "station." << endl;
     out << "Schedule:" << endl;

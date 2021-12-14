@@ -10,26 +10,46 @@ Date::Date(unsigned int y, unsigned int mon, unsigned int d) : year(y), month(mo
 
 Date::Date(unsigned int y, unsigned int mon, unsigned int d, unsigned int h, unsigned int min) : year(y), month(mon), day(d), hour(h), minute(min) {}
 
+/**
+ * @return the date's year
+ */
 int Date::getYear(){
     return this->year;
 }
 
+/**
+ * @return the date's month
+ */
 int Date::getMonth(){
     return this->month;
 }
 
+/**
+ * @return the date's day
+ */
 int Date::getDay(){
     return this->day;
 }
 
+/**
+ * @return the date's hour
+ */
 int Date::getHour(){
     return this->hour;
 }
 
+/**
+ * @return the date's minute
+ */
 int Date::getMinute(){
     return this->minute;
 }
 
+/**
+ * @param dateMax date instance
+ * @param dateMin date instance
+ * @return the most recente date
+ */
 bool operator>(Date dateMax, Date dateMin) {
     if (dateMax.getYear() > dateMin.getYear()){
         return true;
@@ -58,11 +78,20 @@ bool operator>(Date dateMax, Date dateMin) {
     }
 }
 
+/**
+ * @param dateMin date instance
+ * @param dateMax date instance
+ * @return the oldest date
+ */
 bool operator<(Date dateMin, Date dateMax) {
     return !(dateMin > dateMax || dateMin==dateMax);
 }
 
-
+/**
+ * @param dateL date instance
+ * @param dateR date instance
+ * @return true if two dates are equal, false otherwise
+ */
 bool operator==(Date dateL, Date dateR) {
     return (dateL.getYear() == dateR.getYear()
             && dateL.getMonth() == dateR.getMonth()
