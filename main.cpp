@@ -16,14 +16,14 @@ void readInputData(ifstream &file) {
     for (unsigned i = 0; i < nPlanes; ++i) {
         int nFlights;
         file >> nFlights;
-        vector<Flight> FlightVec;
+        vector<Flight> flightVec;
         string planeRegis;
         string planeType;
         int capacity;
 
         file >> planeType >> planeRegis >> capacity;
         Plane plane(capacity, planeType, planeRegis);
-        
+
         for (int j = 0; j < nFlights; ++j) {
             string flightCode;
             string apertureData;
@@ -32,18 +32,16 @@ void readInputData(ifstream &file) {
             string arrivalLocal;
 
             file >> flightCode >> apertureData >> arrivalData >> apertureLocal >> arrivalLocal;
-            FlightVec.push_back(Flight(flightCode, apertureData, arrivalData, apertureLocal, arrivalLocal, plane));
+            flightVec.push_back(Flight(flightCode, apertureData, arrivalData, apertureLocal, arrivalLocal, plane));
         }
-        plane.setListOfFlights(FlightVec);
+        plane.setListOfFlights(flightVec);
         PlanesVec.push_back(plane);
     }
 }
 
 int main() {
-    int nPlanes;
     ifstream myfile;
 
     readInputData(myfile);
-
     return 0;
 }

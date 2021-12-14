@@ -1,5 +1,6 @@
 
 #include "plane.h"
+#include "flight.h"
 
 /**
  * @param capacity the plane's capacity

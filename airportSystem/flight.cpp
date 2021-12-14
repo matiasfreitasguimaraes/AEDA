@@ -9,13 +9,13 @@ using namespace std;
  * @param origin the flight's origin
  * @param destination the flight's destination
  */
-Flight::Flight(string number, string flightDepartureDate, string flightArrivalDate, string flightOrigin, string flightDestination, Plane plane) {
+Flight::Flight(string &number, string &flightDepartureDate, string &flightArrivalDate, string &flightOrigin,
+               string &flightDestination, Plane &plane) {
     this->numberOfFlight = number;
     this->departureDate = flightDepartureDate;
     this->arrivalDate = flightArrivalDate;
     this->origin = flightOrigin;
     this->destination = flightDestination;
-    this->assignedPlane = plane;
     this->boughtTickets = 0;
 }
 
