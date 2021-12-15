@@ -65,3 +65,11 @@ ostream& operator<<(ostream &out, const GroundTransport &groundTransport) {
     out << "Distance: " << groundTransport.getAirportDistance() << " meters from the airport." << endl;
     return out;
 }
+
+/**
+ * @param g1 instance of GroundTransport
+ * @return the closest transport to the airport
+ */
+bool GroundTransport::operator<(const GroundTransport &g1) {
+    return airportDistance < g1.getAirportDistance();
+}

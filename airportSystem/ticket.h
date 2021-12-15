@@ -12,6 +12,7 @@ public:
     Ticket(Flight &flight1, Passenger pass);
     Passenger getPassenger() const;
     Flight getFlight() const;
+    friend ostream& operator<<(ostream &out, const Ticket &t);
 };
 
 
