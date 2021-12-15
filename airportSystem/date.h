@@ -1,10 +1,9 @@
-//
-// Created by Matias Freitas Guimarães on 02/12/2021.
-//
-
 #ifndef AEDAPROJECT_DATA_H
 #define AEDAPROJECT_DATA_H
 
+#include <iostream>
+
+using namespace std;
 
 class Date {
 private:
@@ -22,9 +21,11 @@ public:
     int getDay();
     int getHour();
     int getMinute();
+    friend ostream& operator<<(ostream& out, const Date &d1);
 };
 
 bool operator==(Date dateL, Date dateR);
 bool operator>(Date dateMin, Date dateMax);
 bool operator<(Date dateMax, Date dateMin);
+
 #endif //AEDAPROJECT_DATA_H

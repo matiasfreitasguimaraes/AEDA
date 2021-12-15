@@ -24,6 +24,7 @@ public:
     void addToSchedule(Date newDate);
     void removeFromSchedule(Date date);
     friend ostream& operator<<(ostream &out, const GroundTransport &groundTransport);
+    //TODO implement operator < because of the BST
 };
 
 

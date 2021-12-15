@@ -1,7 +1,3 @@
-//
-// Created by Matias Freitas Guimarães on 02/12/2021.
-//
-
 #include "date.h"
 
 Date::Date(unsigned int h, unsigned int min) : year(0), month(0), day(0), hour(h), minute(min){}
@@ -98,4 +94,14 @@ bool operator==(Date dateL, Date dateR) {
             && dateL.getDay() == dateR.getDay()
             && dateL.getHour() == dateR.getHour()
             && dateL.getMinute() == dateR.getMinute());
+}
+
+/**
+ * @param out output stream
+ * @param d1 date instance
+ * @return all the date information
+ */
+ostream& operator<<(ostream &out, const Date &d1) {
+    out << d1.day << "/" << d1.month << "/" << d1.year << " " << d1.hour << ":" << d1.minute;
+    return out;
 }
