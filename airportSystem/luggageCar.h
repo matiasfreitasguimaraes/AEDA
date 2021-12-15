@@ -2,6 +2,8 @@
 #define AEDAPROJECT_LUGGAGECAR_H
 
 #include <iostream>
+#include <queue>
+#include <stack>
 
 using namespace std;
 
@@ -12,6 +14,7 @@ private:
     const unsigned numberOfSuitcasesPerPile;
     unsigned carCapacity;
     unsigned numberOfOccupiedSlots;
+    queue<queue<stack<int>>> carriages;
 public:
     LuggageCar(unsigned carriages, unsigned piles, unsigned suitcasesPerPile);
     unsigned getCarTotalCapacity() const;

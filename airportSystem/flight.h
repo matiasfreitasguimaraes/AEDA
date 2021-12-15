@@ -31,7 +31,7 @@ public:
     string getDestination() const;
     void setDestination(string flightDestination);
     void updateBoughtTickets(int nTickets);
-    unsigned getnumberOfTicketsBought() const;
+    unsigned getNumberOfTicketsBought() const;
     bool canBuyTicket();
     void buyTicket(Passenger &passenger);
     friend ostream& operator<<(ostream &out, const Flight &flight);

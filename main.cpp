@@ -1,26 +1,28 @@
 #include <iostream>
 #include <algorithm>
+
 #include "airportSystem/plane.h"
 #include "airportSystem/flight.h"
 
 using namespace std;
 
-void readInputData(ifstream &file) {
-    unsigned nPlanes;
-    file >> nPlanes;
-    vector<Plane> PlanesVec;
+void readInputData(string filename) {
+    ifstream input;
+    input.open(filename, ios::in);
 
-    file.open("input.txt", ios::in);
+    unsigned nPlanes;
+    input >> nPlanes;
+    vector<Plane> PlanesVec;
 
     for (unsigned i = 0; i < nPlanes; ++i) {
         int nFlights;
-        file >> nFlights;
+        input >> nFlights;
         vector<Flight> flightVec;
         string planeRegis;
         string planeType;
         int capacity;
 
-        file >> planeType >> planeRegis >> capacity;
+        input >> planeType >> planeRegis >> capacity;
         Plane plane(capacity, planeType, planeRegis);
 
         for (int j = 0; j < nFlights; ++j) {
@@ -30,7 +32,7 @@ void readInputData(ifstream &file) {
             string apertureLocal;
             string arrivalLocal;
 
-            file >> flightCode >> apertureData >> arrivalData >> apertureLocal >> arrivalLocal;
+            input >> flightCode >> apertureData >> arrivalData >> apertureLocal >> arrivalLocal;
             flightVec.push_back(Flight(flightCode, apertureData, arrivalData, apertureLocal, arrivalLocal, plane));
         }
         plane.setListOfFlights(flightVec);
@@ -39,8 +41,8 @@ void readInputData(ifstream &file) {
 }
 
 int main() {
-    ifstream myFile;
+    const string planesAndFlights = "input.txt";
 
-    readInputData(myFile);
+    readInputData(planesAndFlights);
     return 0;
 }

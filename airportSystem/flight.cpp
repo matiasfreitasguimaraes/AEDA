@@ -87,7 +87,7 @@ void Flight::updateBoughtTickets(int nTickets) {
 /**
  * @return the number of tickets bought
  */
-unsigned Flight::getnumberOfTicketsBought() const {
+unsigned Flight::getNumberOfTicketsBought() const {
     return boughtTickets;
 }
 
