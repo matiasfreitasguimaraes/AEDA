@@ -13,7 +13,7 @@ private:
     BST<GroundTransport> groundTransports;
 public:
     Airport();
-
+    void addLuggageCar(LuggageCar &car);
 };
 
 

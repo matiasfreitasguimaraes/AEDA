@@ -16,6 +16,7 @@ class GroundTransport {
     const double airportDistance;
     vector<Date> schedule;
 public:
+    GroundTransport();
     GroundTransport(string itsName, string typeName, vector<Date> sched, double airDis);
     string getName() const;
     string getType() const;
