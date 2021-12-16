@@ -7,7 +7,7 @@ int main() {
     mySchedule.insert(DateTime(2021,12,16,13,30));
     mySchedule.insert(DateTime(2021,12,16,13,0));
     mySchedule.insert(DateTime(2021,12,16,12,20));
-    GroundTransport train("train", "train", mySchedule, 10);
+    GroundTransport train("Train", mySchedule, 10);
     cout << train;
     train.addToSchedule(DateTime(2021,12,16,12,00));
     train.addToSchedule(DateTime(2021,12,16,12,20));

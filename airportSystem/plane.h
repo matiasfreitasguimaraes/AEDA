@@ -20,9 +20,10 @@ private:
     static unsigned instances;
     queue<MaintenanceService> pastServices;
     queue<MaintenanceService> scheduledServices;
+    unsigned id;
 public:
     Plane(){};
-    Plane(unsigned &capacity, string &planeType, string &regis);
+    Plane(unsigned &capacity, string &planeType, string &regis, unsigned &Id);
     unsigned getCapacity() const;
     static unsigned getNumberOfInstances();
     string getPlaneType() const;

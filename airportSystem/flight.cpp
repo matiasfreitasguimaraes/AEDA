@@ -1,5 +1,4 @@
 #include "flight.h"
-#include "ticket.h"
 
 using namespace std;
 
@@ -11,8 +10,10 @@ using namespace std;
  * @param destination the flight's destination
  */
 Flight::Flight(string &number, DateTime &flightDepartureDate, DateTime &flightArrivalDate, string &flightOrigin,
-               string &flightDestination) : departureDate(flightDepartureDate), arrivalDate(flightArrivalDate),
-               numberOfFlight(number), origin(flightOrigin), destination(flightDestination), boughtTickets(0){}
+               string &flightDestination, unsigned &Id) : numberOfFlight(number), departureDate(flightDepartureDate),
+               arrivalDate(flightArrivalDate), origin(flightOrigin), destination(flightDestination), boughtTickets(0) {
+    this->id = Id;
+}
 
 
 /**

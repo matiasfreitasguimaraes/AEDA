@@ -1,7 +1,3 @@
-//
-// Created by jpdat on 16/12/21.
-//
-
 #ifndef AEDAPROJECT_READER_H
 #define AEDAPROJECT_READER_H
 

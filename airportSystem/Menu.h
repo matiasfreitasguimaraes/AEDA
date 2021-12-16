@@ -1,7 +1,3 @@
-//
-// Created by jpdat on 05/12/21.
-//
-
 #ifndef AEDAPROJECT_MENU_H
 #define AEDAPROJECT_MENU_H
 

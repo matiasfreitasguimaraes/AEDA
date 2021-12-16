@@ -1,7 +1,3 @@
-//
-// Created by jpdat on 05/12/21.
-//
-
 #include "Menu.h"
 
 Menu::Menu() {}

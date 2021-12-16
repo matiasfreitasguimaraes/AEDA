@@ -46,11 +46,11 @@ map<string, GroundTransport> Reader::readGroundTransport(ifstream groundFile) {
                 sched.insert(DateTime(hour,min));
             }
 
-            if (myTransport.find(name) != myTransport.end()){
+            if (myTransport.find(name) != myTransport.end()){ //TODO fix this if statement, name does not exist anymore
                 cout <<  name << " transport already exist" << endl;
             }
             else{
-                myTransport.emplace(name, GroundTransport(name, type, sched, airDis));
+                myTransport.emplace(name, GroundTransport(type, sched, airDis));
             }
         }
     } else {
