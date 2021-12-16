@@ -1,9 +1,9 @@
-//
-// Created by Matias Freitas Guimarães on 14/12/2021.
-//
-
 #include "globalVariables.h"
 
-DateTime GlobalVariables::getCurrenDate() {
+DateTime GlobalVariables::getCurrentDate() {
     return this->currentDate;
+}
+
+void GlobalVariables::setCurrentDate(DateTime today) {
+    this->currentDate = today;
 }

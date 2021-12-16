@@ -14,7 +14,7 @@ private:
     const unsigned numberOfSuitcasesPerPile;
     unsigned carCapacity;
     unsigned numberOfOccupiedSlots;
-    queue<queue<stack<int>>> carriages;
+    queue<queue<stack<int>>> trailers;
 public:
     LuggageCar(unsigned carriages, unsigned piles, unsigned suitcasesPerPile);
     unsigned getCarTotalCapacity() const;

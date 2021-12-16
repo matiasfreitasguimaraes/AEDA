@@ -14,8 +14,8 @@ class Reader {
 private:
 
 public:
-    static set<Plane> readPlanes(ifstream& planeFile);
-    static map<string, GroundTransport> readGroundTransport(ifstream groundFile);
+    static set<Plane> readPlanes(string &filename);
+    static map<string, GroundTransport> readGroundTransport(string &filename);
 };
 
 

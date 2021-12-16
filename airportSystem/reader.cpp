@@ -1,49 +1,48 @@
-//
-// Created by jpdat on 16/12/21.
-//
-
 #include "reader.h"
 
-
-set<Plane> Reader::readPlanes(ifstream& planeFile) {
+set<Plane> Reader::readPlanes(string &filename) {
+    ifstream planeFile(filename);
     set<Plane> myPlanes;
+    unsigned capacity, id = 1;
+
     if (planeFile.is_open()) {
-        printf("Successfully opened input file!\n");
-        int capacity;
-        string type;
-        string regis;
-        Plane key;
+        cout << "Successfully opened input file!" << endl;
+        string type, regis;
+
         while (!planeFile.eof()) {
             planeFile >> regis >> capacity >> type;
-            key = Plane(capacity, type, regis);
+            Plane key(capacity, type, regis, id);
+
             if (myPlanes.find(key) != myPlanes.end()){
                 cout << "Plane with " << key.getRegis() << " already exist" << endl;
             }
             else{
                 myPlanes.insert(key);
+                id++;
             }
         }
-    } else {
-        printf("Couldnt read file input.\n");
-    }
+    } else { cout << "Couldn't read file input." << endl; }
     return myPlanes;
 }
 
+/*
 map<string, GroundTransport> Reader::readGroundTransport(ifstream groundFile) {
     map<string, GroundTransport> myTransport;
     if (groundFile.is_open()) {
-        printf("Susccefully opened input file!\n");
+        printf("Successfully opened input file!\n");
         string name;
         string type;
         double airDis;
         set<DateTime> sched;
-        int hour, min, i;
+        unsigned hour, min, i;
+
         while (!groundFile.eof()) {
             getline(groundFile, name);
             groundFile >> type >> airDis >> i;
-            for (int j = 0; j < i; ++j) {
+            for (unsigned j = 0; j < i; ++j) {
                 groundFile >> hour >> min;
-                sched.insert(DateTime(hour,min));
+                DateTime date(hour, min);
+                sched.insert(date);
             }
 
             if (myTransport.find(name) != myTransport.end()){ //TODO fix this if statement, name does not exist anymore
@@ -54,7 +53,7 @@ map<string, GroundTransport> Reader::readGroundTransport(ifstream groundFile) {
             }
         }
     } else {
-        printf("Couldnt read file input.\n");
+        printf("Couldn't read file input.\n");
     }
     return myTransport;
-}
+}*/

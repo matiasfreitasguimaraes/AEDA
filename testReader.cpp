@@ -3,9 +3,9 @@
 
 
 int main() {
-    ifstream file("planes.txt");
+    string filename = "planes.txt";
     Reader myRead;
-    set<Plane> listPlanes = myRead.readPlanes(file);
+    set<Plane> listPlanes = myRead.readPlanes(filename);
     for (Plane plane:listPlanes) {
         cout << plane;
     }
