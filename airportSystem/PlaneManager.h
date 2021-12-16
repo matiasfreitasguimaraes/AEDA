@@ -18,7 +18,7 @@ private:
     const char* errorMessage = "Ops, something went bad. Care to try again?";
     const string planeManager = "You are now in the Plane manager menu\n"
                                 "1 - Load planes\n"
-                                "2 - Save slanes\n"
+                                "2 - Save planes\n"
                                 "3 - Add new plane\n"
                                 "4 - Remove plane\n"
                                 "5 - Edit plane\n"
