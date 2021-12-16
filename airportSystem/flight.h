@@ -3,32 +3,39 @@
 
 #include <string>
 #include <iostream>
-#include "plane.h"
+#include <vector>
 
+#include "plane.h"
+#include "passenger.h"
+#include "date.h"
+
+class Ticket;
 
 using namespace std;
 
 class Flight {
 private:
     string numberOfFlight;
-    string departureDate;
-    string arrivalDate;
+    Date departureDate;
+    Date arrivalDate;
     string origin;
     string destination;
     unsigned int boughtTickets;
-    Plane assignedPlane:
+    Plane assignedPlane;
+    vector<Ticket> tickets;
 public:
-    Flight(string number, string flightDepartureDate, string flightArrivalDate, string flightOrigin, string flightDestination, Plane plane);
+    Flight(string &number, Date &flightDepartureDate, Date &flightArrivalDate, string &flightOrigin, string &flightDestination, Plane &plane);
     string getNumberOfFlight() const;
-    string getDepartureDate() const;
-    string getArrivalDate() const;
+    Date getDepartureDate() const;
+    Date getArrivalDate() const;
     string getOrigin() const;
     string getDestination() const;
     void setDestination(string flightDestination);
-    friend ostream& operator<<(ostream &out, const Flight &flight);
     void updateBoughtTickets(int nTickets);
-    unsigned getnumberOfTicketsBought() const;
+    unsigned getNumberOfTicketsBought() const;
     bool canBuyTicket();
+    void buyTicket(Passenger &passenger);
+    friend ostream& operator<<(ostream &out, const Flight &flight);
 };
 
 

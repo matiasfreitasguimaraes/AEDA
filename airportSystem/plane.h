@@ -1,8 +1,7 @@
 #ifndef AEDAPROJECT_PLANE_H
 #define AEDAPROJECT_PLANE_H
 
-#include "flight.h"
-#include "maintanceService.h"
+#include "maintenanceService.h"
 
 #include <string>
 #include <fstream>
@@ -11,6 +10,8 @@
 
 using namespace std;
 
+class Flight;
+
 class Plane {
 private:
     unsigned capacity;
@@ -18,17 +19,22 @@ private:
     string regis;
     vector<Flight> listOfFlights;
     static unsigned instances;
-    vector<MaintenanceService> serviceRegister;
-    queue<MaintenanceService> serviceQueue;
+    queue<MaintenanceService> pastServices;
+    queue<MaintenanceService> scheduledServices;
 public:
+    Plane();
     Plane(unsigned capacity, string planeType, string regis);
     unsigned getCapacity() const;
     unsigned getNumberOfInstances() const;
     string getPlaneType() const;
     string getRegis() const;
     vector<Flight> getListOfFlights() const;
+    queue<MaintenanceService> getPastServices() const;
+    queue<MaintenanceService> getScheduledServices() const;
     void setRegis(string newRegister);
     void setListOfFlights(vector<Flight> &flights);
+    void addPastService(MaintenanceService &service);
+    void addScheduledService(MaintenanceService &scheduledService);
     friend ostream& operator<<(ostream &out, const Plane &plane);
 };
 

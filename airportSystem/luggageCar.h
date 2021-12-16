@@ -2,6 +2,8 @@
 #define AEDAPROJECT_LUGGAGECAR_H
 
 #include <iostream>
+#include <queue>
+#include <stack>
 
 using namespace std;
 
@@ -9,9 +11,10 @@ class LuggageCar {
 private:
     const unsigned numberOfCarriages;
     const unsigned numberOfPiles;
-    const unsigned numberOfsuitcasesPerPile;
+    const unsigned numberOfSuitcasesPerPile;
     unsigned carCapacity;
     unsigned numberOfOccupiedSlots;
+    queue<queue<stack<int>>> carriages;
 public:
     LuggageCar(unsigned carriages, unsigned piles, unsigned suitcasesPerPile);
     unsigned getCarTotalCapacity() const;
@@ -20,8 +23,5 @@ public:
     bool carIsFull();
     friend ostream& operator<<(ostream& out, const LuggageCar &car);
 };
-
-
-
 
 #endif //AEDAPROJECT_LUGGAGECAR_H

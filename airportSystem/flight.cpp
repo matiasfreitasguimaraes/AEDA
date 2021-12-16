@@ -1,4 +1,5 @@
 #include "flight.h"
+#include "ticket.h"
 
 using namespace std;
 
@@ -9,14 +10,13 @@ using namespace std;
  * @param origin the flight's origin
  * @param destination the flight's destination
  */
-Flight::Flight(string number, string flightDepartureDate, string flightArrivalDate, string flightOrigin, string flightDestination, Plane plane) {
+Flight::Flight(string &number, Date &flightDepartureDate, Date &flightArrivalDate, string &flightOrigin,
+               string &flightDestination, Plane &plane) : departureDate(flightDepartureDate), arrivalDate(flightArrivalDate) {
     this->numberOfFlight = number;
-    this->departureDate = flightDepartureDate;
-    this->arrivalDate = flightArrivalDate;
     this->origin = flightOrigin;
     this->destination = flightDestination;
-    this->assignedPlane = plane;
     this->boughtTickets = 0;
+    this->assignedPlane = plane;
 }
 
 /**
@@ -36,14 +36,14 @@ string Flight::getDestination() const{
 /**
  * @return the flight's departure date
  */
-string Flight::getDepartureDate() const{
+Date Flight::getDepartureDate() const{
     return departureDate;
 }
 
 /**
  * @return the flight's arrival date
  */
-string Flight::getArrivalDate() const{
+Date Flight::getArrivalDate() const{
     return arrivalDate;
 }
 
@@ -85,7 +85,7 @@ void Flight::updateBoughtTickets(int nTickets) {
 /**
  * @return the number of tickets bought
  */
-unsigned Flight::getnumberOfTicketsBought() const {
+unsigned Flight::getNumberOfTicketsBought() const {
     return boughtTickets;
 }
 
@@ -94,4 +94,11 @@ unsigned Flight::getnumberOfTicketsBought() const {
  */
 bool Flight::canBuyTicket() {
     return boughtTickets < assignedPlane.getCapacity();
+}
+
+void Flight::buyTicket(Passenger &passenger) {
+    if (canBuyTicket()) {
+        tickets.push_back(Ticket(*this, passenger));
+        boughtTickets++;
+    }
 }

@@ -1,5 +1,6 @@
 
 #include "plane.h"
+#include "flight.h"
 
 /**
  * @param capacity the plane's capacity
@@ -75,6 +76,36 @@ ostream& operator<<(ostream &out, const Plane &plane) {
         out << "Flight " << i << ": " <<  plane.getListOfFlights().at(i) << endl;
     }
     return out;
+}
+
+/**
+ * @brief adds service to the past services queue
+ * @param service instance of MaintenanceService
+ */
+void Plane::addPastService(MaintenanceService &service) {
+    pastServices.push(service);
+}
+
+/**
+ * @brief adds service to the scheduled services
+ * @param scheduledService instance of MaintenanceService
+ */
+void Plane::addScheduledService(MaintenanceService &scheduledService) {
+    scheduledServices.push(scheduledService);
+}
+
+/**
+ * @return queue with the past services
+ */
+queue<MaintenanceService> Plane::getPastServices() const {
+    return pastServices;
+}
+
+/**
+ * @return queue with the scheduled services
+ */
+queue<MaintenanceService> Plane::getScheduledServices() const {
+    return scheduledServices;
 }
 
 unsigned Plane::instances = 0;
