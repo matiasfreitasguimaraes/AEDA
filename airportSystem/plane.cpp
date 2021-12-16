@@ -48,19 +48,7 @@ unsigned int Plane::getNumberOfInstances() const {
     return instances;
 }
 
-/**
- * @param newRegister the plane's new register
- */
-void Plane::setRegis(string newRegister) {
-    this->regis = newRegister;
-}
 
-/**
- * @param flights the plane's new list of flights
- */
-void Plane::setListOfFlights(vector<Flight> &flights) {
-    this->listOfFlights = flights;
-}
 
 /**
  * @param out output stream
@@ -72,9 +60,6 @@ ostream& operator<<(ostream &out, const Plane &plane) {
     out << "Plane's register: " << plane.getRegis() << endl;
     out << "Plane type: " << plane.getPlaneType() << endl;
     out << "Plane's list of flights:" << endl;
-    for (unsigned i = 0; i < plane.getListOfFlights().size(); i++) {
-        out << "Flight " << i << ": " <<  plane.getListOfFlights().at(i) << endl;
-    }
     return out;
 }
 
@@ -109,3 +94,24 @@ queue<MaintenanceService> Plane::getScheduledServices() const {
 }
 
 unsigned Plane::instances = 0;
+
+
+void Plane::setListOfFlights(vector<Flight> &flights) {
+    this->listOfFlights = flights;
+}
+
+bool Plane::operator<(const Plane &rhs) const {
+    return regis < rhs.regis;
+}
+
+bool Plane::operator>(const Plane &rhs) const {
+    return rhs < *this;
+}
+
+bool Plane::operator<=(const Plane &rhs) const {
+    return !(rhs < *this);
+}
+
+bool Plane::operator>=(const Plane &rhs) const {
+    return !(*this < rhs);
+}

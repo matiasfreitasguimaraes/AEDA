@@ -1,7 +1,7 @@
 #include "luggageCar.h"
 
 LuggageCar::LuggageCar(unsigned int carriages, unsigned int piles, unsigned int suitcasesPerPile)
-    : numberOfCarriages(carriages), numberOfPiles(piles), numberOfsuitcasesPerPile(suitcasesPerPile) {
+    : numberOfCarriages(carriages), numberOfPiles(piles), numberOfSuitcasesPerPile(suitcasesPerPile) {
     numberOfOccupiedSlots = 0;
     carCapacity = carriages * piles * suitcasesPerPile;
 }
@@ -32,6 +32,10 @@ unsigned int LuggageCar::getNumberOfFreeSlots() const {
  */
 bool LuggageCar::carIsFull() {
     return numberOfOccupiedSlots == carCapacity;
+}
+
+ostream &operator<<(ostream &out, const LuggageCar &car) {
+    return out;
 }
 
 /**

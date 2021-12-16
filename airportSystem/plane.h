@@ -7,12 +7,11 @@
 #include <fstream>
 #include <vector>
 #include <queue>
+#include "flight.h"
 
 using namespace std;
 
-class Flight;
-
-class Plane {
+class Plane{
 private:
     unsigned capacity;
     string planeType;
@@ -22,7 +21,7 @@ private:
     queue<MaintenanceService> pastServices;
     queue<MaintenanceService> scheduledServices;
 public:
-    Plane();
+    Plane(){};
     Plane(unsigned capacity, string planeType, string regis);
     unsigned getCapacity() const;
     unsigned getNumberOfInstances() const;
@@ -31,11 +30,18 @@ public:
     vector<Flight> getListOfFlights() const;
     queue<MaintenanceService> getPastServices() const;
     queue<MaintenanceService> getScheduledServices() const;
-    void setRegis(string newRegister);
     void setListOfFlights(vector<Flight> &flights);
     void addPastService(MaintenanceService &service);
     void addScheduledService(MaintenanceService &scheduledService);
-    friend ostream& operator<<(ostream &out, const Plane &plane);
+    friend ostream& operator<<(ostream &out,const Plane &plane);
+
+    bool operator<(const Plane &rhs) const;
+
+    bool operator>(const Plane &rhs) const;
+
+    bool operator<=(const Plane &rhs) const;
+
+    bool operator>=(const Plane &rhs) const;
 };
 
 

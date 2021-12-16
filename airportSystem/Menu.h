@@ -8,7 +8,7 @@
 #include <iostream>
 #include <string>
 #include "plane.h"
-#include "PlaneManager.h"
+#include "reader.h"
 #include <fstream>
 #include <sstream>
 

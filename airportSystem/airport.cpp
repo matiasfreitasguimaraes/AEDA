@@ -1,6 +1,6 @@
 #include "airport.h"
 
-Airport::Airport() : groundTransports(GroundTransport()) {}
+Airport::Airport() {}
 
 void Airport::addLuggageCar(LuggageCar &car) {
     luggageCars.push_back(car);

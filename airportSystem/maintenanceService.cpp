@@ -2,7 +2,7 @@
 
 using namespace std;
 
-MaintenanceService::MaintenanceService(const string typeName, const Date when, const string employee) : type(typeName), date(when), responsible(employee) {}
+MaintenanceService::MaintenanceService(const string typeName, const DateTime when, const string employee) : type(typeName), date(when), responsible(employee) {}
 
 /**
  * @return the type of maintenance service
@@ -14,7 +14,7 @@ string MaintenanceService::getType() const {
 /**
  * @return the date of maintenance service
  */
-Date MaintenanceService::getDate() const {
+DateTime MaintenanceService::getDate() const {
     return date;
 }
 
@@ -23,6 +23,10 @@ Date MaintenanceService::getDate() const {
  */
 string MaintenanceService::getResponsible() const {
     return responsible;
+}
+
+ostream &operator<<(ostream &out, const MaintenanceService &maintenanceService) {
+    return out;
 }
 
 /**

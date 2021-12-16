@@ -5,14 +5,14 @@
 
 #include "luggageCar.h"
 #include "groundTransport.h"
-#include "bst.h"
+#include <map>
 
 class Airport {
 private:
     vector<LuggageCar> luggageCars;
-    BST<GroundTransport> groundTransports;
+    std::set<string, GroundTransport> groundTransports;
 public:
-    Airport();
+
     void addLuggageCar(LuggageCar &car);
 };
 

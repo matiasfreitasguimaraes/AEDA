@@ -24,7 +24,7 @@ Ideias -
 carrinhos para cada vôo.
 
 ---------------------------------------------
-
+#string e vector tem que ser passado como reference e const
 Tasks -
 1. Implementar método buyTicket() em vôo. Implementar método que verifica a possibilidade de se comprar um ticket pra um determinado vôo. Ou seja, checa se há lugares dispooníveis.
 2. Implementar classe ticket. ticket é um objeto que guara informaçoes de um passageiro
