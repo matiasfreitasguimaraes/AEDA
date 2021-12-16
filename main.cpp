@@ -5,6 +5,7 @@
 #include "airportSystem/flight.h"
 #include "airportSystem/luggageCar.h"
 #include "airportSystem/airport.h"
+#include "airportSystem/dateTime.h"
 
 using namespace std;
 
@@ -41,8 +42,8 @@ void readInputData(const string &filename) {
             int arrivalDay, arrivalMonth, arrivalYear, arrivalHour, arrivalMinute;
 
             input >> flightCode >> apertureDay >> sep >> apertureMonth >> sep >> apertureYear >> apertureHour >> sep >> apertureMinute >> arrivalDay >> sep >> arrivalMonth >> sep >> arrivalYear >> arrivalHour >> sep >> arrivalMinute >> apertureLocal >> arrivalLocal;
-            Date apertureData(apertureYear, apertureMonth, apertureDay, apertureHour, apertureMinute);
-            Date arrivalData(arrivalYear, arrivalMonth, arrivalDay, arrivalHour, arrivalMinute);
+            DateTime apertureData(apertureYear, apertureMonth, apertureDay, apertureHour, apertureMinute);
+            DateTime arrivalData(arrivalYear, arrivalMonth, arrivalDay, arrivalHour, arrivalMinute);
 
             flightVec.push_back(Flight(flightCode, apertureData, arrivalData, apertureLocal, arrivalLocal, plane));
         }
@@ -51,7 +52,7 @@ void readInputData(const string &filename) {
         input >> numberOfPastServices;
         for (unsigned k = 0; k < numberOfPastServices; k++) {
             input >> type >> day >> sep >> month >> sep >> year >> hour >> sep >> minute >> responsible;
-            Date d(year, month, day, hour, minute);
+            DateTime d(year, month, day, hour, minute);
             MaintenanceService service(type, d, responsible);
             plane.addPastService(service);
         }
@@ -59,7 +60,7 @@ void readInputData(const string &filename) {
 
         for (unsigned l = 0; l < numberOfScheduledServices; l++) {
             input >> type >> day >> sep >> month >> sep >> year >> hour >> sep >> minute >> responsible;
-            Date date(year, month, day, hour, minute);
+            DateTime date(year, month, day, hour, minute);
             MaintenanceService scheduledService(type, date, responsible);
             plane.addScheduledService(scheduledService);
         }

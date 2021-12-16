@@ -8,7 +8,7 @@
 set<Plane> Reader::readPlanes(ifstream& planeFile) {
     set<Plane> myPlanes;
     if (planeFile.is_open()) {
-        printf("Susccefully opened input file!\n");
+        printf("Successfully opened input file!\n");
         int capacity;
         string type;
         string regis;

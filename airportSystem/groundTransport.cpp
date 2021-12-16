@@ -1,14 +1,8 @@
 #include "groundTransport.h"
 
-GroundTransport::GroundTransport(string itsName, string typeName, set<DateTime> sched, double airDis)
-    : name(itsName), type(typeName), airportDistance(airDis), schedule(sched) {}
+GroundTransport::GroundTransport(string typeName, set<DateTime> sched, double airDis)
+    : type(typeName), airportDistance(airDis), schedule(sched) {}
 
-/**
- * @return the ground transport name
- */
-string GroundTransport::getName() const {
-    return this->name;
-}
 
 /**
  * @return the type of ground transport

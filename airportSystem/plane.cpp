@@ -8,7 +8,7 @@
  * @param regis the plane's register
  * @param flights the plane's list of flights
  */
-Plane::Plane(unsigned planeCapacity, string type, string planeRegister) : capacity(planeCapacity), planeType(type) {
+Plane::Plane(unsigned &planeCapacity, string &type, string &planeRegister) : capacity(planeCapacity), planeType(type) {
     this->regis = planeRegister;
     instances++;
 }
@@ -44,11 +44,9 @@ vector<Flight> Plane::getListOfFlights() const {
 /**
  * @return the numbers of existing planes
  */
-unsigned int Plane::getNumberOfInstances() const {
+unsigned int Plane::getNumberOfInstances() {
     return instances;
 }
-
-
 
 /**
  * @param out output stream

@@ -22,9 +22,9 @@ private:
     queue<MaintenanceService> scheduledServices;
 public:
     Plane(){};
-    Plane(unsigned capacity, string planeType, string regis);
+    Plane(unsigned &capacity, string &planeType, string &regis);
     unsigned getCapacity() const;
-    unsigned getNumberOfInstances() const;
+    static unsigned getNumberOfInstances();
     string getPlaneType() const;
     string getRegis() const;
     vector<Flight> getListOfFlights() const;
@@ -36,11 +36,8 @@ public:
     friend ostream& operator<<(ostream &out,const Plane &plane);
 
     bool operator<(const Plane &rhs) const;
-
     bool operator>(const Plane &rhs) const;
-
     bool operator<=(const Plane &rhs) const;
-
     bool operator>=(const Plane &rhs) const;
 };
 

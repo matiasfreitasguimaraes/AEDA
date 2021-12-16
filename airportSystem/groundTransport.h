@@ -12,13 +12,11 @@
 using namespace std;
 
 class GroundTransport {
-    string name;
     string type;
     double airportDistance;
     set<DateTime> schedule;
 public:
-    GroundTransport(string itsName, string typeName, set<DateTime> sched, double airDis);
-    string getName() const;
+    GroundTransport(string typeName, set<DateTime> sched, double airDis);
     string getType() const;
     double getAirportDistance() const;
     void addToSchedule(DateTime newDate);

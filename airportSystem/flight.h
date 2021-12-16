@@ -17,11 +17,11 @@ private:
     DateTime arrivalDate;
     string origin;
     string destination;
-    string nexPlane;
+    unsigned id;
     unsigned int boughtTickets;
 public:
     Flight(string &number, DateTime &flightDepartureDate, DateTime &flightArrivalDate,
-           string &flightOrigin, string &flightDestination, string nextPlane);
+           string &flightOrigin, string &flightDestination, unsigned id);
     string getNumberOfFlight() const;
     DateTime getDepartureDate() const;
     DateTime getArrivalDate() const;
