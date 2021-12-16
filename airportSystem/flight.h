@@ -4,30 +4,28 @@
 #include <string>
 #include <iostream>
 #include <vector>
-
-#include "plane.h"
 #include "passenger.h"
-#include "date.h"
+#include "dateTime.h"
 
-class Ticket;
 
 using namespace std;
 
 class Flight {
 private:
     string numberOfFlight;
-    Date departureDate;
-    Date arrivalDate;
+    DateTime departureDate;
+    DateTime arrivalDate;
     string origin;
     string destination;
+    static unsigned instances;
+    unsigned id;
     unsigned int boughtTickets;
-    Plane assignedPlane;
-    vector<Ticket> tickets;
 public:
-    Flight(string &number, Date &flightDepartureDate, Date &flightArrivalDate, string &flightOrigin, string &flightDestination, Plane &plane);
+    Flight(string &number, DateTime &flightDepartureDate, DateTime &flightArrivalDate,
+           string &flightOrigin, string &flightDestination, unsigned &Id);
     string getNumberOfFlight() const;
-    Date getDepartureDate() const;
-    Date getArrivalDate() const;
+    DateTime getDepartureDate() const;
+    DateTime getArrivalDate() const;
     string getOrigin() const;
     string getDestination() const;
     void setDestination(string flightDestination);

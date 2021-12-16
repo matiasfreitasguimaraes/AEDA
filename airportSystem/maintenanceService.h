@@ -1,7 +1,7 @@
 #ifndef AEDAPROJECT_MAINTENANCESERVICE_H
 #define AEDAPROJECT_MAINTENANCESERVICE_H
 
-#include "date.h"
+#include "dateTime.h"
 #include <string>
 #include <iostream>
 
@@ -14,14 +14,14 @@ using namespace std;
  */
 class MaintenanceService {
 private:
-    const string type;
-    const Date date;
-    const string responsible;
+    string type;
+    DateTime date;
+    string responsible;
 public:
     // for context with operator << use bus, metro or train for typename.
-    MaintenanceService(string typeName, Date when, string employee);
+    MaintenanceService(string typeName,DateTime when, string employee);
     string getType() const;
-    Date getDate() const;
+    DateTime getDate() const;
     string getResponsible() const;
     friend ostream& operator<<(ostream &out, const MaintenanceService &maintenanceService);
 };

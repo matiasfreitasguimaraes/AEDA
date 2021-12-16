@@ -1,6 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-set (CMAKE_CXX_STANDARD 20)
-project(AEDAProject)
+set (CMAKE_CXX_STANDARD 17)
 if (UNIX)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wshadow -Werror -Wextra -g -fno-omit-frame-pointer -fsanitize=address -fsanitize=undefined")
 elseif(WIN32)
@@ -9,6 +8,7 @@ endif ()
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
 
+project(AEDAProject)
 
 add_executable(AEDAProject main.cpp
         airportSystem/airport.cpp airportSystem/airport.h
@@ -18,8 +18,9 @@ add_executable(AEDAProject main.cpp
         airportSystem/plane.cpp airportSystem/plane.h
         airportSystem/ticket.cpp airportSystem/ticket.h
         airportSystem/groundTransport.cpp airportSystem/groundTransport.h
-        airportSystem/date.cpp airportSystem/date.h airportSystem/luggageCar.h airportSystem/luggageCar.cpp airportSystem/bst.h)
-
+        airportSystem/dateTime.cpp airportSystem/dateTime.h airportSystem/luggageCar.h airportSystem/luggageCar.cpp
+        airportSystem/globalVariables.cpp airportSystem/globalVariables.h
+        airportSystem/Menu.cpp airportSystem/Menu.h)
 
 # Doxygen Build
 find_package(Doxygen)
@@ -42,7 +43,25 @@ else(DOXYGEN_FOUND)
     message("Doxygen needs to be installed to generate the documentation.")
 endif(DOXYGEN_FOUND)
 
-add_subdirectory(lib/googletest-master)
-include_directories(lib/googletest-master/googletest/include)
-include_directories(lib/googletest-master/googlemock/include)
-target_link_libraries(AEDAProject gtest gtest_main)
+
+project(groundTest)
+
+add_executable(groundTest testGroundTransport.cpp
+        airportSystem/dateTime.cpp airportSystem/dateTime.h
+        airportSystem/groundTransport.cpp airportSystem/groundTransport.h)
+
+project(airportTest)
+
+add_executable(airportTest testAirport.cpp
+        airportSystem/airport.cpp airportSystem/airport.h
+        airportSystem/dateTime.cpp airportSystem/dateTime.h
+        airportSystem/groundTransport.cpp airportSystem/groundTransport.h)
+
+project(readerTest)
+
+add_executable(readerTest testReader.cpp
+        airportSystem/plane.cpp airportSystem/plane.h
+        airportSystem/reader.cpp airportSystem/reader.h)
+
+
+

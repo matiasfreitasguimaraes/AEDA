@@ -1,14 +1,8 @@
 #include "groundTransport.h"
 
-GroundTransport::GroundTransport(string itsName, string typeName, vector<Date> sched, double airDis)
-    : name(itsName), type(typeName), airportDistance(airDis), schedule(sched) {}
+GroundTransport::GroundTransport(string typeName, set<DateTime> sched, double airDis)
+    : type(typeName), airportDistance(airDis), schedule(sched) {}
 
-/**
- * @return the ground transport name
- */
-string GroundTransport::getName() const {
-    return this->name;
-}
 
 /**
  * @return the type of ground transport
@@ -25,29 +19,18 @@ double GroundTransport::getAirportDistance() const {
 }
 
 /**
- * @brief sorts the schedule from the next transport to arrive to the last
- */
-void GroundTransport::sortSchedule() {
-    sort(schedule.begin(), schedule.end(), [](Date &d1, Date &d2) { return d1 > d2; });
-}
-
-/**
  * @brief adds date to the schedule
  * @param newDate date to add to the schedule
  */
-void GroundTransport::addToSchedule(Date newDate) {
-    this->schedule.push_back(newDate);
-    sortSchedule();
+void GroundTransport::addToSchedule(DateTime newDate) {
+    this->schedule.insert(newDate);
 }
 
 /**
  * @param date date to remove from schedule
  */
-void GroundTransport::removeFromSchedule(Date date) {
-    for (Date &d: schedule) {
-        if (date == d)
-            std::remove(schedule.begin(), schedule.end(), date);
-    }
+void GroundTransport::removeFromSchedule(DateTime date) {
+    this->schedule.erase(date);
 }
 
 /**
@@ -56,10 +39,11 @@ void GroundTransport::removeFromSchedule(Date date) {
  * @return all the information related to a ground transport
  */
 ostream& operator<<(ostream &out, const GroundTransport &groundTransport) {
-    out << groundTransport.getName() << " " << groundTransport.getType() << "station." << endl;
+    out << groundTransport.getType() << endl;
     out << "Schedule:" << endl;
-    for (Date date : groundTransport.schedule) {
-        out << date.getHour() << ":" << date.getHour() << " ";
+    for (DateTime date : groundTransport.schedule) {
+        out << setfill('0') << setw(2) << date.getHour() << ":"
+        << setfill('0') << setw(2) << date.getMinute() << " ";
     }
     out << endl;
     out << "Distance: " << groundTransport.getAirportDistance() << " meters from the airport." << endl;
@@ -71,5 +55,5 @@ ostream& operator<<(ostream &out, const GroundTransport &groundTransport) {
  * @return the closest transport to the airport
  */
 bool GroundTransport::operator<(const GroundTransport &g1) {
-    return airportDistance < g1.getAirportDistance();
+    return this->airportDistance < g1.getAirportDistance();
 }

@@ -1,14 +1,10 @@
-//
-// Created by jpdat on 05/12/21.
-//
-
 #ifndef AEDAPROJECT_MENU_H
 #define AEDAPROJECT_MENU_H
 
 #include <iostream>
 #include <string>
 #include "plane.h"
-#include "PlaneManager.h"
+#include "reader.h"
 #include <fstream>
 #include <sstream>
 

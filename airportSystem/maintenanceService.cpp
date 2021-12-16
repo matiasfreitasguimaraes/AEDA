@@ -2,7 +2,7 @@
 
 using namespace std;
 
-MaintenanceService::MaintenanceService(const string typeName, const Date when, const string employee) : type(typeName), date(when), responsible(employee) {}
+MaintenanceService::MaintenanceService(const string typeName, const DateTime when, const string employee) : type(typeName), date(when), responsible(employee) {}
 
 /**
  * @return the type of maintenance service
@@ -14,7 +14,7 @@ string MaintenanceService::getType() const {
 /**
  * @return the date of maintenance service
  */
-Date MaintenanceService::getDate() const {
+DateTime MaintenanceService::getDate() const {
     return date;
 }
 
@@ -31,8 +31,8 @@ string MaintenanceService::getResponsible() const {
  * @return all the information related to the service
  */
 ostream& operator<<(ostream &out, MaintenanceService &maintenanceService) {
-    out << maintenanceService.getType() << " service." << std::endl;
-    out << "Scheduled for " << maintenanceService.getDate().getDay() << "/" << maintenanceService.getDate().getMonth() << "/" << maintenanceService.getDate().getYear();
-    out << " at " << maintenanceService.getDate().getHour() << ":" << maintenanceService.getDate().getMinute() << "." << endl;
+    out << "Maintenance type: " << maintenanceService.getType() << endl;
+    out << "Date: " << maintenanceService.getDate() << endl;
+    out << "Responsible employee: " << maintenanceService.getResponsible() << endl;
     return out;
 }

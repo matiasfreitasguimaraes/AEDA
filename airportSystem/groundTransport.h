@@ -5,25 +5,22 @@
 #include <vector>
 #include <iostream>
 #include <algorithm>
-
-#include "date.h"
+#include <set>
+#include <iomanip>
+#include "dateTime.h"
 
 using namespace std;
 
 class GroundTransport {
-    const string name;
-    const string type;
-    const double airportDistance;
-    vector<Date> schedule;
+    string type;
+    double airportDistance;
+    set<DateTime> schedule;
 public:
-    GroundTransport();
-    GroundTransport(string itsName, string typeName, vector<Date> sched, double airDis);
-    string getName() const;
+    GroundTransport(string typeName, set<DateTime> sched, double airDis);
     string getType() const;
     double getAirportDistance() const;
-    void sortSchedule();
-    void addToSchedule(Date newDate);
-    void removeFromSchedule(Date date);
+    void addToSchedule(DateTime newDate);
+    void removeFromSchedule(DateTime date);
     friend ostream& operator<<(ostream &out, const GroundTransport &groundTransport);
     bool operator<(const GroundTransport &g1);
 };

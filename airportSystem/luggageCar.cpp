@@ -1,9 +1,9 @@
 #include "luggageCar.h"
 
-LuggageCar::LuggageCar(unsigned int carriages, unsigned int piles, unsigned int suitcasesPerPile)
-    : numberOfCarriages(carriages), numberOfPiles(piles), numberOfsuitcasesPerPile(suitcasesPerPile) {
+LuggageCar::LuggageCar(unsigned int carriages, unsigned int piles, unsigned int suitcases)
+    : numberOfCarriages(carriages), numberOfPiles(piles), numberOfSuitcasesPerPile(suitcases) {
     numberOfOccupiedSlots = 0;
-    carCapacity = carriages * piles * suitcasesPerPile;
+    carCapacity = numberOfCarriages * numberOfPiles * numberOfSuitcasesPerPile;
 }
 
 /**
