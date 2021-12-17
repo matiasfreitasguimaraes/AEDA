@@ -13,7 +13,6 @@ private:
     vector<LuggageCar> luggageCars;
     std::set<GroundTransport> groundTransports;
 public:
-
     void addLuggageCar(LuggageCar &car);
 };
 
