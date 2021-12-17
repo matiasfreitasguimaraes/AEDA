@@ -1,17 +1,16 @@
 #include "Menu.h"
 
-Menu::Menu() {}
+Menu::Menu() {
+    cout << menuTutorial;
+}
 
 int Menu::run() {
-    int option = -1;
-    printf("%s", menuTutorial);
+    cout << startingMenu;
     do {
-        printf("%s", startingMenu);
         option = intInput(0, 3);
         switch (option) {
             case 1:
-                option = runAdminMenu();
-                break;
+                return runAdminMenu();
             case 2:
 
                 break;
@@ -21,30 +20,34 @@ int Menu::run() {
             case 0:
                 return 0;
         }
-    } while (option == -1);
-    return 0;
+    } while (option == -2);
+    return -1;
 }
 
 int Menu::runAdminMenu() {
-    int option = -1;
+    cout << adminMenu;
     do {
-        printf("%s", adminMenu);
-        option = intInput(0, 3);
+        option = intInput(0, 4);
+        if (option == -1)
+            return -1;
         switch (option) {
             case 1:
-                printf("implement plane manager");
+                cout << "yet to implement";
                 break;
             case 2:
-                printf("implement flight manager");
+                cout << "yet to implement";
                 break;
             case 3:
-                printf("implement passenger manager");
+                cout << "yet to implement";
+                break;
+            case 4:
+                cout << "yet to implement";
                 break;
             case 0:
                 return -1;
         }
-    } while (option == -1);
-    return 0;
+    } while (option == -2);
+    return -1;
 }
 
 int Menu::intInput(int min, int max) {
@@ -57,12 +60,20 @@ int Menu::intInput(int min, int max) {
     try {
         output = stoi(input);
     } catch (invalid_argument &e) {
-        printf("%s", invalidInput);
-        return -1;
+        cout << invalidInput;
+        return -2;
     }
     if (output < min || output > max) {
-        printf("%s", invalidInput);
-        return -1;
+        cout << invalidInput;
+        return -2;
     }
     return output;
+}
+
+int Menu::getOption() {
+    return option;
+}
+
+void Menu::setOption(int opt) {
+    this->option = opt;
 }

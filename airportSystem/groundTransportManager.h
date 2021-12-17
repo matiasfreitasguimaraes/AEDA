@@ -11,7 +11,7 @@ class GroundTransportManager {
 private:
     set<GroundTransport> myTransport;
 public:
-    GroundTransportManager::readGroundTransport(ifstream &groundFile)
+    // GroundTransportManager::readGroundTransport(ifstream &groundFile);
 
 };
 

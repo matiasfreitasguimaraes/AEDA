@@ -95,7 +95,10 @@ int main() {
     readLuggageCarsDate(luggageCarsDate, airport);
 
     Menu menu = Menu();
-    menu.run();
+    do {
+        menu.setOption(menu.run());
+    } while (menu.getOption() == -1);
+
 
     return 0;
 }
