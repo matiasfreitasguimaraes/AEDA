@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <fstream>
+#include <set>
 
 #include "flight.h"
 
@@ -10,12 +11,13 @@ using namespace std;
 
 class FlightManager {
 private:
-    vector<Flight> flights;
-    void writeToFile(string &filename);
+    set<Flight> flights;
+
 public:
-    void addFlight(Flight &newFlight, string &filename);
-    void removeFlight(Flight &flightToRemove, string &filename);
-    void readFlights(string &filename);
+    void writeToFile(ostream &file);
+    void addFlight(Flight newFlight);
+    void removeFlight(Flight flightToRemove);
+    void readFlights(ifstream &file);
     void showFlights();
 };
 

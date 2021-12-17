@@ -42,61 +42,6 @@ int DateTime::getMinute(){
 }
 
 /**
- * @param dateMax date instance
- * @param dateMin date instance
- * @return the most recent date
- */
-bool operator>(DateTime dateMax, DateTime dateMin) {
-    if (dateMax.getYear() > dateMin.getYear()){
-        return true;
-    }else if(dateMax.getYear() != dateMin.getYear()){
-        return false;
-    }
-    if (dateMax.getMonth() > dateMin.getMonth()){
-        return true;
-    }else if(dateMax.getMonth() != dateMin.getMonth()){
-        return false;
-    }
-    if (dateMax.getDay() > dateMin.getDay()){
-        return true;
-    }else if(dateMax.getDay() != dateMin.getDay()){
-        return false;
-    }
-    if (dateMax.getHour() > dateMin.getHour()){
-        return true;
-    }else if(dateMax.getHour() != dateMin.getHour()){
-        return false;
-    }
-    if (dateMax.getMinute() > dateMin.getMinute()){
-        return true;
-    }else{
-        return false;
-    }
-}
-
-/**
- * @param dateMin date instance
- * @param dateMax date instance
- * @return the oldest date
- */
-bool operator<(DateTime dateMin, DateTime dateMax) {
-    return !(dateMin > dateMax || dateMin==dateMax);
-}
-
-/**
- * @param dateL date instance
- * @param dateR date instance
- * @return true if two dates are equal, false otherwise
- */
-bool operator==(DateTime dateL, DateTime dateR) {
-    return (dateL.getYear() == dateR.getYear()
-            && dateL.getMonth() == dateR.getMonth()
-            && dateL.getDay() == dateR.getDay()
-            && dateL.getHour() == dateR.getHour()
-            && dateL.getMinute() == dateR.getMinute());
-}
-
-/**
  * @param out output stream
  * @param d1 date instance
  * @return all the date information
@@ -104,4 +49,50 @@ bool operator==(DateTime dateL, DateTime dateR) {
 ostream& operator<<(ostream &out, const DateTime &d1) {
     out << d1.day << "/" << d1.month << "/" << d1.year << " " << d1.hour << ":" << d1.minute;
     return out;
+}
+
+bool DateTime::operator<(const DateTime &rhs) const {
+    if (year < rhs.year)
+        return true;
+    if (rhs.year < year)
+        return false;
+    if (month < rhs.month)
+        return true;
+    if (rhs.month < month)
+        return false;
+    if (day < rhs.day)
+        return true;
+    if (rhs.day < day)
+        return false;
+    if (hour < rhs.hour)
+        return true;
+    if (rhs.hour < hour)
+        return false;
+    return minute < rhs.minute;
+}
+
+bool DateTime::operator>(const DateTime &rhs) const {
+    return rhs < *this;
+}
+
+bool DateTime::operator<=(const DateTime &rhs) const {
+    return !(rhs < *this);
+}
+
+bool DateTime::operator>=(const DateTime &rhs) const {
+    return !(*this < rhs);
+}
+
+DateTime::DateTime() {}
+
+bool DateTime::operator==(const DateTime &rhs) const {
+    return year == rhs.year &&
+           month == rhs.month &&
+           day == rhs.day &&
+           hour == rhs.hour &&
+           minute == rhs.minute;
+}
+
+bool DateTime::operator!=(const DateTime &rhs) const {
+    return !(rhs == *this);
 }

@@ -3,7 +3,6 @@
 GroundTransport::GroundTransport(string typeName, set<DateTime> sched, double airDis)
     : type(typeName), airportDistance(airDis), schedule(sched) {}
 
-
 /**
  * @return the type of ground transport
  */
@@ -39,7 +38,7 @@ void GroundTransport::removeFromSchedule(DateTime date) {
  * @return all the information related to a ground transport
  */
 ostream& operator<<(ostream &out, const GroundTransport &groundTransport) {
-    out << groundTransport.getType() << endl;
+    out << groundTransport.getType() << " station." << endl;
     out << "Schedule:" << endl;
     for (DateTime date : groundTransport.schedule) {
         out << setfill('0') << setw(2) << date.getHour() << ":"
@@ -50,10 +49,19 @@ ostream& operator<<(ostream &out, const GroundTransport &groundTransport) {
     return out;
 }
 
-/**
- * @param g1 instance of GroundTransport
- * @return the closest transport to the airport
- */
-bool GroundTransport::operator<(const GroundTransport &g1) {
-    return this->airportDistance < g1.getAirportDistance();
+bool GroundTransport::operator<(const GroundTransport &rhs) const {
+    return airportDistance < rhs.airportDistance;
 }
+
+bool GroundTransport::operator>(const GroundTransport &rhs) const {
+    return rhs < *this;
+}
+
+bool GroundTransport::operator<=(const GroundTransport &rhs) const {
+    return !(rhs < *this);
+}
+
+bool GroundTransport::operator>=(const GroundTransport &rhs) const {
+    return !(*this < rhs);
+}
+

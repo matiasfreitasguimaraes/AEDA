@@ -2,17 +2,16 @@
 #define PROGP5_AIRPORT_H
 
 #include <vector>
-#include <map>
 
 #include "luggageCar.h"
 #include "groundTransport.h"
-
-using namespace std;
+#include <map>
 
 class Airport {
 private:
+    string name;
     vector<LuggageCar> luggageCars;
-    map<string, GroundTransport> groundTransports;
+    std::set<GroundTransport> groundTransports;
 public:
 
     void addLuggageCar(LuggageCar &car);

@@ -9,13 +9,16 @@
 #include <map>
 #include "plane.h"
 #include "groundTransport.h"
+#include "dateTime.h"
+#include "flight.h"
 
 class Reader {
 private:
 
 public:
-    static set<Plane> readPlanes(string &filename);
-    static map<string, GroundTransport> readGroundTransport(string &filename);
+    static set<Plane> readPlanes(ifstream& planeFile);
+    static set<GroundTransport> readGroundTransport(ifstream &groundFile);
+    static set<Flight> readFlight(ifstream &flightFile);
 };
 
 

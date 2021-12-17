@@ -1,12 +1,9 @@
 //
-// Created by jpdat on 16/12/21.
+// Created by Matias Freitas Guimarães on 17/12/2021.
 //
 
-#include "reader.h"
-
-
-set<Plane> Reader::readPlanes(ifstream& planeFile) {
-    set<Plane> myPlanes;
+#include "planeManager.h"
+void PlaneManager::readPlanes(ifstream& planeFile) {
     if (planeFile.is_open()) {
         printf("Susccefully opened input file!\n");
         int capacity;
@@ -27,9 +24,4 @@ set<Plane> Reader::readPlanes(ifstream& planeFile) {
     } else {
         printf("Couldnt read file input.\n");
     }
-    return myPlanes;
 }
-
-
-
-

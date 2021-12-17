@@ -75,7 +75,6 @@ void readInputData(const string &filename) {
  */
 void readLuggageCarsDate(const string &filename, Airport &a) {
     ifstream file(filename, ios::in);
-    stringstream line;
     unsigned numberOfCarriages, numberOfPiles, numberOfSuitcasesPerPile;
 
     while (!file.eof()) {

@@ -17,16 +17,26 @@ public:
     DateTime(unsigned int h, unsigned int min);
     DateTime(unsigned int y, unsigned int mon, unsigned int d);
     DateTime(unsigned int y, unsigned int mon, unsigned int d, unsigned int h, unsigned int min);
+
+    DateTime();
+
     int getYear();
     int getMonth();
     int getDay();
     int getHour();
     int getMinute();
     friend ostream& operator<<(ostream& out, const DateTime &d1);
+
+    bool operator<(const DateTime &rhs) const;
+
+    bool operator>(const DateTime &rhs) const;
+
+    bool operator<=(const DateTime &rhs) const;
+
+    bool operator>=(const DateTime &rhs) const;
+
+    bool operator==(const DateTime &rhs) const;
+
+    bool operator!=(const DateTime &rhs) const;
 };
-
-bool operator==(DateTime dateL, DateTime dateR);
-bool operator>(DateTime dateMin, DateTime dateMax);
-bool operator<(DateTime dateMax, DateTime dateMin);
-
 #endif //AEDAPROJECT_DATA_H

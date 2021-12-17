@@ -22,8 +22,15 @@ public:
     void addToSchedule(DateTime newDate);
     void removeFromSchedule(DateTime date);
     friend ostream& operator<<(ostream &out, const GroundTransport &groundTransport);
-    bool operator<(const GroundTransport &g1);
-};
 
+    bool operator<(const GroundTransport &rhs) const;
+
+    bool operator>(const GroundTransport &rhs) const;
+
+    bool operator<=(const GroundTransport &rhs) const;
+
+    bool operator>=(const GroundTransport &rhs) const;
+
+};
 
 #endif //AEDAPROJECT_GROUNDTRANSPORT_H

@@ -100,6 +100,39 @@ unsigned int Flight::getFlightId() const {
     return id;
 }
 
+bool Flight::operator<(const Flight &rhs) const {
+    if (numberOfFlight < rhs.numberOfFlight)
+        return true;
+    if (rhs.numberOfFlight < numberOfFlight)
+        return false;
+    if (departureDate < rhs.departureDate)
+        return true;
+    if (rhs.departureDate < departureDate)
+        return false;
+    if (arrivalDate < rhs.arrivalDate)
+        return true;
+    if (rhs.arrivalDate < arrivalDate)
+        return false;
+    if (origin < rhs.origin)
+        return true;
+    if (rhs.origin < origin)
+        return false;
+    return destination < rhs.destination;
+}
+
+bool Flight::operator>(const Flight &rhs) const {
+    return rhs < *this;
+}
+
+bool Flight::operator<=(const Flight &rhs) const {
+    return !(rhs < *this);
+}
+
+bool Flight::operator>=(const Flight &rhs) const {
+    return !(*this < rhs);
+}
+
 /**
  * @return true if a ticket for a flight can be bought, false otherwise
  */
+

@@ -7,9 +7,9 @@
  * @param regis the plane's register
  * @param flights the plane's list of flights
  */
-Plane::Plane(unsigned &planeCapacity, string &type, string &planeRegister, unsigned &Id) : capacity(planeCapacity), planeType(type) {
-    this->regis = planeRegister;
-    this->id = Id;
+Plane::Plane(unsigned planeCapacity, string type, string planeRegister, unsigned Id) : capacity(planeCapacity),
+        planeType(type), regis(planeRegister), id(Id){
+
     instances++;
 }
 
@@ -94,7 +94,7 @@ queue<MaintenanceService> Plane::getScheduledServices() const {
 unsigned Plane::instances = 0;
 
 
-void Plane::setListOfFlights(vector<Flight> &flights) {
+void Plane::setListOfFlights(vector<Flight> flights) {
     this->listOfFlights = flights;
 }
 
@@ -113,3 +113,8 @@ bool Plane::operator<=(const Plane &rhs) const {
 bool Plane::operator>=(const Plane &rhs) const {
     return !(*this < rhs);
 }
+
+unsigned int Plane::getId() const {
+    return id;
+}
+

@@ -23,7 +23,7 @@ private:
     unsigned id;
 public:
     Plane(){};
-    Plane(unsigned &capacity, string &planeType, string &regis, unsigned &Id);
+    Plane(unsigned capacity, string planeType, string regis, unsigned Id);
     unsigned getCapacity() const;
     static unsigned getNumberOfInstances();
     string getPlaneType() const;
@@ -31,7 +31,7 @@ public:
     vector<Flight> getListOfFlights() const;
     queue<MaintenanceService> getPastServices() const;
     queue<MaintenanceService> getScheduledServices() const;
-    void setListOfFlights(vector<Flight> &flights);
+    void setListOfFlights(vector<Flight> flights);
     void addPastService(MaintenanceService &service);
     void addScheduledService(MaintenanceService &scheduledService);
     friend ostream& operator<<(ostream &out,const Plane &plane);
@@ -40,6 +40,10 @@ public:
     bool operator>(const Plane &rhs) const;
     bool operator<=(const Plane &rhs) const;
     bool operator>=(const Plane &rhs) const;
+
+    unsigned int getId() const;
+
+    void setId(unsigned int id);
 };
 
 

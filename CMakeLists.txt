@@ -20,7 +20,7 @@ add_executable(AEDAProject main.cpp
         airportSystem/groundTransport.cpp airportSystem/groundTransport.h
         airportSystem/dateTime.cpp airportSystem/dateTime.h airportSystem/luggageCar.h airportSystem/luggageCar.cpp
         airportSystem/globalVariables.cpp airportSystem/globalVariables.h
-        airportSystem/Menu.cpp airportSystem/Menu.h airportSystem/flightManager.h airportSystem/flightManager.cpp flightManagerTest.cpp)
+        airportSystem/Menu.cpp airportSystem/Menu.h airportSystem/flightManager.h airportSystem/flightManager.cpp)
 
 # Doxygen Build
 find_package(Doxygen)
@@ -44,24 +44,40 @@ else(DOXYGEN_FOUND)
 endif(DOXYGEN_FOUND)
 
 
-project(groundTest)
-
-add_executable(groundTest testGroundTransport.cpp
-        airportSystem/dateTime.cpp airportSystem/dateTime.h
-        airportSystem/groundTransport.cpp airportSystem/groundTransport.h)
-
 project(airportTest)
 
 add_executable(airportTest testAirport.cpp
         airportSystem/airport.cpp airportSystem/airport.h
         airportSystem/dateTime.cpp airportSystem/dateTime.h
-        airportSystem/groundTransport.cpp airportSystem/groundTransport.h)
+        airportSystem/groundTransport.cpp airportSystem/groundTransport.h
+        airportSystem/flight.cpp airportSystem/flight.h
+        airportSystem/passenger.cpp airportSystem/passenger.h)
 
-project(readerTest)
+project(planeTest)
 
-add_executable(readerTest testReader.cpp
+add_executable(planeTest testPlane.cpp
+        airportSystem/groundTransport.cpp airportSystem/groundTransport.h
         airportSystem/plane.cpp airportSystem/plane.h
-        airportSystem/reader.cpp airportSystem/reader.h)
+        airportSystem/dateTime.cpp airportSystem/dateTime.h
+        airportSystem/reader.h airportSystem/reader.cpp
+        airportSystem/flight.cpp airportSystem/flight.h)
 
+project(groundTest)
+
+add_executable(groundTest testGroundTransport.cpp
+        airportSystem/groundTransport.cpp airportSystem/groundTransport.h
+        airportSystem/plane.cpp airportSystem/plane.h
+        airportSystem/dateTime.cpp airportSystem/dateTime.h
+        airportSystem/reader.h airportSystem/reader.cpp
+        airportSystem/flight.cpp airportSystem/flight.h)
+
+project(flightTest)
+
+add_executable(flightTest testFlight.cpp
+        airportSystem/groundTransport.cpp airportSystem/groundTransport.h
+        airportSystem/plane.cpp airportSystem/plane.h
+        airportSystem/dateTime.cpp airportSystem/dateTime.h
+        airportSystem/flightManager.cpp airportSystem/flightManager.h
+        airportSystem/flight.cpp airportSystem/flight.h)
 
 
