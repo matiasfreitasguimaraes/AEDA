@@ -6,11 +6,11 @@ using namespace std;
  * @brief writes the changes made in the flights to the file
  * @param filename the output file
  */
-void FlightManager::writeToFile(ostream &file) {
+ void FlightManager::writeToFile(ostream &file) {
     for (Flight flight: flights) {
         file << flight.getFlightId() << " " << flight.getNumberOfFlight() << " "
-        << flight.getDepartureDate() << " " << flight.getArrivalDate()
-        << " " << flight.getOrigin() << " " << flight.getDestination() << endl;
+             << flight.getDepartureDate() << " " << flight.getArrivalDate()
+             << " " << flight.getOrigin() << " " << flight.getDestination() << endl;
     }
 }
 

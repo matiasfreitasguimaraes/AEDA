@@ -11,7 +11,11 @@ class PlaneManager {
 private:
     set<Plane> myPlanes;
 public:
-    void readPlanes(ifstream& planeFile)
+    void readPlanes(ifstream& planeFile);
+    void addFlight(Plane newPlane);
+    void removeFlight(Plane planeToRemove);
+    void showPlanes();
+    void writeToFile(ostream &file);
 };
 
 

@@ -59,7 +59,7 @@ add_executable(planeTest testPlane.cpp
         airportSystem/groundTransport.cpp airportSystem/groundTransport.h
         airportSystem/plane.cpp airportSystem/plane.h
         airportSystem/dateTime.cpp airportSystem/dateTime.h
-        airportSystem/reader.h airportSystem/reader.cpp
+        airportSystem/planeManager.cpp airportSystem/planeManager.h
         airportSystem/flight.cpp airportSystem/flight.h)
 
 project(groundTest)

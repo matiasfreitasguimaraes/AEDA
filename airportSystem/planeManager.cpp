@@ -25,3 +25,38 @@ void PlaneManager::readPlanes(ifstream& planeFile) {
         printf("Couldnt read file input.\n");
     }
 }
+
+void PlaneManager::writeToFile(ostream &file) {
+
+    for (Plane plane: myPlanes) {
+        file << plane.getRegis() << " " << plane.getCapacity() << " "
+        << plane.getPlaneType() << " " << plane.getId();
+    }
+}
+
+/**
+ * @brief adds a flight
+ * @param newFlight flight to add
+ * @param filename file to write the changes
+ */
+void PlaneManager::addFlight(Plane newPlane) {
+    myPlanes.insert(newPlane);
+}
+
+/**
+ * @brief removes a flight
+ * @param flightToRemove flight to remove
+ * @param filename file to write the changes
+ */
+void PlaneManager::removeFlight(Plane planeToRemove) {
+    this->myPlanes.erase(planeToRemove);
+}
+
+/**
+ * @brief shows the flights and their information to the users
+ */
+void PlaneManager::showPlanes() {
+    for (Plane plane: myPlanes) {
+        cout << plane <<  endl;
+    }
+}

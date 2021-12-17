@@ -3,8 +3,9 @@
 
 
 int main() {
-    string filename = "planes.txt";
+    ifstream fileF("planes.txt");
     PlaneManager myRead;
-    myRead.readPlanes(filename);
+    myRead.readPlanes(fileF);
+    myRead.showPlanes();
 
 }
