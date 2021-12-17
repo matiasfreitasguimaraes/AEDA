@@ -20,7 +20,7 @@ add_executable(AEDAProject main.cpp
         airportSystem/groundTransport.cpp airportSystem/groundTransport.h
         airportSystem/dateTime.cpp airportSystem/dateTime.h airportSystem/luggageCar.h airportSystem/luggageCar.cpp
         airportSystem/globalVariables.cpp airportSystem/globalVariables.h
-        airportSystem/Menu.cpp airportSystem/Menu.h)
+        airportSystem/Menu.cpp airportSystem/Menu.h airportSystem/flightManager.h airportSystem/flightManager.cpp flightManagerTest.cpp)
 
 # Doxygen Build
 find_package(Doxygen)

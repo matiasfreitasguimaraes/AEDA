@@ -1,4 +1,3 @@
-
 #include "plane.h"
 #include "flight.h"
 
