@@ -64,6 +64,7 @@ void Flight::setDestination(string flightDestination) {
  * @return all the flight information
  */
 ostream& operator<<(ostream &out, const Flight &flight) {
+    out << "Flight's ID: " << flight.getFlightId() << endl;
     out << "Flight number: " << flight.getNumberOfFlight() << endl;
     out << "Flight's departure date: " << flight.getDepartureDate() << endl;
     out << "Flight's arrival date: " << flight.getArrivalDate() << endl;
@@ -84,6 +85,19 @@ void Flight::updateBoughtTickets(int nTickets) {
  */
 unsigned Flight::getNumberOfTicketsBought() const {
     return boughtTickets;
+}
+
+bool Flight::operator==(const Flight &flight) {
+    return (numberOfFlight == flight.getNumberOfFlight()
+        && departureDate == flight.getDepartureDate()
+        && arrivalDate == flight.getArrivalDate()
+        && origin == flight.getOrigin()
+        && destination == flight.getDestination()
+    );
+}
+
+unsigned int Flight::getFlightId() const {
+    return id;
 }
 
 /**

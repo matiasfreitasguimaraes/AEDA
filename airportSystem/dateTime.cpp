@@ -44,7 +44,7 @@ int DateTime::getMinute(){
 /**
  * @param dateMax date instance
  * @param dateMin date instance
- * @return the most recente date
+ * @return the most recent date
  */
 bool operator>(DateTime dateMax, DateTime dateMin) {
     if (dateMax.getYear() > dateMin.getYear()){
