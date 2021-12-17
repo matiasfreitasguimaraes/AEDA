@@ -7,7 +7,6 @@
 #include "passenger.h"
 #include "dateTime.h"
 
-
 using namespace std;
 
 class Flight {

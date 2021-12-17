@@ -2,7 +2,10 @@
 
 using namespace std;
 
-
+/**
+ * @brief writes the changes made in the flights to the file
+ * @param filename the output file
+ */
 void FlightManager::writeToFile(string &filename) {
     ofstream file(filename, ios_base::trunc);
     for (Flight &flight: flights) {
@@ -10,11 +13,21 @@ void FlightManager::writeToFile(string &filename) {
     }
 }
 
+/**
+ * @brief adds a flight
+ * @param newFlight flight to add
+ * @param filename file to write the changes
+ */
 void FlightManager::addFlight(Flight &newFlight, string &filename) {
     flights.push_back(newFlight);
     writeToFile(filename);
 }
 
+/**
+ * @brief removes a flight
+ * @param flightToRemove flight to remove
+ * @param filename file to write the changes
+ */
 void FlightManager::removeFlight(Flight &flightToRemove, string &filename) {
     for (unsigned i = 0; i < flights.size(); i++) {
         if (flights.at(i) == flightToRemove)
@@ -23,6 +36,10 @@ void FlightManager::removeFlight(Flight &flightToRemove, string &filename) {
     writeToFile(filename);
 }
 
+/**
+ * @brief reads the flights initially in a file
+ * @param filename file to read the flights from
+ */
 void FlightManager::readFlights(string &filename) {
     ifstream flightFile(filename);
     string number, originOfFLight, destinationOfFlight;
@@ -40,6 +57,9 @@ void FlightManager::readFlights(string &filename) {
     }
 }
 
+/**
+ * @brief shows the flights and their information to the users
+ */
 void FlightManager::showFlights() {
     for (Flight &flight: flights) {
         cout << flight <<  endl;
