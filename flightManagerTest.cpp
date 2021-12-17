@@ -2,7 +2,7 @@
 #include "airportSystem/flightManager.h"
 
 using namespace std;
-
+/*
 int main() {
     string filename = "flights.txt";
     FlightManager flightManager;
@@ -23,4 +23,4 @@ int main() {
     flightManager.showFlights();
 
     return 0;
-}
+}*/

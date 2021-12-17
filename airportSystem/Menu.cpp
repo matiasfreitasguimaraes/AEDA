@@ -10,7 +10,7 @@ int Menu::run() {
         option = intInput(0, 3);
         switch (option) {
             case 1:
-
+                option = runAdminMenu();
                 break;
             case 2:
 
@@ -20,6 +20,28 @@ int Menu::run() {
                 break;
             case 0:
                 return 0;
+        }
+    } while (option == -1);
+    return 0;
+}
+
+int Menu::runAdminMenu() {
+    int option = -1;
+    do {
+        printf("%s", adminMenu);
+        option = intInput(0, 3);
+        switch (option) {
+            case 1:
+                printf("implement plane manager");
+                break;
+            case 2:
+                printf("implement flight manager");
+                break;
+            case 3:
+                printf("implement passenger manager");
+                break;
+            case 0:
+                return -1;
         }
     } while (option == -1);
     return 0;
