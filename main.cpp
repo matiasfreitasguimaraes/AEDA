@@ -5,6 +5,7 @@
 #include "airportSystem/luggageCar.h"
 #include "airportSystem/airport.h"
 #include "airportSystem/dateTime.h"
+#include "airportSystem/Menu.h"
 
 using namespace std;
 
@@ -93,5 +94,9 @@ int main() {
 
     readInputData(planesAndFlights);
     readLuggageCarsDate(luggageCarsDate, airport);
+
+    Menu menu = Menu();
+    menu.run();
+
     return 0;
 }
