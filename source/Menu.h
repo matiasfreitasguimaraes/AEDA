@@ -16,6 +16,7 @@ using namespace std;
 class Menu {
 private:
     airportManager airportM = airportManager();
+    FlightManager flightM;
     /*  a bit about option variable: option is an int which will vary between -2 and the maximum option code.
     the meanings of the -2, -1 and 0 options are:
     -2: invalid input, repeat the method loop until get a valid input
@@ -72,6 +73,7 @@ public:
     Menu();
     int getOption();
     void setOption(int opt);
+    void listFlights();
     int run();
     int runAdminMenu();
     int runAirportManagerMenu();
