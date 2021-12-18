@@ -1,11 +1,11 @@
 #include <iostream>
 
-#include "airportSystem/plane.h"
-#include "airportSystem/flight.h"
-#include "airportSystem/luggageCar.h"
-#include "airportSystem/airport.h"
-#include "airportSystem/dateTime.h"
-#include "airportSystem/Menu.h"
+#include "source/objects/plane.h"
+#include "source/objects/flight.h"
+#include "source/objects/luggageCar.h"
+#include "source/objects/airport.h"
+#include "source/objects/dateTime.h"
+#include "source/Menu.h"
 
 using namespace std;
 
@@ -73,6 +73,7 @@ void readInputData(const string &filename) {
  * @param filename file containing the luggage cars' information
  * @param a instance of Airport
  */
+ /*
 void readLuggageCarsDate(const string &filename, Airport &a) {
     ifstream file(filename, ios::in);
     unsigned numberOfCarriages, numberOfPiles, numberOfSuitcasesPerPile;
@@ -82,7 +83,7 @@ void readLuggageCarsDate(const string &filename, Airport &a) {
         LuggageCar car(numberOfCarriages, numberOfPiles, numberOfSuitcasesPerPile);
         a.addLuggageCar(car);
     }
-}
+}*/
 
 
 int main() {
@@ -93,7 +94,7 @@ int main() {
     Airport airport = Airport(airportName);
 
     readInputData(planesAndFlights);
-    readLuggageCarsDate(luggageCarsDate, airport);
+    //readLuggageCarsDate(luggageCarsDate, airport);
 
     Menu menu = Menu();
     do {

@@ -45,3 +45,11 @@ ostream& operator<<(ostream& out, const LuggageCar car) {
     out << "Car's free slots: " << car.getNumberOfFreeSlots() << endl;
     return out;
 }
+
+/**
+ * @param car instance of LuggageCar
+ * @return the car with lower capacity
+ */
+bool LuggageCar::operator<(const LuggageCar &car) {
+    return this->carCapacity < car.carCapacity;
+}

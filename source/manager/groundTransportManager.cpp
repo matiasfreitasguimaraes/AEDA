@@ -1,15 +1,19 @@
 #include "groundTransportManager.h"
 
+/**
+ * @brief reads the information related to the ground transports close to an airport
+ * @param groundFile file containing the information related to the ground transports
+ */
 void GroundTransportManager::read(ifstream &groundFile) {
     if (groundFile.is_open()) {
-        printf("Susccefully opened input file!\n");
+        printf("Successfully opened input file!\n");
         string type;
         double airDis;
         set<DateTime> sched;
-        unsigned int hour, min, i;
+        unsigned hour, min, numberOfTransportSchedules;
         while (!groundFile.eof()) {
-            groundFile >> type >> airDis >> i;
-            for (unsigned int j = 0; j < i; ++j) {
+            groundFile >> type >> airDis >> numberOfTransportSchedules;
+            for (unsigned int j = 0; j < numberOfTransportSchedules; ++j) {
                 groundFile >> hour >> min;
                 sched.insert(DateTime(hour,min));
                 myTransport.insert(GroundTransport(type, sched, airDis));
@@ -17,7 +21,6 @@ void GroundTransportManager::read(ifstream &groundFile) {
             sched.clear();
         }
     } else {
-        printf("Couldnt read file input.\n");
+        printf("Couldn't read file input.\n");
     }
-    return myTransport;
 }

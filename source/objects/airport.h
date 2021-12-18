@@ -13,7 +13,7 @@ private:
     std::set<GroundTransport> groundTransportBST;
     // vector<LuggageCar> luggageCars;
 public:
-    Airport(string name);
+    Airport(string airportName);
     int addGT(GroundTransport GT);
     int removeGT(GroundTransport GT);
     int editGT(GroundTransport GT);

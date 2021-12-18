@@ -38,7 +38,7 @@ void FlightManager::remove(Flight flightToRemove) {
  */
 void FlightManager::read(ifstream &flightFile) {
     if (flightFile.is_open()) {
-        printf("Susccefully opened input file!\n");
+        printf("Successfully opened input file!\n");
         string number;
         DateTime arrive , departure;
         unsigned int hour, min, year, month, day, id;
@@ -53,7 +53,7 @@ void FlightManager::read(ifstream &flightFile) {
             add(Flight(number, arrive, departure, origin, destiny, id));
         }
     } else {
-        printf("Couldnt read file input.\n");
+        printf("Couldn't read file input.\n");
     }
 }
 

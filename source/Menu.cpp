@@ -16,10 +16,8 @@ int Menu::run() {
             case 1:
                 return runAdminMenu();
             case 2:
-
                 break;
             case 3:
-
                 break;
             case 0:
                 return 0;

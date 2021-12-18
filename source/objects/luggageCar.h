@@ -22,6 +22,7 @@ public:
     unsigned getNumberOfFreeSlots() const;
     bool carIsFull();
     friend ostream& operator<<(ostream& out, const LuggageCar &car);
+    bool operator<(const LuggageCar &car);
 };
 
 #endif //AEDAPROJECT_LUGGAGECAR_H
