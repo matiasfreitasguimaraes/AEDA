@@ -5,7 +5,7 @@
 #include "source/objects/luggageCar.h"
 #include "source/objects/airport.h"
 #include "source/objects/dateTime.h"
-#include "source/Menu.h"
+#include "source/menu.h"
 
 using namespace std;
 
@@ -96,7 +96,7 @@ int main() {
     readInputData(planesAndFlights);
     //readLuggageCarsDate(luggageCarsDate, airport);
 
-    Menu menu = Menu();
+    menu menu = menu();
     do {
         menu.setOption(menu.run());
     } while (menu.getOption() == -1);

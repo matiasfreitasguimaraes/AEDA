@@ -1,6 +1,6 @@
-#include "Menu.h"
+#include "menu.h"
 
-Menu::Menu() {
+menu::menu() {
     cout << menuTutorial;
 }
 
@@ -8,7 +8,7 @@ Menu::Menu() {
  * @brief runs the starting menu
  * @return
  */
-int Menu::run() {
+int menu::run() {
     cout << startingMenu;
     option = intInput(0, 3);
     switch (option) {
@@ -30,7 +30,7 @@ int Menu::run() {
  * @brief runs the menu with the administrator options
  * @return
  */
-int Menu::runAdminMenu() {
+int menu::runAdminMenu() {
     cout << adminMenu;
     option = intInput(0, 3);
     switch (option) {
@@ -56,7 +56,7 @@ int Menu::runAdminMenu() {
  * @brief runs the menu for the management of the airport
  * @return
  */
-int Menu::runAirportManagerMenu() {
+int menu::runAirportManagerMenu() {
     string input;
     cout << airportManagerMenu;
     option = intInput(0, 5);
@@ -110,7 +110,7 @@ int Menu::runAirportManagerMenu() {
     return 0;
 }
 
-int Menu::runAirportEditingMenu(Airport airport) {
+int menu::runAirportEditingMenu(Airport airport) {
     string input;
     cout << airportEditingMenu;
     option = intInput(0, 3);
@@ -138,7 +138,7 @@ int Menu::runAirportEditingMenu(Airport airport) {
  * @param max maximum integer possible for the input
  * @return
  */
-int Menu::intInput(int min, int max) {
+int menu::intInput(int min, int max) {
     string input;
     int output;
     do {
@@ -163,7 +163,7 @@ int Menu::intInput(int min, int max) {
 /**
  * @return the option chosen by the user
  */
-int Menu::getOption() {
+int menu::getOption() {
     return option;
 }
 
@@ -171,11 +171,11 @@ int Menu::getOption() {
  * @brief changes the option chosen
  * @param opt new option
  */
-void Menu::setOption(int opt) {
+void menu::setOption(int opt) {
     this->option = opt;
 }
 
-void Menu::wait() {
+void menu::wait() {
     cout << "Press any key to continue.\n";
     cin. ignore(99999999,'\n');
     cin.get();
