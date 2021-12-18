@@ -46,3 +46,12 @@ void MaintenanceServiceManager::write(ofstream &file) {
         file << service.getType() << " " << service.getDate() << " " << service.getResponsible() << endl;
     }
 }
+
+/**
+ * @brief prints all the services and their information
+ */
+void MaintenanceServiceManager::show() {
+    for (MaintenanceService service: maintenanceServices) {
+        cout << service << endl;
+    }
+}

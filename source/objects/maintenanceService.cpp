@@ -30,7 +30,7 @@ string MaintenanceService::getResponsible() const {
  * @param maintenanceService instance of maintenanceService
  * @return all the information related to the service
  */
-ostream& operator<<(ostream &out, MaintenanceService &maintenanceService) {
+ostream& operator<<(ostream &out, const MaintenanceService &maintenanceService) {
     out << "Maintenance type: " << maintenanceService.getType() << endl;
     out << "Date: " << maintenanceService.getDate() << endl;
     out << "Responsible employee: " << maintenanceService.getResponsible() << endl;

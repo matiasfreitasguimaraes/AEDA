@@ -39,7 +39,7 @@ bool LuggageCar::carIsFull() {
  * @param car instance of LuggageCar
  * @return all the car information
  */
-ostream& operator<<(ostream& out, const LuggageCar car) {
+ostream& operator<<(ostream& out, const LuggageCar &car) {
     out << "Car's capacity: " << car.getCarTotalCapacity() << endl;
     out << "Car's number of occupied slots: " << car.getNumberOfOccupiedSlots() << endl;
     out << "Car's free slots: " << car.getNumberOfFreeSlots() << endl;
@@ -50,7 +50,7 @@ ostream& operator<<(ostream& out, const LuggageCar car) {
  * @param car instance of LuggageCar
  * @return the car with lower capacity
  */
-bool LuggageCar::operator<(const LuggageCar &car) {
+bool LuggageCar::operator<(const LuggageCar &car) const {
     return this->carCapacity < car.carCapacity;
 }
 
@@ -75,4 +75,25 @@ void LuggageCar::addLuggage(Luggage &luggage) {
     } else {
         cout << "Luggage car is full \n";
     }
+}
+
+/**
+ * @return the number of carriages of a luggage car
+ */
+unsigned int LuggageCar::getNumberOfCarriages() const {
+    return numberOfCarriages;
+}
+
+/**
+ * @return the number of piles of a luggage car
+ */
+unsigned int LuggageCar::getNumberOfPiles() const {
+    return numberOfPiles;
+}
+
+/**
+ * @return the number of suitcases per pile of a luggage car
+ */
+unsigned int LuggageCar::getNumberOfSuitcasesPerPile() const {
+    return numberOfSuitcasesPerPile;
 }
