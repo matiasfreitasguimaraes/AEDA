@@ -74,7 +74,7 @@ void airportManager::read() {
                 newGT.addToSchedule(DateTime(hour, minute));
             }
             newAirport.addGT(newGT);
-            airports.insert(newAirport);
         }
+        airports.insert(newAirport);
     }
 }
