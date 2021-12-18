@@ -64,7 +64,7 @@ int Menu::runAirportManagerMenu() {
     option = intInput(0, 5, invalidInput);
     switch (option) {
         case 1:
-            cout << "yet to implement";
+            airportM.read()
             break;
         case 3:
             cout << "What will be it's name?\n";

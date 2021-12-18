@@ -39,7 +39,8 @@ set<Airport>& airportManager::getAirports() {
     return airports;
 }
 
-void airportManager::write(ofstream &file) {
+void airportManager::write() {
+    ofstream file;
     file.open("airports.txt");
     for (Airport airport : airports) {
         file << airport.getName() << "\n";
@@ -55,7 +56,8 @@ void airportManager::write(ofstream &file) {
     }
 }
 
-void airportManager::read(ifstream &airportFile) {
+void airportManager::read() {
+    ifstream airportFile;
     airportFile.open("airports.txt");
     string airportName, GTName, GTType;
     int schedSize, GTBSTSize, airDis, hour, minute;
