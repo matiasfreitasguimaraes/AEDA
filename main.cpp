@@ -88,8 +88,9 @@ void readLuggageCarsDate(const string &filename, Airport &a) {
 int main() {
     const string planesAndFlights = "input.txt";
     const string luggageCarsDate = "luggageCars.txt";
+    string airportName = "airport name";
 
-    Airport airport = Airport();
+    Airport airport = Airport(airportName);
 
     readInputData(planesAndFlights);
     readLuggageCarsDate(luggageCarsDate, airport);

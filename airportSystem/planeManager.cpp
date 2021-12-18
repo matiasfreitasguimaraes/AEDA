@@ -1,11 +1,12 @@
-//
-// Created by Matias Freitas Guimarães on 17/12/2021.
-//
-
 #include "planeManager.h"
+
+/**
+ * @brief reads the information of the planes from a file
+ * @param planeFile the file containing the planes' information
+ */
 void PlaneManager::readPlanes(ifstream& planeFile) {
     if (planeFile.is_open()) {
-        printf("Susccefully opened input file!\n");
+        cout << "Successfully opened input file!\n";
         int capacity;
         string type;
         string regis;
@@ -22,12 +23,15 @@ void PlaneManager::readPlanes(ifstream& planeFile) {
             }
         }
     } else {
-        printf("Couldnt read file input.\n");
+        cout << "Couldn't read file input.\n";
     }
 }
 
+/**
+ * @brief writes the changes made to a file
+ * @param file file to save the changes
+ */
 void PlaneManager::writeToFile(ostream &file) {
-
     for (Plane plane: myPlanes) {
         file << plane.getRegis() << " " << plane.getCapacity() << " "
         << plane.getPlaneType() << " " << plane.getId();

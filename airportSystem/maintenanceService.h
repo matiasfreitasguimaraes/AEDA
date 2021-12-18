@@ -7,11 +7,6 @@
 
 using namespace std;
 
-/*
- * i'm opting here for creating the attributes as constants thinking about how an object of this
- * class will keep data from things that has already happened, because we can't, for example, change
- * the responsible for a completed service.
- */
 class MaintenanceService {
 private:
     string type;

@@ -34,16 +34,14 @@ public:
     void setListOfFlights(vector<Flight> flights);
     void addPastService(MaintenanceService &service);
     void addScheduledService(MaintenanceService &scheduledService);
+    unsigned int getId() const;
+    void setId(unsigned int id);
     friend ostream& operator<<(ostream &out,const Plane &plane);
 
     bool operator<(const Plane &rhs) const;
     bool operator>(const Plane &rhs) const;
     bool operator<=(const Plane &rhs) const;
     bool operator>=(const Plane &rhs) const;
-
-    unsigned int getId() const;
-
-    void setId(unsigned int id);
 };
 
 

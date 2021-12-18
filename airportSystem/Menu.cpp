@@ -4,6 +4,10 @@ Menu::Menu() {
     cout << menuTutorial;
 }
 
+/**
+ * @brief runs the starting menu
+ * @return
+ */
 int Menu::run() {
     cout << startingMenu;
     do {
@@ -24,6 +28,10 @@ int Menu::run() {
     return -1;
 }
 
+/**
+ * @brief runs the menu with the administrator options
+ * @return
+ */
 int Menu::runAdminMenu() {
     cout << adminMenu;
     do {
@@ -47,10 +55,19 @@ int Menu::runAdminMenu() {
     return -1;
 }
 
+/**
+ * @brief runs the menu for the management of the airport
+ * @return
+ */
 int Menu::runAirportManagerMenu() {
-
+    return 0;
 }
 
+/**
+ * @param min minimum integer possible for the input
+ * @param max maximum integer possible for the input
+ * @return
+ */
 int Menu::intInput(int min, int max) {
     string input;
     int output;
@@ -71,10 +88,17 @@ int Menu::intInput(int min, int max) {
     return output;
 }
 
+/**
+ * @return the option chosen by the user
+ */
 int Menu::getOption() {
     return option;
 }
 
+/**
+ * @brief changes the option chosen
+ * @param opt new option
+ */
 void Menu::setOption(int opt) {
     this->option = opt;
 }

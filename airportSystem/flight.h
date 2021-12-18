@@ -35,13 +35,9 @@ public:
     void buyTicket(Passenger &passenger);
     friend ostream& operator<<(ostream &out, const Flight &flight);
     bool operator==(const Flight &flight);
-
     bool operator<(const Flight &rhs) const;
-
     bool operator>(const Flight &rhs) const;
-
     bool operator<=(const Flight &rhs) const;
-
     bool operator>=(const Flight &rhs) const;
 };
 

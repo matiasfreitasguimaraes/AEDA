@@ -96,6 +96,9 @@ bool Flight::operator==(const Flight &flight) {
     );
 }
 
+/**
+ * @return the flight's id
+ */
 unsigned int Flight::getFlightId() const {
     return id;
 }

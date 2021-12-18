@@ -1,14 +1,9 @@
-//
-// Created by jpdat on 16/12/21.
-//
-
 #include "reader.h"
-
 
 set<Plane> Reader::readPlanes(ifstream& planeFile) {
     set<Plane> myPlanes;
     if (planeFile.is_open()) {
-        printf("Susccefully opened input file!\n");
+        printf("Successfully opened input file!\n");
         int capacity;
         string type;
         string regis;
@@ -25,7 +20,7 @@ set<Plane> Reader::readPlanes(ifstream& planeFile) {
             }
         }
     } else {
-        printf("Couldnt read file input.\n");
+        printf("Couldn't read file input.\n");
     }
     return myPlanes;
 }

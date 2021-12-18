@@ -69,6 +69,9 @@ bool GroundTransport::operator==(const GroundTransport &rhs) const {
     return this->name == rhs.name;
 }
 
+/**
+ * @return the transport's name
+ */
 string GroundTransport::getName() const {
     return name;
 }

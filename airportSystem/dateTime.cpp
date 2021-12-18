@@ -1,5 +1,7 @@
 #include "dateTime.h"
 
+DateTime::DateTime() {}
+
 DateTime::DateTime(unsigned int h, unsigned int min) : year(0), month(0), day(0), hour(h), minute(min){}
 
 DateTime::DateTime(unsigned int y, unsigned int mon, unsigned int d) : year(y), month(mon), day(d), hour(0), minute(0) {}
@@ -82,8 +84,6 @@ bool DateTime::operator<=(const DateTime &rhs) const {
 bool DateTime::operator>=(const DateTime &rhs) const {
     return !(*this < rhs);
 }
-
-DateTime::DateTime() {}
 
 bool DateTime::operator==(const DateTime &rhs) const {
     return year == rhs.year &&

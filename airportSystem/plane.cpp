@@ -93,7 +93,10 @@ queue<MaintenanceService> Plane::getScheduledServices() const {
 
 unsigned Plane::instances = 0;
 
-
+/**
+ * @brief updates the list of flights of a plane
+ * @param flights the new list of flights
+ */
 void Plane::setListOfFlights(vector<Flight> flights) {
     this->listOfFlights = flights;
 }
@@ -114,6 +117,9 @@ bool Plane::operator>=(const Plane &rhs) const {
     return !(*this < rhs);
 }
 
+/**
+ * @return the plane's id
+ */
 unsigned int Plane::getId() const {
     return id;
 }
