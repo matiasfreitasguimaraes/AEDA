@@ -10,15 +10,17 @@ Menu::Menu() {
  */
 int Menu::run() {
     cout << startingMenu;
-    option = intInput(0, 3);
+    option = intInput(0, 3, invalidInput);
     switch (option) {
         case 1:
             do {
             } while (runAdminMenu() == 0);
             break;
         case 2:
+            //listar voos disponiveis
             break;
         case 3:
+            //
             break;
         case 0:
             return 1;
@@ -32,7 +34,7 @@ int Menu::run() {
  */
 int Menu::runAdminMenu() {
     cout << adminMenu;
-    option = intInput(0, 3);
+    option = intInput(0, 3, invalidInput);
     switch (option) {
         case 1:
             cout << "yet to implement";
@@ -59,7 +61,7 @@ int Menu::runAdminMenu() {
 int Menu::runAirportManagerMenu() {
     string input;
     cout << airportManagerMenu;
-    option = intInput(0, 5);
+    option = intInput(0, 5, invalidInput);
     switch (option) {
         case 1:
             cout << "yet to implement";
@@ -89,10 +91,12 @@ int Menu::runAirportManagerMenu() {
 
             break;
         case 5:
-            cout << "Which airport's transport services you want to edit?";
+            cout << "Which airport's transport services you want to edit?\n";
             cin >> input;
             if (airportM.findAirport(Airport(input))) {
-
+                do {
+                } while (runAirportEditingMenu(airportM.getAirports(), input) == 0);
+                break;
             } else {
                 cout << "Couldn't find that airport... Maybe you had a typo in the name?\n"
                         "Remember, it's case-sensitive\n";
@@ -110,22 +114,82 @@ int Menu::runAirportManagerMenu() {
     return 0;
 }
 
-int Menu::runAirportEditingMenu(Airport airport) {
-    string input;
-    airport.getName();
+int Menu::runAirportEditingMenu(set<Airport> &airports, string airportName) {
+    Airport airport = *airports.find(Airport(airportName));
+    string input, name, type;
+    double airDis;
     cout << airportEditingMenu;
-    option = intInput(0, 3);
+    option = intInput(0, 4, invalidInput);
     switch (option) {
         case 1:
+            airport.showGTs();
+            wait();
+            break;
+        case 2:
+            cout << "From which transport service you want to operate the schedule?\n";
+            cin >> input;
+            if (airport.findGT(input)) {
+                /*
+                 * do {
+                } while (runScheduleOptionsMenu(airport.getGT(input)) == 0);
+                 */
+                break;
+            } else {
+                cout << "Couldn't find a transport service with that name. Maybe you want to check their names?\n"
+                        "Remember, they are case-sensitive.\n";
+            }
+            break;
+        case 3:
+            cout << "Which will be the transport's station name?\n";
+            cin >> name;
+            if (airport.findGT(name)) {
+                cout << "Ops, seems like that name is already in use!\n";
+            } else {
+                cout << "And what is its type?\n";
+                cin >> type;
+                if (type != "Bus" && type != "Subway" && type != "Train") {
+                    cout << "That doesn't seem like a valid transport type.\n";
+                } else {
+                    cout << "And how far is it from the airport? (in meters)\n";
+                    airDis = intInput(0, 10000, tooFarAway);
+                    airport.addGT(GroundTransport(name, type, airDis));
+                    airports.erase(airports.find(Airport(airportName)));
+                    airports.insert(airport);
+                }
+            }
 
+            break;
+        case 4:
+
+            break;
+        case 0:
+            return 1;
+    }
+    if (option == -1)
+        return -1;
+    return 0;
+}
+
+int Menu::runScheduleOptionsMenu(set<DateTime> &GTSchedule) {
+    string input;
+    cout << scheduleOptionsMenu;
+    option = intInput(0, 3, std::string());
+    switch (option) {
+        case 1:
+            int hour, minute;
+            cout << "At what time is the new departure scheduled for?\n"
+                    "Hours: ";
+            hour = intInput(0, 24, std::string());
+            cout << "Minutes: ";
+            minute = intInput(0, 60, std::string());
+            if (hour == -1 || minute == -1)
+                option = -1;
+            GTSchedule.insert(DateTime(hour, minute));
             break;
         case 2:
 
             break;
         case 3:
-
-            break;
-        case 0:
 
             break;
     }
@@ -139,7 +203,7 @@ int Menu::runAirportEditingMenu(Airport airport) {
  * @param max maximum integer possible for the input
  * @return
  */
-int Menu::intInput(int min, int max) {
+int Menu::intInput(int min, int max, string errorMessage) {
     string input;
     int output;
     do {
@@ -150,11 +214,11 @@ int Menu::intInput(int min, int max) {
         try {
             output = stoi(input);
         } catch (invalid_argument &e) {
-            cout << invalidInput;
+            cout << errorMessage;
             output = -2;
         }
         if (output < min || output > max) {
-            cout << invalidInput;
+            cout << errorMessage;
             output = 0;
         }
     } while (output == -2);

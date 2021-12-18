@@ -55,12 +55,18 @@ private:
                                       "0 - Return\n";
     const string airportEditingMenu = "What do you want to do?\n"
                                       "1 - Show nearby transports\n"
-                                      "2 - Add a nearby transport\n"
-                                      "3 - Remove a nearby transport\n"
+                                      "2 - Schedule options per service\n"
+                                      "3 - Add a nearby transport\n"
+                                      "4 - Remove a nearby transport\n"
                                       "0 - Return\n";
+    const string scheduleOptionsMenu = "Schedule options:\n"
+                                       "1 - Add scheduled departure\n"
+                                       "2 - Remove scheduled departure\n"
+                                       "3 - Show scheduled departures\n";
     /*
      * invalid input message to be exhibited
      */
+    const string tooFarAway = "This seems a little bit too far to be registered in this airport.\n";
     constexpr static const char* invalidInput = "That doesn't seem like a valid input... Care to try again?\n";
 public:
     Menu();
@@ -69,8 +75,9 @@ public:
     int run();
     int runAdminMenu();
     int runAirportManagerMenu();
-    int runAirportEditingMenu(Airport airport);
-    static int intInput(int min, int max);
+    int runScheduleOptionsMenu(set<DateTime> &GTSchedule);
+    int runAirportEditingMenu(set<Airport> &airports, string airportName);
+    static int intInput(int min, int max, string errorMessage);
     void wait();
 };
 

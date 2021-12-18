@@ -12,13 +12,18 @@
 using namespace std;
 
 class GroundTransport {
-     string type;
-     double airportDistance;
-     set<DateTime> schedule;
+    string name;
+    string type;
+    unsigned airportDistance;
+    set<DateTime> schedule;
 public:
-    GroundTransport(string typeName, set<DateTime> sched, double airDis);
+    GroundTransport(string itsName, string typeName, set<DateTime> sched, unsigned airDis);
+    GroundTransport(string itsName);
+    GroundTransport(string itsName, string itsType, unsigned airDis);
+    string getName() const;
     string getType() const;
-    double getAirportDistance() const;
+    unsigned getAirportDistance() const;
+    void showSched();
     void addToSchedule(DateTime newDate);
     void removeFromSchedule(DateTime date);
     friend ostream& operator<<(ostream &out, const GroundTransport &groundTransport);

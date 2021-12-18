@@ -6,7 +6,7 @@ void GroundTransportManager::read(ifstream &groundFile) {
     if (groundFile.is_open()) {
         printf("Susccefully opened input file!\n");
         string type;
-        double airDis;
+        unsigned int airDis;
         set<DateTime> sched;
         unsigned int hour, min, i;
         while (!groundFile.eof()) {
@@ -14,7 +14,7 @@ void GroundTransportManager::read(ifstream &groundFile) {
             for (unsigned int j = 0; j < i; ++j) {
                 groundFile >> hour >> min;
                 sched.insert(DateTime(hour,min));
-                myTransport.insert(GroundTransport(type, sched, airDis));
+                myTransport.insert(GroundTransport(type, type, airDis));
             }
             sched.clear();
         }

@@ -1,8 +1,7 @@
 #include "groundTransport.h"
 
-GroundTransport::GroundTransport(string typeName, set<DateTime> sched, double airDis)
-    : type(typeName), airportDistance(airDis), schedule(sched) {}
-
+GroundTransport::GroundTransport(string itsName, string typeName, set<DateTime> sched, unsigned airDis)
+    : name(itsName), type(typeName), airportDistance(airDis), schedule(sched) {}
 /**
  * @return the type of ground transport
  */
@@ -10,10 +9,14 @@ string GroundTransport::getType() const {
     return this->type;
 }
 
+GroundTransport::GroundTransport(string itsName) : name(itsName) {}
+
+GroundTransport::GroundTransport(string itsName, string itsType, unsigned airDis) : name(itsName), type(itsType), airportDistance(airDis) {}
+
 /**
  * @return the distance from the airport to the ground transport
  */
-double GroundTransport::getAirportDistance() const {
+unsigned GroundTransport::getAirportDistance() const {
     return this->airportDistance;
 }
 
@@ -66,5 +69,19 @@ bool GroundTransport::operator>=(const GroundTransport &rhs) const {
 }
 
 bool GroundTransport::operator==(const GroundTransport &rhs) const {
-    return (this->airportDistance == rhs.airportDistance) && (this->type == rhs.type);
+    return this->name == rhs.getName();
+}
+
+string GroundTransport::getName() const {
+    return this->name;
+}
+
+void GroundTransport::showSched() {
+    if (schedule.empty()) {
+        cout << "Seems like there's no schedule registered for this transport service.\n";;
+    } else {
+        for (DateTime time : schedule) {
+            cout << "- " << time.getHour() << ":" << time.getMinute() << "\n";
+        }
+    }
 }

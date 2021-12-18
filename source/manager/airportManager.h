@@ -18,6 +18,7 @@ public:
     int remove(Airport airportToRemove);
     void listAirports();
     bool findAirport(Airport airport);
+    set<Airport>& getAirports();
 };
 
 

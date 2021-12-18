@@ -14,9 +14,11 @@ private:
     // vector<LuggageCar> luggageCars;
 public:
     Airport(string airportName);
-    int addGT(GroundTransport GT);
+    void addGT(GroundTransport GT);
     int removeGT(GroundTransport GT);
+    bool findGT(string GTName);
     void showGTs();
+    GroundTransport getGT(string name);
     string getName();
     bool operator<(const Airport &rhs) const;
     bool operator==(const Airport &rhs) const;

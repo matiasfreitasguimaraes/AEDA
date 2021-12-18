@@ -33,3 +33,7 @@ void airportManager::listAirports() {
 bool airportManager::findAirport(Airport airport) {
     return (airports.find(airport) != airports.end());
 }
+
+set<Airport>& airportManager::getAirports() {
+    return airports;
+}
