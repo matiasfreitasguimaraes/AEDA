@@ -13,7 +13,7 @@
 
 using namespace std;
 
-class menu {
+class Menu {
 private:
     airportManager airportM = airportManager();
     /*  a bit about option variable: option is an int which will vary between -2 and the maximum option code.
@@ -63,7 +63,7 @@ private:
      */
     constexpr static const char* invalidInput = "That doesn't seem like a valid input... Care to try again?\n";
 public:
-    menu();
+    Menu();
     int getOption();
     void setOption(int opt);
     int run();
