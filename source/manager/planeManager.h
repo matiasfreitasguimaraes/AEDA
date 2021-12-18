@@ -6,7 +6,6 @@
 #define FLIGHTTEST_PLANEMANAGER_H
 #include <set>
 #include "../objects/plane.h"
-#include "manager.h"
 
 class PlaneManager  {
 private:
@@ -15,7 +14,7 @@ public:
     void read(ifstream& planeFile);
     void add(Plane newPlane);
     void remove(Plane planeToRemove);
-    void show() override;
+    void show();
     void write(ostream &file);
 };
 

@@ -1,11 +1,9 @@
-#include "airportSystem/groundTransport.h"
-
+#include "../source/objects/groundTransport.h"
+#include "../source/manager/groundTransportManager.h"
 
 int main() {
-    Reader myRead;
-    ifstream fileG("ground.txt");
-    set<GroundTransport> listGroundTransport = myRead.readGroundTransport(fileG);
-    for (GroundTransport ground:listGroundTransport) {
-        cout << ground;
-    }
+    GroundTransportManager manageGround;
+    ifstream fileG("./input/ground.txt");
+    manageGround.read(fileG);
+    manageGround.show();
 }
