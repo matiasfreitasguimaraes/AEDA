@@ -36,3 +36,7 @@ ostream& operator<<(ostream &out, MaintenanceService &maintenanceService) {
     out << "Responsible employee: " << maintenanceService.getResponsible() << endl;
     return out;
 }
+
+bool MaintenanceService::operator<(const MaintenanceService &service) const {
+    return date < service.getDate();
+}

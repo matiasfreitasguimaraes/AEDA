@@ -1,10 +1,21 @@
-#ifndef FLIGHTTEST_MAINTENANCESERVICEMANAGER_H
-#define FLIGHTTEST_MAINTENANCESERVICEMANAGER_H
+#ifndef AEDAPROJECT_MAINTENANCESERVICEMANAGER_H
+#define AEDAPROJECT_MAINTENANCESERVICEMANAGER_H
 
+#include "../objects/maintenanceService.h"
 
-class maintenanceServiceManager {
+#include <set>
+#include <fstream>
 
+class MaintenanceServiceManager {
+private:
+    set<MaintenanceService> maintenanceServices;
+public:
+    void read(ifstream &file);
+    void add(MaintenanceService service);
+    void remove(MaintenanceService serviceToRemove);
+    void write(ofstream &file);
+    void show();
 };
 
 
-#endif //FLIGHTTEST_MAINTENANCESERVICEMANAGER_H
+#endif //AEDAPROJECT_MAINTENANCESERVICEMANAGER_H
