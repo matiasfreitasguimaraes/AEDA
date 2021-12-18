@@ -19,3 +19,17 @@ int airportManager::remove(Airport airportToRemove) {
     airports.erase(airports.find(airportToRemove));
     return 1;
 }
+
+void airportManager::listAirports() {
+    if (airports.empty()) {
+        cout << "Weird... Not a single airport found. Maybe you want to add some.\n";
+    } else {
+        for (Airport airport : airports) {
+            cout << "- " << airport.getName() << '\n';
+        }
+    }
+}
+
+bool airportManager::findAirport(Airport airport) {
+    return (airports.find(airport) != airports.end());
+}

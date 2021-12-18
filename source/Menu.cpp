@@ -10,19 +10,19 @@ Menu::Menu() {
  */
 int Menu::run() {
     cout << startingMenu;
-    do {
-        option = intInput(0, 3);
-        switch (option) {
-            case 1:
-                return runAdminMenu();
-            case 2:
-                break;
-            case 3:
-                break;
-            case 0:
-                return 0;
-        }
-    } while (option == -2);
+    option = intInput(0, 3);
+    switch (option) {
+        case 1:
+            do {
+            } while (runAdminMenu() == 0);
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+        case 0:
+            return 1;
+    }
     return -1;
 }
 
@@ -32,25 +32,24 @@ int Menu::run() {
  */
 int Menu::runAdminMenu() {
     cout << adminMenu;
-    do {
-        option = intInput(0, 3);
-        if (option == -1)
-            return -1;
-        switch (option) {
-            case 1:
-                cout << "yet to implement";
-                break;
-            case 2:
-                cout << "yet to implement";
-                break;
-            case 3:
-
-                break;
-            case 0:
-                return -1;
-        }
-    } while (option == -2);
-    return -1;
+    option = intInput(0, 3);
+    switch (option) {
+        case 1:
+            cout << "yet to implement";
+            break;
+        case 2:
+            cout << "yet to implement";
+            break;
+        case 3:
+            do {
+            } while (runAirportManagerMenu() == 0);
+            break;
+        case 0:
+            return 1;
+    }
+    if (option == -1)
+        return -1;
+    return 0;
 }
 
 /**
@@ -58,41 +57,80 @@ int Menu::runAdminMenu() {
  * @return
  */
 int Menu::runAirportManagerMenu() {
-    airportManager manager = airportManager();
     string input;
     cout << airportManagerMenu;
-    do {
-        option = intInput(0, 5);
-        if (option == -1)
-            return -1;
-        switch (option) {
-            case 1:
-                cout << "yet to implement";
-                break;
-            case 2:
-                cout << "What will be it's name?\n";
-                cin >> input;
-                if (manager.add(Airport(input)) == 1) {
-                    cout << "Airport added succesfully!\n";
-                } else {
-                    cout << "Couldn't add airport... Maybe it's name is already being used?\n";
-                }
-                option = -2;
-                break;
-            case 3:
+    option = intInput(0, 5);
+    switch (option) {
+        case 1:
+            cout << "yet to implement";
+            break;
+        case 3:
+            cout << "What will be it's name?\n";
+            cin >> input;
+            if (airportM.add(Airport(input)) == 1) {
+                cout << "Airport added succesfully!\n";
+            } else {
+                cout << "Couldn't add airport... Maybe it's name is already being used?\n";
+            }
+            wait();
+            break;
+        case 4:
+            cout << "What's the name of the airport you want to remove?\n";
+            cin >> input;
+            if (airportM.remove(Airport(input)) == 1) {
+                cout << "Airport removed succesfully!\n";
+            } else {
+                cout << "Couldn't remove airport... Maybe you had a typo in the name?\n"
+                        "Remember, it's case-sensitive\n";
+            }
+            wait();
+            break;
+        case 6:
 
-                break;
-            case 4:
+            break;
+        case 5:
+            cout << "Which airport's transport services you want to edit?";
+            cin >> input;
+            if (airportM.findAirport(Airport(input))) {
 
-                break;
-            case 5:
+            } else {
+                cout << "Couldn't find that airport... Maybe you had a typo in the name?\n"
+                        "Remember, it's case-sensitive\n";
+            }
+            break;
+        case 2:
+            airportM.listAirports();
+            wait();
+            break;
+        case 0:
+            return 1;
+    }
+    if (option == -1)
+        return -1;
+    return 0;
+}
 
-                break;
-            case 0:
-                return -1;
-        }
-    } while (option == -2);
-    return -1;
+int Menu::runAirportEditingMenu(Airport airport) {
+    string input;
+    cout << airportEditingMenu;
+    option = intInput(0, 3);
+    switch (option) {
+        case 1:
+
+            break;
+        case 2:
+
+            break;
+        case 3:
+
+            break;
+        case 0:
+
+            break;
+    }
+    if (option == -1)
+        return -1;
+    return 0;
 }
 
 /**
@@ -116,7 +154,7 @@ int Menu::intInput(int min, int max) {
         }
         if (output < min || output > max) {
             cout << invalidInput;
-            output = -2;
+            output = 0;
         }
     } while (output == -2);
     return output;
@@ -137,9 +175,8 @@ void Menu::setOption(int opt) {
     this->option = opt;
 }
 
-int Menu::tryAgain() {
-    cout << "Want to try again?\n"
-            "1 - Sure"
-            "0 - No";
-    return intInput(0, 1);
+void Menu::wait() {
+    cout << "Press any key to continue.\n";
+    cin. ignore(99999999,'\n');
+    cin.get();
 }

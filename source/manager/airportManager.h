@@ -16,6 +16,8 @@ public:
     void write(ostream &file);
     int add(Airport newAirport);
     int remove(Airport airportToRemove);
+    void listAirports();
+    bool findAirport(Airport airport);
 };
 
 

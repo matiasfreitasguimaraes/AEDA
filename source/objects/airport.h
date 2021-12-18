@@ -9,15 +9,15 @@
 
 class Airport {
 private:
-    string name;
+    const string name;
     std::set<GroundTransport> groundTransportBST;
     // vector<LuggageCar> luggageCars;
 public:
     Airport(string airportName);
     int addGT(GroundTransport GT);
     int removeGT(GroundTransport GT);
-    int editGT(GroundTransport GT);
     void showGTs();
+    string getName();
     bool operator<(const Airport &rhs) const;
     bool operator==(const Airport &rhs) const;
     // void addLuggageCar(LuggageCar &car);

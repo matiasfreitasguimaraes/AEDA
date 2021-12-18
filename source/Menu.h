@@ -15,6 +15,7 @@ using namespace std;
 
 class Menu {
 private:
+    airportManager airportM = airportManager();
     /*  a bit about option variable: option is an int which will vary between -2 and the maximum option code.
     the meanings of the -2, -1 and 0 options are:
     -2: invalid input, repeat the method loop until get a valid input
@@ -46,10 +47,16 @@ private:
                                   "0 - Return\n";
     const string airportManagerMenu = "Airport Manager:\n"
                                       "1 - Load airports\n"
-                                      "2 - Add airport\n"
-                                      "3 - Remove airport\n"
-                                      "4 - Edit airport\n"
-                                      "5 - Save changes\n"
+                                      "2 - List airports\n"
+                                      "3 - Add airport\n"
+                                      "4 - Remove airport\n"
+                                      "5 - Manage transport services per airport\n"
+                                      "6 - Save changes\n"
+                                      "0 - Return\n";
+    const string airportEditingMenu = "What do you want to do?\n"
+                                      "1 - Show nearby transports\n"
+                                      "2 - Add a nearby transport\n"
+                                      "3 - Remove a nearby transport\n"
                                       "0 - Return\n";
     /*
      * invalid input message to be exhibited
@@ -62,8 +69,9 @@ public:
     int run();
     int runAdminMenu();
     int runAirportManagerMenu();
+    int runAirportEditingMenu(Airport airport);
     static int intInput(int min, int max);
-    int tryAgain();
+    void wait();
 };
 
 

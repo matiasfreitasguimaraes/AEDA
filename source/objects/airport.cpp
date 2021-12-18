@@ -1,7 +1,9 @@
 #include "airport.h"
 
-Airport::Airport(string airportName) {
-    this->name = airportName;
+Airport::Airport(string airportName) : name(airportName) {}
+
+string Airport::getName() {
+    return this->name;
 }
 
 bool Airport::operator<(const Airport &rhs) const {
