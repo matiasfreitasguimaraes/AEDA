@@ -12,7 +12,7 @@ using namespace std;
 
 class Menu {
 private:
-    /*a bit about option variable: option is an int which will vary between -2 and the maximum option code.
+    /*  a bit about option variable: option is an int which will vary between -2 and the maximum option code.
     the meanings of the -2, -1 and 0 options are:
     -2: invalid input, repeat the method loop until get a valid input
     -1: return to starting menu, the run() method.
@@ -31,7 +31,7 @@ private:
      */
     const string startingMenu = "Welcome to AEDA Airlines menu.\n"
                                      "1 - Admin options\n"
-                                     "2 - Buy Ticket\n"
+                                     "2 - List flights\n"
                                      "3 - Transport's informations by Airport\n"
                                      "0 - Exit\n";
     /*
@@ -54,31 +54,12 @@ private:
      */
     constexpr static const char* invalidInput = "That doesn't seem like a valid input... Care to try again?\n";
 public:
-    /*
-     * constructor, it only sends tutorial message to cout and instanciates a menu.
-     */
     Menu();
-    /*
-     * getter for option variable
-     */
     int getOption();
-    /*
-     * setter for option variable
-     */
     void setOption(int opt);
-    /*
-     * the starting method of the menu, first run that encapsulates all other menu functionalities.
-     */
     int run();
-    /*
-     * the admin menu method, encapsulated by the general run method, runs through admin functionalities.
-     */
     int runAdminMenu();
     int runAirportManagerMenu();
-    /*
-     * a tester for valid integer inputs between a minimum and maximum value. Inputing -1 on it will always return -1, due to
-     * the return to main menu feature. Made static so it can be used by the manager objects as well.
-     */
     static int intInput(int min, int max);
 };
 

@@ -1,7 +1,3 @@
-//
-// Created by Matias Freitas Guimarães on 17/12/2021.
-//
-
 #include "groundTransportManager.h"
 
 void GroundTransportManager::readGroundTransport(ifstream &groundFile) {
