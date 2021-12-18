@@ -66,5 +66,5 @@ bool GroundTransport::operator>=(const GroundTransport &rhs) const {
 }
 
 bool GroundTransport::operator==(const GroundTransport &rhs) const {
-    return this->type == rhs.type && this->airportDistance == rhs.airportDistance;
+    return (this->airportDistance == rhs.airportDistance) && (this->type == rhs.type);
 }

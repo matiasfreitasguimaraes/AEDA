@@ -3,9 +3,12 @@
 
 #include <iostream>
 #include <string>
-#include "objects/plane.h"
 #include <fstream>
 #include <sstream>
+
+#include "manager/flightManager.h"
+#include "manager/airportManager.h"
+#include "objects/plane.h"
 #include "objects/airport.h"
 #include "../source/manager/airportManager.h"
 
@@ -17,22 +20,22 @@ private:
     the meanings of the -2, -1 and 0 options are:
     -2: invalid input, repeat the method loop until get a valid input
     -1: return to starting menu, the run() method.
-     0: the end code, meaning the run method has ended it's job succesfully.
+     0: the end code, meaning the run method has ended its job successfully.
     */
     int option = 0;
     /*
-     * tutorial message exhibited only once in program runthrough, namely sent to cout in constructor method.
+     * tutorial message exhibited only once in program run-through, namely sent to cout in constructor method.
      */
     const string menuTutorial = "Welcome to the AEDA Airport services interface\n"
                                 "Navigate through the options by typing the corresponding option code.\n"
-                                "You can come back to the starting menu anytime by inputing -1.\n";
+                                "You can come back to the starting menu anytime by inputting -1.\n";
     /*
      * starting menu message and options to be exhibited
      */
     const string startingMenu = "Welcome to AEDA Airlines menu.\n"
                                      "1 - Admin options\n"
                                      "2 - List flights\n"
-                                     "3 - Transport's informations by Airport\n"
+                                     "3 - Transports' information by Airport\n"
                                      "0 - Exit\n";
     /*
      * admin menu message and options to be exhibited

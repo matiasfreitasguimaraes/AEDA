@@ -1,11 +1,11 @@
 #include <iostream>
 
-#include "../AEDA/source/objects/plane.h"
-#include "../AEDA/source/objects/flight.h"
-#include "../AEDA/source/objects/luggageCar.h"
-#include "../AEDA/source/objects/airport.h"
-#include "../AEDA/source/objects/dateTime.h"
-#include "../AEDA/source/Menu.h"
+#include "source/objects/plane.h"
+#include "source/objects/flight.h"
+#include "source/objects/luggageCar.h"
+#include "source/objects/airport.h"
+#include "source/objects/dateTime.h"
+#include "source/Menu.h"
 
 using namespace std;
 
@@ -73,7 +73,7 @@ void readInputData(const string &filename) {
  * @param filename file containing the luggage cars' information
  * @param a instance of Airport
  */
-/*
+ /*
 void readLuggageCarsDate(const string &filename, Airport &a) {
     ifstream file(filename, ios::in);
     unsigned numberOfCarriages, numberOfPiles, numberOfSuitcasesPerPile;
@@ -81,21 +81,21 @@ void readLuggageCarsDate(const string &filename, Airport &a) {
     while (!file.eof()) {
         file >> numberOfCarriages >> numberOfPiles >> numberOfSuitcasesPerPile;
         LuggageCar car(numberOfCarriages, numberOfPiles, numberOfSuitcasesPerPile);
-        //a.addLuggageCar(car);
+        a.addLuggageCar(car);
     }
 }*/
 
 
 int main() {
-    /*const string planesAndFlights = "input.txt";
+    const string planesAndFlights = "input.txt";
     const string luggageCarsDate = "luggageCars.txt";
     string airportName = "airport name";
 
     Airport airport = Airport(airportName);
 
     readInputData(planesAndFlights);
-    readLuggageCarsDate(luggageCarsDate, airport);
-*/
+    //readLuggageCarsDate(luggageCarsDate, airport);
+
     Menu menu = Menu();
     do {
         menu.setOption(menu.run());
