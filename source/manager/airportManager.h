@@ -1,14 +1,11 @@
 //
-// Created by Matias Freitas Guimarães on 18/12/2021.
+// Created by jpdat on 18/12/21.
 //
 
-#ifndef FLIGHTTEST_AIRPORTMANANGER_H
-#define FLIGHTTEST_AIRPORTMANANGER_H
+#ifndef FLIGHTTEST_AIRPORTMANAGER_H
+#define FLIGHTTEST_AIRPORTMANAGER_H
 
 #include "../objects/airport.h"
-#include <iostream>
-#include <fstream>
-
 
 class airportManager {
 private:
@@ -22,4 +19,4 @@ public:
 };
 
 
-#endif //FLIGHTTEST_AIRPORTMANANGER_H
+#endif //FLIGHTTEST_AIRPORTMANAGER_H

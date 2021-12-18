@@ -18,6 +18,8 @@ public:
     int removeGT(GroundTransport GT);
     int editGT(GroundTransport GT);
     void showGTs();
+    bool operator<(const Airport &rhs) const;
+    bool operator==(const Airport &rhs) const;
     // void addLuggageCar(LuggageCar &car);
 };
 
