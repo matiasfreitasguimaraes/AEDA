@@ -10,7 +10,6 @@
 #include "manager/airportManager.h"
 #include "objects/plane.h"
 #include "objects/airport.h"
-#include "../source/manager/airportManager.h"
 
 using namespace std;
 

@@ -11,6 +11,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
 project(AEDAProject)
 
 add_executable(AEDAProject main.cpp
+        source/manager/airportManager.cpp source/manager/airportManager.h
         source/objects/airport.cpp source/objects/airport.h
         source/objects/flight.cpp source/objects/flight.h
         source/objects/maintenanceService.cpp source/objects/maintenanceService.h
@@ -22,7 +23,7 @@ add_executable(AEDAProject main.cpp
         source/objects/luggageCar.h source/objects/luggageCar.cpp
         source/objects/globalVariables.cpp source/objects/globalVariables.h
         source/Menu.cpp source/Menu.h source/manager/flightManager.h
-        source/manager/flightManager.cpp source/manager/luggageCarManager.cpp source/manager/luggageCarManager.h source/manager/maintenanceServiceManager.cpp source/manager/maintenanceServiceManager.h source/manager/ticketManager.cpp source/manager/ticketManager.h source/manager/airportManager.cpp source/manager/groundTransportManager.cpp source/manager/passengerManager.cpp source/manager/passengerManager.h)
+        source/manager/flightManager.cpp source/manager/luggageCarManager.cpp source/manager/luggageCarManager.h source/manager/maintenanceServiceManager.cpp source/manager/maintenanceServiceManager.h source/manager/ticketManager.cpp source/manager/ticketManager.h source/manager/groundTransportManager.cpp source/manager/passengerManager.cpp source/manager/passengerManager.h)
 
 # Doxygen Build
 find_package(Doxygen)
