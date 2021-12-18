@@ -60,7 +60,41 @@ int Menu::runAdminMenu() {
  * @return
  */
 int Menu::runAirportManagerMenu() {
-    return 0;
+    airportManager manager = airportManager();
+    string input;
+    cout << airportManagerMenu;
+    do {
+        option = intInput(0, 5);
+        if (option == -1)
+            return -1;
+        switch (option) {
+            case 1:
+                cout << "yet to implement";
+                break;
+            case 2:
+                cout << "What will be it's name?\n";
+                cin >> input;
+                if (manager.add(Airport(input)) == 1) {
+                    cout << "Airport added succesfully!\n";
+                } else {
+                    cout << "Couldn't add airport... Maybe it's name is already being used?\n";
+                }
+                option = -2;
+                break;
+            case 3:
+
+                break;
+            case 4:
+
+                break;
+            case 5:
+
+                break;
+            case 0:
+                return -1;
+        }
+    } while (option == -2);
+    return -1;
 }
 
 /**
@@ -71,20 +105,22 @@ int Menu::runAirportManagerMenu() {
 int Menu::intInput(int min, int max) {
     string input;
     int output;
-    cin >> input;
-    if (input == "-1") {
-        return -1;
-    }
-    try {
-        output = stoi(input);
-    } catch (invalid_argument &e) {
-        cout << invalidInput;
-        return -2;
-    }
-    if (output < min || output > max) {
-        cout << invalidInput;
-        return -2;
-    }
+    do {
+        cin >> input;
+        if (input == "-1") {
+            return -1;
+        }
+        try {
+            output = stoi(input);
+        } catch (invalid_argument &e) {
+            cout << invalidInput;
+            output = -2;
+        }
+        if (output < min || output > max) {
+            cout << invalidInput;
+            output = -2;
+        }
+    } while (output == -2);
     return output;
 }
 
@@ -101,4 +137,11 @@ int Menu::getOption() {
  */
 void Menu::setOption(int opt) {
     this->option = opt;
+}
+
+int Menu::tryAgain() {
+    cout << "Want to try again?\n"
+            "1 - Sure"
+            "0 - No";
+    return intInput(0, 1);
 }

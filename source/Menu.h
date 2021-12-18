@@ -7,6 +7,7 @@
 #include <fstream>
 #include <sstream>
 #include "objects/airport.h"
+#include "../source/manager/airportManager.h"
 
 using namespace std;
 
@@ -19,7 +20,6 @@ private:
      0: the end code, meaning the run method has ended it's job succesfully.
     */
     int option = 0;
-    vector<Airport> airports;
     /*
      * tutorial message exhibited only once in program runthrough, namely sent to cout in constructor method.
      */
@@ -61,6 +61,7 @@ public:
     int runAdminMenu();
     int runAirportManagerMenu();
     static int intInput(int min, int max);
+    int tryAgain();
 };
 
 

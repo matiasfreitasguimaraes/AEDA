@@ -6,19 +6,19 @@
 #include "luggageCar.h"
 #include "groundTransport.h"
 #include <map>
+#include "../manager/groundTransportManager.h"
 
 class Airport {
 private:
-    string name;
-    std::set<GroundTransport> groundTransportBST;
-    // vector<LuggageCar> luggageCars;
+    const string name;
+    set<LuggageCar> luggageCars;
+    set<GroundTransport> closeTransports;
 public:
-    Airport(string name);
-    int addGT(GroundTransport GT);
-    int removeGT(GroundTransport GT);
-    int editGT(GroundTransport GT);
-    void showGTs();
-    // void addLuggageCar(LuggageCar &car);
+    Airport(string itsName);
+    void addLuggageCar(LuggageCar lugCar);
+    int addTransport(GroundTransport newGT);
+    int removeTransport(GroundTransport GTToRemove);
+    void showTransports();
 };
 
 

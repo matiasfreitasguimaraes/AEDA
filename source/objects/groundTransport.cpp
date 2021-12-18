@@ -1,7 +1,7 @@
 #include "groundTransport.h"
 
-GroundTransport::GroundTransport(string itsName, string typeName, set<DateTime> sched, double airDis)
-    : name(itsName), type(typeName), airportDistance(airDis), schedule(sched) {}
+GroundTransport::GroundTransport(string typeName, set<DateTime> sched, double airDis)
+    : type(typeName), airportDistance(airDis), schedule(sched) {}
 
 /**
  * @return the type of ground transport
@@ -66,9 +66,5 @@ bool GroundTransport::operator>=(const GroundTransport &rhs) const {
 }
 
 bool GroundTransport::operator==(const GroundTransport &rhs) const {
-    return this->name == rhs.name;
-}
-
-string GroundTransport::getName() const {
-    return name;
+    return this->type == rhs.type && this->airportDistance == rhs.airportDistance;
 }

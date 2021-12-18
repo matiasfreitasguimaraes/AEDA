@@ -1,6 +1,8 @@
 #include "airport.h"
 
-/*void Airport::addLuggageCar(LuggageCar &car) {
-    luggageCars.push_back(car);
+Airport::Airport(string itsName) : name(itsName) {}
+
+/*void Airport::addLuggageCar(LuggageCar lugCar) {
+    luggageCars.insert(lugCar);
 }*/
 

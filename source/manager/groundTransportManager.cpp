@@ -1,5 +1,7 @@
 #include "groundTransportManager.h"
 
+GroundTransportManager::GroundTransportManager() {}
+
 void GroundTransportManager::read(ifstream &groundFile) {
     if (groundFile.is_open()) {
         printf("Susccefully opened input file!\n");
@@ -17,7 +19,28 @@ void GroundTransportManager::read(ifstream &groundFile) {
             sched.clear();
         }
     } else {
-        printf("Couldnt read file input.\n");
+        printf("Couldn't read input file.\n");
     }
+}
+
+int GroundTransportManager::add(GroundTransport newGround) {
+    if (myTransport.find(newGround) != myTransport.end())
+        return 0;
+    myTransport.insert(newGround);
+    return 1;
+}
+
+int GroundTransportManager::remove(GroundTransport groundToRemove) {
+    if (myTransport.find(groundToRemove) == myTransport.end())
+        return 0;
+    myTransport.erase(myTransport.find(groundToRemove));
+    return 1;
+}
+
+void GroundTransportManager::showSched() {
+
+}
+
+set<GroundTransport> GroundTransportManager::getMyTransport() {
     return myTransport;
 }
