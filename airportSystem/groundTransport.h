@@ -12,12 +12,14 @@
 using namespace std;
 
 class GroundTransport {
-    string type;
-    double airportDistance;
+    const string name;
+    const string type;
+    const double airportDistance;
     set<DateTime> schedule;
 public:
-    GroundTransport(string typeName, set<DateTime> sched, double airDis);
+    GroundTransport(string itsName, string typeName, set<DateTime> sched, double airDis);
     string getType() const;
+    string getName() const;
     double getAirportDistance() const;
     void addToSchedule(DateTime newDate);
     void removeFromSchedule(DateTime date);
@@ -30,6 +32,8 @@ public:
     bool operator<=(const GroundTransport &rhs) const;
 
     bool operator>=(const GroundTransport &rhs) const;
+
+    bool operator==(const GroundTransport &rhs) const;
 
 };
 

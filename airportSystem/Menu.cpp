@@ -27,7 +27,7 @@ int Menu::run() {
 int Menu::runAdminMenu() {
     cout << adminMenu;
     do {
-        option = intInput(0, 4);
+        option = intInput(0, 3);
         if (option == -1)
             return -1;
         switch (option) {
@@ -38,16 +38,17 @@ int Menu::runAdminMenu() {
                 cout << "yet to implement";
                 break;
             case 3:
-                cout << "yet to implement";
-                break;
-            case 4:
-                cout << "yet to implement";
+
                 break;
             case 0:
                 return -1;
         }
     } while (option == -2);
     return -1;
+}
+
+int Menu::runAirportManagerMenu() {
+
 }
 
 int Menu::intInput(int min, int max) {

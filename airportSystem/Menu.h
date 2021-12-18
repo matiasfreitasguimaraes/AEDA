@@ -7,6 +7,7 @@
 #include "reader.h"
 #include <fstream>
 #include <sstream>
+#include "airport.h"
 
 using namespace std;
 
@@ -19,6 +20,7 @@ private:
      0: the end code, meaning the run method has ended it's job succesfully.
     */
     int option = 0;
+    vector<Airport> airports;
     /*
      * tutorial message exhibited only once in program runthrough, namely sent to cout in constructor method.
      */
@@ -31,17 +33,23 @@ private:
     const string startingMenu = "Welcome to AEDA Airlines menu.\n"
                                      "1 - Admin options\n"
                                      "2 - Buy Ticket\n"
-                                     "3 - Airport transports' information\n"
+                                     "3 - Transport's informations by Airport\n"
                                      "0 - Exit\n";
     /*
      * admin menu message and options to be exhibited
      */
-    const string adminMenu = "Welcome to the Administrator functions.\n"
+    const string adminMenu = "Administrator functions:\n"
                                   "1 - Plane manager\n"
                                   "2 - Flight manager\n"
-                                  "3 - Passenger manager\n"
-                                  "4 - Airport manager\n"
+                                  "3 - Airport manager\n"
                                   "0 - Return\n";
+    const string airportManagerMenu = "Airport Manager:\n"
+                                      "1 - Load airports\n"
+                                      "2 - Add airport\n"
+                                      "3 - Remove airport\n"
+                                      "4 - Edit airport\n"
+                                      "5 - Save changes\n"
+                                      "0 - Return\n";
     /*
      * invalid input message to be exhibited
      */
@@ -67,6 +75,7 @@ public:
      * the admin menu method, encapsulated by the general run method, runs through admin functionalities.
      */
     int runAdminMenu();
+    int runAirportManagerMenu();
     /*
      * a tester for valid integer inputs between a minimum and maximum value. Inputing -1 on it will always return -1, due to
      * the return to main menu feature. Made static so it can be used by the manager objects as well.

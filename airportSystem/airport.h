@@ -10,10 +10,15 @@
 class Airport {
 private:
     string name;
-    vector<LuggageCar> luggageCars;
-    std::set<GroundTransport> groundTransports;
+    std::set<GroundTransport> groundTransportBST;
+    // vector<LuggageCar> luggageCars;
 public:
-    void addLuggageCar(LuggageCar &car);
+    Airport(string name);
+    int addGT(GroundTransport GT);
+    int removeGT(GroundTransport GT);
+    int editGT(GroundTransport GT);
+    void showGTs();
+    // void addLuggageCar(LuggageCar &car);
 };
 
 

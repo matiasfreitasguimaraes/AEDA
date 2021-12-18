@@ -12,7 +12,6 @@ using namespace std;
 class FlightManager {
 private:
     set<Flight> flights;
-
 public:
     void writeToFile(ostream &file);
     void addFlight(Flight newFlight);
