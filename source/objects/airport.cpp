@@ -40,3 +40,7 @@ GroundTransport Airport::getGT(string GTName) {
 bool Airport::findGT(string GTName) {
     return groundTransportBST.find(GroundTransport(GTName)) != groundTransportBST.end();
 }
+
+set<GroundTransport> Airport::getGTBST() {
+    return groundTransportBST;
+}

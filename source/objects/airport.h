@@ -20,6 +20,7 @@ public:
     void showGTs();
     GroundTransport getGT(string name);
     string getName();
+    set<GroundTransport> getGTBST();
     bool operator<(const Airport &rhs) const;
     bool operator==(const Airport &rhs) const;
     // void addLuggageCar(LuggageCar &car);

@@ -85,3 +85,7 @@ void GroundTransport::showSched() {
         }
     }
 }
+
+set<DateTime> GroundTransport::getSchedule() {
+    return schedule;
+}

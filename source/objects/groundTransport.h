@@ -23,6 +23,7 @@ public:
     string getName() const;
     string getType() const;
     unsigned getAirportDistance() const;
+    set<DateTime> getSchedule();
     void showSched();
     void addToSchedule(DateTime newDate);
     void removeFromSchedule(DateTime date);

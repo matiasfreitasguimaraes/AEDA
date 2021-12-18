@@ -2,6 +2,7 @@
 // Created by jpdat on 18/12/21.
 //
 
+#include <fstream>
 #include "airportManager.h"
 
 airportManager::airportManager() {}
@@ -36,4 +37,42 @@ bool airportManager::findAirport(Airport airport) {
 
 set<Airport>& airportManager::getAirports() {
     return airports;
+}
+
+void airportManager::write(ofstream &file) {
+    file.open("airports.txt");
+    for (Airport airport : airports) {
+        file << airport.getName() << "\n";
+        file << airport.getGTBST().size();
+        for (GroundTransport GT : airport.getGTBST()) {
+            file << GT.getName() << "\n";
+            file << GT.getType() << " " << GT.getAirportDistance() << " " << GT.getSchedule().size() << "\n";
+            for (DateTime time : GT.getSchedule()) {
+                file << setw(2) << setfill('0') << time.getHour() << " " << setw(2) << setfill('0') << time.getMinute() << " ";
+            }
+            file << "\n";
+        }
+    }
+}
+
+void airportManager::read(ifstream &airportFile) {
+    airportFile.open("airports.txt");
+    string airportName, GTName, GTType;
+    int schedSize, GTBSTSize, airDis, hour, minute;
+    while (!airportFile.eof()) {
+        getline(airportFile, airportName);
+        Airport newAirport = Airport(airportName);
+        airportFile >> GTBSTSize;
+        for (int i = 0; i < GTBSTSize; i++) {
+            getline(airportFile, GTName);
+            airportFile >> GTType >> airDis >> schedSize;
+            GroundTransport newGT = GroundTransport(GTName, GTType, airDis);
+            for (int j = 0; j < schedSize; j++) {
+                airportFile >> hour >> minute;
+                newGT.addToSchedule(DateTime(hour, minute));
+            }
+            newAirport.addGT(newGT);
+            airports.insert(newAirport);
+        }
+    }
 }

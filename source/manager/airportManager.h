@@ -13,7 +13,7 @@ private:
 public:
     airportManager();
     void read(ifstream &airportFile);
-    void write(ostream &file);
+    void write(ofstream &file);
     int add(Airport newAirport);
     int remove(Airport airportToRemove);
     void listAirports();

@@ -157,7 +157,6 @@ int Menu::runAirportEditingMenu(set<Airport> &airports, string airportName) {
                     airports.insert(airport);
                 }
             }
-
             break;
         case 4:
 
