@@ -4,7 +4,6 @@
 #include <iostream>
 #include <string>
 #include "plane.h"
-#include "reader.h"
 #include <fstream>
 #include <sstream>
 #include "airport.h"
