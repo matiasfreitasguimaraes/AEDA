@@ -17,10 +17,10 @@ int Menu::run() {
             } while (runAdminMenu() == 0);
             break;
         case 2:
-            //listar voos disponiveis
+            listFlights();
             break;
         case 3:
-            //
+            // mostrar informaçoes dos transportes por aeroporto
             break;
         case 0:
             return 1;
@@ -70,7 +70,7 @@ int Menu::runAirportManagerMenu() {
             cout << "What will be it's name?\n";
             cin >> input;
             if (airportM.add(Airport(input)) == 1) {
-                cout << "Airport added succesfully!\n";
+                cout << "Airport added successfully!\n";
             } else {
                 cout << "Couldn't add airport... Maybe it's name is already being used?\n";
             }
@@ -244,4 +244,10 @@ void Menu::wait() {
     cout << "Press any key to continue.\n";
     cin. ignore(99999999,'\n');
     cin.get();
+}
+
+void Menu::listFlights() {
+    ifstream flightFile("input/flight.txt");
+    flightM.read(flightFile);
+    flightM.show();
 }
