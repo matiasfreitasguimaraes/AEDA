@@ -53,3 +53,26 @@ ostream& operator<<(ostream& out, const LuggageCar car) {
 bool LuggageCar::operator<(const LuggageCar &car) {
     return this->carCapacity < car.carCapacity;
 }
+
+/**
+ * TODO: keep track of the amount of luggage a passenger has
+ * @brief adds the passengers' luggage to a car
+ * @param luggage the passenger's luggage
+ */
+void LuggageCar::addLuggage(Luggage &luggage) {
+    if (trailers.size() < numberOfCarriages) {
+        auto trailer = trailers.back();
+        if (trailer.size() < numberOfPiles) {
+            auto pile = trailer.back();
+            if (pile.size() < numberOfSuitcasesPerPile) {
+                pile.push(luggage);
+            } else {
+                trailer.push(stack<Luggage>());
+            }
+        } else {
+            trailers.push(queue<stack<Luggage>>());
+        }
+    } else {
+        cout << "Luggage car is full \n";
+    }
+}
