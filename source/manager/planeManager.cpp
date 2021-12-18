@@ -4,7 +4,7 @@
  * @brief reads the information of the planes from a file
  * @param planeFile the file containing the planes' information
  */
-void PlaneManager::readPlanes(ifstream& planeFile) {
+void PlaneManager::read(ifstream& planeFile) {
     if (planeFile.is_open()) {
         cout << "Successfully opened input file!\n";
         int capacity;
@@ -31,7 +31,7 @@ void PlaneManager::readPlanes(ifstream& planeFile) {
  * @brief writes the changes made to a file
  * @param file file to save the changes
  */
-void PlaneManager::writeToFile(ostream &file) {
+void PlaneManager::write(ostream &file) {
     for (Plane plane: myPlanes) {
         file << plane.getRegis() << " " << plane.getCapacity() << " "
         << plane.getPlaneType() << " " << plane.getId();
@@ -43,7 +43,7 @@ void PlaneManager::writeToFile(ostream &file) {
  * @param newFlight flight to add
  * @param filename file to write the changes
  */
-void PlaneManager::addFlight(Plane newPlane) {
+void PlaneManager::add(Plane newPlane) {
     myPlanes.insert(newPlane);
 }
 
@@ -52,14 +52,14 @@ void PlaneManager::addFlight(Plane newPlane) {
  * @param flightToRemove flight to remove
  * @param filename file to write the changes
  */
-void PlaneManager::removeFlight(Plane planeToRemove) {
+void PlaneManager::remove(Plane planeToRemove) {
     this->myPlanes.erase(planeToRemove);
 }
 
 /**
  * @brief shows the flights and their information to the users
  */
-void PlaneManager::showPlanes() {
+void PlaneManager::show() {
     for (Plane plane: myPlanes) {
         cout << plane <<  endl;
     }

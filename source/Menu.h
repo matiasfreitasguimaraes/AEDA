@@ -3,10 +3,10 @@
 
 #include <iostream>
 #include <string>
-#include "plane.h"
+#include "objects/plane.h"
 #include <fstream>
 #include <sstream>
-#include "airport.h"
+#include "objects/airport.h"
 
 using namespace std;
 

@@ -6,7 +6,7 @@ using namespace std;
  * @brief writes the changes made in the flights to the file
  * @param filename the output file
  */
- void FlightManager::writeToFile(ostream &file) {
+ void FlightManager::write(ostream &file) {
     for (Flight flight: flights) {
         file << flight.getFlightId() << " " << flight.getNumberOfFlight() << " "
              << flight.getDepartureDate() << " " << flight.getArrivalDate()
@@ -19,7 +19,7 @@ using namespace std;
  * @param newFlight flight to add
  * @param filename file to write the changes
  */
-void FlightManager::addFlight(Flight newFlight) {
+void FlightManager::add(Flight newFlight) {
     flights.insert(newFlight);
 }
 
@@ -28,7 +28,7 @@ void FlightManager::addFlight(Flight newFlight) {
  * @param flightToRemove flight to remove
  * @param filename file to write the changes
  */
-void FlightManager::removeFlight(Flight flightToRemove) {
+void FlightManager::remove(Flight flightToRemove) {
     this->flights.erase(flightToRemove);
 }
 
@@ -36,7 +36,7 @@ void FlightManager::removeFlight(Flight flightToRemove) {
  * @brief reads the flights initially in a file
  * @param ostream to how the value
  */
-void FlightManager::readFlights(ifstream &flightFile) {
+void FlightManager::read(ifstream &flightFile) {
     if (flightFile.is_open()) {
         printf("Susccefully opened input file!\n");
         string number;
@@ -50,7 +50,7 @@ void FlightManager::readFlights(ifstream &flightFile) {
             flightFile >> day >> month >>  year >> hour >> min;
             departure = DateTime(year, month, day, hour, min);
             flightFile >> origin >> destiny >> id;
-            addFlight(Flight(number, arrive, departure, origin, destiny, id));
+            add(Flight(number, arrive, departure, origin, destiny, id));
         }
     } else {
         printf("Couldnt read file input.\n");
@@ -60,7 +60,7 @@ void FlightManager::readFlights(ifstream &flightFile) {
 /**
  * @brief shows the flights and their information to the users
  */
-void FlightManager::showFlights() {
+void FlightManager::show() {
     for (Flight flight: flights) {
         cout << flight <<  endl;
     }

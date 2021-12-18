@@ -1,6 +1,6 @@
 #include "groundTransportManager.h"
 
-void GroundTransportManager::readGroundTransport(ifstream &groundFile) {
+void GroundTransportManager::read(ifstream &groundFile) {
     if (groundFile.is_open()) {
         printf("Susccefully opened input file!\n");
         string type;

@@ -5,3 +5,5 @@
 *.exe
 /groundTest
 /DateTimeTest
+/planeTest
+/flightTest

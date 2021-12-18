@@ -1,10 +1,10 @@
-#include "airportSystem/flight.h"
-#include "airportSystem/flightManager.h"
+#include "../source/objects/flight.h"
+#include "../source/manager/flightManager.h"
 
 
 int main() {
     FlightManager manageFlight;
-    ifstream fileF("flight.txt");
-    manageFlight.readFlights(fileF);
-    manageFlight.showFlights();
+    ifstream fileF("./input/flight.txt");
+    manageFlight.read(fileF);
+    manageFlight.show();
 }

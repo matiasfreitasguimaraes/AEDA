@@ -1,5 +1,4 @@
-#include "airportSystem/groundTransport.h"
-#include "airportSystem/dateTime.h"
+#include "../source/objects/airport.h"
 
 
 int main() {

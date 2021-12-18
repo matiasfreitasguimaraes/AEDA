@@ -11,18 +11,18 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
 project(AEDAProject)
 
 add_executable(AEDAProject main.cpp
-        source/airport.cpp source/airport.h
-        source/flight.cpp source/flight.h
-        source/maintenanceService.cpp source/maintenanceService.h
-        source/passenger.cpp source/passenger.h
-        source/plane.cpp source/plane.h
-        source/ticket.cpp source/ticket.h
-        source/groundTransport.cpp source/groundTransport.h
-        source/dateTime.cpp source/dateTime.h
-        source/luggageCar.h source/luggageCar.cpp
-        source/globalVariables.cpp source/globalVariables.h
-        source/Menu.cpp source/Menu.h source/flightManager.h
-        source/flightManager.cpp source/manager.h)
+        source/objects/airport.cpp source/objects/airport.h
+        source/objects/flight.cpp source/objects/flight.h
+        source/objects/maintenanceService.cpp source/objects/maintenanceService.h
+        source/objects/passenger.cpp source/objects/passenger.h
+        source/objects/plane.cpp source/objects/plane.h
+        source/objects/ticket.cpp source/objects/ticket.h
+        source/objects/groundTransport.cpp source/objects/groundTransport.h
+        source/objects/dateTime.cpp source/objects/dateTime.h
+        source/objects/luggageCar.h source/objects/luggageCar.cpp
+        source/objects/globalVariables.cpp source/objects/globalVariables.h
+        source/Menu.cpp source/Menu.h source/manager/flightManager.h
+        source/manager/flightManager.cpp source/manager/luggageCarManager.cpp source/manager/luggageCarManager.h source/manager/maintenanceServiceManager.cpp source/manager/maintenanceServiceManager.h source/manager/ticketManager.cpp source/manager/ticketManager.h)
 
 # Doxygen Build
 find_package(Doxygen)
@@ -49,36 +49,36 @@ endif(DOXYGEN_FOUND)
 project(airportTest)
 
 add_executable(airportTest testers/testAirport.cpp
-        source/airport.cpp source/airport.h
-        source/dateTime.cpp source/dateTime.h
-        source/groundTransport.cpp source/groundTransport.h
-        source/flight.cpp source/flight.h
-        source/passenger.cpp source/passenger.h source/manager.h)
+        source/objects/airport.cpp source/objects/airport.h
+        source/objects/dateTime.cpp source/objects/dateTime.h
+        source/objects/groundTransport.cpp source/objects/groundTransport.h
+        source/objects/flight.cpp source/objects/flight.h
+        source/objects/passenger.cpp source/objects/passenger.h)
 
 project(planeTest)
 
 add_executable(planeTest testers/testPlane.cpp
-        source/groundTransport.cpp source/groundTransport.h
-        source/plane.cpp source/plane.h
-        source/dateTime.cpp source/dateTime.h
-        source/planeManager.cpp source/planeManager.h
-        source/flight.cpp source/flight.h source/manager.h)
+        source/objects/groundTransport.cpp source/objects/groundTransport.h
+        source/objects/plane.cpp source/objects/plane.h
+        source/objects/dateTime.cpp source/objects/dateTime.h
+        source/manager/planeManager.cpp source/manager/planeManager.h
+        source/objects/flight.cpp source/objects/flight.h)
 
 project(groundTest)
 
 add_executable(groundTest testers/testGroundTransport.cpp
-        source/groundTransport.cpp source/groundTransport.h
-        source/plane.cpp source/plane.h
-        source/dateTime.cpp source/dateTime.h
-        source/flight.cpp source/flight.h source/manager.h)
+        source/objects/groundTransport.cpp source/objects/groundTransport.h
+        source/objects/plane.cpp source/objects/plane.h
+        source/objects/dateTime.cpp source/objects/dateTime.h
+        source/objects/flight.cpp source/objects/flight.h)
 
 project(flightTest)
 
 add_executable(flightTest testers/testFlight.cpp
-        source/groundTransport.cpp source/groundTransport.h
-        source/plane.cpp source/plane.h
-        source/dateTime.cpp source/dateTime.h
-        source/flightManager.cpp source/flightManager.h
-        source/flight.cpp source/flight.h source/manager.h)
+        source/objects/groundTransport.cpp source/objects/groundTransport.h
+        source/objects/plane.cpp source/objects/plane.h
+        source/objects/dateTime.cpp source/objects/dateTime.h
+        source/manager/flightManager.cpp source/manager/flightManager.h
+        source/objects/flight.cpp source/objects/flight.h)
 
 

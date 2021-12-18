@@ -5,11 +5,11 @@
 #include <fstream>
 #include <set>
 
-#include "flight.h"
+#include "../objects/flight.h"
 
 using namespace std;
 
-class FlightManager {
+class FlightManager{
 private:
     set<Flight> flights;
 public:

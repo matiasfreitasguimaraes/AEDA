@@ -1,12 +1,11 @@
-#include "airportSystem/plane.h"
+#include "../source/objects/plane.h"
+#include "../source/manager/planeManager.h"
 
 
 
 int main() {
-    ifstream fileF("planes.txt");
+    ifstream fileF("./input/planes.txt");
     PlaneManager myRead;
-    myRead.readPlanes(fileF);
-    myRead.showPlanes();
-
-
+    myRead.read(fileF);
+    myRead.show();
 }
