@@ -5,8 +5,6 @@
 #include <fstream>
 #include "airportManager.h"
 
-airportManager::airportManager() {}
-
 int airportManager::add(Airport newAirport) {
     if (airports.find(newAirport) != airports.end())
         return 0;

@@ -23,13 +23,14 @@ int Menu::run() {
     cout << startingMenu;
     option = intInput(0, 4, invalidInput);
     switch (option) {
+        case 0:
+            return 1;
         case 1:
             do {
             } while (runAdminMenu() == 0);
             break;
         case 2:
-            listFlights();
-            wait();
+            listingMenu();
             break;
         case 3:
             if (airportM.get().empty()) {
@@ -78,8 +79,6 @@ int Menu::run() {
         case 4:
             buyTicket();
             break;
-        case 0:
-            return 1;
     }
     return -1;
 }
@@ -119,8 +118,14 @@ int Menu::runAirportManagerMenu() {
     cout << airportManagerMenu;
     option = intInput(0, 6, invalidInput);
     switch (option) {
+        case 0:
+            return 1;
         case 1:
 
+            break;
+        case 2:
+            airportM.show();
+            wait();
             break;
         case 3:
             cout << "What will be its name?\n";
@@ -143,8 +148,6 @@ int Menu::runAirportManagerMenu() {
             }
             wait();
             break;
-        case 6:
-            break;
         case 5:
             cout << "Which airport's transport services you want to edit?\n";
             cin >> input;
@@ -158,12 +161,8 @@ int Menu::runAirportManagerMenu() {
                 wait();
             }
             break;
-        case 2:
-            airportM.show();
-            wait();
+        case 6:
             break;
-        case 0:
-            return 1;
     }
     if (option == -1)
         return -1;
@@ -182,6 +181,8 @@ int Menu::runAirportEditingMenu(set<Airport> &airports, string airportName) {
     cout << airportEditingMenu;
     option = intInput(0, 4, invalidInput);
     switch (option) {
+        case 0:
+            return 1;
         case 1:
             airport.showGTs();
             wait();
@@ -222,8 +223,6 @@ int Menu::runAirportEditingMenu(set<Airport> &airports, string airportName) {
         case 4:
 
             break;
-        case 0:
-            return 1;
     }
     if (option == -1)
         return -1;
@@ -317,14 +316,6 @@ void Menu::wait() {
     cout << "Press any key to continue.\n";
     cin.ignore(99999999,'\n');
     cin.get();
-}
-
-/**
- * @brief lists all the flights' information
- */
-void Menu::listFlights() {
-
-    flightM.show();
 }
 
 /**
@@ -430,6 +421,65 @@ Menu::~Menu() {
     flightM.write(flightFileW);
     luggageM.write(luggageCarFileW);
     airportM.write(airportFileW);
+}
+
+/**
+ * @breif shows ground transports' information per airport
+ */
+void Menu::groundTransportInformationPerAirport() {
+    set<Airport> airports = airportM.get();
+    for (Airport airport: airports) {
+        airport.showGTs();
+    }
+}
+
+/**
+ * @brief menu providing options for the user to check the flights in a specific order
+ */
+void Menu::listingMenu() {
+    unsigned choice;
+    cout << "Choose a listing option:\n";
+    cout << "1 - Next flight to departure\n";
+    cout << "2 - First flight to arrive to its destination\n";
+    cout << "3 - Flight with the highest number of available tickets\n";
+
+    choice = intInput(0, 3, "Invalid option\n");
+    auto compare = [](const Flight &f1, const Flight &f2) { return f1.getDepartureDate() < f2.getDepartureDate(); };
+    auto compare2 = [](const Flight &f1, const Flight &f2) { return f1.getArrivalDate() < f2.getArrivalDate(); };
+    auto compare3 = [](const Flight &f1, const Flight &f2) {
+        return f1.getNumberOfTicketsBought() < f2.getNumberOfTicketsBought();
+    };
+    set<Flight, decltype(compare)> nextFlightToDeparture(compare);
+    set<Flight, decltype(compare2)> nextFlightToArrive(compare2);
+    set<Flight, decltype(compare3)> flightWithMoreTicketsAvailable(compare3);
+
+
+    switch (choice) {
+        case 1:
+            for (Flight flight: flightM.get()) {
+                nextFlightToDeparture.insert(flight);
+            }
+            for (Flight flight: nextFlightToDeparture) {
+                cout << flight << endl;
+            }
+            break;
+        case 2:
+            for (Flight flight: flightM.get()) {
+                nextFlightToArrive.insert(flight);
+            }
+            for (Flight flight: nextFlightToArrive)
+                cout << flight << endl;
+            break;
+        case 3:
+            for (Flight flight: flightM.get()) {
+                flightWithMoreTicketsAvailable.insert(flight);
+            }
+            for (Flight flight: flightWithMoreTicketsAvailable)
+                cout << flight << endl;
+            break;
+        default:
+            return;
+    }
 }
 
 int Menu::hourInput(int &hour, int &minute) {

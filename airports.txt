@@ -1,7 +1,0 @@
-blabla
-1
-matias
-Bus 200 0
-
-jorge
-0
