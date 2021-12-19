@@ -1,7 +1,7 @@
 #include "Menu.h"
 
-Menu::Menu(const string &planeFile, const string &flightFile, const string &luggageCarFile)
-        : planeFile(planeFile), flightFile(flightFile), luggageCarFile(luggageCarFile){
+Menu::Menu(const string &planeInput, const string &flightInput, const string &luggageCarInput)
+        : planeFile(planeInput), flightFile(flightInput), luggageCarFile(luggageCarInput){
     ifstream planeFileR(planeFile);
     ifstream luggageCarFileR(luggageCarFile);
     ifstream flightFileR(flightFile);

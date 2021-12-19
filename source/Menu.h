@@ -81,7 +81,7 @@ private:
     constexpr static const char* invalidInput = "That doesn't seem like a valid input... Care to try again?\n";
 public:
 
-    Menu(const string &planeFile, const string &flightFile, const string &luggageFile);
+    Menu(const string &planeInput, const string &flightInput, const string &luggageCarInput);
 
     ~Menu();
 
