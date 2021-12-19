@@ -155,6 +155,7 @@ int Menu::runAirportManagerMenu() {
             } else {
                 cout << "Couldn't find that airport... Maybe you had a typo in the name?\n"
                         "Remember, it's case-sensitive\n";
+                wait();
             }
             break;
         case 2:
