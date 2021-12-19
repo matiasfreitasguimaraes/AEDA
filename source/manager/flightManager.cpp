@@ -44,7 +44,6 @@ int FlightManager::add(Flight newFlight) {
         return 0;
     } else {
         flights.insert(newFlight);
-        cout << "flight inserido";
         return 1;
     }
 }

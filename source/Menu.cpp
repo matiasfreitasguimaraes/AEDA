@@ -375,15 +375,17 @@ void Menu::buyTicket() {
         cout << "Do you want automatic check-in in your luggage? (y/n)\n";
         cin >> choice;
         automaticCheckIn = choice == "y";
-        cout << "How many suitcases do you want to be automatic checked in?\n";
-        cin >> numberOfSuitcases;
 
-        Luggage passengerLuggage(passenger, automaticCheckIn, numberOfSuitcases);
-        if (addLuggageToLuggageCar(passengerLuggage))
-            cout << "Automatic check in authorized\n";
-        else
-            cout << "There are no slots available in any of the luggage cars\n";
+        if (automaticCheckIn) {
+            cout << "How many suitcases do you want to be automatic checked in?\n";
+            cin >> numberOfSuitcases;
 
+            Luggage passengerLuggage(passenger, automaticCheckIn, numberOfSuitcases);
+            if (addLuggageToLuggageCar(passengerLuggage))
+                cout << "Automatic check in authorized\n";
+            else
+                cout << "There are no slots available in any of the luggage cars\n";
+        }
     }
 }
 
@@ -540,33 +542,35 @@ int Menu::runFlightSetManagerMenu() {
         case 1:
             cout << "What will be it's flight code?\n";
             cin >> flightCode;
-            try {
-                cout << "When will be it's departure?\n";
-                departureDate = dateInput();
-                cout << "When will be it's arrival date?\n";
-                arrivalDate = dateInput();
-            } catch (inputMinusOne &e) {
-                return -1;
-            }
-            cout << "Where will it depart from?\n";
-            cin >> origin;
-            if (origin == "-1")
-                return -1;
-            cout << "What's its destination?\n";
-            cin >> destination;
-            if (destination == "-1")
-                return -1;
-            cout << "bota o id ai porra\n";
-            temp = intInput(0, 9999, "We only accept positive ID's lower than 9999\n");
-            if (temp == -1) {
-                return -1;
-            }
-            id = temp;
-            if (flightM.add(Flight(flightCode, departureDate, arrivalDate, origin, destination, id))) {
-                cout << "deu p adicionar sim sinho";
+            if (!flightM.find(Flight(flightCode))) {
+                try {
+                    cout << "When will be it's departure?\n";
+                    departureDate = dateInput();
+                    cout << "When will be it's arrival date?\n";
+                    arrivalDate = dateInput();
+                } catch (inputMinusOne &e) {
+                    return -1;
+                }
+                cout << "Where will it depart from?\n";
+                cin >> origin;
+                if (origin == "-1")
+                    return -1;
+                cout << "What's its destination?\n";
+                cin >> destination;
+                if (destination == "-1")
+                    return -1;
+                cout << "bota o id ai porra\n";
+                temp = intInput(0, 9999, "We only accept positive ID's lower than 9999\n");
+                if (temp == -1) {
+                    return -1;
+                }
+                id = temp;
+                flightM.add(Flight(flightCode, departureDate, arrivalDate, origin, destination, id));
+                cout << "Flight added successfully\n";
+                wait();
             } else {
-                cout << "Nao deu pra adicionar";
-                cout << "agora deu certo porra\n";
+                cout << "There's already a flight with that flight number\n";
+                wait();
             }
             break;
         case 2:

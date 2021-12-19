@@ -107,25 +107,13 @@ unsigned int Flight::getFlightId() const {
  * @return the flight with the lower number
  */
 bool Flight::operator<(const Flight &rhs) const {
-    if (numberOfFlight < rhs.numberOfFlight)
-        return true;
-    if (rhs.numberOfFlight < numberOfFlight)
-        return false;
-    if (departureDate < rhs.departureDate)
-        return true;
-    if (rhs.departureDate < departureDate)
-        return false;
-    if (arrivalDate < rhs.arrivalDate)
-        return true;
-    if (rhs.arrivalDate < arrivalDate)
-        return false;
-    if (origin < rhs.origin)
-        return true;
-    if (rhs.origin < origin)
-        return false;
-    return destination < rhs.destination;
+    return numberOfFlight < rhs.getNumberOfFlight();
 }
 
+/**
+ * @param rhs instance of Flight
+ * @return true if two flights have the same number, false otherwise
+ */
 bool Flight::operator==(const Flight &rhs) const {
-    return this->numberOfFlight == rhs.numberOfFlight;
+    return this->numberOfFlight == rhs.getNumberOfFlight();
 }

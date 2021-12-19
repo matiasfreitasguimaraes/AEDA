@@ -37,7 +37,6 @@ public:
     void updateBoughtTickets(int nTickets);
     friend ostream& operator<<(ostream &out, const Flight &flight);
     bool operator<(const Flight &rhs) const;
-
     bool operator==(const Flight &rhs) const;
 };
 
