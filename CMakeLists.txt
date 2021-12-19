@@ -58,7 +58,7 @@ add_executable(airportTest testers/testAirport.cpp
         source/objects/flight.cpp source/objects/flight.h
         source/objects/passenger.cpp source/objects/passenger.h
         testers/testLuggageCar.cpp testers/testMaintenanceService.cpp
-        testers/testPassenger.cpp testers/testTicket.cpp)
+        )
 
 project(planeTest)
 
