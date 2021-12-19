@@ -1,12 +1,14 @@
-//
-// Created by jpdat on 18/12/21.
-//
-
 #include <fstream>
+
 #include "airportManager.h"
 
 airportManager::airportManager() {}
 
+/**
+ * @brief adds a new airport if it not exists already
+ * @param newAirport the airport to be added
+ * @return 1 if successfully, 0 otherwise
+ */
 int airportManager::add(Airport newAirport) {
     if (airports.find(newAirport) != airports.end())
         return 0;
@@ -14,6 +16,11 @@ int airportManager::add(Airport newAirport) {
     return 1;
 }
 
+/**
+ * @brief removes an airport
+ * @param airportToRemove airport to be removed
+ * @return 1 if successfully, 0 otherwise
+ */
 int airportManager::remove(Airport airportToRemove) {
     if (airports.find(airportToRemove) == airports.end())
         return 0;
@@ -21,6 +28,9 @@ int airportManager::remove(Airport airportToRemove) {
     return 1;
 }
 
+/**
+ * @brief list all the airports' names
+ */
 void airportManager::listAirports() {
     if (airports.empty()) {
         cout << "Weird... Not a single airport found. Maybe you want to add some.\n";
@@ -31,15 +41,26 @@ void airportManager::listAirports() {
     }
 }
 
+/**
+ * @brief finds an airport
+ * @param airport the airport to be found
+ * @return true if found, false otherwise
+ */
 bool airportManager::findAirport(Airport airport) {
     return (airports.find(airport) != airports.end());
 }
 
+/**
+ * @return the set of airports
+ */
 set<Airport>& airportManager::getAirports() {
     return airports;
 }
 
-void airportManager::write() {
+/**
+ * @brief saves the changes made to a file
+ */
+void airportManager::write() { // TODO: passar ofstream por argumento
     ofstream file;
     file.open("airports.txt");
     for (Airport airport : airports) {
@@ -56,7 +77,10 @@ void airportManager::write() {
     }
 }
 
-void airportManager::read() {
+/**
+ * @brief reads the airports' information from a file
+ */
+void airportManager::read() { //TODO: passar o ifstream por argumento
     ifstream airportFile;
     airportFile.open("airports.txt");
     string airportName, GTName, GTType;

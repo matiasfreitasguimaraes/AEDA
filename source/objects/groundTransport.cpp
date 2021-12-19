@@ -2,16 +2,17 @@
 
 GroundTransport::GroundTransport(string itsName, string typeName, set<DateTime> sched, unsigned airDis)
     : name(itsName), type(typeName), airportDistance(airDis), schedule(sched) {}
+
+GroundTransport::GroundTransport(string itsName) : name(itsName) {}
+
+GroundTransport::GroundTransport(string itsName, string itsType, unsigned airDis) : name(itsName), type(itsType), airportDistance(airDis) {}
+
 /**
  * @return the type of ground transport
  */
 string GroundTransport::getType() const {
     return this->type;
 }
-
-GroundTransport::GroundTransport(string itsName) : name(itsName) {}
-
-GroundTransport::GroundTransport(string itsName, string itsType, unsigned airDis) : name(itsName), type(itsType), airportDistance(airDis) {}
 
 /**
  * @return the distance from the airport to the ground transport
@@ -52,6 +53,17 @@ ostream& operator<<(ostream &out, const GroundTransport &groundTransport) {
     return out;
 }
 
+/**
+ * @return the ground transport's name
+ */
+string GroundTransport::getName() const {
+    return this->name;
+}
+
+/**
+ * @param rhs instance of ground transport
+ * @return the ground transport closer to the airport
+ */
 bool GroundTransport::operator<(const GroundTransport &rhs) const {
     return airportDistance < rhs.airportDistance;
 }
@@ -72,10 +84,9 @@ bool GroundTransport::operator==(const GroundTransport &rhs) const {
     return this->name == rhs.getName();
 }
 
-string GroundTransport::getName() const {
-    return this->name;
-}
-
+/**
+ * @brief shows the ground transport's schedule
+ */
 void GroundTransport::showSched() {
     if (schedule.empty()) {
         cout << "Seems like there's no schedule registered for this transport service.\n";;
@@ -86,6 +97,9 @@ void GroundTransport::showSched() {
     }
 }
 
+/**
+ * @return the set of schedules
+ */
 set<DateTime> GroundTransport::getSchedule() {
     return schedule;
 }

@@ -73,6 +73,11 @@ set<Flight> FlightManager::getFlights() const {
     return flights;
 }
 
+/**
+ * @brief finds a flight by its number
+ * @param numberOfFlight the flight's number
+ * @return if found, return that flight, otherwise returns a flight with number = -1
+ */
 Flight FlightManager::findFlight(string numberOfFlight) {
     for (auto it = flights.begin(); it != flights.end(); it++) {
         if ((*it).getNumberOfFlight() == numberOfFlight)

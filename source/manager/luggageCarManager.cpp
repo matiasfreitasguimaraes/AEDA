@@ -53,6 +53,9 @@ void LuggageCarManager::show() {
     }
 }
 
+/**
+ * @return the set of luggage cars
+ */
 set<LuggageCar> LuggageCarManager::getLuggageCars() {
     return luggageCars;
 }

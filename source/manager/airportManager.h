@@ -1,9 +1,5 @@
-//
-// Created by jpdat on 18/12/21.
-//
-
-#ifndef FLIGHTTEST_AIRPORTMANAGER_H
-#define FLIGHTTEST_AIRPORTMANAGER_H
+#ifndef AEDAPROJECT_AIRPORTMANAGER_H
+#define AEDAPROJECT_AIRPORTMANAGER_H
 
 #include "../objects/airport.h"
 
@@ -22,4 +18,4 @@ public:
 };
 
 
-#endif //FLIGHTTEST_AIRPORTMANAGER_H
+#endif //AEDAPROJECT_AIRPORTMANAGER_H

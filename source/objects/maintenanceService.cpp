@@ -37,6 +37,10 @@ ostream& operator<<(ostream &out, const MaintenanceService &maintenanceService) 
     return out;
 }
 
+/**
+ * @param service instance of maintenance service
+ * @return the most recent service
+ */
 bool MaintenanceService::operator<(const MaintenanceService &service) const {
     return date < service.getDate();
 }

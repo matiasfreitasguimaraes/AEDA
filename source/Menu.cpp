@@ -6,7 +6,7 @@ Menu::Menu() {
 
 /**
  * @brief runs the starting menu
- * @return
+ * @return -1 if successfully
  */
 int Menu::run() {
     cout << startingMenu;
@@ -117,6 +117,11 @@ int Menu::runAirportManagerMenu() {
     return 0;
 }
 
+/**
+ * @param airports set of airports
+ * @param airportName the airport to be edited
+ * @return
+ */
 int Menu::runAirportEditingMenu(set<Airport> &airports, string airportName) {
     Airport airport = *airports.find(Airport(airportName));
     string input, name, type;
@@ -172,6 +177,11 @@ int Menu::runAirportEditingMenu(set<Airport> &airports, string airportName) {
     return 0;
 }
 
+/**
+ * @brief menu to modify schedules
+ * @param GTSchedule set of schedules
+ * @return
+ */
 int Menu::runScheduleOptionsMenu(set<DateTime> &GTSchedule) {
     string input;
     cout << scheduleOptionsMenu;
@@ -201,9 +211,10 @@ int Menu::runScheduleOptionsMenu(set<DateTime> &GTSchedule) {
 }
 
 /**
+ * @brief checks if the user input is valid
  * @param min minimum integer possible for the input
  * @param max maximum integer possible for the input
- * @return
+ * @return the user's input if valid, -2 otherwise
  */
 int Menu::intInput(int min, int max, string errorMessage) {
     string input;
@@ -242,18 +253,27 @@ void Menu::setOption(int opt) {
     this->option = opt;
 }
 
+/**
+ * @brief waits for the user to press a key
+ */
 void Menu::wait() {
     cout << "Press any key to continue.\n";
     cin.ignore(99999999,'\n');
     cin.get();
 }
 
+/**
+ * @brief lists all the flights' information
+ */
 void Menu::listFlights() {
     ifstream flightFile("input/flight.txt");
     flightM.read(flightFile);
     flightM.show();
 }
 
+/**
+ * @brief handles ticket buying as well as automated check ins
+ */
 void Menu::buyTicket() {
     ifstream flightFile("input/flight.txt");
     flightM.read(flightFile);
@@ -311,6 +331,10 @@ void Menu::buyTicket() {
     }
 }
 
+/**
+ * @param flight flight for which ticket is trying to be bought
+ * @return true if a passenger can buy the ticket, false otherwise
+ */
 bool Menu::canBuyTicket(Flight flight) {
     ifstream planeFile("input/planes.txt");
     planeM.read(planeFile);
@@ -322,6 +346,11 @@ bool Menu::canBuyTicket(Flight flight) {
     return false;
 }
 
+/**
+ * @brief adds the passengers' luggage to the luggage cars
+ * @param luggage the passenger's luggage
+ * @return true if any luggage car available in the airport has available slots, false otherwise
+ */
 bool Menu::addLuggageToLuggageCar(Luggage luggage) {
     ifstream luggageCarFile("input/luggageCars.txt");
     luggageM.read(luggageCarFile);

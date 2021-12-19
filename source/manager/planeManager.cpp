@@ -65,6 +65,9 @@ void PlaneManager::show() {
     }
 }
 
+/**
+ * @return the set of planes
+ */
 set<Plane> PlaneManager::getPlanes() {
     return myPlanes;
 }
