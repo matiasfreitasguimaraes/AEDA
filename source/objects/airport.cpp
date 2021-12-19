@@ -32,9 +32,8 @@ void Airport::showGTs() {
     if (groundTransport.empty()) {
         cout << "Well, there's no transport service registered to be near this airport. Maybe you want to register some?\n";
     } else {
-        for (GroundTransport GT : groundTransport) {
-            cout << "- " << GT.getName() << "\n";
-        }
+        for (GroundTransport GT : groundTransport)
+            cout << GT << endl;
     }
 }
 
