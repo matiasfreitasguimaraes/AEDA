@@ -9,11 +9,18 @@ class PlaneManager  {
 private:
     set<Plane> myPlanes;
 public:
+    ///Writer and reader functions
+        ///to files
     void read(ifstream& planeFile);
+    void write(ofstream &file);
+        ///to console
+    void show();
+
+    ///update and delete
     void add(Plane newPlane);
     void remove(Plane planeToRemove);
-    void show();
-    void write(ofstream &file);
+
+    ///get atributtes
     set<Plane> get();
 };
 

@@ -7,9 +7,6 @@ class airportManager {
 private:
     set<Airport> airports;
 public:
-    ///Constructor
-    airportManager();
-
     ///Writer and reader functions
     void read(ifstream &file);
     void write(ofstream &file);
