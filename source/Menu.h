@@ -92,12 +92,13 @@ public:
     int run();
     int runAdminMenu();
     int runAirportManagerMenu();
-    int runScheduleOptionsMenu(set<DateTime> &GTSchedule);
+    int runScheduleOptionsMenu(set<GroundTransport> &GTs, string GTName);
     int runAirportEditingMenu(set<Airport> &airports, string airportName);
     static int intInput(int min, int max, string errorMessage);
     void wait();
     bool canBuyTicket(Flight flight);
     bool addLuggageToLuggageCar(Luggage luggage);
+    int hourInput(int &hour, int &minute);
 };
 
 
