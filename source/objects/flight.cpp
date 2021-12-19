@@ -15,6 +15,9 @@ Flight::Flight(string &number, DateTime &flightDepartureDate, DateTime &flightAr
     this->id = Id;
 }
 
+Flight::Flight(string &number) {
+    this->numberOfFlight = number;
+}
 
 /**
  * @return the flight's origin
@@ -87,6 +90,17 @@ unsigned Flight::getNumberOfTicketsBought() const {
     return boughtTickets;
 }
 
+/**
+ * @return the flight's ID
+ */
+unsigned int Flight::getFlightId() const {
+    return id;
+}
+
+/**
+ * @param flight instance of flight
+ * @return true if two flights are the equal, false otherwise
+ */
 bool Flight::operator==(const Flight &flight) {
     return (numberOfFlight == flight.getNumberOfFlight()
         && departureDate == flight.getDepartureDate()
@@ -96,10 +110,10 @@ bool Flight::operator==(const Flight &flight) {
     );
 }
 
-unsigned int Flight::getFlightId() const {
-    return id;
-}
-
+/**
+ * @param rhs instance of flight
+ * @return the flight with the lower number
+ */
 bool Flight::operator<(const Flight &rhs) const {
     if (numberOfFlight < rhs.numberOfFlight)
         return true;
@@ -119,20 +133,3 @@ bool Flight::operator<(const Flight &rhs) const {
         return false;
     return destination < rhs.destination;
 }
-
-bool Flight::operator>(const Flight &rhs) const {
-    return rhs < *this;
-}
-
-bool Flight::operator<=(const Flight &rhs) const {
-    return !(rhs < *this);
-}
-
-bool Flight::operator>=(const Flight &rhs) const {
-    return !(*this < rhs);
-}
-
-/**
- * @return true if a ticket for a flight can be bought, false otherwise
- */
-

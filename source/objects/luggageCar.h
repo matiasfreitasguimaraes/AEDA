@@ -11,13 +11,14 @@ using namespace std;
 
 class LuggageCar {
 private:
-    const unsigned numberOfCarriages;
-    const unsigned numberOfPiles;
-    const unsigned numberOfSuitcasesPerPile;
+    unsigned numberOfCarriages;
+    unsigned numberOfPiles;
+    unsigned numberOfSuitcasesPerPile;
     unsigned carCapacity;
     unsigned numberOfOccupiedSlots;
-    queue<queue<stack<Luggage>>> trailers;
+    queue<queue<stack<int>>> trailers;
 public:
+    LuggageCar();
     LuggageCar(unsigned carriages, unsigned piles, unsigned suitcasesPerPile);
     unsigned getNumberOfCarriages() const;
     unsigned getNumberOfPiles() const;

@@ -12,6 +12,7 @@ private:
     unsigned age;
     unsigned ssn;
 public:
+    Passenger(string passengerName, unsigned passengerAge, unsigned passengerSsn);
     string getName() const;
     unsigned getAge() const;
     unsigned getSsn() const;

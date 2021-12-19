@@ -64,3 +64,7 @@ void PlaneManager::show() {
         cout << plane <<  endl;
     }
 }
+
+set<Plane> PlaneManager::getPlanes() {
+    return myPlanes;
+}

@@ -1,6 +1,8 @@
 #ifndef FLIGHTTEST_PLANEMANAGER_H
 #define FLIGHTTEST_PLANEMANAGER_H
+
 #include <set>
+
 #include "../objects/plane.h"
 
 class PlaneManager  {
@@ -12,6 +14,7 @@ public:
     void remove(Plane planeToRemove);
     void show();
     void write(ostream &file);
+    set<Plane> getPlanes();
 };
 
 

@@ -52,3 +52,7 @@ void LuggageCarManager::show() {
         cout << luggageCar << endl;
     }
 }
+
+set<LuggageCar> LuggageCarManager::getLuggageCars() {
+    return luggageCars;
+}

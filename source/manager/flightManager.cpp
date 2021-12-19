@@ -65,3 +65,19 @@ void FlightManager::show() {
         cout << flight <<  endl;
     }
 }
+
+/**
+ * @return the set of flights
+ */
+set<Flight> FlightManager::getFlights() const {
+    return flights;
+}
+
+Flight FlightManager::findFlight(string numberOfFlight) {
+    for (auto it = flights.begin(); it != flights.end(); it++) {
+        if ((*it).getNumberOfFlight() == numberOfFlight)
+            return *it;
+    }
+    Flight f((string&)"-1");
+    return f;
+}

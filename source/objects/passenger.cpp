@@ -2,6 +2,12 @@
 
 using namespace std;
 
+Passenger::Passenger(string passengerName, unsigned passengerAge, unsigned passengerSsn) {
+    this->name = passengerName;
+    this->age = passengerAge;
+    this->ssn = passengerSsn;
+}
+
 unsigned int Passenger::getAge() const {
     return age;
 }

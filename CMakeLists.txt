@@ -23,6 +23,7 @@ add_executable(AEDAProject main.cpp
         source/objects/luggageCar.h source/objects/luggageCar.cpp
         source/objects/globalVariables.cpp source/objects/globalVariables.h
         source/Menu.cpp source/Menu.h source/manager/flightManager.h
+        source/manager/planeManager.cpp source/manager/planeManager.h
         source/manager/flightManager.cpp source/manager/luggageCarManager.cpp source/manager/luggageCarManager.h source/manager/maintenanceServiceManager.cpp source/manager/maintenanceServiceManager.h source/manager/groundTransportManager.cpp source/objects/luggage.cpp source/objects/luggage.h)
 
 # Doxygen Build

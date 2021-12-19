@@ -8,15 +8,20 @@
 
 #include "manager/flightManager.h"
 #include "manager/airportManager.h"
+#include "manager/planeManager.h"
 #include "objects/plane.h"
 #include "objects/airport.h"
+#include "objects/ticket.h"
+#include "manager/luggageCarManager.h"
 
 using namespace std;
 
 class Menu {
 private:
-    airportManager airportM = airportManager();
+    airportManager airportM;
     FlightManager flightM;
+    PlaneManager planeM;
+    LuggageCarManager luggageM;
     /*  a bit about option variable: option is an int which will vary between -2 and the maximum option code.
     the meanings of the -2, -1 and 0 options are:
     -2: invalid input, repeat the method loop until get a valid input
@@ -37,6 +42,7 @@ private:
                                      "1 - Admin options\n"
                                      "2 - List flights\n"
                                      "3 - Transports' information by Airport\n"
+                                     "4 - Buy tickets\n"
                                      "0 - Exit\n";
     /*
      * admin menu message and options to be exhibited
@@ -71,9 +77,10 @@ private:
     constexpr static const char* invalidInput = "That doesn't seem like a valid input... Care to try again?\n";
 public:
     Menu();
-    int getOption();
+    int getOption() const;
     void setOption(int opt);
     void listFlights();
+    void buyTicket();
     int run();
     int runAdminMenu();
     int runAirportManagerMenu();
@@ -81,6 +88,8 @@ public:
     int runAirportEditingMenu(set<Airport> &airports, string airportName);
     static int intInput(int min, int max, string errorMessage);
     void wait();
+    bool canBuyTicket(Flight flight);
+    bool addLuggageToLuggageCar(Luggage luggage);
 };
 
 

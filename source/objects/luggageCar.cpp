@@ -55,26 +55,37 @@ bool LuggageCar::operator<(const LuggageCar &car) const {
 }
 
 /**
- * TODO: keep track of the amount of luggage a passenger has
- * @brief adds the passengers' luggage to a car
+ * @brief adds the passenger's luggage to a car
  * @param luggage the passenger's luggage
  */
 void LuggageCar::addLuggage(Luggage &luggage) {
-    if (trailers.size() < numberOfCarriages) {
-        auto trailer = trailers.back();
-        if (trailer.size() < numberOfPiles) {
-            auto pile = trailer.back();
-            if (pile.size() < numberOfSuitcasesPerPile) {
-                pile.push(luggage);
-            } else {
-                trailer.push(stack<Luggage>());
-            }
+    for (unsigned i = 0; i < luggage.getQuantity(); i++) {
+        if (trailers.empty()) {
+            stack<int> tempStack;
+            tempStack.push(1);
+            queue<stack<int>> tempQueue;
+            tempQueue.push(tempStack);
         } else {
-            trailers.push(queue<stack<Luggage>>());
+            if (trailers.size() < numberOfCarriages) {
+                if (trailers.back().size() < numberOfPiles) {
+                    if (trailers.back().back().size() < numberOfSuitcasesPerPile)
+                        trailers.back().back().push(1);
+                    else {
+                        stack<int> auxStack;
+                        auxStack.push(1);
+                        trailers.back().push(auxStack);
+                    }
+                } else {
+                    queue<stack<int>> auxQueue;
+                    stack<int> auxStack;
+                    auxStack.push(1);
+                    auxQueue.push(auxStack);
+                    trailers.push(auxQueue);
+                }
+            }
         }
-    } else {
-        cout << "Luggage car is full \n";
     }
+    numberOfOccupiedSlots += luggage.getQuantity();
 }
 
 /**

@@ -1,7 +1,6 @@
 #include "luggage.h"
 
-Luggage::Luggage(Passenger ownerOfLuggage, bool option, unsigned quant) {
-    this->owner = ownerOfLuggage;
+Luggage::Luggage(Passenger ownerOfLuggage, bool option, unsigned quant) : owner(ownerOfLuggage){
     this->automaticCheckIn = option;
     this->quantity = quant;
 }

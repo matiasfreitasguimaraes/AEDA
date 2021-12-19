@@ -15,6 +15,7 @@ public:
     void remove(LuggageCar luggageCarToRemove);
     void write(ofstream &file);
     void show();
+    set<LuggageCar> getLuggageCars();
 };
 
 

@@ -10,7 +10,7 @@ Menu::Menu() {
  */
 int Menu::run() {
     cout << startingMenu;
-    option = intInput(0, 3, invalidInput);
+    option = intInput(0, 4, invalidInput);
     switch (option) {
         case 1:
             do {
@@ -21,6 +21,9 @@ int Menu::run() {
             break;
         case 3:
             // mostrar informaçoes dos transportes por aeroporto
+            break;
+        case 4:
+            buyTicket();
             break;
         case 0:
             return 1;
@@ -67,12 +70,12 @@ int Menu::runAirportManagerMenu() {
             cout << "yet to implement";
             break;
         case 3:
-            cout << "What will be it's name?\n";
+            cout << "What will be its name?\n";
             cin >> input;
             if (airportM.add(Airport(input)) == 1) {
                 cout << "Airport added successfully!\n";
             } else {
-                cout << "Couldn't add airport... Maybe it's name is already being used?\n";
+                cout << "Couldn't add airport... Maybe its name is already being used?\n";
             }
             wait();
             break;
@@ -80,7 +83,7 @@ int Menu::runAirportManagerMenu() {
             cout << "What's the name of the airport you want to remove?\n";
             cin >> input;
             if (airportM.remove(Airport(input)) == 1) {
-                cout << "Airport removed succesfully!\n";
+                cout << "Airport removed successfully!\n";
             } else {
                 cout << "Couldn't remove airport... Maybe you had a typo in the name?\n"
                         "Remember, it's case-sensitive\n";
@@ -228,7 +231,7 @@ int Menu::intInput(int min, int max, string errorMessage) {
 /**
  * @return the option chosen by the user
  */
-int Menu::getOption() {
+int Menu::getOption() const {
     return option;
 }
 
@@ -242,7 +245,7 @@ void Menu::setOption(int opt) {
 
 void Menu::wait() {
     cout << "Press any key to continue.\n";
-    cin. ignore(99999999,'\n');
+    cin.ignore(99999999,'\n');
     cin.get();
 }
 
@@ -250,4 +253,86 @@ void Menu::listFlights() {
     ifstream flightFile("input/flight.txt");
     flightM.read(flightFile);
     flightM.show();
+}
+
+void Menu::buyTicket() {
+    ifstream flightFile("input/flight.txt");
+    flightM.read(flightFile);
+    string name, numberOfFlight, choice;
+    unsigned age, ssn, numberOfTickets, numberOfSuitcases;
+    bool automaticCheckIn;
+    set<Flight> flights = flightM.getFlights();
+    set<LuggageCar> luggageCars = luggageM.getLuggageCars();
+
+    cout << "How many tickets do you want to buy?\n";
+    cin >> numberOfTickets;
+    cout << "In order to buy a ticket, you must provide some information of the owner\n";
+
+    for (unsigned i = 0; i < numberOfTickets; i++) {
+        cout << "Name:\n";
+        cin >> name;
+        cout << "Age:\n";
+        cin >> age;
+        cout << "SSN:\n";
+        cin >> ssn;
+        Passenger passenger(name, age, ssn);
+        cout << "Number of flight:\n";
+        cin >> numberOfFlight;
+
+        Flight flightToBuyTicketTo(numberOfFlight);
+        try {
+            flightToBuyTicketTo = flightM.findFlight(numberOfFlight);
+        } catch (bad_alloc &e) { // exception thrown when findFlight doesn't find the flight
+            cout << "Flight not found. Please, try again \n";
+            break;
+        }
+
+        flightToBuyTicketTo.updateBoughtTickets(numberOfTickets);
+
+        if (canBuyTicket(flightToBuyTicketTo)) {
+            cout << "Ticket(s) successfully bought\n";
+            Ticket(flightToBuyTicketTo, passenger);
+        } else {
+            cout << "There are not enough available tickets to this flight\n";
+            break;
+        }
+
+        cout << "Do you want automatic check-in in your luggage? (y/n)\n";
+        cin >> choice;
+        automaticCheckIn = choice == "y";
+        cout << "How many suitcases do you want to be automatic checked in?\n";
+        cin >> numberOfSuitcases;
+
+        Luggage passengerLuggage(passenger, automaticCheckIn, numberOfSuitcases);
+        if (addLuggageToLuggageCar(passengerLuggage))
+            cout << "Automatic check in authorized\n";
+        else
+            cout << "There are no slots available in any of the luggage cars\n";
+
+    }
+}
+
+bool Menu::canBuyTicket(Flight flight) {
+    ifstream planeFile("input/planes.txt");
+    planeM.read(planeFile);
+    set<Plane> planes = planeM.getPlanes();
+    for (Plane plane: planes) {
+        if (plane.getId() == flight.getFlightId() && flight.getNumberOfTicketsBought() < plane.getCapacity())
+            return true;
+    }
+    return false;
+}
+
+bool Menu::addLuggageToLuggageCar(Luggage luggage) {
+    ifstream luggageCarFile("input/luggageCars.txt");
+    luggageM.read(luggageCarFile);
+    set<LuggageCar> luggageCars = luggageM.getLuggageCars();
+
+    for (LuggageCar luggageCar: luggageCars) {
+        if (!luggageCar.carIsFull()) {
+            luggageCar.addLuggage(luggage);
+            return true;
+        }
+    }
+    return false;
 }
