@@ -1,5 +1,6 @@
 #ifndef AEDAPROJECT_MENU_H
 #define AEDAPROJECT_MENU_H
+#define NUMBER_ZERO const int 0
 
 #include <iostream>
 #include <string>
@@ -13,6 +14,7 @@
 #include "objects/airport.h"
 #include "objects/ticket.h"
 #include "manager/luggageCarManager.h"
+#include "objects/inputMinusOne.h"
 
 using namespace std;
 
@@ -74,6 +76,19 @@ private:
                                        "1 - Add scheduled departure\n"
                                        "2 - Remove scheduled departure\n"
                                        "3 - Show scheduled departures\n";
+    const string flightManagerMenu =
+            "Flight management options:\n"
+            "1 - Add flight\n"
+            "2 - Remove flight\n"
+            "3 - List flights\n"
+            "4 - Manage a flight\n"
+            "0 - Return\n";
+    const string flightObjectManagerMenu =
+            "Flight management options\n"
+            "1 - List passengers\n"
+            "2 - Cancel ticket\n"
+            "3 - Display flight info\n"
+            "0 - Return\n";
     /*
      * invalid input message to be exhibited
      */
@@ -98,7 +113,9 @@ public:
     bool addLuggageToLuggageCar(Luggage luggage);
     void groundTransportInformationPerAirport();
     void listingMenu();
-    int hourInput(int &hour, int &minute);
+    DateTime dateInput(bool askYear = true, bool askMonth = true, bool askDay = true, bool askHour = true, bool askMinute = true);
+    int runFlightSetManagerMenu();
+    int runFlightObjectManagerMenu(set<Flight> &flights, string flightCode);
 };
 
 

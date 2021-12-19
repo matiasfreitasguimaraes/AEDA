@@ -39,8 +39,6 @@ public:
     bool operator<(const Flight &rhs) const;
 
     bool operator==(const Flight &rhs) const;
-
-    bool operator!=(const Flight &rhs) const;
 };
 
 

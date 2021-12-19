@@ -127,13 +127,5 @@ bool Flight::operator<(const Flight &rhs) const {
 }
 
 bool Flight::operator==(const Flight &rhs) const {
-    return numberOfFlight == rhs.numberOfFlight &&
-           departureDate == rhs.departureDate &&
-           arrivalDate == rhs.arrivalDate &&
-           origin == rhs.origin &&
-           destination == rhs.destination;
-}
-
-bool Flight::operator!=(const Flight &rhs) const {
-    return !(rhs == *this);
+    return this->numberOfFlight == rhs.numberOfFlight;
 }

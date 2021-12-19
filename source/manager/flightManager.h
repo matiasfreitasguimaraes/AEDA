@@ -23,14 +23,14 @@ public:
     void show();
 
     ///update and delete
-    void add(Flight newFlight);
+    int add(Flight newFlight);
     void remove(Flight flightToRemove);
 
     ///get atributtes
-    set<Flight> get() const;
+    set<Flight>& get();
 
     ///find element
-    Flight find(string numberOfFlight);
+    bool find(Flight flight);
 };
 
 

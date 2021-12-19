@@ -39,8 +39,14 @@ using namespace std;
  * @param newFlight flight to add
  * @param filename file to write the changes
  */
-void FlightManager::add(Flight newFlight) {
-    flights.insert(newFlight);
+int FlightManager::add(Flight newFlight) {
+    if (this->find(newFlight)) {
+        return 0;
+    } else {
+        flights.insert(newFlight);
+        cout << "flight inserido";
+        return 1;
+    }
 }
 
 /**
@@ -49,7 +55,7 @@ void FlightManager::add(Flight newFlight) {
  * @param filename file to write the changes
  */
 void FlightManager::remove(Flight flightToRemove) {
-    this->flights.erase(flightToRemove);
+    this->flights.erase(flights.find(flightToRemove));
 }
 
 /**
@@ -89,21 +95,15 @@ void FlightManager::show() {
 /**
  * @return the set of flights
  */
-set<Flight> FlightManager::get() const {
+set<Flight>& FlightManager::get() {
     return flights;
 }
 
 /**
  * @brief finds a flight by its number
- * @param numberOfFlight the flight's number
+ * @param flight the flight's number
  * @return if found, return that flight, otherwise returns a flight with number = -1
  */
-Flight FlightManager::find(string numberOfFlight) {
-    for (Flight flight:flights) {
-        if(flight.getNumberOfFlight() == numberOfFlight){
-            return flight;
-        }
-    }
-    Flight f((string&)"-1");
-    return f;
+bool FlightManager::find(Flight flight) {
+    return (flights.find(flight) != flights.end());
 }

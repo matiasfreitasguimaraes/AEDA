@@ -9,7 +9,6 @@
 
 using namespace std;
 
-
 int main() {
     Menu *menu = new Menu(PLANEFILE,FLIGHTFILE,LUGGAGECARFILE, AIRPORTFILE);
     do {

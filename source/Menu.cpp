@@ -95,11 +95,14 @@ int Menu::runAdminMenu() {
             cout << "yet to implement";
             break;
         case 2:
-            cout << "yet to implement";
+            do {
+                option = runFlightSetManagerMenu();
+            } while (option == 0);
             break;
         case 3:
             do {
-            } while (runAirportManagerMenu() == 0);
+                option = runAirportManagerMenu();
+            } while (option == 0);
             break;
         case 0:
             return 1;
@@ -235,25 +238,28 @@ int Menu::runAirportEditingMenu(set<Airport> &airports, string airportName) {
  * @return
  */
 int Menu::runScheduleOptionsMenu(set<GroundTransport> &GTs, string GTName) {
-    int hour, minute;
-    string input;
+    DateTime date;
     GroundTransport selectedGT = *GTs.find(GroundTransport(GTName));
     cout << scheduleOptionsMenu;
     option = intInput(0, 3, invalidInput);
     switch (option) {
         case 1:
-            if (hourInput(hour, minute) == -1) {
+            try {
+                date = dateInput(false, false, false);
+            } catch (inputMinusOne &e) {
                 return -1;
             }
-            selectedGT.addToSchedule(DateTime(hour, minute));
+            selectedGT.addToSchedule(date);
             GTs.erase(GTs.find(selectedGT));
             GTs.insert(selectedGT);
             break;
         case 2:
-            if (hourInput(hour, minute) == -1) {
+            try {
+                date = dateInput(false, false, false);
+            } catch (inputMinusOne &e) {
                 return -1;
             }
-            selectedGT.removeFromSchedule(DateTime(hour, minute));
+            selectedGT.removeFromSchedule(date);
             GTs.erase(GTs.find(selectedGT));
             GTs.insert(selectedGT);
             break;
@@ -350,7 +356,7 @@ void Menu::buyTicket() {
 
         Flight flightToBuyTicketTo(numberOfFlight);
         try {
-            flightToBuyTicketTo = flightM.find(numberOfFlight);
+            flightToBuyTicketTo = *flightM.get().find(Flight(numberOfFlight));
         } catch (bad_alloc &e) { // exception thrown when findFlight doesn't find the flight
             cout << "Flight not found. Please, try again \n";
             break;
@@ -482,18 +488,127 @@ void Menu::listingMenu() {
     }
 }
 
-int Menu::hourInput(int &hour, int &minute) {
+DateTime Menu::dateInput(bool askYear, bool askMonth, bool askDay, bool askHour, bool askMinute) {
+    int year, month, day, hour, min = 0;
     string invalidHour = "You know we only have 24 hours per day, right?";
     string invalidMinute = "You know an hour only has 60 minutes,  right?";
-    cout << "Hours:\n";
-    hour = intInput(0, 24, invalidHour);
-    if (hour == -1) {
+    string invalidYear = "AEDA Airlines was founded in 2021! We don't register data prior to that!\n"
+                         "Nor we do for data regarding dates more than 2 years from now...";
+    string invalidMonth = "You know a year only has 12 months, right?";
+    string invalidDay = "You know months has 31 days at most, right?";
+    if (askYear) {
+        cout << "Year:\n";
+        year = intInput(2021, 2023, invalidYear);
+        if (year == -1)
+            throw inputMinusOne();
+    }
+    if (askMonth) {
+        cout << "Month:\n";
+        month = intInput(1, 12, invalidMonth);
+        if (month == -1)
+            throw inputMinusOne();
+    }
+    if (askDay) {
+        cout << "Day:\n";
+        day = intInput(1, 31, invalidDay);
+        if (day == -1)
+            throw inputMinusOne();
+    }
+    if (askHour) {
+        cout << "Hour:\n";
+        hour = intInput(0, 24, invalidHour);
+        if (hour == -1)
+            throw inputMinusOne();
+    }
+    if (askMinute) {
+        cout << "Minute:\n";
+        min = intInput(0, 60, invalidMinute);
+        if (min == -1)
+            throw inputMinusOne();
+    }
+    return DateTime(year, month, day, hour, min);
+}
+
+int Menu::runFlightSetManagerMenu() {
+    DateTime departureDate, arrivalDate;
+    string flightCode, origin, destination;
+    int temp;
+    unsigned int id;
+    cout << flightManagerMenu;
+    option = intInput(0, 4, invalidInput);
+    switch (option) {
+        case 1:
+            cout << "What will be it's flight code?\n";
+            cin >> flightCode;
+            try {
+                cout << "When will be it's departure?\n";
+                departureDate = dateInput();
+                cout << "When will be it's arrival date?\n";
+                arrivalDate = dateInput();
+            } catch (inputMinusOne &e) {
+                return -1;
+            }
+            cout << "Where will it depart from?\n";
+            cin >> origin;
+            if (origin == "-1")
+                return -1;
+            cout << "What's its destination?\n";
+            cin >> destination;
+            if (destination == "-1")
+                return -1;
+            cout << "bota o id ai porra\n";
+            temp = intInput(0, 9999, "We only accept positive ID's lower than 9999\n");
+            if (temp == -1) {
+                return -1;
+            }
+            id = temp;
+            if (flightM.add(Flight(flightCode, departureDate, arrivalDate, origin, destination, id))) {
+                cout << "deu p adicionar sim sinho";
+            } else {
+                cout << "Nao deu pra adicionar";
+                cout << "agora deu certo porra\n";
+            }
+            break;
+        case 2:
+            cout << "Select a flight.\n"
+                    "Flight code: ";
+            cin >> flightCode;
+            if (flightM.find(Flight(flightCode))) {
+                flightM.remove(Flight(flightCode));
+                cout << "Flight removed successfully!";
+                wait();
+            } else {
+                cout << "Sorry but couldn't find a registered flight with that code...";
+                wait();
+            }
+            break;
+        case 3:
+            listingMenu();
+            break;
+        case 4:
+            cout << "Select a flight.\n"
+                    "Flight code: ";
+            cin >> flightCode;
+            if (flightM.find(Flight(flightCode))) {
+                do {
+                    option = runFlightObjectManagerMenu(flightM.get(), flightCode);
+                } while (option == 0);
+            } else {
+                cout << "Sorry but couldn't find a registered flight with that code...";
+                wait();
+            }
+            break;
+        case 0:
+            return 1;
+    }
+    if (option == -1) {
         return -1;
     }
-    cout << "Minutes:\n";
-    minute = intInput(0, 60, invalidMinute);
-    if (minute == -1) {
-        return -1;
-    }
+    return 0;
+}
+
+int Menu::runFlightObjectManagerMenu(set<Flight> &flights, string flightCode) {
+    set<Flight> uhu = flights;
+    string kkk = flightCode;
     return 1;
 }
