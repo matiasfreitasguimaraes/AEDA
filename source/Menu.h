@@ -87,7 +87,6 @@ public:
 
     int getOption() const;
     void setOption(int opt);
-    void listFlights();
     void buyTicket();
     int run();
     int runAdminMenu();
@@ -98,6 +97,8 @@ public:
     void wait();
     bool canBuyTicket(Flight flight);
     bool addLuggageToLuggageCar(Luggage luggage);
+    void groundTransportInformationPerAirport();
+    void listingMenu();
 };
 
 
