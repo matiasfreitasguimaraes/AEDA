@@ -1,13 +1,15 @@
 #include "Menu.h"
 
-Menu::Menu(const string &planeInput, const string &flightInput, const string &luggageCarInput)
-        : planeFile(planeInput), flightFile(flightInput), luggageCarFile(luggageCarInput){
+Menu::Menu(const string &planeInput, const string &flightInput, const string &luggageCarInput,const string &airportInput )
+        : planeFile(planeInput), flightFile(flightInput), luggageCarFile(luggageCarInput), airportFile(airportInput ){
     ifstream planeFileR(planeFile);
     ifstream luggageCarFileR(luggageCarFile);
     ifstream flightFileR(flightFile);
+    ifstream airportFileR(airportInput);
     planeM.read(planeFileR);
     flightM.read(flightFileR);
     luggageM.read(luggageCarFileR);
+    airportM.read(airportFileR);
     cout << menuTutorial;
 }
 
@@ -118,7 +120,7 @@ int Menu::runAirportManagerMenu() {
     option = intInput(0, 6, invalidInput);
     switch (option) {
         case 1:
-            airportM.read();
+
             break;
         case 3:
             cout << "What will be its name?\n";
@@ -418,9 +420,11 @@ Menu::~Menu() {
     ofstream flightFileW(flightFile, std::ofstream::out | std::ofstream::trunc);
     ofstream luggageCarFileW(luggageCarFile, std::ofstream::out | std::ofstream::trunc);
     ofstream planeFileW(planeFile, std::ofstream::out | std::ofstream::trunc);
+    ofstream airportFileW(airportFile, std::ofstream::out | std::ofstream::trunc);
 
     planeM.write(planeFileW);
     flightM.write(flightFileW);
     luggageM.write(luggageCarFileW);
+    airportM.write(airportFileW);
 }
 

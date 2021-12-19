@@ -25,7 +25,7 @@ private:
     string planeFile;
     string flightFile;
     string luggageCarFile;
-
+    string airportFile;
     /*  a bit about option variable: option is an int which will vary between -2 and the maximum option code.
     the meanings of the -2, -1 and 0 options are:
     -2: invalid input, repeat the method loop until get a valid input
@@ -81,7 +81,8 @@ private:
     constexpr static const char* invalidInput = "That doesn't seem like a valid input... Care to try again?\n";
 public:
 
-    Menu(const string &planeInput, const string &flightInput, const string &luggageCarInput);
+    Menu(const string &planeInput, const string &flightInput,
+         const string &luggageCarInput, const string &airportInput);
 
     ~Menu();
 

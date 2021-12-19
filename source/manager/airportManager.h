@@ -8,8 +8,8 @@ private:
     set<Airport> airports;
 public:
     airportManager();
-    void read();
-    void write();
+    void read(ifstream &file);
+    void write(ofstream &file);
     int add(Airport newAirport);
     int remove(Airport airportToRemove);
     void list();
