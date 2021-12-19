@@ -27,8 +27,14 @@ int Menu::run() {
             break;
         case 2:
             listFlights();
+            wait();
             break;
         case 3:
+            if (airportM.get().empty()) {
+                airportM.list();
+                wait();
+                return -1;
+            }
             cout << "Want me to list the registered airports?\n"
                     "1 - Yes\n"
                     "2 - No\n";
