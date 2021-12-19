@@ -49,7 +49,8 @@ int DateTime::getMinute(){
  * @return all the date information
  */
 ostream& operator<<(ostream &out, const DateTime &d1) {
-    out << d1.day << "/" << d1.month << "/" << d1.year << " " << d1.hour << ":" << d1.minute;
+    out << d1.day << "/" << d1.month << "/"
+        << d1.year << " " << d1.hour << ":" << d1.minute;
     return out;
 }
 

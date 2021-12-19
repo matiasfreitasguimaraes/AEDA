@@ -99,7 +99,6 @@ int Menu::runAirportManagerMenu() {
             wait();
             break;
         case 6:
-            airportM.write();
             break;
         case 5:
             cout << "Which airport's transport services you want to edit?\n";

@@ -6,11 +6,22 @@ using namespace std;
  * @brief writes the changes made in the flights to the file
  * @param filename the output file
  */
- void FlightManager::write(ostream &file) {
+ void FlightManager::write(ofstream &file) {
     for (Flight flight: flights) {
-        file << flight.getFlightId() << " " << flight.getNumberOfFlight() << " "
-             << flight.getDepartureDate() << " " << flight.getArrivalDate()
-             << " " << flight.getOrigin() << " " << flight.getDestination() << endl;
+        file << flight.getNumberOfFlight() << " "
+             << flight.getDepartureDate().getDay()  << " "
+             << flight.getDepartureDate().getMonth() << " "
+             << flight.getDepartureDate().getYear() << " "
+             << flight.getDepartureDate().getHour() << " "
+             << flight.getDepartureDate().getMinute() << " "
+             << flight.getArrivalDate().getDay() << " "
+             << flight.getArrivalDate().getMonth() << " "
+             << flight.getArrivalDate().getYear() << " "
+             << flight.getDepartureDate().getHour() << " "
+             << flight.getDepartureDate().getMinute()
+             << " " << flight.getOrigin()
+             << " " << flight.getDestination()
+             << " " << flight.getFlightId() << endl;
     }
 }
 
@@ -79,9 +90,10 @@ set<Flight> FlightManager::get() const {
  * @return if found, return that flight, otherwise returns a flight with number = -1
  */
 Flight FlightManager::find(string numberOfFlight) {
-    for (auto it = flights.begin(); it != flights.end(); it++) {
-        if ((*it).getNumberOfFlight() == numberOfFlight)
-            return *it;
+    for (Flight flight:flights) {
+        if(flight.getNumberOfFlight() == numberOfFlight){
+            return flight;
+        }
     }
     Flight f((string&)"-1");
     return f;

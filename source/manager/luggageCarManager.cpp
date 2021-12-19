@@ -40,7 +40,8 @@ void LuggageCarManager::remove(LuggageCar luggageCarToRemove) {
  */
 void LuggageCarManager::write(ostream &file) {
     for (LuggageCar luggageCar: luggageCars) {
-        file << luggageCar.getNumberOfCarriages() << " " << luggageCar.getNumberOfPiles() << " " << luggageCar.getNumberOfSuitcasesPerPile();
+        file << luggageCar.getNumberOfCarriages() << " " << luggageCar.getNumberOfPiles()
+            << " " << luggageCar.getNumberOfSuitcasesPerPile() << endl;
     }
 }
 

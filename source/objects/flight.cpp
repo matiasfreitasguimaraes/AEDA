@@ -100,14 +100,7 @@ unsigned int Flight::getFlightId() const {
  * @param flight instance of flight
  * @return true if two flights are the equal, false otherwise
  */
-bool Flight::operator==(const Flight &flight) {
-    return (numberOfFlight == flight.getNumberOfFlight()
-        && departureDate == flight.getDepartureDate()
-        && arrivalDate == flight.getArrivalDate()
-        && origin == flight.getOrigin()
-        && destination == flight.getDestination()
-    );
-}
+
 
 /**
  * @param rhs instance of flight
@@ -131,4 +124,16 @@ bool Flight::operator<(const Flight &rhs) const {
     if (rhs.origin < origin)
         return false;
     return destination < rhs.destination;
+}
+
+bool Flight::operator==(const Flight &rhs) const {
+    return numberOfFlight == rhs.numberOfFlight &&
+           departureDate == rhs.departureDate &&
+           arrivalDate == rhs.arrivalDate &&
+           origin == rhs.origin &&
+           destination == rhs.destination;
+}
+
+bool Flight::operator!=(const Flight &rhs) const {
+    return !(rhs == *this);
 }
