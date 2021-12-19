@@ -11,8 +11,8 @@
 class Airport {
 private:
     const string name;
-    set<GroundTransport> groundTransportBST;
-    set<LuggageCar> luggageCars;
+    set<GroundTransport> groundTransport;
+    vector<LuggageCar> luggageCars;
 public:
     Airport(string airportName);
     void addGT(GroundTransport GT);
@@ -21,7 +21,7 @@ public:
     void showGTs();
     GroundTransport getGT(string name);
     string getName();
-    set<GroundTransport> getGTBST();
+    set<GroundTransport> getGT();
     bool operator<(const Airport &rhs) const;
     bool operator==(const Airport &rhs) const;
 };

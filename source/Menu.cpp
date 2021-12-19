@@ -1,13 +1,15 @@
 #include "Menu.h"
 
-Menu::Menu(const string &planeInput, const string &flightInput, const string &luggageCarInput)
-        : planeFile(planeInput), flightFile(flightInput), luggageCarFile(luggageCarInput){
+Menu::Menu(const string &planeInput, const string &flightInput, const string &luggageCarInput,const string &airportInput )
+        : planeFile(planeInput), flightFile(flightInput), luggageCarFile(luggageCarInput), airportFile(airportInput ){
     ifstream planeFileR(planeFile);
     ifstream luggageCarFileR(luggageCarFile);
     ifstream flightFileR(flightFile);
+    ifstream airportFileR(airportInput);
     planeM.read(planeFileR);
     flightM.read(flightFileR);
     luggageM.read(luggageCarFileR);
+    airportM.read(airportFileR);
     cout << menuTutorial;
 }
 
@@ -17,9 +19,12 @@ Menu::Menu(const string &planeInput, const string &flightInput, const string &lu
  * @return -1 if successfully
  */
 int Menu::run() {
+    string selectedInput;
     cout << startingMenu;
     option = intInput(0, 4, invalidInput);
     switch (option) {
+        case 0:
+            return 1;
         case 1:
             do {
             } while (runAdminMenu() == 0);
@@ -28,13 +33,52 @@ int Menu::run() {
             listingMenu();
             break;
         case 3:
-            groundTransportInformationPerAirport();
+            if (airportM.get().empty()) {
+                airportM.show();
+                wait();
+                return -1;
+            }
+            cout << "Want me to list the registered airports?\n"
+                    "1 - Yes\n"
+                    "2 - No\n";
+            option = intInput(0, 1, invalidInput);
+            if (option == -1) {
+                return -1;
+            } else if (option == 1) {
+                airportM.show();
+            } else {}
+            cout << "Which airport's transport services you want to check?\n";
+            cin >> selectedInput;
+            if (selectedInput == "-1") {
+                return -1;
+            }
+            if (airportM.find(Airport(selectedInput))) {
+                Airport selectedAirport = *airportM.get().find(Airport(selectedInput));
+                selectedAirport.showGTs();
+                wait();
+                cout << "Want to check the schedule for any of them?\n"
+                        "1 - Yes\n"
+                        "0 - No\n";
+                option = intInput(0, 1, invalidInput);
+                if (option == -1) {
+                    return -1;
+                } else if (option == 1) {
+                    cout << "Which one?\n";
+                    cin >> selectedInput;
+                    if (selectedInput == "-1") {
+                        return -1;
+                    }
+                    selectedAirport.getGT(selectedInput).showSched();
+                } else {}
+                break;
+            } else {
+                cout << "Couldn't find that airport... Maybe you had a typo in the name?\n"
+                        "Remember, it's case-sensitive\n";
+            }
             break;
         case 4:
             buyTicket();
             break;
-        case 0:
-            return 1;
     }
     return -1;
 }
@@ -77,10 +121,10 @@ int Menu::runAirportManagerMenu() {
         case 0:
             return 1;
         case 1:
-            airportM.read();
+
             break;
         case 2:
-            airportM.list();
+            airportM.show();
             wait();
             break;
         case 3:
@@ -189,27 +233,31 @@ int Menu::runAirportEditingMenu(set<Airport> &airports, string airportName) {
  * @param GTSchedule set of schedules
  * @return
  */
-int Menu::runScheduleOptionsMenu(set<DateTime> &GTSchedule) {
+int Menu::runScheduleOptionsMenu(set<GroundTransport> &GTs, string GTName) {
+    int hour, minute;
     string input;
+    GroundTransport selectedGT = *GTs.find(GroundTransport(GTName));
     cout << scheduleOptionsMenu;
-    option = intInput(0, 3, std::string());
+    option = intInput(0, 3, invalidInput);
     switch (option) {
         case 1:
-            int hour, minute;
-            cout << "At what time is the new departure scheduled for?\n"
-                    "Hours: ";
-            hour = intInput(0, 24, std::string());
-            cout << "Minutes: ";
-            minute = intInput(0, 60, std::string());
-            if (hour == -1 || minute == -1)
-                option = -1;
-            GTSchedule.insert(DateTime(hour, minute));
+            if (hourInput(hour, minute) == -1) {
+                return -1;
+            }
+            selectedGT.addToSchedule(DateTime(hour, minute));
+            GTs.erase(GTs.find(selectedGT));
+            GTs.insert(selectedGT);
             break;
         case 2:
-
+            if (hourInput(hour, minute) == -1) {
+                return -1;
+            }
+            selectedGT.removeFromSchedule(DateTime(hour, minute));
+            GTs.erase(GTs.find(selectedGT));
+            GTs.insert(selectedGT);
             break;
         case 3:
-
+            selectedGT.showSched();
             break;
     }
     if (option == -1)
@@ -281,6 +329,9 @@ void Menu::buyTicket() {
 
     cout << "How many tickets do you want to buy?\n";
     cin >> numberOfTickets;
+    if(numberOfTickets == 0){
+        return;
+    }
     cout << "In order to buy a ticket, you must provide some information of the owner\n";
 
     for (unsigned i = 0; i < numberOfTickets; i++) {
@@ -364,10 +415,11 @@ Menu::~Menu() {
     ofstream flightFileW(flightFile, std::ofstream::out | std::ofstream::trunc);
     ofstream luggageCarFileW(luggageCarFile, std::ofstream::out | std::ofstream::trunc);
     ofstream planeFileW(planeFile, std::ofstream::out | std::ofstream::trunc);
-
+    ofstream airportFileW(airportFile, std::ofstream::out | std::ofstream::trunc);
     planeM.write(planeFileW);
     flightM.write(flightFileW);
     luggageM.write(luggageCarFileW);
+    airportM.write(airportFileW);
 }
 
 /**
@@ -391,9 +443,11 @@ void Menu::listingMenu() {
     cout << "3 - Flight with the highest number of available tickets\n";
 
     choice = intInput(0, 3, "Invalid option\n");
-    auto compare = [](const Flight &f1, const Flight &f2) {return f1.getDepartureDate() < f2.getDepartureDate();};
-    auto compare2 = [](const Flight &f1, const Flight &f2) {return f1.getArrivalDate() < f2.getArrivalDate();};
-    auto compare3 = [](const Flight &f1, const Flight &f2) {return f1.getNumberOfTicketsBought() < f2.getNumberOfTicketsBought();};
+    auto compare = [](const Flight &f1, const Flight &f2) { return f1.getDepartureDate() < f2.getDepartureDate(); };
+    auto compare2 = [](const Flight &f1, const Flight &f2) { return f1.getArrivalDate() < f2.getArrivalDate(); };
+    auto compare3 = [](const Flight &f1, const Flight &f2) {
+        return f1.getNumberOfTicketsBought() < f2.getNumberOfTicketsBought();
+    };
     set<Flight, decltype(compare)> nextFlightToDeparture(compare);
     set<Flight, decltype(compare2)> nextFlightToArrive(compare2);
     set<Flight, decltype(compare3)> flightWithMoreTicketsAvailable(compare3);
@@ -425,4 +479,20 @@ void Menu::listingMenu() {
         default:
             return;
     }
+}
+
+int Menu::hourInput(int &hour, int &minute) {
+    string invalidHour = "You know we only have 24 hours per day, right?";
+    string invalidMinute = "You know an hour only has 60 minutes,  right?";
+    cout << "Hours:\n";
+    hour = intInput(0, 24, invalidHour);
+    if (hour == -1) {
+        return -1;
+    }
+    cout << "Minutes:\n";
+    minute = intInput(0, 60, invalidMinute);
+    if (minute == -1) {
+        return -1;
+    }
+    return 1;
 }

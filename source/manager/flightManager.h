@@ -13,12 +13,23 @@ class FlightManager{
 private:
     set<Flight> flights;
 public:
+
+    ///Writer and reader functions
+        ///to files
     void write(ofstream &file);
+    void read(ifstream &file);
+
+        ///to console
+    void show();
+
+    ///update and delete
     void add(Flight newFlight);
     void remove(Flight flightToRemove);
-    void read(ifstream &file);
-    void show();
+
+    ///get atributtes
     set<Flight> get() const;
+
+    ///find element
     Flight find(string numberOfFlight);
 };
 

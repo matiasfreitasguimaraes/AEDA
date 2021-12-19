@@ -29,12 +29,11 @@ bool Airport::operator==(const Airport &rhs) const {
  * @brief shows ground transports
  */
 void Airport::showGTs() {
-    if (groundTransportBST.empty()) {
+    if (groundTransport.empty()) {
         cout << "Well, there's no transport service registered to be near this airport. Maybe you want to register some?\n";
     } else {
-        for (GroundTransport GT : groundTransportBST) {
+        for (GroundTransport GT : groundTransport)
             cout << GT << endl;
-        }
     }
 }
 
@@ -43,7 +42,7 @@ void Airport::showGTs() {
  * @param GT ground transport instance to be added
  */
 void Airport::addGT(GroundTransport GT) {
-    groundTransportBST.insert(GT);
+    groundTransport.insert(GT);
 }
 
 /**
@@ -51,7 +50,7 @@ void Airport::addGT(GroundTransport GT) {
  * @return the ground transport with name GTName
  */
 GroundTransport Airport::getGT(string GTName) {
-    set<GroundTransport>::iterator iter = groundTransportBST.find(GroundTransport(GTName));
+    set<GroundTransport>::iterator iter = groundTransport.find(GroundTransport(GTName));
     return *iter;
 }
 
@@ -60,12 +59,12 @@ GroundTransport Airport::getGT(string GTName) {
  * @return true if the ground transport was found, false otherwise
  */
 bool Airport::findGT(string GTName) {
-    return groundTransportBST.find(GroundTransport(GTName)) != groundTransportBST.end();
+    return groundTransport.find(GroundTransport(GTName)) != groundTransport.end();
 }
 
 /**
  * @return the set of ground transports
  */
-set<GroundTransport> Airport::getGTBST() {
-    return groundTransportBST;
+set<GroundTransport> Airport::getGT() {
+    return groundTransport;
 }

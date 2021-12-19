@@ -13,7 +13,7 @@ void PlaneManager::read(ifstream& planeFile) {
         Plane key;
         unsigned ID;
         while (!planeFile.eof()) {
-            planeFile >> regis >> capacity >> type >> ID;
+            planeFile >> type  >> capacity >> regis >> ID;
             key = Plane(capacity, type, regis, ID);
             myPlanes.insert(key);
         }
@@ -28,8 +28,8 @@ void PlaneManager::read(ifstream& planeFile) {
  */
 void PlaneManager::write(ofstream &file) {
     for (Plane plane: myPlanes) {
-        file << plane.getRegis() << " " << plane.getCapacity() << " "
-        << plane.getPlaneType() << " " << plane.getId() << endl;
+        file << plane.getPlaneType() << " " << plane.getCapacity() << " "
+        << plane.getRegis() << " " << plane.getId() << endl;
     }
 }
 
