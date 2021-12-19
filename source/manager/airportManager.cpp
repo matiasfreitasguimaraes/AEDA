@@ -42,14 +42,13 @@ void airportManager::write(ofstream& file) {
         file << airport.getName() << " "
              << airport.getGT().size();
         for (GroundTransport GT : airport.getGT()) {
-            file << GT.getName() << "\n";
-            file << GT.getType() << " " << GT.getAirportDistance() << " " << GT.getSchedule().size() << "\n";
+            file << endl << GT.getName() << endl;
+            file << GT.getType() << " " << GT.getAirportDistance() << " " << GT.getSchedule().size() << endl;
             for (DateTime time : GT.getSchedule()) {
                 file << setw(2) << setfill('0') << time.getHour() << " " << setw(2) << setfill('0') << time.getMinute() << " ";
             }
-
         }
-        file << "\n";
+        file << endl;
     }
 }
 
@@ -60,6 +59,8 @@ void airportManager::read(ifstream &file) {
         file >> airportName >> GTBSTSize;
         Airport newAirport = Airport(airportName);
         for (int i = 0; i < GTBSTSize; i++) {
+            file.ignore(100, '\n');
+            getline(file,GTName);
             file >> GTType >> airDis;
             GroundTransport newGT = GroundTransport(GTName, GTType, airDis);
             file >> schedSize;
