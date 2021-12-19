@@ -18,7 +18,7 @@ using namespace std;
 
 class Menu {
 private:
-    airportManager airportM;
+    AirportManager airportM;
     FlightManager flightM;
     PlaneManager planeM;
     LuggageCarManager luggageM;

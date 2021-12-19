@@ -1,16 +1,14 @@
 # AEDA
 #O que falta???
 
-4. Comentar tudo !!!MAIS IMPORTANTES!!
+1. Documentar tudo !!!MAIS IMPORTANTES!!
 
-5. Criar arquivos de entrada
+2. Fazer testes!
 
-6. Fazer testes!
+3. Testar muito!
 
----------------------------------------------
-#string e vector tem que ser passado como reference e const
-Tasks -
-1. Implementar método buyTicket() em vôo. Implementar método que verifica a possibilidade de se comprar um ticket pra um determinado vôo. Ou seja, checa se há lugares dispooníveis.
-2. Implementar classe ticket. ticket é um objeto que guara informaçoes de um passageiro
-   que o comprou e cada vôo guardará informaçoes referentes. Na classe ticket, implementar um booleano que guarda se o passageiro deseja check-in de bagagem automático ou nao.
-3. Implementar classe luggageCar. Cada vôo possui um luggageCar associado.
+4. Fazer slides
+
+5. atualizar e finalizar diagrama uml 
+
+6. fazer readme para o professor.

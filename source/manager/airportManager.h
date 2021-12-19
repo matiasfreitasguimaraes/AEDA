@@ -3,7 +3,7 @@
 
 #include "../objects/airport.h"
 
-class airportManager {
+class AirportManager {
 private:
     set<Airport> airports;
 public:
