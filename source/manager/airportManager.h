@@ -12,7 +12,7 @@ private:
     set<Airport> airports;
 public:
     airportManager();
-    void read();
+    int read();
     void write();
     int add(Airport newAirport);
     int remove(Airport airportToRemove);
