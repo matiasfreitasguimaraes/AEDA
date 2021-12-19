@@ -15,6 +15,9 @@ Flight::Flight(string &number, DateTime &flightDepartureDate, DateTime &flightAr
     this->id = Id;
 }
 
+Flight::Flight(string &number) {
+    this->numberOfFlight = number;
+}
 
 /**
  * @return the flight's origin
@@ -64,7 +67,6 @@ void Flight::setDestination(string flightDestination) {
  * @return all the flight information
  */
 ostream& operator<<(ostream &out, const Flight &flight) {
-    out << "Flight's ID: " << flight.getFlightId() << endl;
     out << "Flight number: " << flight.getNumberOfFlight() << endl;
     out << "Flight's departure date: " << flight.getDepartureDate() << endl;
     out << "Flight's arrival date: " << flight.getArrivalDate() << endl;
@@ -87,19 +89,23 @@ unsigned Flight::getNumberOfTicketsBought() const {
     return boughtTickets;
 }
 
-bool Flight::operator==(const Flight &flight) {
-    return (numberOfFlight == flight.getNumberOfFlight()
-        && departureDate == flight.getDepartureDate()
-        && arrivalDate == flight.getArrivalDate()
-        && origin == flight.getOrigin()
-        && destination == flight.getDestination()
-    );
-}
-
+/**
+ * @return the flight's ID
+ */
 unsigned int Flight::getFlightId() const {
     return id;
 }
 
+/**
+ * @param flight instance of flight
+ * @return true if two flights are the equal, false otherwise
+ */
+
+
+/**
+ * @param rhs instance of flight
+ * @return the flight with the lower number
+ */
 bool Flight::operator<(const Flight &rhs) const {
     if (numberOfFlight < rhs.numberOfFlight)
         return true;
@@ -120,19 +126,14 @@ bool Flight::operator<(const Flight &rhs) const {
     return destination < rhs.destination;
 }
 
-bool Flight::operator>(const Flight &rhs) const {
-    return rhs < *this;
+bool Flight::operator==(const Flight &rhs) const {
+    return numberOfFlight == rhs.numberOfFlight &&
+           departureDate == rhs.departureDate &&
+           arrivalDate == rhs.arrivalDate &&
+           origin == rhs.origin &&
+           destination == rhs.destination;
 }
 
-bool Flight::operator<=(const Flight &rhs) const {
-    return !(rhs < *this);
+bool Flight::operator!=(const Flight &rhs) const {
+    return !(rhs == *this);
 }
-
-bool Flight::operator>=(const Flight &rhs) const {
-    return !(*this < rhs);
-}
-
-/**
- * @return true if a ticket for a flight can be bought, false otherwise
- */
-

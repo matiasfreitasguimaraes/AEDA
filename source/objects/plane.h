@@ -44,6 +44,10 @@ public:
     unsigned int getId() const;
 
     void setId(unsigned int id);
+
+    bool operator==(const Plane &rhs) const;
+
+    bool operator!=(const Plane &rhs) const;
 };
 
 

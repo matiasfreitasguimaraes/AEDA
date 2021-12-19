@@ -1,6 +1,8 @@
-#ifndef FLIGHTTEST_PLANEMANAGER_H
-#define FLIGHTTEST_PLANEMANAGER_H
+#ifndef AEDAPROJECT_PLANEMANAGER_H
+#define AEDAPROJECT_PLANEMANAGER_H
+
 #include <set>
+
 #include "../objects/plane.h"
 
 class PlaneManager  {
@@ -11,8 +13,9 @@ public:
     void add(Plane newPlane);
     void remove(Plane planeToRemove);
     void show();
-    void write(ostream &file);
+    void write(ofstream &file);
+    set<Plane> get();
 };
 
 
-#endif //FLIGHTTEST_PLANEMANAGER_H
+#endif //AEDAPROJECT_PLANEMANAGER_H

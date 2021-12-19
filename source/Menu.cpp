@@ -1,16 +1,24 @@
 #include "Menu.h"
 
-Menu::Menu() {
+Menu::Menu(const string &planeInput, const string &flightInput, const string &luggageCarInput)
+        : planeFile(planeInput), flightFile(flightInput), luggageCarFile(luggageCarInput){
+    ifstream planeFileR(planeFile);
+    ifstream luggageCarFileR(luggageCarFile);
+    ifstream flightFileR(flightFile);
+    planeM.read(planeFileR);
+    flightM.read(flightFileR);
+    luggageM.read(luggageCarFileR);
     cout << menuTutorial;
 }
 
+
 /**
  * @brief runs the starting menu
- * @return
+ * @return -1 if successfully
  */
 int Menu::run() {
     cout << startingMenu;
-    option = intInput(0, 3, invalidInput);
+    option = intInput(0, 4, invalidInput);
     switch (option) {
         case 1:
             do {
@@ -21,6 +29,9 @@ int Menu::run() {
             break;
         case 3:
             // mostrar informaçoes dos transportes por aeroporto
+            break;
+        case 4:
+            buyTicket();
             break;
         case 0:
             return 1;
@@ -67,12 +78,12 @@ int Menu::runAirportManagerMenu() {
             airportM.read();
             break;
         case 3:
-            cout << "What will be it's name?\n";
+            cout << "What will be its name?\n";
             cin >> input;
             if (airportM.add(Airport(input)) == 1) {
                 cout << "Airport added successfully!\n";
             } else {
-                cout << "Couldn't add airport... Maybe it's name is already being used?\n";
+                cout << "Couldn't add airport... Maybe its name is already being used?\n";
             }
             wait();
             break;
@@ -80,7 +91,7 @@ int Menu::runAirportManagerMenu() {
             cout << "What's the name of the airport you want to remove?\n";
             cin >> input;
             if (airportM.remove(Airport(input)) == 1) {
-                cout << "Airport removed succesfully!\n";
+                cout << "Airport removed successfully!\n";
             } else {
                 cout << "Couldn't remove airport... Maybe you had a typo in the name?\n"
                         "Remember, it's case-sensitive\n";
@@ -88,14 +99,13 @@ int Menu::runAirportManagerMenu() {
             wait();
             break;
         case 6:
-            airportM.write();
             break;
         case 5:
             cout << "Which airport's transport services you want to edit?\n";
             cin >> input;
-            if (airportM.findAirport(Airport(input))) {
+            if (airportM.find(Airport(input))) {
                 do {
-                } while (runAirportEditingMenu(airportM.getAirports(), input) == 0);
+                } while (runAirportEditingMenu(airportM.get(), input) == 0);
                 break;
             } else {
                 cout << "Couldn't find that airport... Maybe you had a typo in the name?\n"
@@ -103,7 +113,7 @@ int Menu::runAirportManagerMenu() {
             }
             break;
         case 2:
-            airportM.listAirports();
+            airportM.list();
             wait();
             break;
         case 0:
@@ -114,6 +124,11 @@ int Menu::runAirportManagerMenu() {
     return 0;
 }
 
+/**
+ * @param airports set of airports
+ * @param airportName the airport to be edited
+ * @return
+ */
 int Menu::runAirportEditingMenu(set<Airport> &airports, string airportName) {
     Airport airport = *airports.find(Airport(airportName));
     string input, name, type;
@@ -169,6 +184,11 @@ int Menu::runAirportEditingMenu(set<Airport> &airports, string airportName) {
     return 0;
 }
 
+/**
+ * @brief menu to modify schedules
+ * @param GTSchedule set of schedules
+ * @return
+ */
 int Menu::runScheduleOptionsMenu(set<DateTime> &GTSchedule) {
     string input;
     cout << scheduleOptionsMenu;
@@ -198,9 +218,10 @@ int Menu::runScheduleOptionsMenu(set<DateTime> &GTSchedule) {
 }
 
 /**
+ * @brief checks if the user input is valid
  * @param min minimum integer possible for the input
  * @param max maximum integer possible for the input
- * @return
+ * @return the user's input if valid, -2 otherwise
  */
 int Menu::intInput(int min, int max, string errorMessage) {
     string input;
@@ -227,7 +248,7 @@ int Menu::intInput(int min, int max, string errorMessage) {
 /**
  * @return the option chosen by the user
  */
-int Menu::getOption() {
+int Menu::getOption() const {
     return option;
 }
 
@@ -239,14 +260,121 @@ void Menu::setOption(int opt) {
     this->option = opt;
 }
 
+/**
+ * @brief waits for the user to press a key
+ */
 void Menu::wait() {
     cout << "Press any key to continue.\n";
-    cin. ignore(99999999,'\n');
+    cin.ignore(99999999,'\n');
     cin.get();
 }
 
+/**
+ * @brief lists all the flights' information
+ */
 void Menu::listFlights() {
-    ifstream flightFile("input/flight.txt");
-    flightM.read(flightFile);
+
     flightM.show();
 }
+
+/**
+ * @brief handles ticket buying as well as automated check ins
+ */
+void Menu::buyTicket() {
+    string name, numberOfFlight, choice;
+    unsigned age, ssn, numberOfTickets, numberOfSuitcases;
+    bool automaticCheckIn;
+    set<Flight> flights = flightM.get();
+    set<LuggageCar> luggageCars = luggageM.get();
+
+    cout << "How many tickets do you want to buy?\n";
+    cin >> numberOfTickets;
+    cout << "In order to buy a ticket, you must provide some information of the owner\n";
+
+    for (unsigned i = 0; i < numberOfTickets; i++) {
+        cout << "Name:\n";
+        cin >> name;
+        cout << "Age:\n";
+        cin >> age;
+        cout << "Fiscal Number:\n";
+        cin >> ssn;
+        Passenger passenger(name, age, ssn);
+        cout << "Choose a flight:\n";
+        flightM.show();
+        cout << "Choose a flight:" << endl;
+        cin >> numberOfFlight;
+
+        Flight flightToBuyTicketTo(numberOfFlight);
+        try {
+            flightToBuyTicketTo = flightM.find(numberOfFlight);
+        } catch (bad_alloc &e) { // exception thrown when findFlight doesn't find the flight
+            cout << "Flight not found. Please, try again \n";
+            break;
+        }
+
+        flightToBuyTicketTo.updateBoughtTickets(numberOfTickets);
+
+        if (canBuyTicket(flightToBuyTicketTo)) {
+            cout << "Ticket(s) successfully bought\n";
+            Ticket(flightToBuyTicketTo, passenger);
+        } else {
+            cout << "There are not enough available tickets to this flight\n";
+            break;
+        }
+
+        cout << "Do you want automatic check-in in your luggage? (y/n)\n";
+        cin >> choice;
+        automaticCheckIn = choice == "y";
+        cout << "How many suitcases do you want to be automatic checked in?\n";
+        cin >> numberOfSuitcases;
+
+        Luggage passengerLuggage(passenger, automaticCheckIn, numberOfSuitcases);
+        if (addLuggageToLuggageCar(passengerLuggage))
+            cout << "Automatic check in authorized\n";
+        else
+            cout << "There are no slots available in any of the luggage cars\n";
+
+    }
+}
+
+/**
+ * @param flight flight for which ticket is trying to be bought
+ * @return true if a passenger can buy the ticket, false otherwise
+ */
+bool Menu::canBuyTicket(Flight flight) {
+    set<Plane> planes = planeM.get();
+    for (Plane plane: planes) {
+        if (plane.getId() == flight.getFlightId() && flight.getNumberOfTicketsBought() < plane.getCapacity())
+            return true;
+    }
+    return false;
+}
+
+/**
+ * @brief adds the passengers' luggage to the luggage cars
+ * @param luggage the passenger's luggage
+ * @return true if any luggage car available in the airport has available slots, false otherwise
+ */
+bool Menu::addLuggageToLuggageCar(Luggage luggage) {
+
+    set<LuggageCar> luggageCars = luggageM.get();
+
+    for (LuggageCar luggageCar: luggageCars) {
+        if (!luggageCar.carIsFull()) {
+            luggageCar.addLuggage(luggage);
+            return true;
+        }
+    }
+    return false;
+}
+
+Menu::~Menu() {
+    ofstream flightFileW(flightFile, std::ofstream::out | std::ofstream::trunc);
+    ofstream luggageCarFileW(luggageCarFile, std::ofstream::out | std::ofstream::trunc);
+    ofstream planeFileW(planeFile, std::ofstream::out | std::ofstream::trunc);
+
+    planeM.write(planeFileW);
+    flightM.write(flightFileW);
+    luggageM.write(luggageCarFileW);
+}
+

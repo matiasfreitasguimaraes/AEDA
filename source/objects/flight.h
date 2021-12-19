@@ -4,8 +4,10 @@
 #include <string>
 #include <iostream>
 #include <vector>
+
 #include "passenger.h"
 #include "dateTime.h"
+#include "luggageCar.h"
 
 using namespace std;
 
@@ -20,6 +22,8 @@ private:
     unsigned id;
     unsigned int boughtTickets;
 public:
+    Flight();
+    Flight(string &number);
     Flight(string &number, DateTime &flightDepartureDate, DateTime &flightArrivalDate,
            string &flightOrigin, string &flightDestination, unsigned &Id);
     string getNumberOfFlight() const;
@@ -31,18 +35,12 @@ public:
     unsigned getFlightId() const;
     void setDestination(string flightDestination);
     void updateBoughtTickets(int nTickets);
-    bool canBuyTicket();
-    void buyTicket(Passenger &passenger);
     friend ostream& operator<<(ostream &out, const Flight &flight);
-    bool operator==(const Flight &flight);
-
     bool operator<(const Flight &rhs) const;
 
-    bool operator>(const Flight &rhs) const;
+    bool operator==(const Flight &rhs) const;
 
-    bool operator<=(const Flight &rhs) const;
-
-    bool operator>=(const Flight &rhs) const;
+    bool operator!=(const Flight &rhs) const;
 };
 
 

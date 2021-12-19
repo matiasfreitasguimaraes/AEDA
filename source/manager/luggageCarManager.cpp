@@ -8,7 +8,7 @@ void LuggageCarManager::read(ifstream &file) {
     unsigned numberOfCarriages, numberOfPiles, numberOfSuitcasesPerPile;
 
     if (file.is_open()) {
-        cout << "Successfully opened file! \n";
+        cout << "Successfully opened luggage car file! \n";
 
         while (!file.eof()) {
             file >> numberOfCarriages >> numberOfPiles >> numberOfSuitcasesPerPile;
@@ -38,9 +38,10 @@ void LuggageCarManager::remove(LuggageCar luggageCarToRemove) {
  * @brief writes the changes to a file
  * @param file the file containing the information of the luggage cars
  */
-void LuggageCarManager::write(ofstream &file) {
+void LuggageCarManager::write(ostream &file) {
     for (LuggageCar luggageCar: luggageCars) {
-        file << luggageCar.getNumberOfCarriages() << " " << luggageCar.getNumberOfPiles() << " " << luggageCar.getNumberOfSuitcasesPerPile();
+        file << luggageCar.getNumberOfCarriages() << " " << luggageCar.getNumberOfPiles()
+            << " " << luggageCar.getNumberOfSuitcasesPerPile() << endl;
     }
 }
 
@@ -51,4 +52,11 @@ void LuggageCarManager::show() {
     for (LuggageCar luggageCar: luggageCars) {
         cout << luggageCar << endl;
     }
+}
+
+/**
+ * @return the set of luggage cars
+ */
+set<LuggageCar> LuggageCarManager::get() {
+    return luggageCars;
 }

@@ -1,9 +1,5 @@
-//
-// Created by jpdat on 18/12/21.
-//
-
-#ifndef FLIGHTTEST_AIRPORTMANAGER_H
-#define FLIGHTTEST_AIRPORTMANAGER_H
+#ifndef AEDAPROJECT_AIRPORTMANAGER_H
+#define AEDAPROJECT_AIRPORTMANAGER_H
 
 #include "../objects/airport.h"
 
@@ -16,10 +12,10 @@ public:
     void write();
     int add(Airport newAirport);
     int remove(Airport airportToRemove);
-    void listAirports();
-    bool findAirport(Airport airport);
-    set<Airport>& getAirports();
+    void list();
+    bool find(Airport airport);
+    set<Airport>& get();
 };
 
 
-#endif //FLIGHTTEST_AIRPORTMANAGER_H
+#endif //AEDAPROJECT_AIRPORTMANAGER_H

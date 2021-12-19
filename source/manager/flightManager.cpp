@@ -6,11 +6,22 @@ using namespace std;
  * @brief writes the changes made in the flights to the file
  * @param filename the output file
  */
- void FlightManager::write(ostream &file) {
+ void FlightManager::write(ofstream &file) {
     for (Flight flight: flights) {
-        file << flight.getFlightId() << " " << flight.getNumberOfFlight() << " "
-             << flight.getDepartureDate() << " " << flight.getArrivalDate()
-             << " " << flight.getOrigin() << " " << flight.getDestination() << endl;
+        file << flight.getNumberOfFlight() << " "
+             << flight.getDepartureDate().getDay()  << " "
+             << flight.getDepartureDate().getMonth() << " "
+             << flight.getDepartureDate().getYear() << " "
+             << flight.getDepartureDate().getHour() << " "
+             << flight.getDepartureDate().getMinute() << " "
+             << flight.getArrivalDate().getDay() << " "
+             << flight.getArrivalDate().getMonth() << " "
+             << flight.getArrivalDate().getYear() << " "
+             << flight.getDepartureDate().getHour() << " "
+             << flight.getDepartureDate().getMinute()
+             << " " << flight.getOrigin()
+             << " " << flight.getDestination()
+             << " " << flight.getFlightId() << endl;
     }
 }
 
@@ -38,7 +49,7 @@ void FlightManager::remove(Flight flightToRemove) {
  */
 void FlightManager::read(ifstream &flightFile) {
     if (flightFile.is_open()) {
-        printf("Successfully opened input file!\n");
+        cout << "Successfully opened flight file!" << endl;
         string number;
         DateTime arrive , departure;
         unsigned int hour, min, year, month, day, id;
@@ -64,4 +75,26 @@ void FlightManager::show() {
     for (Flight flight: flights) {
         cout << flight <<  endl;
     }
+}
+
+/**
+ * @return the set of flights
+ */
+set<Flight> FlightManager::get() const {
+    return flights;
+}
+
+/**
+ * @brief finds a flight by its number
+ * @param numberOfFlight the flight's number
+ * @return if found, return that flight, otherwise returns a flight with number = -1
+ */
+Flight FlightManager::find(string numberOfFlight) {
+    for (Flight flight:flights) {
+        if(flight.getNumberOfFlight() == numberOfFlight){
+            return flight;
+        }
+    }
+    Flight f((string&)"-1");
+    return f;
 }

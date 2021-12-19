@@ -6,21 +6,16 @@
  */
 void PlaneManager::read(ifstream& planeFile) {
     if (planeFile.is_open()) {
-        cout << "Successfully opened input file!\n";
+        cout << "Successfully opened plane file!" << endl;
         int capacity;
         string type;
         string regis;
         Plane key;
         unsigned ID;
         while (!planeFile.eof()) {
-            planeFile >> regis >> capacity >> type >> ID;
+            planeFile >> type  >> capacity >> regis >> ID;
             key = Plane(capacity, type, regis, ID);
-            if (myPlanes.find(key) != myPlanes.end()){
-                cout << "Plane with " << key.getRegis() << " already exist" << endl;
-            }
-            else{
-                myPlanes.insert(key);
-            }
+            myPlanes.insert(key);
         }
     } else {
         cout << "Couldn't read file input.\n";
@@ -31,10 +26,10 @@ void PlaneManager::read(ifstream& planeFile) {
  * @brief writes the changes made to a file
  * @param file file to save the changes
  */
-void PlaneManager::write(ostream &file) {
+void PlaneManager::write(ofstream &file) {
     for (Plane plane: myPlanes) {
-        file << plane.getRegis() << " " << plane.getCapacity() << " "
-        << plane.getPlaneType() << " " << plane.getId();
+        file << plane.getPlaneType() << " " << plane.getCapacity() << " "
+        << plane.getRegis() << " " << plane.getId() << endl;
     }
 }
 
@@ -63,4 +58,11 @@ void PlaneManager::show() {
     for (Plane plane: myPlanes) {
         cout << plane <<  endl;
     }
+}
+
+/**
+ * @return the set of planes
+ */
+set<Plane> PlaneManager::get() {
+    return myPlanes;
 }

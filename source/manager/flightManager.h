@@ -13,11 +13,13 @@ class FlightManager{
 private:
     set<Flight> flights;
 public:
-    void write(ostream &file);
+    void write(ofstream &file);
     void add(Flight newFlight);
     void remove(Flight flightToRemove);
     void read(ifstream &file);
     void show();
+    set<Flight> get() const;
+    Flight find(string numberOfFlight);
 };
 
 

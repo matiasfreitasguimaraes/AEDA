@@ -13,7 +13,7 @@ public:
     void read(ifstream &file);
     void add(MaintenanceService service);
     void remove(MaintenanceService serviceToRemove);
-    void write(ofstream &file);
+    void write(ostream &file);
     void show();
 };
 

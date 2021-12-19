@@ -1,5 +1,5 @@
-#ifndef FLIGHTTEST_GROUNDTRANSPORTMANAGER_H
-#define FLIGHTTEST_GROUNDTRANSPORTMANAGER_H
+#ifndef AEDAPROJECT_GROUNDTRANSPORTMANAGER_H
+#define AEDAPROJECT_GROUNDTRANSPORTMANAGER_H
 #include <set>
 #include "../objects/groundTransport.h"
 #include <iostream>
@@ -15,8 +15,8 @@ public:
     int remove(GroundTransport groundToRemove);
     void showSched();
     void write(ostream &file);
-    set<GroundTransport> getMyTransport();
+    set<GroundTransport> get();
 };
 
 
-#endif //FLIGHTTEST_GROUNDTRANSPORTMANAGER_H
+#endif //AEDAPROJECT_GROUNDTRANSPORTMANAGER_H

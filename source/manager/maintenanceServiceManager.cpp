@@ -41,7 +41,7 @@ void MaintenanceServiceManager::remove(MaintenanceService serviceToRemove) {
  * @brief writes the changes made to a  file
  * @param file the file where the changes are stored
  */
-void MaintenanceServiceManager::write(ofstream &file) {
+void MaintenanceServiceManager::write(ostream &file) {
     for (MaintenanceService service: maintenanceServices) {
         file << service.getType() << " " << service.getDate() << " " << service.getResponsible() << endl;
     }
