@@ -326,6 +326,9 @@ void Menu::buyTicket() {
 
     cout << "How many tickets do you want to buy?\n";
     cin >> numberOfTickets;
+    if(numberOfTickets == 0){
+        return;
+    }
     cout << "In order to buy a ticket, you must provide some information of the owner\n";
 
     for (unsigned i = 0; i < numberOfTickets; i++) {

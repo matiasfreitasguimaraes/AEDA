@@ -49,8 +49,11 @@ int DateTime::getMinute(){
  * @return all the date information
  */
 ostream& operator<<(ostream &out, const DateTime &d1) {
-    out << d1.day << "/" << d1.month << "/"
-        << d1.year << " " << d1.hour << ":" << d1.minute;
+    out << std::setfill('0') << std::setw(2) << d1.day
+        << "/" << std::setfill('0') << std::setw(2) << d1.month
+        << "/"<< d1.year
+        << " " << std::setfill('0') << std::setw(2) << d1.hour
+        << ":" << std::setfill('0') << std::setw(2) << d1.minute;
     return out;
 }
 
@@ -97,3 +100,5 @@ bool DateTime::operator==(const DateTime &rhs) const {
 bool DateTime::operator!=(const DateTime &rhs) const {
     return !(rhs == *this);
 }
+
+

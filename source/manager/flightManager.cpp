@@ -9,15 +9,24 @@ using namespace std;
  void FlightManager::write(ofstream &file) {
     for (Flight flight: flights) {
         file << flight.getNumberOfFlight() << " "
-             << flight.getDepartureDate().getDay()  << " "
+            << std::setfill('0') << std::setw(2)
+            << flight.getDepartureDate().getDay()  << " "
+            << std::setfill('0') << std::setw(2)
              << flight.getDepartureDate().getMonth() << " "
              << flight.getDepartureDate().getYear() << " "
+             << std::setfill('0') << std::setw(2)
              << flight.getDepartureDate().getHour() << " "
+             << std::setfill('0') << std::setw(2)
              << flight.getDepartureDate().getMinute() << " "
+
+             << std::setfill('0') << std::setw(2)
              << flight.getArrivalDate().getDay() << " "
+             << std::setfill('0') << std::setw(2)
              << flight.getArrivalDate().getMonth() << " "
              << flight.getArrivalDate().getYear() << " "
+             << std::setfill('0') << std::setw(2)
              << flight.getDepartureDate().getHour() << " "
+             << std::setfill('0') << std::setw(2)
              << flight.getDepartureDate().getMinute()
              << " " << flight.getOrigin()
              << " " << flight.getDestination()
