@@ -234,27 +234,31 @@ int Menu::runAirportEditingMenu(set<Airport> &airports, string airportName) {
  * @param GTSchedule set of schedules
  * @return
  */
-int Menu::runScheduleOptionsMenu(set<DateTime> &GTSchedule) {
+int Menu::runScheduleOptionsMenu(set<GroundTransport> &GTs, string GTName) {
+    int hour, minute;
     string input;
+    GroundTransport selectedGT = *GTs.find(GroundTransport(GTName));
     cout << scheduleOptionsMenu;
-    option = intInput(0, 3, std::string());
+    option = intInput(0, 3, invalidInput);
     switch (option) {
         case 1:
-            int hour, minute;
-            cout << "At what time is the new departure scheduled for?\n"
-                    "Hours: ";
-            hour = intInput(0, 24, std::string());
-            cout << "Minutes: ";
-            minute = intInput(0, 60, std::string());
-            if (hour == -1 || minute == -1)
-                option = -1;
-            GTSchedule.insert(DateTime(hour, minute));
+            if (hourInput(hour, minute) == -1) {
+                return -1;
+            }
+            selectedGT.addToSchedule(DateTime(hour, minute));
+            GTs.erase(GTs.find(selectedGT));
+            GTs.insert(selectedGT);
             break;
         case 2:
-
+            if (hourInput(hour, minute) == -1) {
+                return -1;
+            }
+            selectedGT.removeFromSchedule(DateTime(hour, minute));
+            GTs.erase(GTs.find(selectedGT));
+            GTs.insert(selectedGT);
             break;
         case 3:
-
+            selectedGT.showSched();
             break;
     }
     if (option == -1)
@@ -427,3 +431,18 @@ Menu::~Menu() {
     airportM.write(airportFileW);
 }
 
+int Menu::hourInput(int &hour, int &minute) {
+    string invalidHour = "You know we only have 24 hours per day, right?";
+    string invalidMinute = "You know an hour only has 60 minutes,  right?";
+    cout << "Hours:\n";
+    hour = intInput(0, 24, invalidHour);
+    if (hour == -1) {
+        return -1;
+    }
+    cout << "Minutes:\n";
+    minute = intInput(0, 60, invalidMinute);
+    if (minute == -1) {
+        return -1;
+    }
+    return 1;
+}
