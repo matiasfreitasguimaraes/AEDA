@@ -127,3 +127,11 @@ bool Plane::operator>=(const Plane &rhs) const {
 unsigned int Plane::getId() const {
     return id;
 }
+
+bool Plane::operator==(const Plane &rhs) const {
+    return regis == rhs.regis;
+}
+
+bool Plane::operator!=(const Plane &rhs) const {
+    return !(rhs == *this);
+}

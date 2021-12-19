@@ -38,7 +38,7 @@ void FlightManager::remove(Flight flightToRemove) {
  */
 void FlightManager::read(ifstream &flightFile) {
     if (flightFile.is_open()) {
-        printf("Successfully opened input file!\n");
+        cout << "Successfully opened flight file!" << endl;
         string number;
         DateTime arrive , departure;
         unsigned int hour, min, year, month, day, id;
@@ -69,7 +69,7 @@ void FlightManager::show() {
 /**
  * @return the set of flights
  */
-set<Flight> FlightManager::getFlights() const {
+set<Flight> FlightManager::get() const {
     return flights;
 }
 
@@ -78,7 +78,7 @@ set<Flight> FlightManager::getFlights() const {
  * @param numberOfFlight the flight's number
  * @return if found, return that flight, otherwise returns a flight with number = -1
  */
-Flight FlightManager::findFlight(string numberOfFlight) {
+Flight FlightManager::find(string numberOfFlight) {
     for (auto it = flights.begin(); it != flights.end(); it++) {
         if ((*it).getNumberOfFlight() == numberOfFlight)
             return *it;

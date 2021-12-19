@@ -13,12 +13,12 @@ void GroundTransportManager::read(ifstream &groundFile) {
         unsigned int airDis;
         set<DateTime> sched;
         unsigned int hour, min, i;
-        while (!groundFile.eof()) {
+        while (groundFile.peek() != EOF) {
             groundFile >> type >> airDis >> i;
             for (unsigned int j = 0; j < i; ++j) {
                 groundFile >> hour >> min;
                 sched.insert(DateTime(hour,min));
-                myTransport.insert(GroundTransport(type, type, airDis));
+                add(GroundTransport(type, type, airDis));
             }
             sched.clear();
         }
@@ -63,6 +63,6 @@ void GroundTransportManager::showSched() {
 /**
  * @return the set of ground transports
  */
-set<GroundTransport> GroundTransportManager::getMyTransport() {
+set<GroundTransport> GroundTransportManager::get() {
     return myTransport;
 }

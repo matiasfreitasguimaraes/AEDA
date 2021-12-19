@@ -18,8 +18,8 @@ public:
     void remove(Flight flightToRemove);
     void read(ifstream &file);
     void show();
-    set<Flight> getFlights() const;
-    Flight findFlight(string numberOfFlight);
+    set<Flight> get() const;
+    Flight find(string numberOfFlight);
 };
 
 

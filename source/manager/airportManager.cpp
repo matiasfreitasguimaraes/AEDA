@@ -31,7 +31,7 @@ int airportManager::remove(Airport airportToRemove) {
 /**
  * @brief list all the airports' names
  */
-void airportManager::listAirports() {
+void airportManager::list() {
     if (airports.empty()) {
         cout << "Weird... Not a single airport found. Maybe you want to add some.\n";
     } else {
@@ -46,14 +46,14 @@ void airportManager::listAirports() {
  * @param airport the airport to be found
  * @return true if found, false otherwise
  */
-bool airportManager::findAirport(Airport airport) {
+bool airportManager::find(Airport airport) {
     return (airports.find(airport) != airports.end());
 }
 
 /**
  * @return the set of airports
  */
-set<Airport>& airportManager::getAirports() {
+set<Airport>& airportManager::get() {
     return airports;
 }
 

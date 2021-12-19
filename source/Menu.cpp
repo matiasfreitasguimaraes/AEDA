@@ -1,8 +1,16 @@
 #include "Menu.h"
 
-Menu::Menu() {
+Menu::Menu(const string &planeFile, const string &flightFile, const string &luggageCarFile)
+        : planeFile(planeFile), flightFile(flightFile), luggageCarFile(luggageCarFile){
+    ifstream planeFileR(planeFile);
+    ifstream luggageCarFileR(luggageCarFile);
+    ifstream flightFileR(flightFile);
+    planeM.read(planeFileR);
+    flightM.read(flightFileR);
+    luggageM.read(luggageCarFileR);
     cout << menuTutorial;
 }
+
 
 /**
  * @brief runs the starting menu
@@ -96,9 +104,9 @@ int Menu::runAirportManagerMenu() {
         case 5:
             cout << "Which airport's transport services you want to edit?\n";
             cin >> input;
-            if (airportM.findAirport(Airport(input))) {
+            if (airportM.find(Airport(input))) {
                 do {
-                } while (runAirportEditingMenu(airportM.getAirports(), input) == 0);
+                } while (runAirportEditingMenu(airportM.get(), input) == 0);
                 break;
             } else {
                 cout << "Couldn't find that airport... Maybe you had a typo in the name?\n"
@@ -106,7 +114,7 @@ int Menu::runAirportManagerMenu() {
             }
             break;
         case 2:
-            airportM.listAirports();
+            airportM.list();
             wait();
             break;
         case 0:
@@ -266,8 +274,7 @@ void Menu::wait() {
  * @brief lists all the flights' information
  */
 void Menu::listFlights() {
-    ifstream flightFile("input/flight.txt");
-    flightM.read(flightFile);
+
     flightM.show();
 }
 
@@ -275,13 +282,11 @@ void Menu::listFlights() {
  * @brief handles ticket buying as well as automated check ins
  */
 void Menu::buyTicket() {
-    ifstream flightFile("input/flight.txt");
-    flightM.read(flightFile);
     string name, numberOfFlight, choice;
     unsigned age, ssn, numberOfTickets, numberOfSuitcases;
     bool automaticCheckIn;
-    set<Flight> flights = flightM.getFlights();
-    set<LuggageCar> luggageCars = luggageM.getLuggageCars();
+    set<Flight> flights = flightM.get();
+    set<LuggageCar> luggageCars = luggageM.get();
 
     cout << "How many tickets do you want to buy?\n";
     cin >> numberOfTickets;
@@ -292,15 +297,17 @@ void Menu::buyTicket() {
         cin >> name;
         cout << "Age:\n";
         cin >> age;
-        cout << "SSN:\n";
+        cout << "Fiscal Number:\n";
         cin >> ssn;
         Passenger passenger(name, age, ssn);
-        cout << "Number of flight:\n";
+        cout << "Choose a flight:\n";
+        flightM.show();
+        cout << "Choose a flight:" << endl;
         cin >> numberOfFlight;
 
         Flight flightToBuyTicketTo(numberOfFlight);
         try {
-            flightToBuyTicketTo = flightM.findFlight(numberOfFlight);
+            flightToBuyTicketTo = flightM.find(numberOfFlight);
         } catch (bad_alloc &e) { // exception thrown when findFlight doesn't find the flight
             cout << "Flight not found. Please, try again \n";
             break;
@@ -336,9 +343,7 @@ void Menu::buyTicket() {
  * @return true if a passenger can buy the ticket, false otherwise
  */
 bool Menu::canBuyTicket(Flight flight) {
-    ifstream planeFile("input/planes.txt");
-    planeM.read(planeFile);
-    set<Plane> planes = planeM.getPlanes();
+    set<Plane> planes = planeM.get();
     for (Plane plane: planes) {
         if (plane.getId() == flight.getFlightId() && flight.getNumberOfTicketsBought() < plane.getCapacity())
             return true;
@@ -352,9 +357,8 @@ bool Menu::canBuyTicket(Flight flight) {
  * @return true if any luggage car available in the airport has available slots, false otherwise
  */
 bool Menu::addLuggageToLuggageCar(Luggage luggage) {
-    ifstream luggageCarFile("input/luggageCars.txt");
-    luggageM.read(luggageCarFile);
-    set<LuggageCar> luggageCars = luggageM.getLuggageCars();
+
+    set<LuggageCar> luggageCars = luggageM.get();
 
     for (LuggageCar luggageCar: luggageCars) {
         if (!luggageCar.carIsFull()) {
@@ -364,3 +368,14 @@ bool Menu::addLuggageToLuggageCar(Luggage luggage) {
     }
     return false;
 }
+
+Menu::~Menu() {
+    ofstream flightFileW(flightFile, std::ofstream::out | std::ofstream::trunc);
+    ofstream luggageCarFileW(luggageCarFile, std::ofstream::out | std::ofstream::trunc);
+    ofstream planeFileW(planeFile, std::ofstream::out | std::ofstream::trunc);
+
+    planeM.write(planeFileW);
+    flightM.write(flightFileW);
+    luggageM.write(luggageCarFileW);
+}
+

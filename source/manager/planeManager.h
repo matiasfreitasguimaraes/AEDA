@@ -13,8 +13,8 @@ public:
     void add(Plane newPlane);
     void remove(Plane planeToRemove);
     void show();
-    void write(ostream &file);
-    set<Plane> getPlanes();
+    void write(ofstream &file);
+    set<Plane> get();
 };
 
 

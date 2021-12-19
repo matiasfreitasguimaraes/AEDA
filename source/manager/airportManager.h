@@ -12,9 +12,9 @@ public:
     void write();
     int add(Airport newAirport);
     int remove(Airport airportToRemove);
-    void listAirports();
-    bool findAirport(Airport airport);
-    set<Airport>& getAirports();
+    void list();
+    bool find(Airport airport);
+    set<Airport>& get();
 };
 
 

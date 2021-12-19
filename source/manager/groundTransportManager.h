@@ -15,7 +15,7 @@ public:
     int remove(GroundTransport groundToRemove);
     void showSched();
     void write(ostream &file);
-    set<GroundTransport> getMyTransport();
+    set<GroundTransport> get();
 };
 
 

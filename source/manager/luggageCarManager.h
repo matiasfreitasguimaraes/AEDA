@@ -13,9 +13,9 @@ public:
     void read(ifstream &file);
     void add(LuggageCar luggageCar);
     void remove(LuggageCar luggageCarToRemove);
-    void write(ofstream &file);
+    void write(ostream &file);
     void show();
-    set<LuggageCar> getLuggageCars();
+    set<LuggageCar> get();
 };
 
 

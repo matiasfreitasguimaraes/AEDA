@@ -6,7 +6,7 @@
  */
 void PlaneManager::read(ifstream& planeFile) {
     if (planeFile.is_open()) {
-        cout << "Successfully opened input file!\n";
+        cout << "Successfully opened plane file!" << endl;
         int capacity;
         string type;
         string regis;
@@ -31,7 +31,7 @@ void PlaneManager::read(ifstream& planeFile) {
  * @brief writes the changes made to a file
  * @param file file to save the changes
  */
-void PlaneManager::write(ostream &file) {
+void PlaneManager::write(ofstream &file) {
     for (Plane plane: myPlanes) {
         file << plane.getRegis() << " " << plane.getCapacity() << " "
         << plane.getPlaneType() << " " << plane.getId();
@@ -68,6 +68,6 @@ void PlaneManager::show() {
 /**
  * @return the set of planes
  */
-set<Plane> PlaneManager::getPlanes() {
+set<Plane> PlaneManager::get() {
     return myPlanes;
 }
