@@ -64,10 +64,10 @@ int Menu::runAdminMenu() {
 int Menu::runAirportManagerMenu() {
     string input;
     cout << airportManagerMenu;
-    option = intInput(0, 5, invalidInput);
+    option = intInput(0, 6, invalidInput);
     switch (option) {
         case 1:
-            cout << "yet to implement";
+            airportM.read();
             break;
         case 3:
             cout << "What will be its name?\n";
@@ -91,7 +91,7 @@ int Menu::runAirportManagerMenu() {
             wait();
             break;
         case 6:
-
+            airportM.write();
             break;
         case 5:
             cout << "Which airport's transport services you want to edit?\n";
@@ -160,7 +160,6 @@ int Menu::runAirportEditingMenu(set<Airport> &airports, string airportName) {
                     airports.insert(airport);
                 }
             }
-
             break;
         case 4:
 
@@ -222,7 +221,7 @@ int Menu::intInput(int min, int max, string errorMessage) {
         }
         if (output < min || output > max) {
             cout << errorMessage;
-            output = 0;
+            output = -2;
         }
     } while (output == -2);
     return output;

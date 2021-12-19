@@ -12,8 +12,8 @@ private:
     set<Airport> airports;
 public:
     airportManager();
-    void read(ifstream &airportFile);
-    void write(ostream &file);
+    void read();
+    void write();
     int add(Airport newAirport);
     int remove(Airport airportToRemove);
     void listAirports();
