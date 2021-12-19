@@ -21,10 +21,11 @@ add_executable(AEDAProject main.cpp
         source/objects/groundTransport.cpp source/objects/groundTransport.h
         source/objects/dateTime.cpp source/objects/dateTime.h
         source/objects/luggageCar.h source/objects/luggageCar.cpp
-        source/objects/globalVariables.cpp source/objects/globalVariables.h
         source/Menu.cpp source/Menu.h source/manager/flightManager.h
         source/manager/planeManager.cpp source/manager/planeManager.h
-        source/manager/flightManager.cpp source/manager/luggageCarManager.cpp source/manager/luggageCarManager.h source/manager/maintenanceServiceManager.cpp source/manager/maintenanceServiceManager.h source/manager/groundTransportManager.cpp source/objects/luggage.cpp source/objects/luggage.h)
+        source/manager/flightManager.cpp source/manager/luggageCarManager.cpp
+        source/manager/luggageCarManager.h source/manager/maintenanceServiceManager.cpp
+        source/manager/maintenanceServiceManager.h source/objects/luggage.cpp source/objects/luggage.h)
 
 # Doxygen Build
 find_package(Doxygen)
@@ -55,7 +56,9 @@ add_executable(airportTest testers/testAirport.cpp
         source/objects/dateTime.cpp source/objects/dateTime.h
         source/objects/groundTransport.cpp source/objects/groundTransport.h
         source/objects/flight.cpp source/objects/flight.h
-        source/objects/passenger.cpp source/objects/passenger.h testers/testLuggageCar.cpp testers/testMaintenanceService.cpp testers/testPassenger.cpp testers/testTicket.cpp)
+        source/objects/passenger.cpp source/objects/passenger.h
+        testers/testLuggageCar.cpp testers/testMaintenanceService.cpp
+        testers/testPassenger.cpp testers/testTicket.cpp)
 
 project(planeTest)
 
@@ -68,7 +71,7 @@ add_executable(planeTest testers/testPlane.cpp
 
 project(groundTest)
 
-add_executable(groundTest testers/testGroundTransport.cpp
+add_executable(groundTest
         source/objects/groundTransport.cpp source/objects/groundTransport.h
         source/objects/plane.cpp source/objects/plane.h
         source/objects/dateTime.cpp source/objects/dateTime.h
