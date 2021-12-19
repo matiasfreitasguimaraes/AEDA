@@ -256,6 +256,7 @@ int Menu::runScheduleOptionsMenu(set<GroundTransport> &GTs, string GTName) {
             selectedGT.removeFromSchedule(DateTime(hour, minute));
             GTs.erase(GTs.find(selectedGT));
             GTs.insert(selectedGT);
+            break;
         case 3:
             selectedGT.showSched();
             break;
