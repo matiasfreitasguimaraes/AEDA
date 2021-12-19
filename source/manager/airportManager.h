@@ -8,7 +8,7 @@ private:
     set<Airport> airports;
 public:
     airportManager();
-    int read();
+    void read();
     void write();
     int add(Airport newAirport);
     int remove(Airport airportToRemove);
