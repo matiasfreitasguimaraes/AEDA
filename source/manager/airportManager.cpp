@@ -21,7 +21,7 @@ int airportManager::remove(Airport airportToRemove) {
     return 1;
 }
 
-void airportManager::listAirports() {
+void airportManager::list() {
     if (airports.empty()) {
         cout << "Weird... Not a single airport found. Maybe you want to add some.\n";
     } else {
@@ -31,11 +31,11 @@ void airportManager::listAirports() {
     }
 }
 
-bool airportManager::findAirport(Airport airport) {
+bool airportManager::find(Airport airport) {
     return (airports.find(airport) != airports.end());
 }
 
-set<Airport>& airportManager::getAirports() {
+set<Airport>& airportManager::get() {
     return airports;
 }
 
@@ -44,8 +44,8 @@ void airportManager::write() {
     file.open("airports.txt");
     for (Airport airport : airports) {
         file << airport.getName() << "\n";
-        file << airport.getGTBST().size() << "\n";
-        for (GroundTransport GT : airport.getGTBST()) {
+        file << airport.getGT().size() << "\n";
+        for (GroundTransport GT : airport.getGT()) {
             file << GT.getName() << "\n";
             file << GT.getType() << " " << GT.getAirportDistance() << " " << GT.getSchedule().size() << "\n";
             for (DateTime time : GT.getSchedule()) {
@@ -57,7 +57,7 @@ void airportManager::write() {
     }
 }
 
-int airportManager::read() {
+void airportManager::read() {
     ifstream airportFile;
     airportFile.open("airports.txt");
     string airportName, GTName, GTType;
@@ -79,5 +79,4 @@ int airportManager::read() {
         }
         airports.insert(newAirport);
     }
-    return 1;
 }
