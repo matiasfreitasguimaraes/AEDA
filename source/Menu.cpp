@@ -33,7 +33,7 @@ int Menu::run() {
             break;
         case 3:
             if (airportM.get().empty()) {
-                airportM.list();
+                airportM.show();
                 wait();
                 return -1;
             }
@@ -44,7 +44,7 @@ int Menu::run() {
             if (option == -1) {
                 return -1;
             } else if (option == 1) {
-                airportM.list();
+                airportM.show();
             } else {}
             cout << "Which airport's transport services you want to check?\n";
             cin >> selectedInput;
@@ -158,7 +158,7 @@ int Menu::runAirportManagerMenu() {
             }
             break;
         case 2:
-            airportM.list();
+            airportM.show();
             wait();
             break;
         case 0:
@@ -421,7 +421,6 @@ Menu::~Menu() {
     ofstream luggageCarFileW(luggageCarFile, std::ofstream::out | std::ofstream::trunc);
     ofstream planeFileW(planeFile, std::ofstream::out | std::ofstream::trunc);
     ofstream airportFileW(airportFile, std::ofstream::out | std::ofstream::trunc);
-
     planeM.write(planeFileW);
     flightM.write(flightFileW);
     luggageM.write(luggageCarFileW);

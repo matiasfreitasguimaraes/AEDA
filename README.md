@@ -1,27 +1,11 @@
 # AEDA
-1. Criar constructos
-
-2. Overload de print <<
-
-3. Criar sets e gets
+#O que falta???
 
 4. Comentar tudo !!!MAIS IMPORTANTES!!
 
 5. Criar arquivos de entrada
 
 6. Fazer testes!
-
-7. Criar menu (classe)!
-
-Para João: Airport, MaintanceServices, Menu, Task 2.
-
-Para Jorge: Flight, Plane, Task 3.
-
-Para Matias: Testes e Arquivos.
-
-Ideias - 
-1. Conversar com o prof a respeito de limitaçoes dos carrinhos e a possibilidade de haverem multiplos 
-carrinhos para cada vôo.
 
 ---------------------------------------------
 #string e vector tem que ser passado como reference e const

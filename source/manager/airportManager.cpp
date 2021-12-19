@@ -21,7 +21,7 @@ int airportManager::remove(Airport airportToRemove) {
     return 1;
 }
 
-void airportManager::list() {
+void airportManager::show() {
     if (airports.empty()) {
         cout << "Weird... Not a single airport found. Maybe you want to add some.\n";
     } else {
