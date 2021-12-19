@@ -21,7 +21,7 @@ int airportManager::remove(Airport airportToRemove) {
     return 1;
 }
 
-void airportManager::listAirports() {
+void airportManager::show() {
     if (airports.empty()) {
         cout << "Weird... Not a single airport found. Maybe you want to add some.\n";
     } else {
@@ -31,21 +31,19 @@ void airportManager::listAirports() {
     }
 }
 
-bool airportManager::findAirport(Airport airport) {
+bool airportManager::find(Airport airport) {
     return (airports.find(airport) != airports.end());
 }
 
-set<Airport>& airportManager::getAirports() {
+set<Airport>& airportManager::get() {
     return airports;
 }
 
-void airportManager::write() {
-    ofstream file;
-    file.open("airports.txt");
+void airportManager::write(ofstream& file) {
     for (Airport airport : airports) {
-        file << airport.getName() << "\n";
-        file << airport.getGTBST().size() << "\n";
-        for (GroundTransport GT : airport.getGTBST()) {
+        file << airport.getName() << " "
+             << airport.getGT().size();
+        for (GroundTransport GT : airport.getGT()) {
             file << GT.getName() << "\n";
             file << GT.getType() << " " << GT.getAirportDistance() << " " << GT.getSchedule().size() << "\n";
             for (DateTime time : GT.getSchedule()) {
@@ -57,27 +55,22 @@ void airportManager::write() {
     }
 }
 
-int airportManager::read() {
-    ifstream airportFile;
-    airportFile.open("airports.txt");
+void airportManager::read(ifstream &file) {
     string airportName, GTName, GTType;
     int schedSize, GTBSTSize, airDis, hour, minute;
-    while (!airportFile.eof()) {
-        getline(airportFile, airportName);
+    while (file.peek() != EOF) {
+        file >> airportName >> GTBSTSize;
         Airport newAirport = Airport(airportName);
-        airportFile >> GTBSTSize;
         for (int i = 0; i < GTBSTSize; i++) {
-            getline(airportFile, GTName);
-            airportFile >> GTType >> airDis;
+            file >> GTType >> airDis;
             GroundTransport newGT = GroundTransport(GTName, GTType, airDis);
-            airportFile >> schedSize;
+            file >> schedSize;
             for (int j = 0; j < schedSize; j++) {
-                airportFile >> hour >> minute;
+                file >> hour >> minute;
                 newGT.addToSchedule(DateTime(hour, minute));
             }
             newAirport.addGT(newGT);
         }
         airports.insert(newAirport);
     }
-    return 1;
 }

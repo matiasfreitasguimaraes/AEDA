@@ -7,14 +7,23 @@ class airportManager {
 private:
     set<Airport> airports;
 public:
+    ///Constructor
     airportManager();
-    void read();
-    void write();
+
+    ///Writer and reader functions
+    void read(ifstream &file);
+    void write(ofstream &file);
+
+    ///update and delete
     int add(Airport newAirport);
     int remove(Airport airportToRemove);
-    void list();
-    bool find(Airport airport);
+
+    ///get atributtes
     set<Airport>& get();
+
+    ///find element
+    bool find(Airport airport);
+    void show();
 };
 
 
