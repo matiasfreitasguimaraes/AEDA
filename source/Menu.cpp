@@ -17,6 +17,7 @@ Menu::Menu(const string &planeInput, const string &flightInput, const string &lu
  * @return -1 if successfully
  */
 int Menu::run() {
+    string selectedInput;
     cout << startingMenu;
     option = intInput(0, 4, invalidInput);
     switch (option) {
@@ -28,7 +29,43 @@ int Menu::run() {
             listFlights();
             break;
         case 3:
-            // mostrar informaçoes dos transportes por aeroporto
+            cout << "Want me to list the registered airports?\n"
+                    "1 - Yes\n"
+                    "2 - No\n";
+            option = intInput(0, 1, invalidInput);
+            if (option == -1) {
+                return -1;
+            } else if (option == 1) {
+                airportM.list();
+            } else {}
+            cout << "Which airport's transport services you want to check?\n";
+            cin >> selectedInput;
+            if (selectedInput == "-1") {
+                return -1;
+            }
+            if (airportM.find(Airport(selectedInput))) {
+                Airport selectedAirport = *airportM.get().find(Airport(selectedInput));
+                selectedAirport.showGTs();
+                wait();
+                cout << "Want to check the schedule for any of them?\n"
+                        "1 - Yes\n"
+                        "0 - No\n";
+                option = intInput(0, 1, invalidInput);
+                if (option == -1) {
+                    return -1;
+                } else if (option == 1) {
+                    cout << "Which one?\n";
+                    cin >> selectedInput;
+                    if (selectedInput == "-1") {
+                        return -1;
+                    }
+                    selectedAirport.getGT(selectedInput).showSched();
+                } else {}
+                break;
+            } else {
+                cout << "Couldn't find that airport... Maybe you had a typo in the name?\n"
+                        "Remember, it's case-sensitive\n";
+            }
             break;
         case 4:
             buyTicket();

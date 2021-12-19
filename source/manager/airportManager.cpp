@@ -21,7 +21,7 @@ int airportManager::remove(Airport airportToRemove) {
     return 1;
 }
 
-void airportManager::listAirports() {
+void airportManager::list() {
     if (airports.empty()) {
         cout << "Weird... Not a single airport found. Maybe you want to add some.\n";
     } else {
@@ -31,11 +31,11 @@ void airportManager::listAirports() {
     }
 }
 
-bool airportManager::findAirport(Airport airport) {
+bool airportManager::find(Airport airport) {
     return (airports.find(airport) != airports.end());
 }
 
-set<Airport>& airportManager::getAirports() {
+set<Airport>& airportManager::get() {
     return airports;
 }
 
@@ -49,7 +49,7 @@ void airportManager::write() {
             file << GT.getName() << "\n";
             file << GT.getType() << " " << GT.getAirportDistance() << " " << GT.getSchedule().size() << "\n";
             for (DateTime time : GT.getSchedule()) {
-                file << setw(2) << setfill('0') << time.getHour() << " " << setw(2) << setfill('0') << time.getMinute() << " ";
+                file << time.getHour() << " " << time.getMinute() << " ";
             }
 
         }
