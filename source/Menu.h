@@ -86,6 +86,11 @@ private:
                                     "3 - List planes\n"
                                     "4 - Manage a plane\n"
                                     "0 - Return\n";
+    const string planeEditingMenu = "Plane options\n"
+                                    "1 - Add a maintenance service\n"
+                                    "2 - Remove a maintenance service\n"
+                                    "3 - List maintenance services\n"
+                                    "4 - Mark a service as completed\n";
     /*
      * invalid input message to be exhibited
      */
@@ -108,11 +113,11 @@ public:
     void wait();
     bool canBuyTicket(Flight flight);
     bool addLuggageToLuggageCar(Luggage luggage);
-    void groundTransportInformationPerAirport();
     void listingMenu();
     DateTime dateInput(bool askYear = true, bool askMonth = true, bool askDay = true, bool askHour = true, bool askMinute = true);
     int runFlightSetManagerMenu();
     int runPlaneManagerMenu();
+    int runPlaneEditingMenu();
 };
 
 

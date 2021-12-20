@@ -11,7 +11,7 @@
 
 using namespace std;
 
-class Plane{
+class Plane {
 private:
     unsigned capacity;
     string planeType;
@@ -34,7 +34,9 @@ public:
     queue<MaintenanceService> getScheduledServices() const;
     void setListOfFlights(vector<Flight> flights);
     void addPastService(MaintenanceService &service);
-    void addScheduledService(MaintenanceService &scheduledService);
+    void addScheduledService(MaintenanceService scheduledService);
+    bool removeScheduledService(MaintenanceService serviceToRemove);
+    bool markServiceAsCompleted(MaintenanceService serviceToBeCompleted);
     unsigned int getId() const;
     void setId(unsigned int id);
     friend ostream& operator<<(ostream &out,const Plane &plane);

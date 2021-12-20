@@ -7,7 +7,7 @@
 void PlaneManager::read(ifstream& planeFile) {
     if (planeFile.is_open()) {
         cout << "Successfully opened plane file!" << endl;
-        unsigned capacity, year, month, day, hour, minute, numOfPastServices, numOfScheduledServices;
+        unsigned capacity, year, month, day, hour, minute, numOfPastServices, numOfScheduledServices, serviceID;
         char sep;
         string type, regis, maintenanceType, responsible;
         Plane key;
@@ -18,16 +18,16 @@ void PlaneManager::read(ifstream& planeFile) {
             key = Plane(capacity, type, regis, ID);
             planeFile >> numOfPastServices;
             for (unsigned i = 0; i < numOfPastServices; i++) {
-                planeFile >> maintenanceType >> day >> sep >> month >> sep >> year >> hour >> sep >> minute >> responsible;
+                planeFile >> serviceID >> maintenanceType >> day >> sep >> month >> sep >> year >> hour >> sep >> minute >> responsible;
                 DateTime serviceSchedule(year, month, day, hour, minute);
-                MaintenanceService pastService(maintenanceType, serviceSchedule, responsible);
+                MaintenanceService pastService(serviceID, maintenanceType, serviceSchedule, responsible);
                 key.addPastService(pastService);
             }
             planeFile >> numOfScheduledServices;
             for (unsigned i = 0; i < numOfScheduledServices; i++) {
-                planeFile >> maintenanceType >> day >> sep >> month >> sep >> year >> hour >> sep >> minute >> responsible;
+                planeFile >> serviceID >> maintenanceType >> day >> sep >> month >> sep >> year >> hour >> sep >> minute >> responsible;
                 DateTime serviceSchedule(year, month, day, hour, minute);
-                MaintenanceService scheduledService(maintenanceType, serviceSchedule, responsible);
+                MaintenanceService scheduledService(serviceID, maintenanceType, serviceSchedule, responsible);
                 key.addScheduledService(scheduledService);
             }
             myPlanes.insert(key);
@@ -42,7 +42,7 @@ void PlaneManager::read(ifstream& planeFile) {
  * @param file file to save the changes
  */
 void PlaneManager::write(ofstream &file) {
-    for (Plane plane: myPlanes) {
+    for (const Plane &plane: myPlanes) {
         auto pastServices = plane.getPastServices();
         auto scheduledServices = plane.getScheduledServices();
 
@@ -65,7 +65,7 @@ void PlaneManager::write(ofstream &file) {
  * @param newFlight flight to add
  * @param filename file to write the changes
  */
-int PlaneManager::add(Plane newPlane) {
+int PlaneManager::add(const Plane &newPlane) {
     if (myPlanes.find(Plane(newPlane)) != myPlanes.end())
         return 0;
     myPlanes.insert(newPlane);
@@ -77,7 +77,7 @@ int PlaneManager::add(Plane newPlane) {
  * @param flightToRemove flight to remove
  * @param filename file to write the changes
  */
-int PlaneManager::remove(Plane planeToRemove) {
+int PlaneManager::remove(const Plane &planeToRemove) {
     if (myPlanes.find(planeToRemove) == myPlanes.end())
         return 0;
     else {
@@ -90,7 +90,7 @@ int PlaneManager::remove(Plane planeToRemove) {
  * @brief shows the flights and their information to the users
  */
 void PlaneManager::show() {
-    for (Plane plane: myPlanes) {
+    for (const Plane &plane: myPlanes) {
         cout << plane <<  endl;
     }
 }
@@ -100,4 +100,8 @@ void PlaneManager::show() {
  */
 set<Plane> PlaneManager::get() {
     return myPlanes;
+}
+
+bool PlaneManager::find(Plane plane) {
+    return (myPlanes.find(plane) != myPlanes.end());
 }

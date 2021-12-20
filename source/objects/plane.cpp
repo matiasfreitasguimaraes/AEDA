@@ -82,7 +82,7 @@ void Plane::addPastService(MaintenanceService &service) {
  * @brief adds service to the scheduled services
  * @param scheduledService instance of MaintenanceService
  */
-void Plane::addScheduledService(MaintenanceService &scheduledService) {
+void Plane::addScheduledService(MaintenanceService scheduledService) {
     scheduledServices.push(scheduledService);
 }
 
@@ -129,4 +129,49 @@ unsigned int Plane::getId() const {
  */
 bool Plane::operator==(const Plane &rhs) const {
     return regis == rhs.regis;
+}
+
+/**
+ * @brief removes a scheduled service
+ * @param serviceToRemove service to be removed
+ */
+bool Plane::removeScheduledService(MaintenanceService serviceToRemove) {
+    queue<MaintenanceService> helper;
+    queue<MaintenanceService> comparisonQueue = scheduledServices;
+    while(!scheduledServices.empty()) {
+        if (scheduledServices.front().getId() == serviceToRemove.getId()) {
+            scheduledServices.pop();
+        } else {
+            helper.push(scheduledServices.front());
+            scheduledServices.pop();
+        }
+    }
+    if (helper == comparisonQueue) { // service not found
+        scheduledServices = comparisonQueue;
+        return false;
+    } else {
+        scheduledServices = helper;
+        return true;
+    }
+}
+
+bool Plane::markServiceAsCompleted(MaintenanceService serviceToBeCompleted) {
+    queue<MaintenanceService> helper;
+    queue<MaintenanceService> comparisonQueue = scheduledServices;
+    while(!scheduledServices.empty()) {
+        if(scheduledServices.front().getId() == serviceToBeCompleted.getId()) {
+            pastServices.push(scheduledServices.front());
+            scheduledServices.pop();
+        } else {
+            helper.push(scheduledServices.front());
+            scheduledServices.pop();
+        }
+    }
+    if (helper == comparisonQueue) { // service not found
+        scheduledServices = comparisonQueue;
+        return false;
+    } else {
+        scheduledServices = helper;
+        return true;
+    }
 }

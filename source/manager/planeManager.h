@@ -17,11 +17,13 @@ public:
     void show();
 
     ///update and delete
-    int add(Plane newPlane);
-    int remove(Plane planeToRemove);
+    int add(const Plane &newPlane);
+    int remove(const Plane &planeToRemove);
 
     ///get atributtes
     set<Plane> get();
+
+    bool find(Plane plane);
 };
 
 
