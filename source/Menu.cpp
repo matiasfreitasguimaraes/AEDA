@@ -362,8 +362,7 @@ void Menu::buyTicket() {
         cout << "Fiscal Number:\n";
         cin >> ssn;
         Passenger passenger(name, age, ssn);
-        cout << "Choose a flight:\n";
-        flightM.show();
+        listingMenu();
         cout << "Choose a flight:" << endl;
         cin >> numberOfFlight;
 
