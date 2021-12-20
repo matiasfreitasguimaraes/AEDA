@@ -13,6 +13,10 @@ Plane::Plane(unsigned planeCapacity, string type, string planeRegister, unsigned
     instances++;
 }
 
+Plane::Plane(string planeRegister) {
+    this->regis = planeRegister;
+}
+
 /**
  * @return the plane's capacity
  */

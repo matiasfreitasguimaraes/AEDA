@@ -89,6 +89,13 @@ private:
             "2 - Cancel ticket\n"
             "3 - Display flight info\n"
             "0 - Return\n";
+    const string planeManagerMenu =
+            "Plane management options:\n"
+            "1 - Add plane\n"
+            "2 - Remove plane\n"
+            "3 - List planes\n"
+            "4 - Manage a plane\n"
+            "0 - Return\n";
     /*
      * invalid input message to be exhibited
      */
@@ -116,6 +123,7 @@ public:
     DateTime dateInput(bool askYear = true, bool askMonth = true, bool askDay = true, bool askHour = true, bool askMinute = true);
     int runFlightSetManagerMenu();
     int runFlightObjectManagerMenu(set<Flight> &flights, string flightCode);
+    int runPlaneManagerMenu();
 };
 
 

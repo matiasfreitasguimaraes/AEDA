@@ -23,6 +23,7 @@ private:
     unsigned id;
 public:
     Plane(){};
+    Plane(string planeRegister);
     Plane(unsigned capacity, string planeType, string regis, unsigned Id);
     unsigned getCapacity() const;
     static unsigned getNumberOfInstances();

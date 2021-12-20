@@ -38,8 +38,11 @@ void PlaneManager::write(ofstream &file) {
  * @param newFlight flight to add
  * @param filename file to write the changes
  */
-void PlaneManager::add(Plane newPlane) {
+int PlaneManager::add(Plane newPlane) {
+    if (myPlanes.find(Plane(newPlane)) != myPlanes.end())
+        return 0;
     myPlanes.insert(newPlane);
+    return 1;
 }
 
 /**
@@ -47,8 +50,13 @@ void PlaneManager::add(Plane newPlane) {
  * @param flightToRemove flight to remove
  * @param filename file to write the changes
  */
-void PlaneManager::remove(Plane planeToRemove) {
-    this->myPlanes.erase(planeToRemove);
+int PlaneManager::remove(Plane planeToRemove) {
+    if (myPlanes.find(planeToRemove) == myPlanes.end())
+        return 0;
+    else {
+        this->myPlanes.erase(myPlanes.find(planeToRemove));
+        return 1;
+    }
 }
 
 /**

@@ -92,7 +92,9 @@ int Menu::runAdminMenu() {
     option = intInput(0, 3, invalidInput);
     switch (option) {
         case 1:
-            cout << "yet to implement";
+            do {
+                option = runPlaneManagerMenu();
+            } while (option == 0);
             break;
         case 2:
             do {
@@ -615,4 +617,49 @@ int Menu::runFlightObjectManagerMenu(set<Flight> &flights, string flightCode) {
     set<Flight> uhu = flights;
     string kkk = flightCode;
     return 1;
+}
+
+int Menu::runPlaneManagerMenu() {
+    string planeType, planeRegister;
+    unsigned planeCapacity, planeId;
+    cout << planeManagerMenu;
+    option = intInput(0, 4, invalidInput);
+
+    switch (option) {
+        case 0:
+            return 1;
+        case 1:
+            cout << "Plane's register:\n";
+            cin >> planeRegister;
+            cout << "Plane type:\n";
+            cin >> planeType;
+            cout << "Plane's capacity:\n";
+            cin >> planeCapacity;
+            cout << "Plane's ID:\n";
+            cin >> planeId;
+
+            if (planeM.add(Plane(planeCapacity, planeType, planeRegister, planeId)) == 1) {
+                cout << "Plane added successfully\n";
+            } else { cout << "Seems like that plane already exists\n";}
+            wait();
+            break;
+        case 2:
+            cout << "What's the plane's register you want to remove?\n";
+            cin >> planeRegister;
+
+            if (planeM.remove(Plane(planeRegister)) == 1)
+                cout << "Plane removed successfully\n";
+            else
+                cout << "Failed to remove plane. The plane does not exist\n";
+            wait();
+            break;
+        case 3:
+            planeM.show();
+            break;
+        case 4:
+            break;
+    }
+    if (option == -1)
+        return -1;
+    return 0;
 }

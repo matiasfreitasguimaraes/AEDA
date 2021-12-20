@@ -17,8 +17,8 @@ public:
     void show();
 
     ///update and delete
-    void add(Plane newPlane);
-    void remove(Plane planeToRemove);
+    int add(Plane newPlane);
+    int remove(Plane planeToRemove);
 
     ///get atributtes
     set<Plane> get();

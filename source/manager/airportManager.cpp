@@ -1,7 +1,3 @@
-//
-// Created by jpdat on 18/12/21.
-//
-
 #include <fstream>
 #include "airportManager.h"
 
