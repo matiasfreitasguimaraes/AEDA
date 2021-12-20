@@ -15,6 +15,9 @@ Flight::Flight(string &number, DateTime &flightDepartureDate, DateTime &flightAr
     this->id = Id;
 }
 
+/**
+ * @param number the flight's number
+ */
 Flight::Flight(string &number) {
     this->numberOfFlight = number;
 }
@@ -95,12 +98,6 @@ unsigned Flight::getNumberOfTicketsBought() const {
 unsigned int Flight::getFlightId() const {
     return id;
 }
-
-/**
- * @param flight instance of flight
- * @return true if two flights are the equal, false otherwise
- */
-
 
 /**
  * @param rhs instance of flight

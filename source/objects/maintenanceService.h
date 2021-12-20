@@ -14,7 +14,7 @@ private:
     DateTime date;
     string responsible;
 public:
-    // for context with operator << use bus, metro or train for typename.
+    // for context with operator << use Bus, Metro or Train for typename.
     MaintenanceService(string typeName,DateTime when, string employee);
     string getType() const;
     DateTime getDate() const;

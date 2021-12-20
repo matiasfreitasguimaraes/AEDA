@@ -1,6 +1,11 @@
 #include <fstream>
 #include "airportManager.h"
 
+/**
+ * @brief adds a new airport
+ * @param newAirport the airport to be added
+ * @return 1 if successfully, false otherwise
+ */
 int AirportManager::add(Airport newAirport) {
     if (airports.find(newAirport) != airports.end())
         return 0;
@@ -8,6 +13,11 @@ int AirportManager::add(Airport newAirport) {
     return 1;
 }
 
+/**
+ * @brief removes an airport
+ * @param airportToRemove airport to be removed
+ * @return 1 if successfully, false otherwise
+ */
 int AirportManager::remove(Airport airportToRemove) {
     if (airports.find(airportToRemove) == airports.end())
         return 0;
@@ -15,6 +25,9 @@ int AirportManager::remove(Airport airportToRemove) {
     return 1;
 }
 
+/**
+ * @brief displays all the airports
+ */
 void AirportManager::show() {
     if (airports.empty()) {
         cout << "Weird... Not a single airport found. Maybe you want to add some.\n";
@@ -25,14 +38,25 @@ void AirportManager::show() {
     }
 }
 
+/**
+ * @param airport the airport to be found
+ * @return true if found, false otherwise
+ */
 bool AirportManager::find(Airport airport) {
     return (airports.find(airport) != airports.end());
 }
 
+/**
+ * @return the set of airports
+ */
 set<Airport>& AirportManager::get() {
     return airports;
 }
 
+/**
+ * @brief writes the changes made to a file
+ * @param file the file in which the changes are saved
+ */
 void AirportManager::write(ofstream& file) {
     for (Airport airport : airports) {
         file << airport.getName() << " "
@@ -48,6 +72,10 @@ void AirportManager::write(ofstream& file) {
     }
 }
 
+/**
+ * @brief reads airport information from a file
+ * @param file the file to read the information from
+ */
 void AirportManager::read(ifstream &file) {
     string airportName, GTName, GTType;
     int schedSize, GTBSTSize, airDis, hour, minute;

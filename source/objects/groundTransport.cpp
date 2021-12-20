@@ -68,18 +68,10 @@ bool GroundTransport::operator<(const GroundTransport &rhs) const {
     return airportDistance < rhs.airportDistance;
 }
 
-bool GroundTransport::operator>(const GroundTransport &rhs) const {
-    return rhs < *this;
-}
-
-bool GroundTransport::operator<=(const GroundTransport &rhs) const {
-    return !(rhs < *this);
-}
-
-bool GroundTransport::operator>=(const GroundTransport &rhs) const {
-    return !(*this < rhs);
-}
-
+/**
+ * @param rhs instance of GroundTransport
+ * @return true if two ground transports have the same name
+ */
 bool GroundTransport::operator==(const GroundTransport &rhs) const {
     return this->name == rhs.getName();
 }

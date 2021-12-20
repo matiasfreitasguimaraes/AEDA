@@ -13,9 +13,14 @@ Plane::Plane(unsigned planeCapacity, string type, string planeRegister, unsigned
     instances++;
 }
 
+/**
+ * @param planeRegister the plane's register
+ */
 Plane::Plane(string planeRegister) {
     this->regis = planeRegister;
 }
+
+unsigned Plane::instances = 0;
 
 /**
  * @return the plane's capacity
@@ -95,8 +100,6 @@ queue<MaintenanceService> Plane::getScheduledServices() const {
     return scheduledServices;
 }
 
-unsigned Plane::instances = 0;
-
 /**
  * @brief sets the list of flights of a plane
  * @param flights the new list of flights
@@ -113,18 +116,6 @@ bool Plane::operator<(const Plane &rhs) const {
     return regis < rhs.regis;
 }
 
-bool Plane::operator>(const Plane &rhs) const {
-    return rhs < *this;
-}
-
-bool Plane::operator<=(const Plane &rhs) const {
-    return !(rhs < *this);
-}
-
-bool Plane::operator>=(const Plane &rhs) const {
-    return !(*this < rhs);
-}
-
 /**
  * @return the plane's ID
  */
@@ -132,10 +123,10 @@ unsigned int Plane::getId() const {
     return id;
 }
 
+/**
+ * @param rhs instance of Plane
+ * @return true if two planes have the same register
+ */
 bool Plane::operator==(const Plane &rhs) const {
     return regis == rhs.regis;
-}
-
-bool Plane::operator!=(const Plane &rhs) const {
-    return !(rhs == *this);
 }

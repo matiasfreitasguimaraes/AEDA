@@ -59,12 +59,10 @@ private:
                                   "3 - Airport manager\n"
                                   "0 - Return\n";
     const string airportManagerMenu = "Airport Manager:\n"
-                                      "1 - Load airports\n"
-                                      "2 - List airports\n"
-                                      "3 - Add airport\n"
-                                      "4 - Remove airport\n"
-                                      "5 - Manage transport services per airport\n"
-                                      "6 - Save changes\n"
+                                      "1 - List airports\n"
+                                      "2 - Add airport\n"
+                                      "3 - Remove airport\n"
+                                      "4 - Manage transport services per airport\n"
                                       "0 - Return\n";
     const string airportEditingMenu = "What do you want to do?\n"
                                       "1 - Show nearby transports\n"
@@ -76,26 +74,23 @@ private:
                                        "1 - Add scheduled departure\n"
                                        "2 - Remove scheduled departure\n"
                                        "3 - Show scheduled departures\n";
-    const string flightManagerMenu =
-            "Flight management options:\n"
-            "1 - Add flight\n"
-            "2 - Remove flight\n"
-            "3 - List flights\n"
-            "4 - Manage a flight\n"
-            "0 - Return\n";
-    const string flightObjectManagerMenu =
-            "Flight management options\n"
-            "1 - List passengers\n"
-            "2 - Cancel ticket\n"
-            "3 - Display flight info\n"
-            "0 - Return\n";
-    const string planeManagerMenu =
-            "Plane management options:\n"
-            "1 - Add plane\n"
-            "2 - Remove plane\n"
-            "3 - List planes\n"
-            "4 - Manage a plane\n"
-            "0 - Return\n";
+    const string flightManagerMenu = "Flight management options:\n"
+                                    "1 - Add flight\n"
+                                    "2 - Remove flight\n"
+                                    "3 - List flights\n"
+                                    "4 - Manage a flight\n"
+                                    "0 - Return\n";
+    const string flightObjectManagerMenu = "Flight management options\n"
+                                            "1 - List passengers\n"
+                                            "2 - Cancel ticket\n"
+                                            "3 - Display flight info\n"
+                                            "0 - Return\n";
+    const string planeManagerMenu = "Plane management options:\n"
+                                    "1 - Add plane\n"
+                                    "2 - Remove plane\n"
+                                    "3 - List planes\n"
+                                    "4 - Manage a plane\n"
+                                    "0 - Return\n";
     /*
      * invalid input message to be exhibited
      */

@@ -57,6 +57,10 @@ ostream& operator<<(ostream &out, const DateTime &d1) {
     return out;
 }
 
+/**
+ * @param rhs instance of DateTime
+ * @return the oldest date
+ */
 bool DateTime::operator<(const DateTime &rhs) const {
     if (year < rhs.year)
         return true;
@@ -77,18 +81,10 @@ bool DateTime::operator<(const DateTime &rhs) const {
     return minute < rhs.minute;
 }
 
-bool DateTime::operator>(const DateTime &rhs) const {
-    return rhs < *this;
-}
-
-bool DateTime::operator<=(const DateTime &rhs) const {
-    return !(rhs < *this);
-}
-
-bool DateTime::operator>=(const DateTime &rhs) const {
-    return !(*this < rhs);
-}
-
+/**
+ * @param rhs instance of DateTime
+ * @return true if two dates are equal
+ */
 bool DateTime::operator==(const DateTime &rhs) const {
     return year == rhs.year &&
            month == rhs.month &&
@@ -96,9 +92,3 @@ bool DateTime::operator==(const DateTime &rhs) const {
            hour == rhs.hour &&
            minute == rhs.minute;
 }
-
-bool DateTime::operator!=(const DateTime &rhs) const {
-    return !(rhs == *this);
-}
-
-

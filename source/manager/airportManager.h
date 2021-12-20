@@ -15,7 +15,7 @@ public:
     int add(Airport newAirport);
     int remove(Airport airportToRemove);
 
-    ///get atributtes
+    ///get attributes
     set<Airport>& get();
 
     ///find element

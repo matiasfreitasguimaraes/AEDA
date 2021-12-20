@@ -121,18 +121,15 @@ int Menu::runAdminMenu() {
 int Menu::runAirportManagerMenu() {
     string input;
     cout << airportManagerMenu;
-    option = intInput(0, 6, invalidInput);
+    option = intInput(0, 4, invalidInput);
     switch (option) {
         case 0:
             return 1;
         case 1:
-
-            break;
-        case 2:
             airportM.show();
             wait();
             break;
-        case 3:
+        case 2:
             cout << "What will be its name?\n";
             cin >> input;
             if (airportM.add(Airport(input)) == 1) {
@@ -142,7 +139,7 @@ int Menu::runAirportManagerMenu() {
             }
             wait();
             break;
-        case 4:
+        case 3:
             cout << "What's the name of the airport you want to remove?\n";
             cin >> input;
             if (airportM.remove(Airport(input)) == 1) {
@@ -153,7 +150,7 @@ int Menu::runAirportManagerMenu() {
             }
             wait();
             break;
-        case 5:
+        case 4:
             cout << "Which airport's transport services you want to edit?\n";
             cin >> input;
             if (airportM.find(Airport(input))) {
@@ -165,8 +162,6 @@ int Menu::runAirportManagerMenu() {
                         "Remember, it's case-sensitive\n";
                 wait();
             }
-            break;
-        case 6:
             break;
     }
     if (option == -1)
@@ -492,6 +487,15 @@ void Menu::listingMenu() {
     }
 }
 
+/**
+ * @brief date reader
+ * @param askYear true if the date contains an year
+ * @param askMonth true if the date contains a month
+ * @param askDay true if the date contains a day
+ * @param askHour true if the date contains an hour
+ * @param askMinute true if the date contains a minute
+ * @return the read date
+ */
 DateTime Menu::dateInput(bool askYear, bool askMonth, bool askDay, bool askHour, bool askMinute) {
     int year, month, day, hour, min = 0;
     string invalidHour = "You know we only have 24 hours per day, right?";
@@ -533,6 +537,10 @@ DateTime Menu::dateInput(bool askYear, bool askMonth, bool askDay, bool askHour,
     return DateTime(year, month, day, hour, min);
 }
 
+/**
+ * @brief menu dedicated to flight managing
+ * @return 0 if running, -1 to come back to the main menu, 1 to exit
+ */
 int Menu::runFlightSetManagerMenu() {
     DateTime departureDate, arrivalDate;
     string flightCode, origin, destination;
@@ -619,6 +627,10 @@ int Menu::runFlightObjectManagerMenu(set<Flight> &flights, string flightCode) {
     return 1;
 }
 
+/**
+ * @brief menu dedicated to plane managing
+ * @return 0 if running, -1 to come back to the main menu, 1 to exit
+ */
 int Menu::runPlaneManagerMenu() {
     string planeType, planeRegister;
     unsigned planeCapacity, planeId;

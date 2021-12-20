@@ -27,17 +27,7 @@ public:
     int getHour();
     int getMinute();
     friend ostream& operator<<(ostream& out, const DateTime &d1);
-
     bool operator<(const DateTime &rhs) const;
-
-    bool operator>(const DateTime &rhs) const;
-
-    bool operator<=(const DateTime &rhs) const;
-
-    bool operator>=(const DateTime &rhs) const;
-
     bool operator==(const DateTime &rhs) const;
-
-    bool operator!=(const DateTime &rhs) const;
 };
 #endif //AEDAPROJECT_DATA_H
