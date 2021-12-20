@@ -1,27 +1,13 @@
-Barcelona/ES 3
+Barcelona/ES 4
+
+jorge 0 0
+
 Barcelona Club
 Subway 3 5
 12 30 13 30 14 30 15 30 16 30 
 Bus station 604
 Bus 10 5
 12 30 13 30 14 30 15 30 16 30 
-jorge
+Jorge
 Bus 30 0
 
-Lisbon/PT 3
-Arroios Station
-Subway 3 10
-12 00 12 30 13 00 13 30 14 00 14 30 15 00 15 30 16 00 16 30 
-Cais do sodré Station
-Train 10 5
-12 30 13 30 14 30 15 30 16 30 
-Bus Station 302b
-Bus 12 4
-12 00 12 30 13 00 13 30 
-Porto/PT 2
-Polo Universitario Station
-Subway 3 10
-12 00 12 30 13 00 13 30 14 00 14 30 15 00 15 30 16 00 16 30 
-Bus Station 302b
-Bus 12 4
-12 00 12 30 13 00 13 30 

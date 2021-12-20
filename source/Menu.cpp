@@ -193,7 +193,8 @@ int Menu::runAirportEditingMenu(set<Airport> &airports, string airportName) {
             cin >> input;
             if (airport.findGT(input)) {
                 do {
-                    option = runScheduleOptionsMenu(airport.get(), input);
+                    GroundTransport GT = *airport.get().find(GroundTransport(input));
+                    option = runScheduleOptionsMenu(GT.getSchedule());
                 } while ( option == 0);
                 break;
             } else {
@@ -234,9 +235,8 @@ int Menu::runAirportEditingMenu(set<Airport> &airports, string airportName) {
  * @param GTSchedule set of schedules
  * @return
  */
-int Menu::runScheduleOptionsMenu(set<GroundTransport> &GTs, string GTName) {
+int Menu::runScheduleOptionsMenu(set<DateTime> &GTDates) {
     DateTime date;
-    GroundTransport selectedGT = *GTs.find(GroundTransport(GTName));
     cout << scheduleOptionsMenu;
     option = intInput(0, 3, invalidInput);
     switch (option) {
@@ -246,9 +246,13 @@ int Menu::runScheduleOptionsMenu(set<GroundTransport> &GTs, string GTName) {
             } catch (inputMinusOne &e) {
                 return -1;
             }
-            selectedGT.addToSchedule(date);
-            GTs.erase(GTs.find(selectedGT));
-            GTs.insert(selectedGT);
+            if (GTDates.find(date) != GTDates.end()) {
+                cout << "This departure is already scheduled!\n";
+            } else {
+                GTDates.insert(date);
+                cout << "Departure scheduled successfully!\n";
+            }
+            wait();
             break;
         case 2:
             try {
@@ -256,13 +260,19 @@ int Menu::runScheduleOptionsMenu(set<GroundTransport> &GTs, string GTName) {
             } catch (inputMinusOne &e) {
                 return -1;
             }
-            selectedGT.removeFromSchedule(date);
-            GTs.erase(GTs.find(selectedGT));
-            GTs.insert(selectedGT);
+            if(GTDates.find(date) == GTDates.end()) {
+                cout << "This departure isn't even scheduled.\n";
+            } else {
+                GTDates.erase(date);
+                cout << "Departure removed from schedule successfully!\n";
+            }
+            wait();
             break;
         case 3:
-            selectedGT.showSched();
+            //
             break;
+        case 0:
+            return 1;
     }
     if (option == -1)
         return -1;

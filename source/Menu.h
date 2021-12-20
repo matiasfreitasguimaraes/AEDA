@@ -73,7 +73,8 @@ private:
     const string scheduleOptionsMenu = "Schedule options:\n"
                                        "1 - Add scheduled departure\n"
                                        "2 - Remove scheduled departure\n"
-                                       "3 - Show scheduled departures\n";
+                                       "3 - Show scheduled departures\n"
+                                       "0 - Return\n";
     const string flightManagerMenu = "Flight management options:\n"
                                     "1 - Add flight\n"
                                     "2 - Remove flight\n"
@@ -107,7 +108,7 @@ public:
     int run();
     int runAdminMenu();
     int runAirportManagerMenu();
-    int runScheduleOptionsMenu(set<GroundTransport> &GTs, string GTName);
+    int runScheduleOptionsMenu(set<DateTime> &GTDates);
     int runAirportEditingMenu(set<Airport> &airports, string airportName);
     static int intInput(int min, int max, string errorMessage);
     void wait();

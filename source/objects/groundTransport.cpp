@@ -65,7 +65,7 @@ string GroundTransport::getName() const {
  * @return the ground transport closer to the airport
  */
 bool GroundTransport::operator<(const GroundTransport &rhs) const {
-    return airportDistance < rhs.airportDistance;
+    return this->name < rhs.getName();
 }
 
 /**
@@ -92,6 +92,6 @@ void GroundTransport::showSched() {
 /**
  * @return the set of schedules
  */
-set<DateTime> GroundTransport::getSchedule() {
+set<DateTime> & GroundTransport::getSchedule() {
     return schedule;
 }
