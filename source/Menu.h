@@ -79,13 +79,7 @@ private:
                                     "1 - Add flight\n"
                                     "2 - Remove flight\n"
                                     "3 - List flights\n"
-                                    "4 - Manage a flight\n"
                                     "0 - Return\n";
-    const string flightObjectManagerMenu = "Flight management options\n"
-                                            "1 - List passengers\n"
-                                            "2 - Cancel ticket\n"
-                                            "3 - Display flight info\n"
-                                            "0 - Return\n";
     const string planeManagerMenu = "Plane management options:\n"
                                     "1 - Add plane\n"
                                     "2 - Remove plane\n"
@@ -118,7 +112,6 @@ public:
     void listingMenu();
     DateTime dateInput(bool askYear = true, bool askMonth = true, bool askDay = true, bool askHour = true, bool askMinute = true);
     int runFlightSetManagerMenu();
-    int runFlightObjectManagerMenu(set<Flight> &flights, string flightCode);
     int runPlaneManagerMenu();
 };
 

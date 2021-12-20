@@ -16,7 +16,7 @@ private:
 public:
     Airport(string airportName);
     void addGT(GroundTransport GT);
-    int removeGT(GroundTransport GT);
+    void removeGT(GroundTransport GT);
     bool findGT(string GTName);
     void showGTs();
     GroundTransport getGT(string name);

@@ -1,13 +1,4 @@
-Barcelona/ES 4
-
-jorge 0 0
-
-Barcelona Club
-Subway 3 5
-12 30 13 30 14 30 15 30 16 30 
-Bus station 604
-Bus 10 5
-12 30 13 30 14 30 15 30 16 30 
+Porto/PT 1
 Jorge
 Bus 30 0
 

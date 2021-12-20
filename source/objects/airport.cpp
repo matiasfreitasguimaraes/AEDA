@@ -45,6 +45,10 @@ void Airport::addGT(GroundTransport GT) {
     groundTransport.insert(GT);
 }
 
+void Airport::removeGT(GroundTransport GT) {
+    groundTransport.erase(GT);
+}
+
 /**
  * @param GTName ground transport's name to be returned
  * @return the ground transport with name GTName
