@@ -31,9 +31,7 @@ string MaintenanceService::getResponsible() const {
  * @return all the information related to the service
  */
 ostream& operator<<(ostream &out, const MaintenanceService &maintenanceService) {
-    out << "Maintenance type: " << maintenanceService.getType() << endl;
-    out << "Date: " << maintenanceService.getDate() << endl;
-    out << "Responsible employee: " << maintenanceService.getResponsible() << endl;
+    out << maintenanceService.getType() << " " << maintenanceService.getDate() << " " << maintenanceService.getResponsible() << endl;
     return out;
 }
 

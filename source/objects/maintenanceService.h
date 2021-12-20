@@ -10,7 +10,7 @@ using namespace std;
 
 class MaintenanceService {
 private:
-    string type;
+    string type; //Maintenance or Cleaning
     DateTime date;
     string responsible;
 public:

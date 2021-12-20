@@ -7,14 +7,29 @@
 void PlaneManager::read(ifstream& planeFile) {
     if (planeFile.is_open()) {
         cout << "Successfully opened plane file!" << endl;
-        int capacity;
-        string type;
-        string regis;
+        unsigned capacity, year, month, day, hour, minute, numOfPastServices, numOfScheduledServices;
+        char sep;
+        string type, regis, maintenanceType, responsible;
         Plane key;
         unsigned ID;
-        while (!planeFile.eof()) {
+
+        while (planeFile.peek() != EOF) {
             planeFile >> type  >> capacity >> regis >> ID;
             key = Plane(capacity, type, regis, ID);
+            planeFile >> numOfPastServices;
+            for (unsigned i = 0; i < numOfPastServices; i++) {
+                planeFile >> maintenanceType >> day >> sep >> month >> sep >> year >> hour >> sep >> minute >> responsible;
+                DateTime serviceSchedule(year, month, day, hour, minute);
+                MaintenanceService pastService(maintenanceType, serviceSchedule, responsible);
+                key.addPastService(pastService);
+            }
+            planeFile >> numOfScheduledServices;
+            for (unsigned i = 0; i < numOfScheduledServices; i++) {
+                planeFile >> maintenanceType >> day >> sep >> month >> sep >> year >> hour >> sep >> minute >> responsible;
+                DateTime serviceSchedule(year, month, day, hour, minute);
+                MaintenanceService scheduledService(maintenanceType, serviceSchedule, responsible);
+                key.addScheduledService(scheduledService);
+            }
             myPlanes.insert(key);
         }
     } else {
@@ -28,8 +43,20 @@ void PlaneManager::read(ifstream& planeFile) {
  */
 void PlaneManager::write(ofstream &file) {
     for (Plane plane: myPlanes) {
-        file << plane.getPlaneType() << " " << plane.getCapacity() << " "
-        << plane.getRegis() << " " << plane.getId() << endl;
+        auto pastServices = plane.getPastServices();
+        auto scheduledServices = plane.getScheduledServices();
+
+        file << plane.getPlaneType() << " " << plane.getCapacity() << " " << plane.getRegis() << " " << plane.getId() << endl;
+        file << plane.getPastServices().size() << endl;
+        while(!pastServices.empty()) {
+            file << pastServices.front();
+            pastServices.pop();
+        }
+        file << scheduledServices.size() << endl;
+        while(!scheduledServices.empty()) {
+            file << scheduledServices.front();
+            scheduledServices.pop();
+        }
     }
 }
 
