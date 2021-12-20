@@ -155,7 +155,8 @@ int Menu::runAirportManagerMenu() {
             cin >> input;
             if (airportM.find(Airport(input))) {
                 do {
-                } while (runAirportEditingMenu(airportM.get(), input) == 0);
+                    option = runAirportEditingMenu(airportM.get(), input);
+                } while ( option == 0);
                 break;
             } else {
                 cout << "Couldn't find that airport... Maybe you had a typo in the name?\n"
@@ -191,10 +192,9 @@ int Menu::runAirportEditingMenu(set<Airport> &airports, string airportName) {
             cout << "From which transport service you want to operate the schedule?\n";
             cin >> input;
             if (airport.findGT(input)) {
-                /*
-                 * do {
-                } while (runScheduleOptionsMenu(airport.getGT(input)) == 0);
-                 */
+                do {
+                    option = runScheduleOptionsMenu(airport.get(), input);
+                } while ( option == 0);
                 break;
             } else {
                 cout << "Couldn't find a transport service with that name. Maybe you want to check their names?\n"

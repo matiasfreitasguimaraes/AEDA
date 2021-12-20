@@ -21,7 +21,7 @@ public:
     void showGTs();
     GroundTransport getGT(string name);
     string getName();
-    set<GroundTransport> getGT();
+    set<GroundTransport>& get();
     bool operator<(const Airport &rhs) const;
     bool operator==(const Airport &rhs) const;
 };

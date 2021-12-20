@@ -65,6 +65,6 @@ bool Airport::findGT(string GTName) {
 /**
  * @return the set of ground transports
  */
-set<GroundTransport> Airport::getGT() {
+set<GroundTransport>& Airport::get() {
     return groundTransport;
 }

@@ -42,7 +42,7 @@ void GroundTransport::removeFromSchedule(DateTime date) {
  * @return all the information related to a ground transport
  */
 ostream& operator<<(ostream &out, const GroundTransport &groundTransport) {
-    out << groundTransport.getType() << " station." << endl;
+    out << groundTransport.getName() << " " << groundTransport.getType() << " station." << endl;
     out << "Schedule:" << endl;
     for (DateTime date : groundTransport.schedule) {
         out << setfill('0') << setw(2) << date.getHour() << ":"

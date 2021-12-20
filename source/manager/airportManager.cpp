@@ -60,8 +60,8 @@ set<Airport>& AirportManager::get() {
 void AirportManager::write(ofstream& file) {
     for (Airport airport : airports) {
         file << airport.getName() << " "
-             << airport.getGT().size();
-        for (GroundTransport GT : airport.getGT()) {
+             << airport.get().size();
+        for (GroundTransport GT : airport.get()) {
             file << endl << GT.getName() << endl;
             file << GT.getType() << " " << GT.getAirportDistance() << " " << GT.getSchedule().size() << endl;
             for (DateTime time : GT.getSchedule()) {
