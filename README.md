@@ -1,14 +1,18 @@
 # AEDA
-#O que falta???
+##O que falta?
 
-1. Documentar tudo !!!MAIS IMPORTANTES!!
+1. Documentar tudo
 
-2. Fazer testes!
+2. Fazer testes
 
-3. Testar muito!
+3. Guardar os tickets no flight correspondente
 
-4. Fazer slides
+4. Colocar os horários dos voos no ficheiro
 
-5. atualizar e finalizar diagrama uml 
+5. Criar dados para os maintenance services
 
-6. fazer readme para o professor.
+6. Fazer slides da apresentação
+
+7. Atualizar e finalizar diagrama UML
+
+8. Fazer readme para o professor
