@@ -68,7 +68,7 @@ int Menu::run() {
                 if (option == -1)
                     return -1;
                 else if (option == 1) {
-                    cout << "Which one? (Enter the transport's name)\n";
+                    cout << "Which one? (Transport name)\n";
                     cin >> selectedInput;
                     if (selectedInput == "-1")
                         return -1;
@@ -156,7 +156,7 @@ int Menu::runAirportManagerMenu() {
             wait();
             break;
         case 4:
-            cout << "Which airport's transport services you want to edit?\n";
+            cout << "Which airport's transport services you want to edit? (Airport name)\n";
             cin >> input;
             if (airportM.find(Airport(input))) {
                 do {
@@ -232,7 +232,7 @@ int Menu::runAirportEditingMenu(set<Airport> &airports, string airportName) {
             }
             break;
         case 4:
-            cout << "Which will transport station you want to remove?\n";
+            cout << "What's the transport's name you want to remove?\n";
             cin >> name;
             if (airport.findGT(name)) {
                 airport.removeGT(GroundTransport(name));
@@ -389,11 +389,11 @@ void Menu::buyTicket() {
         cin >> name;
         cout << "Age:\n";
         cin >> age;
-        cout << "Fiscal Number:\n";
+        cout << "SSN:\n";
         cin >> ssn;
         Passenger passenger(name, age, ssn);
         listingMenu();
-        cout << "Choose a flight:" << endl;
+        cout << "Choose a flight: (Number of flight)" << endl;
         cin >> numberOfFlight;
 
         Flight flightToBuyTicketTo(numberOfFlight);
@@ -683,7 +683,7 @@ int Menu::runPlaneManagerMenu() {
 
             break;
         case 2:
-            cout << "What's the plane's register you want to remove?\n";
+            cout << "What's the plane you want to remove? (Plane register)\n";
             cin >> planeRegister;
 
             for(Plane plane: planeM.get()) {
@@ -720,7 +720,7 @@ int Menu::runPlaneManagerMenu() {
 int Menu::runPlaneEditingMenu() {
     string planeRegister, serviceType, responsible, service;
     unsigned serviceId;
-    cout << "Choose a plane:\n";
+    cout << "Choose a plane: (Plane register)\n";
     cin >> planeRegister;
     Plane planeToEdit(planeRegister);
 
@@ -774,7 +774,7 @@ int Menu::runPlaneEditingMenu() {
                 }
                 break;
             case 4:
-                cout << "What service do you want to mark as completed?\n";
+                cout << "What service do you want to mark as completed? (Service ID)\n";
                 cin >> serviceId;
 
                 if (planeToEdit.markServiceAsCompleted(MaintenanceService(serviceId))) {

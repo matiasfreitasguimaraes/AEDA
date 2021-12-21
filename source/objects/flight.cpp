@@ -51,7 +51,7 @@ string Flight::getNumberOfFlight() const{
  * @return all the flight's information
  */
 ostream& operator<<(ostream &out, const Flight &flight) {
-    out << "Flight number: " << flight.getNumberOfFlight() << endl;
+    out << "Flight's number: " << flight.getNumberOfFlight() << endl;
     out << "Flight's departure date: " << flight.getDepartureDate() << endl;
     out << "Flight's arrival date: " << flight.getArrivalDate() << endl;
     out << "Flight's origin: "  << flight.getOrigin() << endl;

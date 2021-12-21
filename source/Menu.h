@@ -34,7 +34,7 @@ private:
     int option = 0;
 
     // tutorial message exhibited only once in program run-through, namely sent to cout in constructor method.
-    const string menuTutorial = "Welcome to the AED Airport services interface\n"
+    const string menuTutorial = "Welcome to the AED Airport services interface.\n"
                                 "Navigate through the options by typing the corresponding option code.\n"
                                 "You can come back to the starting menu anytime by inputting -1.\n";
 
