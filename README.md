@@ -1,4 +1,4 @@
-# AEDA 2021/2022 Projeto 1
+# AED 2021/2022 Projeto 1
 
 Feito por João Teixeira (up201900190), Jorge Sousa(up202006140) e Matias Vaz(up201900194)
 
@@ -15,6 +15,3 @@ E o menu, que é onde fica a interface do programa para o usuário e recebe os c
 Além disso, temos a pasta onde fica os inputs, com todos os dados do programa.
 
 Espero que gostem.
-
-
-
