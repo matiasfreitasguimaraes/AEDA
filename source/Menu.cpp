@@ -402,7 +402,7 @@ void Menu::buyTicket() {
             cout << "Flight not found. Please, try again \n";
             break;
         }
-
+        flightToBuyTicketTo = *flightM.get().find(flightToBuyTicketTo);
         flightToBuyTicketTo.updateBoughtTickets(numberOfTickets);
 
         if (canBuyTicket(flightToBuyTicketTo)) {
