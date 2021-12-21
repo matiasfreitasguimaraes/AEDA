@@ -46,7 +46,7 @@ vector<Flight> Plane::getListOfFlights() const {
 /**
  * @param out output stream
  * @param plane instance of Plane
- * @return all the plane information
+ * @return all the planes' information
  */
 ostream& operator<<(ostream &out, const Plane &plane) {
     out << "Plane's capacity: " << plane.getCapacity() << endl;
@@ -90,8 +90,8 @@ queue<MaintenanceService> Plane::getScheduledServices() const {
 }
 
 /**
- * @brief sets the list of flights of a plane
- * @param flights the new list of flights
+ * @brief adds a new flight
+ * @param flights the flight to be added
  */
 void Plane::addFlight(Flight flight) {
     listOfFlights.push_back(flight);
@@ -145,6 +145,11 @@ bool Plane::removeScheduledService(MaintenanceService serviceToRemove) {
     }
 }
 
+/**
+ * @brief mark a scheduled service as completed
+ * @param serviceToBeCompleted service to be marked as completed
+ * @return true if successfully, false otherwise
+ */
 bool Plane::markServiceAsCompleted(MaintenanceService serviceToBeCompleted) {
     queue<MaintenanceService> helper;
     queue<MaintenanceService> comparisonQueue = scheduledServices;

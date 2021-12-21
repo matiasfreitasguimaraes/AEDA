@@ -317,6 +317,7 @@ int Menu::runScheduleOptionsMenu(set<Airport> &managerAirports, string airportNa
  * @brief checks if the user input is valid
  * @param min minimum integer possible for the input
  * @param max maximum integer possible for the input
+ * @param errorMessage message to display if the input is invalid
  * @return the user's input if valid, -2 otherwise
  */
 int Menu::intInput(int min, int max, string errorMessage) {

@@ -58,7 +58,7 @@ void FlightManager::remove(Flight flightToRemove) {
 
 /**
  * @brief reads the flights' information from a file
- * @param flightFile the file contaning the flights' information
+ * @param flightFile the file containing the flights' information
  */
 void FlightManager::read(ifstream &flightFile) {
 
@@ -92,7 +92,7 @@ void FlightManager::show() {
 }
 
 /**
- * @return the set of flights
+ * @return the set containing the flights
  */
 set<Flight>& FlightManager::get() {
     return flights;

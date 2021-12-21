@@ -47,7 +47,7 @@ void LuggageCarManager::write(ostream &file) {
 }
 
 /**
- * @brief shows the luggage cars and their information
+ * @brief displays the luggage cars and their information
  */
 void LuggageCarManager::show() {
 
@@ -57,7 +57,7 @@ void LuggageCarManager::show() {
 }
 
 /**
- * @return the set of luggage cars
+ * @return the set containing luggage cars
  */
 set<LuggageCar> LuggageCarManager::get() {
     return luggageCars;

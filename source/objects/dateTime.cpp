@@ -46,7 +46,7 @@ int DateTime::getMinute() const {
 /**
  * @param out output stream
  * @param d1 DateTime instance
- * @return all the date information
+ * @return all the dates' information
  */
 ostream& operator<<(ostream &out, const DateTime &d1) {
     out << std::setfill('0') << std::setw(2) << d1.day

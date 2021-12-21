@@ -107,14 +107,14 @@ void PlaneManager::show() {
 }
 
 /**
- * @return the set of planes
+ * @return the set containing planes
  */
 set<Plane>& PlaneManager::get() {
     return myPlanes;
 }
 
 /**
- * @param plane instance of Plane
+ * @param plane instance of Plane to be found
  * @return true if the plane if found, false otherwise
  */
 bool PlaneManager::find(Plane plane) {

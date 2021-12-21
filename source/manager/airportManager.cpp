@@ -3,7 +3,7 @@
 /**
  * @brief adds a new airport
  * @param newAirport the airport to be added
- * @return 1 if successfully, false otherwise
+ * @return 1 if successfully, 0 otherwise
  */
 int AirportManager::add(Airport newAirport) {
 
@@ -16,7 +16,7 @@ int AirportManager::add(Airport newAirport) {
 /**
  * @brief removes an airport
  * @param airportToRemove airport to be removed
- * @return 1 if successfully, false otherwise
+ * @return 1 if successfully, 0 otherwise
  */
 int AirportManager::remove(Airport airportToRemove) {
 
@@ -49,7 +49,7 @@ bool AirportManager::find(Airport airport) {
 }
 
 /**
- * @return the set of airports
+ * @return the set containing the airports
  */
 set<Airport>& AirportManager::get() {
     return airports;

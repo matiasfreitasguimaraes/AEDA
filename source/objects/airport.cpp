@@ -26,7 +26,7 @@ bool Airport::operator==(const Airport &rhs) const {
 }
 
 /**
- * @brief shows ground transports
+ * @brief displays the ground transports
  */
 void Airport::showGTs() {
 
@@ -65,7 +65,7 @@ GroundTransport& Airport::getGT(string GTName) {
 
 /**
  * @param GTName the ground transport's name to be found
- * @return true if the ground transport was found, false otherwise
+ * @return true if found, false otherwise
  */
 bool Airport::findGT(string GTName) {
     return groundTransport.find(GroundTransport(GTName)) != groundTransport.end();

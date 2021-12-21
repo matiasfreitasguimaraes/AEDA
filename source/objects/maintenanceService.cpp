@@ -13,7 +13,7 @@ string MaintenanceService::getType() const {
 }
 
 /**
- * @return the date of maintenance service
+ * @return the date of a maintenance service
  */
 DateTime MaintenanceService::getDate() const {
     return date;
@@ -54,6 +54,10 @@ unsigned int MaintenanceService::getId() const {
     return id;
 }
 
+/**
+ * @param service instance of MaintenanceService
+ * @return true if two services have the same ID
+ */
 bool MaintenanceService::operator==(const MaintenanceService &service) const {
     return id == service.getId();
 }

@@ -3,7 +3,7 @@
 Ticket::Ticket(Flight &flight1, Passenger pass) : passenger(pass), flight(flight1) {}
 
 /**
- * @return the flight the ticket corresponds
+ * @return the flight the ticket corresponds to
  */
 Flight Ticket::getFlight() const {
     return flight;
