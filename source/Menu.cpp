@@ -646,7 +646,6 @@ int Menu::runPlaneManagerMenu() {
             cin >> planeCapacity;
             cout << "Plane's ID:\n";
             cin >> planeId;
-
             if (planeM.add(Plane(planeCapacity, planeType, planeRegister, planeId)) == 1) {
                 cout << "Plane added successfully\n";
             } else { cout << "Seems like that plane already exists\n";}
@@ -655,7 +654,6 @@ int Menu::runPlaneManagerMenu() {
         case 2:
             cout << "What's the plane's register you want to remove?\n";
             cin >> planeRegister;
-
             if (planeM.remove(Plane(planeRegister)) == 1)
                 cout << "Plane removed successfully\n";
             else
