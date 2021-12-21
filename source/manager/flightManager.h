@@ -6,19 +6,17 @@
 
 #include "../objects/flight.h"
 
-using namespace std;
-
 class FlightManager{
 private:
     set<Flight> flights;
 public:
-    void write(ofstream &file);
     void read(ifstream &file);
-    void show();
+    void write(ofstream &file);
     int add(Flight newFlight);
     void remove(Flight flightToRemove);
     set<Flight>& get();
     bool find(Flight flight);
+    void show();
 };
 
 

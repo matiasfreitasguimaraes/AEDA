@@ -7,6 +7,7 @@
 #include <algorithm>
 #include <set>
 #include <iomanip>
+
 #include "dateTime.h"
 
 using namespace std;
@@ -23,7 +24,7 @@ public:
     string getName() const;
     string getType() const;
     unsigned getAirportDistance() const;
-    set<DateTime> & getSchedule() ;
+    set<DateTime>& getSchedule();
     void showSched();
     void addToSchedule(DateTime newDate);
     void removeFromSchedule(DateTime date);

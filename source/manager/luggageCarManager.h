@@ -11,11 +11,11 @@ private:
     set<LuggageCar> luggageCars;
 public:
     void read(ifstream &file);
+    void write(ostream &file);
     void add(LuggageCar luggageCar);
     void remove(LuggageCar luggageCarToRemove);
-    void write(ostream &file);
-    void show();
     set<LuggageCar> get();
+    void show();
 };
 
 

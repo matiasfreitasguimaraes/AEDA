@@ -1,21 +1,11 @@
 #include "flight.h"
 
-/**
- * @param numberOfFlight the flight's number
- * @param departureDate the flight's departure date
- * @param arrivalDate the flight's arrival date
- * @param origin the flight's origin
- * @param destination the flight's destination
- */
 Flight::Flight(string &number, DateTime &flightDepartureDate, DateTime &flightArrivalDate, string &flightOrigin,
                string &flightDestination, unsigned &Id) : numberOfFlight(number), departureDate(flightDepartureDate),
                arrivalDate(flightArrivalDate), origin(flightOrigin), destination(flightDestination), boughtTickets(0) {
     this->id = Id;
 }
 
-/**
- * @param number the flight's number
- */
 Flight::Flight(string &number) {
     this->numberOfFlight = number;
 }

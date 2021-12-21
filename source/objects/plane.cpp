@@ -53,7 +53,7 @@ ostream& operator<<(ostream &out, const Plane &plane) {
     out << "Plane's register: " << plane.getRegis() << endl;
     out << "Plane type: " << plane.getPlaneType() << endl;
     out << "Plane's list of flights:" << endl;
-
+    out << endl;
     for(Flight flight: plane.getListOfFlights())
         out << flight << endl;
     return out;
@@ -108,7 +108,7 @@ bool Plane::operator<(const Plane &rhs) const {
 /**
  * @return the plane's ID
  */
-unsigned int Plane::getId() const {
+unsigned Plane::getId() const {
     return id;
 }
 

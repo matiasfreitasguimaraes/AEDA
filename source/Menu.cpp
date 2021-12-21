@@ -17,7 +17,7 @@ Menu::Menu(const string &planeInput, const string &flightInput, const string &lu
 
 /**
  * @brief runs the starting menu
- * @return 0 if running, -1 to come back to the main menu, 1 to exit
+ * @return 0 if successfully, -1 to come back to the main menu, 1 to exit
  */
 int Menu::run() {
     string selectedInput;
@@ -29,7 +29,8 @@ int Menu::run() {
             return 1;
         case 1:
             do {
-            } while (runAdminMenu() == 0);
+                option = runAdminMenu();
+            } while (option == 0);
             break;
         case 2:
             listingMenu();
@@ -39,56 +40,56 @@ int Menu::run() {
                 airportM.show();
                 return -1;
             }
-            cout << "Want me to list the registered airports?\n"
+            cout << "Do you want to check the existing airports?\n"
                     "1 - Yes\n"
                     "2 - No\n";
             option = intInput(0, 1, invalidInput);
-            if (option == -1) {
+
+            if (option == -1)
                 return -1;
-            } else if (option == 1) {
+            else if (option == 1)
                 airportM.show();
-            } else {}
-            cout << "Which airport's transport services you want to check?\n";
+
+            cout << "Which airport's transport services you want to check? (Enter airport's name)\n";
             cin >> selectedInput;
-            if (selectedInput == "-1") {
+
+            if (selectedInput == "-1")
                 return -1;
-            }
+
             if (airportM.find(Airport(selectedInput))) {
                 Airport selectedAirport = *airportM.get().find(Airport(selectedInput));
                 selectedAirport.showGTs();
-                cout << "Want to check the schedule for any of them?\n"
+
+                cout << "Do you want to check the schedule for any of them?\n"
                         "1 - Yes\n"
                         "0 - No\n";
                 option = intInput(0, 1, invalidInput);
-                if (option == -1) {
+
+                if (option == -1)
                     return -1;
-                } else if (option == 1) {
-                    cout << "Which one?\n";
+                else if (option == 1) {
+                    cout << "Which one? (Enter the transport's name)\n";
                     cin >> selectedInput;
-                    if (selectedInput == "-1") {
+                    if (selectedInput == "-1")
                         return -1;
-                    }
+
                     selectedAirport.getGT(selectedInput).showSched();
-                    wait();
-                } else {}
+                }
                 break;
-            } else {
+            } else
                 cout << "Couldn't find that airport... Maybe you had a typo in the name?\n"
                         "Remember, it's case-sensitive\n";
-                wait();
-            }
             break;
         case 4:
             buyTicket();
             break;
     }
-    wait();
     return -1;
 }
 
 /**
  * @brief runs the menu with the administrator options
- * @return 0 if running, -1 to come back to the main menu, 1 to exit
+ * @return 0 if successfully, -1 to come back to the main menu, 1 to exit
  */
 int Menu::runAdminMenu() {
     cout << adminMenu;
@@ -120,7 +121,7 @@ int Menu::runAdminMenu() {
 
 /**
  * @brief runs the menu for the management of the airport
- * @return
+ * @return 0 if successfully, -1 to come back to the main menu, 1 to exit
  */
 int Menu::runAirportManagerMenu() {
     string input;
@@ -178,7 +179,7 @@ int Menu::runAirportManagerMenu() {
 /**
  * @param airports set of airports
  * @param airportName the airport to be edited
- * @return
+ * @return 0 if successfully, -1 to come back to the main menu, 1 to exit
  */
 int Menu::runAirportEditingMenu(set<Airport> &airports, string airportName) {
     string input, name, type;
@@ -195,7 +196,7 @@ int Menu::runAirportEditingMenu(set<Airport> &airports, string airportName) {
             wait();
             break;
         case 2:
-            cout << "From which transport service you want to operate the schedule?\n";
+            cout << "From which transport service you want to operate the schedule? (Enter the transport's name)\n";
             cin >> input;
             if (airport.findGT(input)) {
                 do {
@@ -226,7 +227,7 @@ int Menu::runAirportEditingMenu(set<Airport> &airports, string airportName) {
                     airport.addGT(GroundTransport(name, type, airDis));
                     airports.erase(airports.find(Airport(airportName)));
                     airports.insert(airport);
-                    cout << "Station added successfully!";
+                    cout << "Station added successfully!\n";
                     wait();
                 }
             }
@@ -253,16 +254,18 @@ int Menu::runAirportEditingMenu(set<Airport> &airports, string airportName) {
 /**
  * @brief menu to modify schedules
  * @param GTSchedule set of schedules
- * @return
+ * @return 0 if successfully, -1 to come back to the main menu, 1 to exit
  */
-int
-Menu::runScheduleOptionsMenu(set<Airport> &managerAirports, string airportName, string GTName) {
+int Menu::runScheduleOptionsMenu(set<Airport> &managerAirports, string airportName, string GTName) {
+
     Airport updatedAirport = *managerAirports.find(Airport(airportName));
     set<GroundTransport>& airpGTs = updatedAirport.get();
     GroundTransport updatedGT = *airpGTs.find(GroundTransport(GTName));
     DateTime date;
+
     cout << scheduleOptionsMenu;
     option = intInput(0, 3, invalidInput);
+
     switch (option) {
         case 1:
             try {
@@ -499,7 +502,6 @@ void Menu::listingMenu() {
 
             for (Flight flight: nextFlightToDeparture)
                 cout << flight << endl;
-            wait();
             break;
         case 2:
             for (Flight flight: flightM.get())
@@ -507,7 +509,6 @@ void Menu::listingMenu() {
 
             for (Flight flight: nextFlightToArrive)
                 cout << flight << endl;
-            wait();
             break;
         case 3:
             for (Flight flight: flightM.get())
@@ -515,7 +516,6 @@ void Menu::listingMenu() {
 
             for (Flight flight: flightWithMoreTicketsAvailable)
                 cout << flight << endl;
-            wait();
             break;
         default:
             return;
@@ -631,15 +631,14 @@ int Menu::runFlightSetManagerMenu() {
 
             break;
         case 2:
-            cout << "Select a flight.\n"
-                    "Flight code: ";
+            cout << "Flight code to remove:\n";
             cin >> flightCode;
 
             if (flightM.find(Flight(flightCode))) {
                 flightM.remove(Flight(flightCode));
-                cout << "Flight removed successfully!";
+                cout << "Flight removed successfully!\n";
             } else
-                cout << "Sorry but couldn't find a registered flight with that code...";
+                cout << "Sorry but couldn't find a registered flight with that code...\n";
 
             break;
         case 3:
@@ -656,7 +655,7 @@ int Menu::runFlightSetManagerMenu() {
 
 /**
  * @brief menu dedicated to plane managing
- * @return 0 if running, -1 to come back to the main menu, 1 to exit
+ * @return 0 if successfully, -1 to come back to the main menu, 1 to exit
  */
 int Menu::runPlaneManagerMenu() {
     string planeType, planeRegister;
@@ -703,12 +702,12 @@ int Menu::runPlaneManagerMenu() {
             break;
         case 3:
             planeM.show();
-            wait();
             break;
         case 4:
             runPlaneEditingMenu();
             break;
     }
+    wait();
     if (option == -1)
         return -1;
     return 0;
@@ -716,7 +715,7 @@ int Menu::runPlaneManagerMenu() {
 
 /**
  * @brief runs the managing of a plane menu
- * @return 0 if running, -1 to come back to the main menu, 1 to exit
+ * @return 0 if successfully, -1 to come back to the main menu, 1 to exit
  */
 int Menu::runPlaneEditingMenu() {
     string planeRegister, serviceType, responsible, service;
@@ -747,7 +746,6 @@ int Menu::runPlaneEditingMenu() {
                 planeM.remove(Plane(planeRegister));
                 planeM.add(planeToEdit);
                 cout << "Service added successfully\n";
-                wait();
                 break;
             case 2:
                 cout << "Service ID:\n";
@@ -760,7 +758,6 @@ int Menu::runPlaneEditingMenu() {
                 } else
                     cout << "Seems like there is not a service with that ID\n";
 
-                wait();
                 break;
             case 3:
                 cout << "Past services\n";
@@ -769,14 +766,12 @@ int Menu::runPlaneEditingMenu() {
                     cout << pastServices.front();
                     pastServices.pop();
                 }
-                wait();
                 cout << "Scheduled services\n";
 
                 while(!scheduledServices.empty()) {
                     cout << scheduledServices.front();
                     scheduledServices.pop();
                 }
-                wait();
                 break;
             case 4:
                 cout << "What service do you want to mark as completed?\n";
@@ -788,7 +783,6 @@ int Menu::runPlaneEditingMenu() {
                     cout << "Service marked as completed successfully\n";
                 } else
                     cout << "Seems like there is not a service with that ID\n";
-                wait();
                 break;
         }
     } else

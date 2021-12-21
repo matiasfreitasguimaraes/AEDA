@@ -9,21 +9,21 @@ LuggageCar::LuggageCar(unsigned int carriages, unsigned int piles, unsigned int 
 /**
  * @return the car's total capacity
  */
-unsigned int LuggageCar::getCarTotalCapacity() const {
+unsigned LuggageCar::getCarTotalCapacity() const {
     return carCapacity;
 }
 
 /**
  * @return the number of occupied slots in the car
  */
-unsigned int LuggageCar::getNumberOfOccupiedSlots() const {
+unsigned LuggageCar::getNumberOfOccupiedSlots() const {
     return numberOfOccupiedSlots;
 }
 
 /**
  * @return the number of free slots in the car
  */
-unsigned int LuggageCar::getNumberOfFreeSlots() const {
+unsigned LuggageCar::getNumberOfFreeSlots() const {
     return carCapacity - numberOfOccupiedSlots;
 }
 
@@ -92,20 +92,20 @@ void LuggageCar::addLuggage(Luggage &luggage) {
 /**
  * @return the number of carriages of a luggage car
  */
-unsigned int LuggageCar::getNumberOfCarriages() const {
+unsigned LuggageCar::getNumberOfCarriages() const {
     return numberOfCarriages;
 }
 
 /**
  * @return the number of piles of a luggage car
  */
-unsigned int LuggageCar::getNumberOfPiles() const {
+unsigned LuggageCar::getNumberOfPiles() const {
     return numberOfPiles;
 }
 
 /**
  * @return the number of suitcases per pile of a luggage car
  */
-unsigned int LuggageCar::getNumberOfSuitcasesPerPile() const {
+unsigned LuggageCar::getNumberOfSuitcasesPerPile() const {
     return numberOfSuitcasesPerPile;
 }

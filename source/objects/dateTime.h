@@ -9,23 +9,22 @@ using namespace std;
 
 class DateTime {
 private:
-    unsigned int year;
-    unsigned int month;
-    unsigned int day;
-    unsigned int hour;
-    unsigned int minute;
-    string dateCode;
+    int year;
+    int month;
+    int day;
+    int hour;
+    int minute;
 public:
     DateTime();
-    DateTime(unsigned int h, unsigned int min);
-    DateTime(unsigned int y, unsigned int mon, unsigned int d);
-    DateTime(unsigned int y, unsigned int mon, unsigned int d, unsigned int h, unsigned int min);
+    DateTime(int h, int min);
+    DateTime(int y, int mon, int d);
+    DateTime(int y, int mon, int d, int h, int min);
 
-    int getYear();
-    int getMonth();
-    int getDay();
-    int getHour();
-    int getMinute();
+    int getYear() const;
+    int getMonth() const;
+    int getDay() const;
+    int getHour() const;
+    int getMinute() const;
     friend ostream& operator<<(ostream& out, const DateTime &d1);
     bool operator<(const DateTime &rhs) const;
     bool operator==(const DateTime &rhs) const;

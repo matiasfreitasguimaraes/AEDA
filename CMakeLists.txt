@@ -26,7 +26,7 @@ add_executable(AEDAProject main.cpp
         source/manager/flightManager.cpp source/manager/luggageCarManager.cpp
         source/manager/luggageCarManager.h
         source/objects/luggage.cpp source/objects/luggage.h
-        source/objects/inputMinusOne.h source/objects/inputMinusOne.cpp)
+        )
 
 # Doxygen Build
 find_package(Doxygen)

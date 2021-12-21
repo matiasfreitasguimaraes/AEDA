@@ -8,7 +8,11 @@
 #include "objects/airport.h"
 #include "objects/ticket.h"
 #include "manager/luggageCarManager.h"
-#include "objects/inputMinusOne.h"
+
+class inputMinusOne {
+public:
+    inputMinusOne() {};
+};
 
 class Menu {
 private:

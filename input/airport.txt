@@ -1,4 +1,31 @@
-Barcelona/ES 1
-Jorge
-Bus 30 2
-15 30 16 30 
+Barcelona/ES 2
+Barc
+Train 500 5
+08 10 10 30 12 40 15 50 19 15 
+Barcelona
+Bus 200 5
+10 15 12 30 15 40 17 30 20 20 
+Madrid/ES 2
+Mad
+Bus 150 6
+08 30 09 40 10 20 14 30 16 00 18 15 
+Madrid
+Train 750 5
+10 40 12 50 15 30 20 20 23 45 
+Rome/IT 2
+Roma
+Bus 100 6
+09 15 10 30 12 20 14 50 17 30 19 10 
+Rome
+Subway 1000 4
+10 30 13 20 15 30 20 15 
+Seville/ES 3
+Sev
+Train 2500 4
+13 50 16 30 20 15 24 30 
+Sevi
+Bus 50 7
+09 15 10 40 12 30 14 20 15 30 17 50 19 20 
+Seville
+Subway 1500 5
+10 50 13 30 15 30 17 45 21 15 

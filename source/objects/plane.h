@@ -36,7 +36,7 @@ public:
     void addScheduledService(MaintenanceService scheduledService);
     bool removeScheduledService(MaintenanceService serviceToRemove);
     bool markServiceAsCompleted(MaintenanceService serviceToBeCompleted);
-    unsigned int getId() const;
+    unsigned getId() const;
     friend ostream& operator<<(ostream &out,const Plane &plane);
     bool operator<(const Plane &rhs) const;
     bool operator==(const Plane &rhs) const;

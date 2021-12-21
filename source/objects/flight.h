@@ -18,7 +18,6 @@ private:
     DateTime arrivalDate;
     string origin;
     string destination;
-    static unsigned instances;
     unsigned id;
     unsigned int boughtTickets;
 public:

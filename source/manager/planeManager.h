@@ -11,12 +11,12 @@ private:
 public:
     void read(ifstream& planeFile);
     void write(ofstream &file);
-    void show();
     int add(const Plane &newPlane);
     int remove(const Plane &planeToRemove);
     set<Plane>& get();
     void setPlanes(set<Plane> updatedPlanes);
     bool find(Plane plane);
+    void show();
 };
 
 

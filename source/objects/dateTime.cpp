@@ -2,44 +2,44 @@
 
 DateTime::DateTime() {}
 
-DateTime::DateTime(unsigned int h, unsigned int min) : year(0), month(0), day(0), hour(h), minute(min){}
+DateTime::DateTime(int h, int min) : year(0), month(0), day(0), hour(h), minute(min){}
 
-DateTime::DateTime(unsigned int y, unsigned int mon, unsigned int d) : year(y), month(mon), day(d), hour(0), minute(0) {}
+DateTime::DateTime(int y, int mon, int d) : year(y), month(mon), day(d), hour(0), minute(0) {}
 
-DateTime::DateTime(unsigned int y, unsigned int mon, unsigned int d, unsigned int h, unsigned int min) : year(y), month(mon), day(d), hour(h), minute(min) {}
+DateTime::DateTime(int y, int mon, int d, int h, int min) : year(y), month(mon), day(d), hour(h), minute(min) {}
 
 /**
  * @return the date's year
  */
-int DateTime::getYear(){
+int DateTime::getYear() const {
     return year;
 }
 
 /**
  * @return the date's month
  */
-int DateTime::getMonth(){
+int DateTime::getMonth() const {
     return month;
 }
 
 /**
  * @return the date's day
  */
-int DateTime::getDay(){
+int DateTime::getDay() const {
     return day;
 }
 
 /**
  * @return the date's hour
  */
-int DateTime::getHour(){
+int DateTime::getHour() const {
     return hour;
 }
 
 /**
  * @return the date's minute
  */
-int DateTime::getMinute(){
+int DateTime::getMinute() const {
     return minute;
 }
 

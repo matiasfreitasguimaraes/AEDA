@@ -10,9 +10,7 @@ private:
     unsigned quantity;
 public:
     Luggage(Passenger ownerOfLuggage, bool option, unsigned quant);
-    bool wantsAutomaticCheckIn();
     unsigned getQuantity() const;
-    void setQuantity(unsigned quant);
 };
 
 #endif //AEDAPROJECT_LUGGAGE_H
