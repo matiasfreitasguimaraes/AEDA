@@ -95,3 +95,9 @@ void GroundTransport::showSched() {
 set<DateTime> & GroundTransport::getSchedule() {
     return schedule;
 }
+
+bool GroundTransport::findInSchedule(DateTime date) {
+    if (schedule.find(date) != schedule.end())
+        return true;
+    return false;
+}

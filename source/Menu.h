@@ -107,7 +107,7 @@ public:
     int run();
     int runAdminMenu();
     int runAirportManagerMenu();
-    int runScheduleOptionsMenu(set<DateTime> &GTDates);
+    int runScheduleOptionsMenu(set<Airport> &managerAirports, string airportName, string GTName);
     int runAirportEditingMenu(set<Airport> &airports, string airportName);
     static int intInput(int min, int max, string errorMessage);
     void wait();

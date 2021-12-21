@@ -190,8 +190,7 @@ int Menu::runAirportEditingMenu(set<Airport> &airports, string airportName) {
             cin >> input;
             if (airport.findGT(input)) {
                 do {
-                    GroundTransport GT = *airport.get().find(GroundTransport(input));
-                    option = runScheduleOptionsMenu(GT.getSchedule());
+                    option = runScheduleOptionsMenu(airports, airportName, input);
                 } while ( option == 0);
                 break;
             } else {
@@ -242,7 +241,11 @@ int Menu::runAirportEditingMenu(set<Airport> &airports, string airportName) {
  * @param GTSchedule set of schedules
  * @return
  */
-int Menu::runScheduleOptionsMenu(set<DateTime> &GTDates) {
+int
+Menu::runScheduleOptionsMenu(set<Airport> &managerAirports, string airportName, string GTName) {
+    Airport updatedAirport = *managerAirports.find(Airport(airportName));
+    set<GroundTransport>& airpGTs = updatedAirport.get();
+    GroundTransport updatedGT = *airpGTs.find(GroundTransport(GTName));
     DateTime date;
     cout << scheduleOptionsMenu;
     option = intInput(0, 3, invalidInput);
@@ -253,10 +256,14 @@ int Menu::runScheduleOptionsMenu(set<DateTime> &GTDates) {
             } catch (inputMinusOne &e) {
                 return -1;
             }
-            if (GTDates.find(date) != GTDates.end()) {
+            if (updatedGT.findInSchedule(date)) {
                 cout << "This departure is already scheduled!\n";
             } else {
-                GTDates.insert(date);
+                updatedGT.addToSchedule(date);
+                airpGTs.erase(airpGTs.find(updatedGT));
+                airpGTs.insert(updatedGT);
+                managerAirports.erase(managerAirports.find(updatedAirport));
+                managerAirports.insert(updatedAirport);
                 cout << "Departure scheduled successfully!\n";
             }
             wait();
@@ -267,16 +274,20 @@ int Menu::runScheduleOptionsMenu(set<DateTime> &GTDates) {
             } catch (inputMinusOne &e) {
                 return -1;
             }
-            if(GTDates.find(date) == GTDates.end()) {
-                cout << "This departure isn't even scheduled.\n";
-            } else {
-                GTDates.erase(date);
+            if (updatedGT.findInSchedule(date)) {
+                updatedGT.removeFromSchedule(date);
+                airpGTs.erase(airpGTs.find(updatedGT));
+                airpGTs.insert(updatedGT);
+                managerAirports.erase(managerAirports.find(updatedAirport));
+                managerAirports.insert(updatedAirport);
                 cout << "Departure removed from schedule successfully!\n";
+            } else {
+                cout << "This departure isn't even scheduled.\n";
             }
             wait();
             break;
         case 3:
-            //
+            updatedGT.showSched();
             break;
         case 0:
             return 1;
