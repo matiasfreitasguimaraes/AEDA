@@ -1,7 +1,5 @@
 #include "passenger.h"
 
-using namespace std;
-
 Passenger::Passenger(string passengerName, unsigned passengerAge, unsigned passengerSsn) {
     this->name = passengerName;
     this->age = passengerAge;

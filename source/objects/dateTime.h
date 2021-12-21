@@ -15,11 +15,10 @@ private:
     unsigned int hour;
     unsigned int minute;
 public:
+    DateTime();
     DateTime(unsigned int h, unsigned int min);
     DateTime(unsigned int y, unsigned int mon, unsigned int d);
     DateTime(unsigned int y, unsigned int mon, unsigned int d, unsigned int h, unsigned int min);
-
-    DateTime();
 
     int getYear();
     int getMonth();
@@ -30,4 +29,6 @@ public:
     bool operator<(const DateTime &rhs) const;
     bool operator==(const DateTime &rhs) const;
 };
+
+
 #endif //AEDAPROJECT_DATA_H

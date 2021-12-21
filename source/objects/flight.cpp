@@ -1,7 +1,5 @@
 #include "flight.h"
 
-using namespace std;
-
 /**
  * @param numberOfFlight the flight's number
  * @param departureDate the flight's departure date
@@ -58,16 +56,9 @@ string Flight::getNumberOfFlight() const{
 }
 
 /**
- * @param destination the flight's new destination
- */
-void Flight::setDestination(string flightDestination) {
-    this->destination = flightDestination;
-}
-
-/**
  * @param out output stream
  * @param flight instance of Flight
- * @return all the flight information
+ * @return all flight's information
  */
 ostream& operator<<(ostream &out, const Flight &flight) {
     out << "Flight number: " << flight.getNumberOfFlight() << endl;

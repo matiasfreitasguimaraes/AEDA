@@ -6,15 +6,15 @@ Airport::Airport(string airportName) : name(airportName) {}
  * @return the airport's name
  */
 string Airport::getName() {
-    return this->name;
+    return name;
 }
 
 /**
- * @param rhs instance of airport
+ * @param rhs instance of Airport
  * @return the airports with lower name
  */
 bool Airport::operator<(const Airport &rhs) const {
-    return this->name < rhs.name;
+    return name < rhs.name;
 }
 
 /**
@@ -22,16 +22,17 @@ bool Airport::operator<(const Airport &rhs) const {
  * @return true if two airports have the same name
  */
 bool Airport::operator==(const Airport &rhs) const {
-    return this->name == rhs.name;
+    return name == rhs.name;
 }
 
 /**
  * @brief shows ground transports
  */
 void Airport::showGTs() {
-    if (groundTransport.empty()) {
+
+    if (groundTransport.empty())
         cout << "Well, there's no transport service registered to be near this airport. Maybe you want to register some?\n";
-    } else {
+    else {
         for (GroundTransport GT : groundTransport)
             cout << GT << endl;
     }
@@ -45,6 +46,10 @@ void Airport::addGT(GroundTransport GT) {
     groundTransport.insert(GT);
 }
 
+/**
+ * @brief removes a ground transport
+ * @param GT ground transport to be removed
+ */
 void Airport::removeGT(GroundTransport GT) {
     groundTransport.erase(GT);
 }

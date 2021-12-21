@@ -1,24 +1,19 @@
 #ifndef AEDAPROJECT_AIRPORTMANAGER_H
 #define AEDAPROJECT_AIRPORTMANAGER_H
 
+#include <fstream>
+
 #include "../objects/airport.h"
 
 class AirportManager {
 private:
     set<Airport> airports;
 public:
-    ///Writer and reader functions
     void read(ifstream &file);
     void write(ofstream &file);
-
-    ///update and delete
     int add(Airport newAirport);
     int remove(Airport airportToRemove);
-
-    ///get attributes
     set<Airport>& get();
-
-    ///find element
     bool find(Airport airport);
     void show();
 };

@@ -1,6 +1,5 @@
 #include "maintenanceService.h"
 
-using namespace std;
 
 MaintenanceService::MaintenanceService(unsigned int serviceId) : id(serviceId) {}
 
@@ -33,7 +32,10 @@ string MaintenanceService::getResponsible() const {
  * @return all the information related to the service
  */
 ostream& operator<<(ostream &out, const MaintenanceService &maintenanceService) {
-    out << maintenanceService.getId() << " " << maintenanceService.getType() << " " << maintenanceService.getDate() << " " << maintenanceService.getResponsible() << endl;
+    out << maintenanceService.getId() << " "
+    << maintenanceService.getType() << " "
+    << maintenanceService.getDate() << " "
+    << maintenanceService.getResponsible() << endl;
     return out;
 }
 
@@ -50,4 +52,8 @@ bool MaintenanceService::operator<(const MaintenanceService &service) const {
  */
 unsigned int MaintenanceService::getId() const {
     return id;
+}
+
+bool MaintenanceService::operator==(const MaintenanceService &service) const {
+    return id == service.getId();
 }

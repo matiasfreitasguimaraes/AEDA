@@ -24,8 +24,8 @@ add_executable(AEDAProject main.cpp
         source/Menu.cpp source/Menu.h source/manager/flightManager.h
         source/manager/planeManager.cpp source/manager/planeManager.h
         source/manager/flightManager.cpp source/manager/luggageCarManager.cpp
-        source/manager/luggageCarManager.h source/manager/maintenanceServiceManager.cpp
-        source/manager/maintenanceServiceManager.h source/objects/luggage.cpp source/objects/luggage.h
+        source/manager/luggageCarManager.h
+        source/objects/luggage.cpp source/objects/luggage.h
         source/objects/inputMinusOne.h source/objects/inputMinusOne.cpp)
 
 # Doxygen Build
@@ -58,7 +58,7 @@ add_executable(airportTest testers/testAirport.cpp
         source/objects/groundTransport.cpp source/objects/groundTransport.h
         source/objects/flight.cpp source/objects/flight.h
         source/objects/passenger.cpp source/objects/passenger.h
-        testers/testLuggageCar.cpp testers/testMaintenanceService.cpp
+        testers/testLuggageCar.cpp
         )
 
 project(planeTest)

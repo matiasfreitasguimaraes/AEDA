@@ -1,12 +1,11 @@
 #include "flightManager.h"
 
-using namespace std;
-
 /**
  * @brief writes the changes made in the flights to the file
- * @param filename the output file
+ * @param filename the file to save the changes
  */
  void FlightManager::write(ofstream &file) {
+
     for (Flight flight: flights) {
         file << flight.getNumberOfFlight() << " "
             << std::setfill('0') << std::setw(2)
@@ -36,10 +35,11 @@ using namespace std;
 
 /**
  * @brief adds a flight
- * @param newFlight flight to add
- * @param filename file to write the changes
+ * @param newFlight flight to be added
+ * @return 1 if successfully, 0 otherwise
  */
 int FlightManager::add(Flight newFlight) {
+
     if (this->find(newFlight)) {
         return 0;
     } else {
@@ -51,23 +51,23 @@ int FlightManager::add(Flight newFlight) {
 /**
  * @brief removes a flight
  * @param flightToRemove flight to remove
- * @param filename file to write the changes
  */
 void FlightManager::remove(Flight flightToRemove) {
     this->flights.erase(flights.find(flightToRemove));
 }
 
 /**
- * @brief reads the flights initially in a file
- * @param ostream to how the value
+ * @brief reads the flights' information from a file
+ * @param flightFile the file contaning the flights' information
  */
 void FlightManager::read(ifstream &flightFile) {
+
     if (flightFile.is_open()) {
-        cout << "Successfully opened flight file!" << endl;
         string number;
         DateTime arrive , departure;
         unsigned int hour, min, year, month, day, id;
         string destiny, origin;
+
         while (flightFile.peek() != EOF) {
             flightFile >> number;
             flightFile >> day >> month >>  year >> hour >> min;
@@ -77,15 +77,15 @@ void FlightManager::read(ifstream &flightFile) {
             flightFile >> origin >> destiny >> id;
             add(Flight(number, arrive, departure, origin, destiny, id));
         }
-    } else {
+    } else
         printf("Couldn't read file input.\n");
-    }
 }
 
 /**
- * @brief shows the flights and their information to the users
+ * @brief displays the flights and their information to the users
  */
 void FlightManager::show() {
+
     for (Flight flight: flights) {
         cout << flight <<  endl;
     }
@@ -101,7 +101,7 @@ set<Flight>& FlightManager::get() {
 /**
  * @brief finds a flight by its number
  * @param flight the flight's number
- * @return if found, return that flight, otherwise returns a flight with number = -1
+ * @return true if found, false otherwise
  */
 bool FlightManager::find(Flight flight) {
     return (flights.find(flight) != flights.end());

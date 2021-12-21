@@ -11,14 +11,14 @@ GroundTransport::GroundTransport(string itsName, string itsType, unsigned airDis
  * @return the type of ground transport
  */
 string GroundTransport::getType() const {
-    return this->type;
+    return type;
 }
 
 /**
  * @return the distance from the airport to the ground transport
  */
 unsigned GroundTransport::getAirportDistance() const {
-    return this->airportDistance;
+    return airportDistance;
 }
 
 /**
@@ -26,14 +26,14 @@ unsigned GroundTransport::getAirportDistance() const {
  * @param newDate date to add to the schedule
  */
 void GroundTransport::addToSchedule(DateTime newDate) {
-    this->schedule.insert(newDate);
+    schedule.insert(newDate);
 }
 
 /**
  * @param date date to remove from schedule
  */
 void GroundTransport::removeFromSchedule(DateTime date) {
-    this->schedule.erase(date);
+    schedule.erase(date);
 }
 
 /**
@@ -44,6 +44,7 @@ void GroundTransport::removeFromSchedule(DateTime date) {
 ostream& operator<<(ostream &out, const GroundTransport &groundTransport) {
     out << groundTransport.getName() << " " << groundTransport.getType() << " station." << endl;
     out << "Schedule:" << endl;
+
     for (DateTime date : groundTransport.schedule) {
         out << setfill('0') << setw(2) << date.getHour() << ":"
         << setfill('0') << setw(2) << date.getMinute() << " ";
@@ -57,15 +58,15 @@ ostream& operator<<(ostream &out, const GroundTransport &groundTransport) {
  * @return the ground transport's name
  */
 string GroundTransport::getName() const {
-    return this->name;
+    return name;
 }
 
 /**
- * @param rhs instance of ground transport
+ * @param rhs instance of GroundTransport
  * @return the ground transport closer to the airport
  */
 bool GroundTransport::operator<(const GroundTransport &rhs) const {
-    return this->name < rhs.getName();
+    return name < rhs.getName();
 }
 
 /**
@@ -73,16 +74,17 @@ bool GroundTransport::operator<(const GroundTransport &rhs) const {
  * @return true if two ground transports have the same name
  */
 bool GroundTransport::operator==(const GroundTransport &rhs) const {
-    return this->name == rhs.getName();
+    return name == rhs.getName();
 }
 
 /**
  * @brief shows the ground transport's schedule
  */
 void GroundTransport::showSched() {
-    if (schedule.empty()) {
-        cout << "Seems like there's no schedule registered for this transport service.\n";;
-    } else {
+
+    if (schedule.empty())
+        cout << "Seems like there's no schedule registered for this transport service.\n";
+    else {
         for (DateTime time : schedule) {
             cout << "- " << time.getHour() << ":" << time.getMinute() << "\n";
         }

@@ -8,14 +8,14 @@ void LuggageCarManager::read(ifstream &file) {
     unsigned numberOfCarriages, numberOfPiles, numberOfSuitcasesPerPile;
 
     if (file.is_open()) {
-        cout << "Successfully opened luggage car file! \n";
 
         while (!file.eof()) {
             file >> numberOfCarriages >> numberOfPiles >> numberOfSuitcasesPerPile;
             LuggageCar luggageCar(numberOfCarriages, numberOfPiles, numberOfSuitcasesPerPile);
             luggageCars.insert(luggageCar);
         }
-    } else { cout << "Couldn't open file \n";}
+    } else
+        cout << "Couldn't open file \n";
 }
 
 /**
@@ -39,6 +39,7 @@ void LuggageCarManager::remove(LuggageCar luggageCarToRemove) {
  * @param file the file containing the information of the luggage cars
  */
 void LuggageCarManager::write(ostream &file) {
+
     for (LuggageCar luggageCar: luggageCars) {
         file << luggageCar.getNumberOfCarriages() << " " << luggageCar.getNumberOfPiles()
             << " " << luggageCar.getNumberOfSuitcasesPerPile() << endl;
@@ -49,6 +50,7 @@ void LuggageCarManager::write(ostream &file) {
  * @brief shows the luggage cars and their information
  */
 void LuggageCarManager::show() {
+
     for (LuggageCar luggageCar: luggageCars) {
         cout << luggageCar << endl;
     }

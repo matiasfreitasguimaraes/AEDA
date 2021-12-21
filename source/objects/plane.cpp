@@ -1,17 +1,8 @@
 #include "plane.h"
 #include "flight.h"
 
-/**
- * @param capacity the plane's capacity
- * @param planeType the plane type
- * @param regis the plane's register
- * @param flights the plane's list of flights
- */
 Plane::Plane(unsigned planeCapacity, string type, string planeRegister, unsigned Id) : capacity(planeCapacity),
-        planeType(type), regis(planeRegister), id(Id){
-
-    instances++;
-}
+        planeType(type), regis(planeRegister), id(Id) {}
 
 Plane::Plane(unsigned int planeId) {
     this->id=planeId;
@@ -24,8 +15,6 @@ Plane::Plane(string planeRegister) {
     this->regis = planeRegister;
 }
 
-unsigned Plane::instances = 0;
-
 /**
  * @return the plane's capacity
  */
@@ -34,7 +23,7 @@ unsigned Plane::getCapacity() const {
 }
 
 /**
- * @return the plane type
+ * @return the plane's type
  */
 string Plane::getPlaneType() const {
     return planeType;
@@ -55,13 +44,6 @@ vector<Flight> Plane::getListOfFlights() const {
 }
 
 /**
- * @return the numbers of existing planes
- */
-unsigned int Plane::getNumberOfInstances() {
-    return instances;
-}
-
-/**
  * @param out output stream
  * @param plane instance of Plane
  * @return all the plane information
@@ -71,6 +53,7 @@ ostream& operator<<(ostream &out, const Plane &plane) {
     out << "Plane's register: " << plane.getRegis() << endl;
     out << "Plane type: " << plane.getPlaneType() << endl;
     out << "Plane's list of flights:" << endl;
+
     for(Flight flight: plane.getListOfFlights())
         out << flight << endl;
     return out;
@@ -93,14 +76,14 @@ void Plane::addScheduledService(MaintenanceService scheduledService) {
 }
 
 /**
- * @return queue with the past services
+ * @return queue with the past services of a plane
  */
 queue<MaintenanceService> Plane::getPastServices() const {
     return pastServices;
 }
 
 /**
- * @return queue with the scheduled services
+ * @return queue with the scheduled services for a plane
  */
 queue<MaintenanceService> Plane::getScheduledServices() const {
     return scheduledServices;
@@ -144,10 +127,11 @@ bool Plane::operator==(const Plane &rhs) const {
 bool Plane::removeScheduledService(MaintenanceService serviceToRemove) {
     queue<MaintenanceService> helper;
     queue<MaintenanceService> comparisonQueue = scheduledServices;
+
     while(!scheduledServices.empty()) {
-        if (scheduledServices.front().getId() == serviceToRemove.getId()) {
+        if (scheduledServices.front().getId() == serviceToRemove.getId())
             scheduledServices.pop();
-        } else {
+        else {
             helper.push(scheduledServices.front());
             scheduledServices.pop();
         }
@@ -164,6 +148,7 @@ bool Plane::removeScheduledService(MaintenanceService serviceToRemove) {
 bool Plane::markServiceAsCompleted(MaintenanceService serviceToBeCompleted) {
     queue<MaintenanceService> helper;
     queue<MaintenanceService> comparisonQueue = scheduledServices;
+
     while(!scheduledServices.empty()) {
         if(scheduledServices.front().getId() == serviceToBeCompleted.getId()) {
             pastServices.push(scheduledServices.front());

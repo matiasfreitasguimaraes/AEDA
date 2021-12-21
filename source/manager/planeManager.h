@@ -9,21 +9,13 @@ class PlaneManager  {
 private:
     set<Plane> myPlanes;
 public:
-    ///Writer and reader functions
-        ///to files
     void read(ifstream& planeFile);
     void write(ofstream &file);
-        ///to console
     void show();
-
-    ///update and delete
     int add(const Plane &newPlane);
     int remove(const Plane &planeToRemove);
-
-    ///get atributtes
     set<Plane>& get();
     void setPlanes(set<Plane> updatedPlanes);
-
     bool find(Plane plane);
 };
 

@@ -12,40 +12,40 @@ DateTime::DateTime(unsigned int y, unsigned int mon, unsigned int d, unsigned in
  * @return the date's year
  */
 int DateTime::getYear(){
-    return this->year;
+    return year;
 }
 
 /**
  * @return the date's month
  */
 int DateTime::getMonth(){
-    return this->month;
+    return month;
 }
 
 /**
  * @return the date's day
  */
 int DateTime::getDay(){
-    return this->day;
+    return day;
 }
 
 /**
  * @return the date's hour
  */
 int DateTime::getHour(){
-    return this->hour;
+    return hour;
 }
 
 /**
  * @return the date's minute
  */
 int DateTime::getMinute(){
-    return this->minute;
+    return minute;
 }
 
 /**
  * @param out output stream
- * @param d1 date instance
+ * @param d1 DateTime instance
  * @return all the date information
  */
 ostream& operator<<(ostream &out, const DateTime &d1) {

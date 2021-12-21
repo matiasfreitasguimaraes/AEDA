@@ -12,7 +12,7 @@ class Airport {
 private:
     const string name;
     set<GroundTransport> groundTransport;
-    vector<LuggageCar> luggageCars;
+    vector<LuggageCar> luggageCars; // TODO: assign GT's to respective airports
 public:
     Airport(string airportName);
     void addGT(GroundTransport GT);

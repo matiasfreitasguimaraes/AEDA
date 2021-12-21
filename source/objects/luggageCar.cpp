@@ -59,6 +59,7 @@ bool LuggageCar::operator<(const LuggageCar &car) const {
  * @param luggage the passenger's luggage
  */
 void LuggageCar::addLuggage(Luggage &luggage) {
+
     for (unsigned i = 0; i < luggage.getQuantity(); i++) {
         if (trailers.empty()) {
             stack<int> tempStack;
