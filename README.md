@@ -8,10 +8,10 @@ O ficheiro main.cpp roda o programa.
 
 Na pasta testers tem alguns testes básicos que implementamos no começo do desenvolvimento do programa.
 
-O Source é dividido entre objetos, gerenciadores desses objetos e dos respectivos arquivos(para ler, escrever, deletar e dar update).
+O Source é dividido entre objetos, gestores desses objetos e dos respetivos arquivos (para ler, escrever, apagar e atualizar).
 
-E o menu, que é onde fica a interface do programa para o usuário e recebe os comandos.
+No menu encontra-se a interface do programa para o usuário e é também onde os comandos são recebidos.
 
-Além disso, temos a pasta onde fica os inputs, com todos os dados do programa.
+Além disso, temos a pasta onde ficam os inputs, com todos os dados para o povoamento do programa.
 
 Espero que gostem.

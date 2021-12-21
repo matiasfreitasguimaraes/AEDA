@@ -66,7 +66,6 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="class_flight-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Flight Class Reference</div></div>
@@ -97,8 +96,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a15acedb9e84799849522efb40c47bc6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8444f0106af3d3f93ba9d1cb1b66158b"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_flight.html#a8444f0106af3d3f93ba9d1cb1b66158b">getFlightId</a> () const</td></tr>
 <tr class="separator:a8444f0106af3d3f93ba9d1cb1b66158b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77447d8f9ab66fc39fb7bc6defd89e4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_flight.html#a77447d8f9ab66fc39fb7bc6defd89e4d">setDestination</a> (string flightDestination)</td></tr>
-<tr class="separator:a77447d8f9ab66fc39fb7bc6defd89e4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5576df51dd0d721955ef57605fcdda28"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_flight.html#a5576df51dd0d721955ef57605fcdda28">updateBoughtTickets</a> (int nTickets)</td></tr>
 <tr class="separator:a5576df51dd0d721955ef57605fcdda28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09cb0769889e8745d0de29979bced125"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_flight.html#a09cb0769889e8745d0de29979bced125">operator&lt;</a> (const <a class="el" href="class_flight.html">Flight</a> &amp;rhs) const</td></tr>
@@ -122,11 +119,6 @@ Private Attributes</h2></td></tr>
 <tr class="separator:ae072fdc78fe5b5ffee66bbc94acc2cb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a602e262b5b5019c695a9b0d668c035c6"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_flight.html#a602e262b5b5019c695a9b0d668c035c6">boughtTickets</a></td></tr>
 <tr class="separator:a602e262b5b5019c695a9b0d668c035c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
-Static Private Attributes</h2></td></tr>
-<tr class="memitem:a63045bc0dff105e4d7e664a698ba0794"><td class="memItemLeft" align="right" valign="top">static unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_flight.html#a63045bc0dff105e4d7e664a698ba0794">instances</a></td></tr>
-<tr class="separator:a63045bc0dff105e4d7e664a698ba0794"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
@@ -166,12 +158,6 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">number</td><td>the flight's number </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>
@@ -224,16 +210,6 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">numberOfFlight</td><td>the flight's number </td></tr>
-    <tr><td class="paramname">departureDate</td><td>the flight's departure date </td></tr>
-    <tr><td class="paramname">arrivalDate</td><td>the flight's arrival date </td></tr>
-    <tr><td class="paramname">origin</td><td>the flight's origin </td></tr>
-    <tr><td class="paramname">destination</td><td>the flight's destination </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>
@@ -414,30 +390,6 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="a77447d8f9ab66fc39fb7bc6defd89e4d" name="a77447d8f9ab66fc39fb7bc6defd89e4d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a77447d8f9ab66fc39fb7bc6defd89e4d">&#9670;&nbsp;</a></span>setDestination()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Flight::setDestination </td>
-          <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>flightDestination</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">destination</td><td>the flight's new destination </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="a5576df51dd0d721955ef57605fcdda28" name="a5576df51dd0d721955ef57605fcdda28"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5576df51dd0d721955ef57605fcdda28">&#9670;&nbsp;</a></span>updateBoughtTickets()</h2>
 
@@ -503,7 +455,7 @@ Friends</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>all the flight information </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>all the flight's information </dd></dl>
 
 </div>
 </div>
@@ -612,28 +564,6 @@ Friends</h2></td></tr>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a63045bc0dff105e4d7e664a698ba0794" name="a63045bc0dff105e4d7e664a698ba0794"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a63045bc0dff105e4d7e664a698ba0794">&#9670;&nbsp;</a></span>instances</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned Flight::instances</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

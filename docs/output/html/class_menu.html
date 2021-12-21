@@ -67,7 +67,6 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="class_menu-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Menu Class Reference</div></div>
 </div><!--header-->
@@ -98,11 +97,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6b5922cd3110bf004674dfe5f9fd3434"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#a6b5922cd3110bf004674dfe5f9fd3434">runAirportManagerMenu</a> ()</td></tr>
 <tr class="memdesc:a6b5922cd3110bf004674dfe5f9fd3434"><td class="mdescLeft">&#160;</td><td class="mdescRight">runs the menu for the management of the airport  <a href="class_menu.html#a6b5922cd3110bf004674dfe5f9fd3434">More...</a><br /></td></tr>
 <tr class="separator:a6b5922cd3110bf004674dfe5f9fd3434"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff88e53a6558f040c38eb42ee4ba4823"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#aff88e53a6558f040c38eb42ee4ba4823">runScheduleOptionsMenu</a> (set&lt; <a class="el" href="class_ground_transport.html">GroundTransport</a> &gt; &amp;GTs, string GTName)</td></tr>
-<tr class="memdesc:aff88e53a6558f040c38eb42ee4ba4823"><td class="mdescLeft">&#160;</td><td class="mdescRight">menu to modify schedules  <a href="class_menu.html#aff88e53a6558f040c38eb42ee4ba4823">More...</a><br /></td></tr>
-<tr class="separator:aff88e53a6558f040c38eb42ee4ba4823"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad16dd0d8968d29795c73c400f1a474ca"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#ad16dd0d8968d29795c73c400f1a474ca">runAirportEditingMenu</a> (set&lt; <a class="el" href="class_airport.html">Airport</a> &gt; &amp;airports, string airportName)</td></tr>
-<tr class="separator:ad16dd0d8968d29795c73c400f1a474ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a393096039a5108824c331b075d693c72"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#a393096039a5108824c331b075d693c72">runAirportEditingMenu</a> (set&lt; <a class="el" href="class_airport.html">Airport</a> &gt; &amp;airports, const string airportName)</td></tr>
+<tr class="separator:a393096039a5108824c331b075d693c72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31a88c7e1ac2932e26a74b6b744b89d9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#a31a88c7e1ac2932e26a74b6b744b89d9">runScheduleOptionsMenu</a> (set&lt; <a class="el" href="class_airport.html">Airport</a> &gt; &amp;managerAirports, string airportName, string GTName)</td></tr>
+<tr class="memdesc:a31a88c7e1ac2932e26a74b6b744b89d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">menu to modify schedules  <a href="class_menu.html#a31a88c7e1ac2932e26a74b6b744b89d9">More...</a><br /></td></tr>
+<tr class="separator:a31a88c7e1ac2932e26a74b6b744b89d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab934c2d5abb4ab56362bd998a4cbce4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#ab934c2d5abb4ab56362bd998a4cbce4d">wait</a> ()</td></tr>
 <tr class="memdesc:ab934c2d5abb4ab56362bd998a4cbce4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">waits for the user to press a key  <a href="class_menu.html#ab934c2d5abb4ab56362bd998a4cbce4d">More...</a><br /></td></tr>
 <tr class="separator:ab934c2d5abb4ab56362bd998a4cbce4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -111,8 +110,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a073cee6cc6d83e614c7fcb4f826286a9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#a073cee6cc6d83e614c7fcb4f826286a9">addLuggageToLuggageCar</a> (<a class="el" href="class_luggage.html">Luggage</a> luggage)</td></tr>
 <tr class="memdesc:a073cee6cc6d83e614c7fcb4f826286a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">adds the passengers' luggage to the luggage cars  <a href="class_menu.html#a073cee6cc6d83e614c7fcb4f826286a9">More...</a><br /></td></tr>
 <tr class="separator:a073cee6cc6d83e614c7fcb4f826286a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03942303bf534f2a01062611f02ef68f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#a03942303bf534f2a01062611f02ef68f">groundTransportInformationPerAirport</a> ()</td></tr>
-<tr class="separator:a03942303bf534f2a01062611f02ef68f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1ba39157732b6b1015cfe7b5a5c3353"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#af1ba39157732b6b1015cfe7b5a5c3353">listingMenu</a> ()</td></tr>
 <tr class="memdesc:af1ba39157732b6b1015cfe7b5a5c3353"><td class="mdescLeft">&#160;</td><td class="mdescRight">menu providing options for the user to check the flights in a specific order  <a href="class_menu.html#af1ba39157732b6b1015cfe7b5a5c3353">More...</a><br /></td></tr>
 <tr class="separator:af1ba39157732b6b1015cfe7b5a5c3353"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -122,11 +119,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a810a306584cca47faa298c64a4943650"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#a810a306584cca47faa298c64a4943650">runFlightSetManagerMenu</a> ()</td></tr>
 <tr class="memdesc:a810a306584cca47faa298c64a4943650"><td class="mdescLeft">&#160;</td><td class="mdescRight">menu dedicated to flight managing  <a href="class_menu.html#a810a306584cca47faa298c64a4943650">More...</a><br /></td></tr>
 <tr class="separator:a810a306584cca47faa298c64a4943650"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4dbb9eafb400da4793acac3c5eddf9be"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#a4dbb9eafb400da4793acac3c5eddf9be">runFlightObjectManagerMenu</a> (set&lt; <a class="el" href="class_flight.html">Flight</a> &gt; &amp;flights, string flightCode)</td></tr>
-<tr class="separator:a4dbb9eafb400da4793acac3c5eddf9be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac64ce0eb44e281ba21cc6ed92c74907c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#ac64ce0eb44e281ba21cc6ed92c74907c">runPlaneManagerMenu</a> ()</td></tr>
 <tr class="memdesc:ac64ce0eb44e281ba21cc6ed92c74907c"><td class="mdescLeft">&#160;</td><td class="mdescRight">menu dedicated to plane managing  <a href="class_menu.html#ac64ce0eb44e281ba21cc6ed92c74907c">More...</a><br /></td></tr>
 <tr class="separator:ac64ce0eb44e281ba21cc6ed92c74907c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a152db1e5778f4604eb50fae5755ee8b4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#a152db1e5778f4604eb50fae5755ee8b4">runPlaneEditingMenu</a> ()</td></tr>
+<tr class="memdesc:a152db1e5778f4604eb50fae5755ee8b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">runs the managing of a plane menu  <a href="class_menu.html#a152db1e5778f4604eb50fae5755ee8b4">More...</a><br /></td></tr>
+<tr class="separator:a152db1e5778f4604eb50fae5755ee8b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53ccee675fc73ec60d4fe26f682f1c0b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#a53ccee675fc73ec60d4fe26f682f1c0b">assignFlightsToPlanes</a> ()</td></tr>
+<tr class="memdesc:a53ccee675fc73ec60d4fe26f682f1c0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">assigns flights to planes. If a flight has the same ID as a plane, than that flight belongs to that plane  <a href="class_menu.html#a53ccee675fc73ec60d4fe26f682f1c0b">More...</a><br /></td></tr>
+<tr class="separator:a53ccee675fc73ec60d4fe26f682f1c0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -168,17 +169,14 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a003f602b02808761db071d8f37c4ed2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab96e247926f3e27b36bc458c2a41e03d"><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#ab96e247926f3e27b36bc458c2a41e03d">flightManagerMenu</a></td></tr>
 <tr class="separator:ab96e247926f3e27b36bc458c2a41e03d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc41e923c475c5ad16c63bf6a18abd80"><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#afc41e923c475c5ad16c63bf6a18abd80">flightObjectManagerMenu</a></td></tr>
-<tr class="separator:afc41e923c475c5ad16c63bf6a18abd80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8bbff36430488e16b51f028474ad0d99"><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#a8bbff36430488e16b51f028474ad0d99">planeManagerMenu</a></td></tr>
 <tr class="separator:a8bbff36430488e16b51f028474ad0d99"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a082662c5973eea2c7e9ae76389b2660e"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#a082662c5973eea2c7e9ae76389b2660e">tooFarAway</a> = &quot;This seems a little bit too far to be registered in this airport.\n&quot;</td></tr>
-<tr class="separator:a082662c5973eea2c7e9ae76389b2660e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
-Static Private Attributes</h2></td></tr>
-<tr class="memitem:a12db8d16dbf75dcc769cfcd9ac128dd5"><td class="memItemLeft" align="right" valign="top">constexpr static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#a12db8d16dbf75dcc769cfcd9ac128dd5">invalidInput</a> = &quot;That doesn't seem like a valid input... Care to try again?\n&quot;</td></tr>
-<tr class="separator:a12db8d16dbf75dcc769cfcd9ac128dd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19e3775ada7efdd96a6993a7ffc39a67"><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#a19e3775ada7efdd96a6993a7ffc39a67">planeEditingMenu</a></td></tr>
+<tr class="separator:a19e3775ada7efdd96a6993a7ffc39a67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabcdfd9fdb6536484f6010a5e5776238"><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#aabcdfd9fdb6536484f6010a5e5776238">tooFarAway</a> = &quot;This seems a little bit too far to be registered in this airport.\n&quot;</td></tr>
+<tr class="separator:aabcdfd9fdb6536484f6010a5e5776238"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a341ac104ab5604842b74e88a127ae7a8"><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#a341ac104ab5604842b74e88a127ae7a8">invalidInput</a> = &quot;That doesn't seem like a valid input... Care to try again?\n&quot;</td></tr>
+<tr class="separator:a341ac104ab5604842b74e88a127ae7a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a55ee60ba4e663565d8d2f164b2447fd6" name="a55ee60ba4e663565d8d2f164b2447fd6"></a>
@@ -263,6 +261,25 @@ Static Private Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if any luggage car available in the airport has available slots, false otherwise </dd></dl>
+
+</div>
+</div>
+<a id="a53ccee675fc73ec60d4fe26f682f1c0b" name="a53ccee675fc73ec60d4fe26f682f1c0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53ccee675fc73ec60d4fe26f682f1c0b">&#9670;&nbsp;</a></span>assignFlightsToPlanes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Menu::assignFlightsToPlanes </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>assigns flights to planes. If a flight has the same ID as a plane, than that flight belongs to that plane </p>
 
 </div>
 </div>
@@ -387,24 +404,6 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a03942303bf534f2a01062611f02ef68f" name="a03942303bf534f2a01062611f02ef68f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a03942303bf534f2a01062611f02ef68f">&#9670;&nbsp;</a></span>groundTransportInformationPerAirport()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Menu::groundTransportInformationPerAirport </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p >@breif shows ground transports' information per airport </p>
-
-</div>
-</div>
 <a id="a3ede87cff4566b6875a2c4cb299b2f53" name="a3ede87cff4566b6875a2c4cb299b2f53"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3ede87cff4566b6875a2c4cb299b2f53">&#9670;&nbsp;</a></span>intInput()</h2>
 
@@ -450,6 +449,7 @@ Static Private Attributes</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">min</td><td>minimum integer possible for the input </td></tr>
     <tr><td class="paramname">max</td><td>maximum integer possible for the input </td></tr>
+    <tr><td class="paramname">errorMessage</td><td>message to display if the input is invalid </td></tr>
   </table>
   </dd>
 </dl>
@@ -492,7 +492,7 @@ Static Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>runs the starting menu </p>
-<dl class="section return"><dt>Returns</dt><dd>-1 if successfully </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>0 if successfully, -1 to come back to the main menu, 1 to exit </dd></dl>
 
 </div>
 </div>
@@ -512,12 +512,12 @@ Static Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>runs the menu with the administrator options </p>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>0 if successfully, -1 to come back to the main menu, 1 to exit </dd></dl>
 
 </div>
 </div>
-<a id="ad16dd0d8968d29795c73c400f1a474ca" name="ad16dd0d8968d29795c73c400f1a474ca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad16dd0d8968d29795c73c400f1a474ca">&#9670;&nbsp;</a></span>runAirportEditingMenu()</h2>
+<a id="a393096039a5108824c331b075d693c72" name="a393096039a5108824c331b075d693c72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a393096039a5108824c331b075d693c72">&#9670;&nbsp;</a></span>runAirportEditingMenu()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -531,7 +531,7 @@ Static Private Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">string&#160;</td>
+          <td class="paramtype">const string&#160;</td>
           <td class="paramname"><em>airportName</em>&#160;</td>
         </tr>
         <tr>
@@ -548,7 +548,7 @@ Static Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>0 if successfully, -1 to come back to the main menu, 1 to exit </dd></dl>
 
 </div>
 </div>
@@ -568,35 +568,7 @@ Static Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>runs the menu for the management of the airport </p>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
-
-</div>
-</div>
-<a id="a4dbb9eafb400da4793acac3c5eddf9be" name="a4dbb9eafb400da4793acac3c5eddf9be"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4dbb9eafb400da4793acac3c5eddf9be">&#9670;&nbsp;</a></span>runFlightObjectManagerMenu()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int Menu::runFlightObjectManagerMenu </td>
-          <td>(</td>
-          <td class="paramtype">set&lt; <a class="el" href="class_flight.html">Flight</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>flights</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>flightCode</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>0 if successfully, -1 to come back to the main menu, 1 to exit </dd></dl>
 
 </div>
 </div>
@@ -620,6 +592,26 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a152db1e5778f4604eb50fae5755ee8b4" name="a152db1e5778f4604eb50fae5755ee8b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a152db1e5778f4604eb50fae5755ee8b4">&#9670;&nbsp;</a></span>runPlaneEditingMenu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Menu::runPlaneEditingMenu </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>runs the managing of a plane menu </p>
+<dl class="section return"><dt>Returns</dt><dd>0 if successfully, -1 to come back to the main menu, 1 to exit </dd></dl>
+
+</div>
+</div>
 <a id="ac64ce0eb44e281ba21cc6ed92c74907c" name="ac64ce0eb44e281ba21cc6ed92c74907c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac64ce0eb44e281ba21cc6ed92c74907c">&#9670;&nbsp;</a></span>runPlaneManagerMenu()</h2>
 
@@ -636,12 +628,12 @@ Static Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>menu dedicated to plane managing </p>
-<dl class="section return"><dt>Returns</dt><dd>0 if running, -1 to come back to the main menu, 1 to exit </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>0 if successfully, -1 to come back to the main menu, 1 to exit </dd></dl>
 
 </div>
 </div>
-<a id="aff88e53a6558f040c38eb42ee4ba4823" name="aff88e53a6558f040c38eb42ee4ba4823"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aff88e53a6558f040c38eb42ee4ba4823">&#9670;&nbsp;</a></span>runScheduleOptionsMenu()</h2>
+<a id="a31a88c7e1ac2932e26a74b6b744b89d9" name="a31a88c7e1ac2932e26a74b6b744b89d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31a88c7e1ac2932e26a74b6b744b89d9">&#9670;&nbsp;</a></span>runScheduleOptionsMenu()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -649,8 +641,14 @@ Static Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">int Menu::runScheduleOptionsMenu </td>
           <td>(</td>
-          <td class="paramtype">set&lt; <a class="el" href="class_ground_transport.html">GroundTransport</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>GTs</em>, </td>
+          <td class="paramtype">set&lt; <a class="el" href="class_airport.html">Airport</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>managerAirports</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>airportName</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -673,7 +671,7 @@ Static Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>0 if successfully, -1 to come back to the main menu, 1 to exit </dd></dl>
 
 </div>
 </div>
@@ -917,13 +915,12 @@ Static Private Attributes</h2></td></tr>
 <div class="line">                                    <span class="stringliteral">&quot;1 - Add flight\n&quot;</span></div>
 <div class="line">                                    <span class="stringliteral">&quot;2 - Remove flight\n&quot;</span></div>
 <div class="line">                                    <span class="stringliteral">&quot;3 - List flights\n&quot;</span></div>
-<div class="line">                                    <span class="stringliteral">&quot;4 - Manage a flight\n&quot;</span></div>
 <div class="line">                                    <span class="stringliteral">&quot;0 - Return\n&quot;</span></div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="afc41e923c475c5ad16c63bf6a18abd80" name="afc41e923c475c5ad16c63bf6a18abd80"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afc41e923c475c5ad16c63bf6a18abd80">&#9670;&nbsp;</a></span>flightObjectManagerMenu</h2>
+<a id="a341ac104ab5604842b74e88a127ae7a8" name="a341ac104ab5604842b74e88a127ae7a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a341ac104ab5604842b74e88a127ae7a8">&#9670;&nbsp;</a></span>invalidInput</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -932,39 +929,12 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const string Menu::flightObjectManagerMenu</td>
+          <td class="memname">const string Menu::invalidInput = &quot;That doesn't seem like a valid input... Care to try again?\n&quot;</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <span class="stringliteral">&quot;Flight management options\n&quot;</span></div>
-<div class="line">                                            <span class="stringliteral">&quot;1 - List passengers\n&quot;</span></div>
-<div class="line">                                            <span class="stringliteral">&quot;2 - Cancel ticket\n&quot;</span></div>
-<div class="line">                                            <span class="stringliteral">&quot;3 - Display flight info\n&quot;</span></div>
-<div class="line">                                            <span class="stringliteral">&quot;0 - Return\n&quot;</span></div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a12db8d16dbf75dcc769cfcd9ac128dd5" name="a12db8d16dbf75dcc769cfcd9ac128dd5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a12db8d16dbf75dcc769cfcd9ac128dd5">&#9670;&nbsp;</a></span>invalidInput</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr static const char* Menu::invalidInput = &quot;That doesn't seem like a valid input... Care to try again?\n&quot;</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1034,7 +1004,7 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <span class="stringliteral">&quot;Welcome to the AEDA Airport services interface\n&quot;</span></div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <span class="stringliteral">&quot;Welcome to the AED Airport services interface\n&quot;</span></div>
 <div class="line">                                <span class="stringliteral">&quot;Navigate through the options by typing the corresponding option code.\n&quot;</span></div>
 <div class="line">                                <span class="stringliteral">&quot;You can come back to the starting menu anytime by inputting -1.\n&quot;</span></div>
 </div><!-- fragment -->
@@ -1060,6 +1030,33 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+</div>
+</div>
+<a id="a19e3775ada7efdd96a6993a7ffc39a67" name="a19e3775ada7efdd96a6993a7ffc39a67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19e3775ada7efdd96a6993a7ffc39a67">&#9670;&nbsp;</a></span>planeEditingMenu</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const string Menu::planeEditingMenu</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= <span class="stringliteral">&quot;Plane options\n&quot;</span></div>
+<div class="line">                                    <span class="stringliteral">&quot;1 - Add a maintenance service\n&quot;</span></div>
+<div class="line">                                    <span class="stringliteral">&quot;2 - Remove a maintenance service\n&quot;</span></div>
+<div class="line">                                    <span class="stringliteral">&quot;3 - List maintenance services\n&quot;</span></div>
+<div class="line">                                    <span class="stringliteral">&quot;4 - Mark a service as completed\n&quot;</span></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a85f7e35e636a7a0fa72724f0b91c119d" name="a85f7e35e636a7a0fa72724f0b91c119d"></a>
@@ -1157,6 +1154,7 @@ Static Private Attributes</h2></td></tr>
 <div class="line">                                       <span class="stringliteral">&quot;1 - Add scheduled departure\n&quot;</span></div>
 <div class="line">                                       <span class="stringliteral">&quot;2 - Remove scheduled departure\n&quot;</span></div>
 <div class="line">                                       <span class="stringliteral">&quot;3 - Show scheduled departures\n&quot;</span></div>
+<div class="line">                                       <span class="stringliteral">&quot;0 - Return\n&quot;</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1179,7 +1177,7 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <span class="stringliteral">&quot;Welcome to AEDA Airlines menu.\n&quot;</span></div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <span class="stringliteral">&quot;Welcome to AED Airlines menu.\n&quot;</span></div>
 <div class="line">                                     <span class="stringliteral">&quot;1 - Admin options\n&quot;</span></div>
 <div class="line">                                     <span class="stringliteral">&quot;2 - List flights\n&quot;</span></div>
 <div class="line">                                     <span class="stringliteral">&quot;3 - Transports&#39; information by Airport\n&quot;</span></div>
@@ -1188,8 +1186,8 @@ Static Private Attributes</h2></td></tr>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a082662c5973eea2c7e9ae76389b2660e" name="a082662c5973eea2c7e9ae76389b2660e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a082662c5973eea2c7e9ae76389b2660e">&#9670;&nbsp;</a></span>tooFarAway</h2>
+<a id="aabcdfd9fdb6536484f6010a5e5776238" name="aabcdfd9fdb6536484f6010a5e5776238"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabcdfd9fdb6536484f6010a5e5776238">&#9670;&nbsp;</a></span>tooFarAway</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1198,7 +1196,7 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">string Menu::tooFarAway = &quot;This seems a little bit too far to be registered in this airport.\n&quot;</td>
+          <td class="memname">const string Menu::tooFarAway = &quot;This seems a little bit too far to be registered in this airport.\n&quot;</td>
         </tr>
       </table>
   </td>

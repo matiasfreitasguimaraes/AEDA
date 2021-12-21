@@ -65,9 +65,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="class_plane-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Plane Class Reference</div></div>
@@ -80,6 +78,8 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:acac0d9c003e0ab10d07b146c3566a0c7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plane.html#acac0d9c003e0ab10d07b146c3566a0c7">Plane</a> ()</td></tr>
 <tr class="separator:acac0d9c003e0ab10d07b146c3566a0c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a286724ed1442f241d2d22275851557ab"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plane.html#a286724ed1442f241d2d22275851557ab">Plane</a> (unsigned planeId)</td></tr>
+<tr class="separator:a286724ed1442f241d2d22275851557ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb32cc3ae273cc4d7a555cc74d7466bb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plane.html#afb32cc3ae273cc4d7a555cc74d7466bb">Plane</a> (string planeRegister)</td></tr>
 <tr class="separator:afb32cc3ae273cc4d7a555cc74d7466bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff6dc17c4b0e04ce83a28a72dfe295b3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plane.html#aff6dc17c4b0e04ce83a28a72dfe295b3">Plane</a> (unsigned <a class="el" href="class_plane.html#a187f93998fbdca95b4a9510fc4146c76">capacity</a>, string <a class="el" href="class_plane.html#a00636f8eb5ea063ce19dcb9bf43023a7">planeType</a>, string <a class="el" href="class_plane.html#a3b54e693ed390dd84b9c27a8fd1e7ba3">regis</a>, unsigned Id)</td></tr>
@@ -96,28 +96,27 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a9f23d94a8a067487ee3608a4929efdd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d261ba91e57749824bd1888d71ada05"><td class="memItemLeft" align="right" valign="top">queue&lt; <a class="el" href="class_maintenance_service.html">MaintenanceService</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plane.html#a9d261ba91e57749824bd1888d71ada05">getScheduledServices</a> () const</td></tr>
 <tr class="separator:a9d261ba91e57749824bd1888d71ada05"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48841b1c61f1ca4081bfa5a9a3be9062"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plane.html#a48841b1c61f1ca4081bfa5a9a3be9062">setListOfFlights</a> (vector&lt; <a class="el" href="class_flight.html">Flight</a> &gt; flights)</td></tr>
-<tr class="memdesc:a48841b1c61f1ca4081bfa5a9a3be9062"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets the list of flights of a plane  <a href="class_plane.html#a48841b1c61f1ca4081bfa5a9a3be9062">More...</a><br /></td></tr>
-<tr class="separator:a48841b1c61f1ca4081bfa5a9a3be9062"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07f273afd6ded69f626ec4f7f1173441"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plane.html#a07f273afd6ded69f626ec4f7f1173441">addFlight</a> (<a class="el" href="class_flight.html">Flight</a> flight)</td></tr>
+<tr class="memdesc:a07f273afd6ded69f626ec4f7f1173441"><td class="mdescLeft">&#160;</td><td class="mdescRight">adds a new flight  <a href="class_plane.html#a07f273afd6ded69f626ec4f7f1173441">More...</a><br /></td></tr>
+<tr class="separator:a07f273afd6ded69f626ec4f7f1173441"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a827c7c17824d734c594bba75ef6ad267"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plane.html#a827c7c17824d734c594bba75ef6ad267">addPastService</a> (<a class="el" href="class_maintenance_service.html">MaintenanceService</a> &amp;service)</td></tr>
 <tr class="memdesc:a827c7c17824d734c594bba75ef6ad267"><td class="mdescLeft">&#160;</td><td class="mdescRight">adds service to the past services queue  <a href="class_plane.html#a827c7c17824d734c594bba75ef6ad267">More...</a><br /></td></tr>
 <tr class="separator:a827c7c17824d734c594bba75ef6ad267"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b354cf20483c59cd15fbe2bfccc1fe4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plane.html#a5b354cf20483c59cd15fbe2bfccc1fe4">addScheduledService</a> (<a class="el" href="class_maintenance_service.html">MaintenanceService</a> &amp;scheduledService)</td></tr>
-<tr class="memdesc:a5b354cf20483c59cd15fbe2bfccc1fe4"><td class="mdescLeft">&#160;</td><td class="mdescRight">adds service to the scheduled services  <a href="class_plane.html#a5b354cf20483c59cd15fbe2bfccc1fe4">More...</a><br /></td></tr>
-<tr class="separator:a5b354cf20483c59cd15fbe2bfccc1fe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02f44fb1b250021b424359176cd24027"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plane.html#a02f44fb1b250021b424359176cd24027">getId</a> () const</td></tr>
-<tr class="separator:a02f44fb1b250021b424359176cd24027"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0829e3e38c10e7038486cb3ccd274b7c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plane.html#a0829e3e38c10e7038486cb3ccd274b7c">setId</a> (unsigned int <a class="el" href="class_plane.html#ae2f1fccc6eb5655fdaadf51e213a543a">id</a>)</td></tr>
-<tr class="separator:a0829e3e38c10e7038486cb3ccd274b7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a959974cd8e653f2133f6354427cb746e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plane.html#a959974cd8e653f2133f6354427cb746e">addScheduledService</a> (<a class="el" href="class_maintenance_service.html">MaintenanceService</a> scheduledService)</td></tr>
+<tr class="memdesc:a959974cd8e653f2133f6354427cb746e"><td class="mdescLeft">&#160;</td><td class="mdescRight">adds service to the scheduled services  <a href="class_plane.html#a959974cd8e653f2133f6354427cb746e">More...</a><br /></td></tr>
+<tr class="separator:a959974cd8e653f2133f6354427cb746e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac64e2acef30cdc5ebc5d7fe8118219fb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plane.html#ac64e2acef30cdc5ebc5d7fe8118219fb">removeScheduledService</a> (<a class="el" href="class_maintenance_service.html">MaintenanceService</a> serviceToRemove)</td></tr>
+<tr class="memdesc:ac64e2acef30cdc5ebc5d7fe8118219fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">removes a scheduled service  <a href="class_plane.html#ac64e2acef30cdc5ebc5d7fe8118219fb">More...</a><br /></td></tr>
+<tr class="separator:ac64e2acef30cdc5ebc5d7fe8118219fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33543f783bac627854b70fad784e5b9d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plane.html#a33543f783bac627854b70fad784e5b9d">markServiceAsCompleted</a> (<a class="el" href="class_maintenance_service.html">MaintenanceService</a> serviceToBeCompleted)</td></tr>
+<tr class="memdesc:a33543f783bac627854b70fad784e5b9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">mark a scheduled service as completed  <a href="class_plane.html#a33543f783bac627854b70fad784e5b9d">More...</a><br /></td></tr>
+<tr class="separator:a33543f783bac627854b70fad784e5b9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61f1c67ca8a2d923ccbd3be10051ad39"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plane.html#a61f1c67ca8a2d923ccbd3be10051ad39">getId</a> () const</td></tr>
+<tr class="separator:a61f1c67ca8a2d923ccbd3be10051ad39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a344749c919492d1674d76d74258002d2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plane.html#a344749c919492d1674d76d74258002d2">operator&lt;</a> (const <a class="el" href="class_plane.html">Plane</a> &amp;rhs) const</td></tr>
 <tr class="separator:a344749c919492d1674d76d74258002d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae13222a7b1df5545160f96e6b7deb7a8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plane.html#ae13222a7b1df5545160f96e6b7deb7a8">operator==</a> (const <a class="el" href="class_plane.html">Plane</a> &amp;rhs) const</td></tr>
 <tr class="separator:ae13222a7b1df5545160f96e6b7deb7a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a211b4dc59f590396c500b4c274516372"><td class="memItemLeft" align="right" valign="top">static unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plane.html#a211b4dc59f590396c500b4c274516372">getNumberOfInstances</a> ()</td></tr>
-<tr class="separator:a211b4dc59f590396c500b4c274516372"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -136,11 +135,6 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:ae2f1fccc6eb5655fdaadf51e213a543a"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plane.html#ae2f1fccc6eb5655fdaadf51e213a543a">id</a></td></tr>
 <tr class="separator:ae2f1fccc6eb5655fdaadf51e213a543a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
-Static Private Attributes</h2></td></tr>
-<tr class="memitem:a9b818d02762fdb51b94d28fcd7adea3c"><td class="memItemLeft" align="right" valign="top">static unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plane.html#a9b818d02762fdb51b94d28fcd7adea3c">instances</a> = 0</td></tr>
-<tr class="separator:a9b818d02762fdb51b94d28fcd7adea3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
 <tr class="memitem:ad5a11cb7e956ee21b56c783643099e89"><td class="memItemLeft" align="right" valign="top">ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plane.html#ad5a11cb7e956ee21b56c783643099e89">operator&lt;&lt;</a> (ostream &amp;out, const <a class="el" href="class_plane.html">Plane</a> &amp;plane)</td></tr>
@@ -148,7 +142,7 @@ Friends</h2></td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="acac0d9c003e0ab10d07b146c3566a0c7" name="acac0d9c003e0ab10d07b146c3566a0c7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acac0d9c003e0ab10d07b146c3566a0c7">&#9670;&nbsp;</a></span>Plane() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#acac0d9c003e0ab10d07b146c3566a0c7">&#9670;&nbsp;</a></span>Plane() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -172,8 +166,26 @@ Friends</h2></td></tr>
 
 </div>
 </div>
+<a id="a286724ed1442f241d2d22275851557ab" name="a286724ed1442f241d2d22275851557ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a286724ed1442f241d2d22275851557ab">&#9670;&nbsp;</a></span>Plane() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Plane::Plane </td>
+          <td>(</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>planeId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="afb32cc3ae273cc4d7a555cc74d7466bb" name="afb32cc3ae273cc4d7a555cc74d7466bb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afb32cc3ae273cc4d7a555cc74d7466bb">&#9670;&nbsp;</a></span>Plane() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#afb32cc3ae273cc4d7a555cc74d7466bb">&#9670;&nbsp;</a></span>Plane() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -197,7 +209,7 @@ Friends</h2></td></tr>
 </div>
 </div>
 <a id="aff6dc17c4b0e04ce83a28a72dfe295b3" name="aff6dc17c4b0e04ce83a28a72dfe295b3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aff6dc17c4b0e04ce83a28a72dfe295b3">&#9670;&nbsp;</a></span>Plane() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aff6dc17c4b0e04ce83a28a72dfe295b3">&#9670;&nbsp;</a></span>Plane() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -206,19 +218,19 @@ Friends</h2></td></tr>
           <td class="memname">Plane::Plane </td>
           <td>(</td>
           <td class="paramtype">unsigned&#160;</td>
-          <td class="paramname"><em>planeCapacity</em>, </td>
+          <td class="paramname"><em>capacity</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>type</em>, </td>
+          <td class="paramname"><em>planeType</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>planeRegister</em>, </td>
+          <td class="paramname"><em>regis</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -233,19 +245,36 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a07f273afd6ded69f626ec4f7f1173441" name="a07f273afd6ded69f626ec4f7f1173441"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07f273afd6ded69f626ec4f7f1173441">&#9670;&nbsp;</a></span>addFlight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Plane::addFlight </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_flight.html">Flight</a>&#160;</td>
+          <td class="paramname"><em>flight</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>adds a new flight </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">capacity</td><td>the plane's capacity </td></tr>
-    <tr><td class="paramname">planeType</td><td>the plane type </td></tr>
-    <tr><td class="paramname">regis</td><td>the plane's register </td></tr>
-    <tr><td class="paramname">flights</td><td>the plane's list of flights </td></tr>
+    <tr><td class="paramname">flights</td><td>the flight to be added </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
 <a id="a827c7c17824d734c594bba75ef6ad267" name="a827c7c17824d734c594bba75ef6ad267"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a827c7c17824d734c594bba75ef6ad267">&#9670;&nbsp;</a></span>addPastService()</h2>
 
@@ -272,8 +301,8 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="a5b354cf20483c59cd15fbe2bfccc1fe4" name="a5b354cf20483c59cd15fbe2bfccc1fe4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5b354cf20483c59cd15fbe2bfccc1fe4">&#9670;&nbsp;</a></span>addScheduledService()</h2>
+<a id="a959974cd8e653f2133f6354427cb746e" name="a959974cd8e653f2133f6354427cb746e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a959974cd8e653f2133f6354427cb746e">&#9670;&nbsp;</a></span>addScheduledService()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -281,7 +310,7 @@ Friends</h2></td></tr>
         <tr>
           <td class="memname">void Plane::addScheduledService </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_maintenance_service.html">MaintenanceService</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_maintenance_service.html">MaintenanceService</a>&#160;</td>
           <td class="paramname"><em>scheduledService</em></td><td>)</td>
           <td></td>
         </tr>
@@ -316,14 +345,14 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="a02f44fb1b250021b424359176cd24027" name="a02f44fb1b250021b424359176cd24027"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a02f44fb1b250021b424359176cd24027">&#9670;&nbsp;</a></span>getId()</h2>
+<a id="a61f1c67ca8a2d923ccbd3be10051ad39" name="a61f1c67ca8a2d923ccbd3be10051ad39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61f1c67ca8a2d923ccbd3be10051ad39">&#9670;&nbsp;</a></span>getId()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int Plane::getId </td>
+          <td class="memname">unsigned Plane::getId </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -352,32 +381,6 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="a211b4dc59f590396c500b4c274516372" name="a211b4dc59f590396c500b4c274516372"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a211b4dc59f590396c500b4c274516372">&#9670;&nbsp;</a></span>getNumberOfInstances()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int Plane::getNumberOfInstances </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>the numbers of existing planes </dd></dl>
-
-</div>
-</div>
 <a id="a9f23d94a8a067487ee3608a4929efdd0" name="a9f23d94a8a067487ee3608a4929efdd0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9f23d94a8a067487ee3608a4929efdd0">&#9670;&nbsp;</a></span>getPastServices()</h2>
 
@@ -392,7 +395,7 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>queue with the past services </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>queue with the past services of a plane </dd></dl>
 
 </div>
 </div>
@@ -410,7 +413,7 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>the plane type </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the plane's type </dd></dl>
 
 </div>
 </div>
@@ -446,7 +449,34 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>queue with the scheduled services </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>queue with the scheduled services for a plane </dd></dl>
+
+</div>
+</div>
+<a id="a33543f783bac627854b70fad784e5b9d" name="a33543f783bac627854b70fad784e5b9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33543f783bac627854b70fad784e5b9d">&#9670;&nbsp;</a></span>markServiceAsCompleted()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Plane::markServiceAsCompleted </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_maintenance_service.html">MaintenanceService</a>&#160;</td>
+          <td class="paramname"><em>serviceToBeCompleted</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>mark a scheduled service as completed </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">serviceToBeCompleted</td><td>service to be marked as completed </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if successfully, false otherwise </dd></dl>
 
 </div>
 </div>
@@ -500,44 +530,26 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="a0829e3e38c10e7038486cb3ccd274b7c" name="a0829e3e38c10e7038486cb3ccd274b7c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0829e3e38c10e7038486cb3ccd274b7c">&#9670;&nbsp;</a></span>setId()</h2>
+<a id="ac64e2acef30cdc5ebc5d7fe8118219fb" name="ac64e2acef30cdc5ebc5d7fe8118219fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac64e2acef30cdc5ebc5d7fe8118219fb">&#9670;&nbsp;</a></span>removeScheduledService()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Plane::setId </td>
+          <td class="memname">bool Plane::removeScheduledService </td>
           <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="class_maintenance_service.html">MaintenanceService</a>&#160;</td>
+          <td class="paramname"><em>serviceToRemove</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a48841b1c61f1ca4081bfa5a9a3be9062" name="a48841b1c61f1ca4081bfa5a9a3be9062"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a48841b1c61f1ca4081bfa5a9a3be9062">&#9670;&nbsp;</a></span>setListOfFlights()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Plane::setListOfFlights </td>
-          <td>(</td>
-          <td class="paramtype">vector&lt; <a class="el" href="class_flight.html">Flight</a> &gt;&#160;</td>
-          <td class="paramname"><em>flights</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>sets the list of flights of a plane </p>
+<p>removes a scheduled service </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">flights</td><td>the new list of flights </td></tr>
+    <tr><td class="paramname">serviceToRemove</td><td>service to be removed </td></tr>
   </table>
   </dd>
 </dl>
@@ -585,7 +597,7 @@ Friends</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>all the plane information </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>all the planes' information </dd></dl>
 
 </div>
 </div>
@@ -628,28 +640,6 @@ Friends</h2></td></tr>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a9b818d02762fdb51b94d28fcd7adea3c" name="a9b818d02762fdb51b94d28fcd7adea3c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9b818d02762fdb51b94d28fcd7adea3c">&#9670;&nbsp;</a></span>instances</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned Plane::instances = 0</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

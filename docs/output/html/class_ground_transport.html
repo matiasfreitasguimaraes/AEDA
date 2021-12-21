@@ -88,8 +88,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6d72ba48846757d1335fb050bd8d59e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc2136cd0fbc77d272b6bfdcad67f9cc"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ground_transport.html#abc2136cd0fbc77d272b6bfdcad67f9cc">getAirportDistance</a> () const</td></tr>
 <tr class="separator:abc2136cd0fbc77d272b6bfdcad67f9cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04379635d381e4da91d71f8779e9e6d7"><td class="memItemLeft" align="right" valign="top">set&lt; <a class="el" href="class_date_time.html">DateTime</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ground_transport.html#a04379635d381e4da91d71f8779e9e6d7">getSchedule</a> ()</td></tr>
-<tr class="separator:a04379635d381e4da91d71f8779e9e6d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adab94d5a83513071b651b95bb6209292"><td class="memItemLeft" align="right" valign="top">set&lt; <a class="el" href="class_date_time.html">DateTime</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ground_transport.html#adab94d5a83513071b651b95bb6209292">getSchedule</a> ()</td></tr>
+<tr class="separator:adab94d5a83513071b651b95bb6209292"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf064bfd16e23034430e7563cf8b8f23"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ground_transport.html#aaf064bfd16e23034430e7563cf8b8f23">showSched</a> ()</td></tr>
 <tr class="memdesc:aaf064bfd16e23034430e7563cf8b8f23"><td class="mdescLeft">&#160;</td><td class="mdescRight">shows the ground transport's schedule  <a href="class_ground_transport.html#aaf064bfd16e23034430e7563cf8b8f23">More...</a><br /></td></tr>
 <tr class="separator:aaf064bfd16e23034430e7563cf8b8f23"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -98,6 +98,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a34d0111a81195dcf5a4edaaca6a0a2cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c28aae6c38cb3a994e907a4ff0991ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ground_transport.html#a5c28aae6c38cb3a994e907a4ff0991ba">removeFromSchedule</a> (<a class="el" href="class_date_time.html">DateTime</a> date)</td></tr>
 <tr class="separator:a5c28aae6c38cb3a994e907a4ff0991ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a5d176654429cc0eb4d43ee1b36f1f2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ground_transport.html#a1a5d176654429cc0eb4d43ee1b36f1f2">findInSchedule</a> (<a class="el" href="class_date_time.html">DateTime</a> date)</td></tr>
+<tr class="separator:a1a5d176654429cc0eb4d43ee1b36f1f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5bdb9c5f35651cf1a44c9631b735568"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ground_transport.html#af5bdb9c5f35651cf1a44c9631b735568">operator&lt;</a> (const <a class="el" href="class_ground_transport.html">GroundTransport</a> &amp;rhs) const</td></tr>
 <tr class="separator:af5bdb9c5f35651cf1a44c9631b735568"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d4c19ee25c4fe01668a9ff29aa8ebb5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ground_transport.html#a3d4c19ee25c4fe01668a9ff29aa8ebb5">operator==</a> (const <a class="el" href="class_ground_transport.html">GroundTransport</a> &amp;rhs) const</td></tr>
@@ -239,6 +241,31 @@ Friends</h2></td></tr>
 
 </div>
 </div>
+<a id="a1a5d176654429cc0eb4d43ee1b36f1f2" name="a1a5d176654429cc0eb4d43ee1b36f1f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a5d176654429cc0eb4d43ee1b36f1f2">&#9670;&nbsp;</a></span>findInSchedule()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool GroundTransport::findInSchedule </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_date_time.html">DateTime</a>&#160;</td>
+          <td class="paramname"><em>date</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">date</td><td>date to be found in transport's schedule </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if found, false otherwise </dd></dl>
+
+</div>
+</div>
 <a id="abc2136cd0fbc77d272b6bfdcad67f9cc" name="abc2136cd0fbc77d272b6bfdcad67f9cc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abc2136cd0fbc77d272b6bfdcad67f9cc">&#9670;&nbsp;</a></span>getAirportDistance()</h2>
 
@@ -275,14 +302,14 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="a04379635d381e4da91d71f8779e9e6d7" name="a04379635d381e4da91d71f8779e9e6d7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a04379635d381e4da91d71f8779e9e6d7">&#9670;&nbsp;</a></span>getSchedule()</h2>
+<a id="adab94d5a83513071b651b95bb6209292" name="adab94d5a83513071b651b95bb6209292"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adab94d5a83513071b651b95bb6209292">&#9670;&nbsp;</a></span>getSchedule()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">set&lt; <a class="el" href="class_date_time.html">DateTime</a> &gt; GroundTransport::getSchedule </td>
+          <td class="memname">set&lt; <a class="el" href="class_date_time.html">DateTime</a> &gt; &amp; GroundTransport::getSchedule </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -328,7 +355,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">rhs</td><td>instance of ground transport </td></tr>
+    <tr><td class="paramname">rhs</td><td>instance of <a class="el" href="class_ground_transport.html">GroundTransport</a> </td></tr>
   </table>
   </dd>
 </dl>
