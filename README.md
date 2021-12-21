@@ -1,24 +1,17 @@
-# AEDA
-##O que falta?
+# AED 2021/2022 Projeto 1
 
-1. Documentar tudo
+Feito por João Teixeira (up201900190), Jorge Sousa(up202006140) e Matias Vaz(up201900194)
 
-2. Fazer testes
+O cmake compila tudo automaticamente.
 
-3. Guardar os tickets no flight correspondente
+O ficheiro main.cpp roda o programa.
 
-4. Colocar os horários dos voos no ficheiro
+Na pasta testers tem alguns testes básicos que implementamos no começo do desenvolvimento do programa.
 
-5. Criar dados para os maintenance services
+O Source é dividido entre objetos, gerenciadores desses objetos e dos respectivos arquivos(para ler, escrever, deletar e dar update).
 
-6. Fazer slides da apresentação
+E o menu, que é onde fica a interface do programa para o usuário e recebe os comandos.
 
-7. Atualizar e finalizar diagrama UML
+Além disso, temos a pasta onde fica os inputs, com todos os dados do programa.
 
-8. Fazer readme para o professor
-
-9. ULTIMAS TAREFAS: 
-10. Guardar MSs (Maintenance services) nos ficheiros de cada plane
-11. Alterar o read e o write do plane para q o item 10 funcione bem
-12. opçoes Manage Plane (adicionar, remover e mostrar MSs)
-13. Schedule options per transport (Adicionar e remover DateTimes pros schedules)
+Espero que gostem.
