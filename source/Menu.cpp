@@ -1,6 +1,6 @@
 #include "Menu.h"
 
-Menu::Menu(const string &planeInput, const string &flightInput, const string &luggageCarInput,const string &airportInput )
+Menu::Menu(const string &planeInput, const string &flightInput, const string &luggageCarInput, const string &airportInput)
         : planeFile(planeInput), flightFile(flightInput), luggageCarFile(luggageCarInput), airportFile(airportInput ){
     ifstream planeFileR(planeFile);
     ifstream luggageCarFileR(luggageCarFile);
