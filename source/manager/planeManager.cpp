@@ -7,14 +7,29 @@
 void PlaneManager::read(ifstream& planeFile) {
     if (planeFile.is_open()) {
         cout << "Successfully opened plane file!" << endl;
-        int capacity;
-        string type;
-        string regis;
+        unsigned capacity, year, month, day, hour, minute, numOfPastServices, numOfScheduledServices, serviceID;
+        char sep;
+        string type, regis, maintenanceType, responsible;
         Plane key;
         unsigned ID;
-        while (!planeFile.eof()) {
+
+        while (planeFile.peek() != EOF) {
             planeFile >> type  >> capacity >> regis >> ID;
             key = Plane(capacity, type, regis, ID);
+            planeFile >> numOfPastServices;
+            for (unsigned i = 0; i < numOfPastServices; i++) {
+                planeFile >> serviceID >> maintenanceType >> day >> sep >> month >> sep >> year >> hour >> sep >> minute >> responsible;
+                DateTime serviceSchedule(year, month, day, hour, minute);
+                MaintenanceService pastService(serviceID, maintenanceType, serviceSchedule, responsible);
+                key.addPastService(pastService);
+            }
+            planeFile >> numOfScheduledServices;
+            for (unsigned i = 0; i < numOfScheduledServices; i++) {
+                planeFile >> serviceID >> maintenanceType >> day >> sep >> month >> sep >> year >> hour >> sep >> minute >> responsible;
+                DateTime serviceSchedule(year, month, day, hour, minute);
+                MaintenanceService scheduledService(serviceID, maintenanceType, serviceSchedule, responsible);
+                key.addScheduledService(scheduledService);
+            }
             myPlanes.insert(key);
         }
     } else {
@@ -27,9 +42,21 @@ void PlaneManager::read(ifstream& planeFile) {
  * @param file file to save the changes
  */
 void PlaneManager::write(ofstream &file) {
-    for (Plane plane: myPlanes) {
-        file << plane.getPlaneType() << " " << plane.getCapacity() << " "
-        << plane.getRegis() << " " << plane.getId() << endl;
+    for (const Plane &plane: myPlanes) {
+        auto pastServices = plane.getPastServices();
+        auto scheduledServices = plane.getScheduledServices();
+
+        file << plane.getPlaneType() << " " << plane.getCapacity() << " " << plane.getRegis() << " " << plane.getId() << endl;
+        file << plane.getPastServices().size() << endl;
+        while(!pastServices.empty()) {
+            file << pastServices.front();
+            pastServices.pop();
+        }
+        file << scheduledServices.size() << endl;
+        while(!scheduledServices.empty()) {
+            file << scheduledServices.front();
+            scheduledServices.pop();
+        }
     }
 }
 
@@ -38,7 +65,7 @@ void PlaneManager::write(ofstream &file) {
  * @param newFlight flight to add
  * @param filename file to write the changes
  */
-int PlaneManager::add(Plane newPlane) {
+int PlaneManager::add(const Plane &newPlane) {
     if (myPlanes.find(Plane(newPlane)) != myPlanes.end())
         return 0;
     myPlanes.insert(newPlane);
@@ -50,11 +77,14 @@ int PlaneManager::add(Plane newPlane) {
  * @param flightToRemove flight to remove
  * @param filename file to write the changes
  */
-int PlaneManager::remove(Plane planeToRemove) {
+int PlaneManager::remove(const Plane &planeToRemove) {
     if (myPlanes.find(planeToRemove) == myPlanes.end())
         return 0;
     else {
         this->myPlanes.erase(myPlanes.find(planeToRemove));
+        for(unsigned i = 0; i < planeToRemove.getListOfFlights().size(); i++) {
+            planeToRemove.getListOfFlights().erase(planeToRemove.getListOfFlights().begin() + i);
+        }
         return 1;
     }
 }
@@ -63,7 +93,7 @@ int PlaneManager::remove(Plane planeToRemove) {
  * @brief shows the flights and their information to the users
  */
 void PlaneManager::show() {
-    for (Plane plane: myPlanes) {
+    for (const Plane &plane: myPlanes) {
         cout << plane <<  endl;
     }
 }
@@ -71,6 +101,18 @@ void PlaneManager::show() {
 /**
  * @return the set of planes
  */
-set<Plane> PlaneManager::get() {
+set<Plane>& PlaneManager::get() {
     return myPlanes;
+}
+
+/**
+ * @param plane instance of Plane
+ * @return true if the plane if found, false otherwise
+ */
+bool PlaneManager::find(Plane plane) {
+    return (myPlanes.find(plane) != myPlanes.end());
+}
+
+void PlaneManager::setPlanes(set<Plane> updatedPlanes) {
+    myPlanes = updatedPlanes;
 }

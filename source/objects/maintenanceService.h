@@ -10,17 +10,21 @@ using namespace std;
 
 class MaintenanceService {
 private:
-    string type;
+    string type; //Maintenance or Cleaning
     DateTime date;
     string responsible;
+    unsigned id;
 public:
     // for context with operator << use Bus, Metro or Train for typename.
-    MaintenanceService(string typeName,DateTime when, string employee);
+    MaintenanceService(unsigned serviceId);
+    MaintenanceService(unsigned serviceId, string typeName,DateTime when, string employee);
     string getType() const;
     DateTime getDate() const;
     string getResponsible() const;
+    unsigned getId() const;
     friend ostream& operator<<(ostream &out, const MaintenanceService &maintenanceService);
     bool operator<(const MaintenanceService &service) const;
+    bool operator==(const MaintenanceService &service) const;
 };
 
 

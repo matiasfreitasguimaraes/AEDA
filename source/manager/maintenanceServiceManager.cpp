@@ -15,7 +15,7 @@ void MaintenanceServiceManager::read(ifstream &file) {
         while(!file.eof()) {
             file >> type >> year >> sep >> month >> sep >> day >> hour >> sep >> minute >> responsible;
             DateTime date(year, month, day, hour, minute);
-            MaintenanceService service(type, date, responsible);
+            MaintenanceService service(1, type, date, responsible);
             maintenanceServices.insert(service);
         }
     } else { cout << "Couldn't open file \n";}
@@ -54,4 +54,12 @@ void MaintenanceServiceManager::show() {
     for (MaintenanceService service: maintenanceServices) {
         cout << service << endl;
     }
+}
+
+/**
+ * @param service instance of MaintenanceService
+ * @return true if two services have the same ID, false otherwise
+ */
+bool MaintenanceService::operator==(const MaintenanceService &service) const {
+    return id == service.getId();
 }

@@ -112,5 +112,5 @@ bool Flight::operator<(const Flight &rhs) const {
  * @return true if two flights have the same number, false otherwise
  */
 bool Flight::operator==(const Flight &rhs) const {
-    return this->numberOfFlight == rhs.getNumberOfFlight();
+    return numberOfFlight == rhs.getNumberOfFlight();
 }

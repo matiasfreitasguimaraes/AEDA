@@ -10,6 +10,7 @@ Menu::Menu(const string &planeInput, const string &flightInput, const string &lu
     flightM.read(flightFileR);
     luggageM.read(luggageCarFileR);
     airportM.read(airportFileR);
+    assignFlightsToPlanes();
     cout << menuTutorial;
 }
 
@@ -362,8 +363,7 @@ void Menu::buyTicket() {
         cout << "Fiscal Number:\n";
         cin >> ssn;
         Passenger passenger(name, age, ssn);
-        cout << "Choose a flight:\n";
-        flightM.show();
+        listingMenu();
         cout << "Choose a flight:" << endl;
         cin >> numberOfFlight;
 
@@ -445,26 +445,16 @@ Menu::~Menu() {
 }
 
 /**
- * @breif shows ground transports' information per airport
- */
-void Menu::groundTransportInformationPerAirport() {
-    set<Airport> airports = airportM.get();
-    for (Airport airport: airports) {
-        airport.showGTs();
-    }
-}
-
-/**
  * @brief menu providing options for the user to check the flights in a specific order
  */
 void Menu::listingMenu() {
-    unsigned choice;
+
     cout << "Choose a listing option:\n";
     cout << "1 - Next flight to departure\n";
     cout << "2 - First flight to arrive to its destination\n";
     cout << "3 - Flight with the highest number of available tickets\n";
 
-    choice = intInput(0, 3, "Invalid option\n");
+    option = intInput(0, 3, invalidInput);
     auto compare = [](const Flight &f1, const Flight &f2) { return f1.getDepartureDate() < f2.getDepartureDate(); };
     auto compare2 = [](const Flight &f1, const Flight &f2) { return f1.getArrivalDate() < f2.getArrivalDate(); };
     auto compare3 = [](const Flight &f1, const Flight &f2) {
@@ -475,7 +465,7 @@ void Menu::listingMenu() {
     set<Flight, decltype(compare3)> flightWithMoreTicketsAvailable(compare3);
 
 
-    switch (choice) {
+    switch (option) {
         case 1:
             for (Flight flight: flightM.get()) {
                 nextFlightToDeparture.insert(flight);
@@ -586,7 +576,7 @@ int Menu::runFlightSetManagerMenu() {
                 if (destination == "-1")
                     return -1;
                 cout << "bota o id ai porra\n";
-                temp = intInput(0, 9999, "We only accept positive ID's lower than 9999\n");
+                temp = intInput(0, 9999, invalidInput);
                 if (temp == -1) {
                     return -1;
                 }
@@ -646,6 +636,7 @@ int Menu::runPlaneManagerMenu() {
             cin >> planeCapacity;
             cout << "Plane's ID:\n";
             cin >> planeId;
+
             if (planeM.add(Plane(planeCapacity, planeType, planeRegister, planeId)) == 1) {
                 cout << "Plane added successfully\n";
             } else { cout << "Seems like that plane already exists\n";}
@@ -654,8 +645,17 @@ int Menu::runPlaneManagerMenu() {
         case 2:
             cout << "What's the plane's register you want to remove?\n";
             cin >> planeRegister;
-            if (planeM.remove(Plane(planeRegister)) == 1)
+
+            for(Plane plane: planeM.get()) {
+                auto helper = flightM.get();
+                for(Flight flight: helper) {
+                    if (plane.getId() == flight.getFlightId() && plane == Plane(planeRegister))
+                        flightM.remove(flight);
+                }
+            }
+            if (planeM.remove(Plane(planeRegister)) == 1) {
                 cout << "Plane removed successfully\n";
+            }
             else
                 cout << "Failed to remove plane. The plane does not exist\n";
             wait();
@@ -664,9 +664,104 @@ int Menu::runPlaneManagerMenu() {
             planeM.show();
             break;
         case 4:
+            runPlaneEditingMenu();
             break;
     }
     if (option == -1)
         return -1;
     return 0;
+}
+
+/**
+ * @brief runs the managing of a plane menu
+ * @return 0 if running, -1 to come back to the main menu, 1 to exit
+ */
+int Menu::runPlaneEditingMenu() {
+    string planeRegister, serviceType, responsible, service;
+    unsigned serviceId;
+    cout << "Choose a plane:\n";
+    cin >> planeRegister;
+    Plane planeToEdit(planeRegister);
+
+    if (planeM.find(planeToEdit)) {
+        planeToEdit = *planeM.get().find(planeToEdit);
+        auto scheduledServices = planeToEdit.getScheduledServices();
+        auto pastServices = planeToEdit.getPastServices();
+        cout << planeEditingMenu;
+        option = intInput(0, 4, invalidInput);
+
+        switch (option) {
+            case 0:
+                return 1;
+            case 1:
+                cout << "Service ID:\n";
+                cin >> serviceId;
+                cout << "What is the type of service? (Maintenance/Cleaning)\n";
+                cin >> serviceType;
+                cout << "Who is responsible for the service?\n";
+                cin >> responsible;
+                cout << "When is it scheduled?\n";
+                planeToEdit.addScheduledService(MaintenanceService(serviceId, serviceType, dateInput(1,1,1,1,1), responsible));
+                planeM.remove(Plane(planeRegister));
+                planeM.add(planeToEdit);
+                cout << "Service added successfully\n";
+                break;
+            case 2:
+                cout << "Service ID:\n";
+                cin >> serviceId;
+                if (planeToEdit.removeScheduledService(MaintenanceService(serviceId))) {
+                    planeM.remove(Plane(planeRegister));
+                    planeM.add(planeToEdit);
+                    cout << "Service removed successfully\n";
+                } else {
+                    cout << "Seems like there is not a service with that ID\n";
+                }
+                break;
+            case 3:
+                cout << "Past services\n";
+                while(!pastServices.empty()) {
+                    cout << pastServices.front();
+                    pastServices.pop();
+                }
+                cout << "Scheduled services\n";
+                while(!scheduledServices.empty()) {
+                    cout << scheduledServices.front();
+                    scheduledServices.pop();
+                }
+                break;
+            case 4:
+                cout << "What service do you want to mark as completed?\n";
+                cin >> serviceId;
+                if (planeToEdit.markServiceAsCompleted(MaintenanceService(serviceId))) {
+                    planeM.remove(Plane(planeRegister));
+                    planeM.add(planeToEdit);
+                    cout << "Service marked as completed successfully\n";
+                } else {
+                    cout << "Seems like there is not a service with that ID\n";
+                }
+                break;
+        }
+    } else { cout << "Seems like that plane doesn't exist\n";}
+
+    wait();
+    if(option == -1)
+        return -1;
+    return 0;
+}
+
+/**
+ * @brief assigns flights to planes. If a flight has the same ID as a plane, than that flight belongs to that plane
+ */
+void Menu::assignFlightsToPlanes() {
+    vector<Flight> temp;
+    set<Plane> helper;
+
+    for(Plane plane: planeM.get()) {
+        for(const Flight &flight: flightM.get()) {
+            if(flight.getFlightId() == plane.getId())
+                plane.addFlight(flight);
+        }
+        helper.insert(plane);
+    }
+    planeM.setPlanes(helper);
 }

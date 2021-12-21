@@ -13,6 +13,10 @@ Plane::Plane(unsigned planeCapacity, string type, string planeRegister, unsigned
     instances++;
 }
 
+Plane::Plane(unsigned int planeId) {
+    this->id=planeId;
+}
+
 /**
  * @param planeRegister the plane's register
  */
@@ -67,6 +71,8 @@ ostream& operator<<(ostream &out, const Plane &plane) {
     out << "Plane's register: " << plane.getRegis() << endl;
     out << "Plane type: " << plane.getPlaneType() << endl;
     out << "Plane's list of flights:" << endl;
+    for(Flight flight: plane.getListOfFlights())
+        out << flight << endl;
     return out;
 }
 
@@ -82,7 +88,7 @@ void Plane::addPastService(MaintenanceService &service) {
  * @brief adds service to the scheduled services
  * @param scheduledService instance of MaintenanceService
  */
-void Plane::addScheduledService(MaintenanceService &scheduledService) {
+void Plane::addScheduledService(MaintenanceService scheduledService) {
     scheduledServices.push(scheduledService);
 }
 
@@ -104,8 +110,8 @@ queue<MaintenanceService> Plane::getScheduledServices() const {
  * @brief sets the list of flights of a plane
  * @param flights the new list of flights
  */
-void Plane::setListOfFlights(vector<Flight> flights) {
-    this->listOfFlights = flights;
+void Plane::addFlight(Flight flight) {
+    listOfFlights.push_back(flight);
 }
 
 /**
@@ -129,4 +135,49 @@ unsigned int Plane::getId() const {
  */
 bool Plane::operator==(const Plane &rhs) const {
     return regis == rhs.regis;
+}
+
+/**
+ * @brief removes a scheduled service
+ * @param serviceToRemove service to be removed
+ */
+bool Plane::removeScheduledService(MaintenanceService serviceToRemove) {
+    queue<MaintenanceService> helper;
+    queue<MaintenanceService> comparisonQueue = scheduledServices;
+    while(!scheduledServices.empty()) {
+        if (scheduledServices.front().getId() == serviceToRemove.getId()) {
+            scheduledServices.pop();
+        } else {
+            helper.push(scheduledServices.front());
+            scheduledServices.pop();
+        }
+    }
+    if (helper == comparisonQueue) { // service not found
+        scheduledServices = comparisonQueue;
+        return false;
+    } else {
+        scheduledServices = helper;
+        return true;
+    }
+}
+
+bool Plane::markServiceAsCompleted(MaintenanceService serviceToBeCompleted) {
+    queue<MaintenanceService> helper;
+    queue<MaintenanceService> comparisonQueue = scheduledServices;
+    while(!scheduledServices.empty()) {
+        if(scheduledServices.front().getId() == serviceToBeCompleted.getId()) {
+            pastServices.push(scheduledServices.front());
+            scheduledServices.pop();
+        } else {
+            helper.push(scheduledServices.front());
+            scheduledServices.pop();
+        }
+    }
+    if (helper == comparisonQueue) { // service not found
+        scheduledServices = comparisonQueue;
+        return false;
+    } else {
+        scheduledServices = helper;
+        return true;
+    }
 }
