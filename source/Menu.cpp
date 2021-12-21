@@ -646,8 +646,16 @@ int Menu::runPlaneManagerMenu() {
             cout << "What's the plane's register you want to remove?\n";
             cin >> planeRegister;
 
-            if (planeM.remove(Plane(planeRegister)) == 1)
+            for(Plane plane: planeM.get()) {
+                auto helper = flightM.get();
+                for(Flight flight: helper) {
+                    if (plane.getId() == flight.getFlightId() && plane == Plane(planeRegister))
+                        flightM.remove(flight);
+                }
+            }
+            if (planeM.remove(Plane(planeRegister)) == 1) {
                 cout << "Plane removed successfully\n";
+            }
             else
                 cout << "Failed to remove plane. The plane does not exist\n";
             wait();

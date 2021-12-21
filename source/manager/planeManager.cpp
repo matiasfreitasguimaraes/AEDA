@@ -82,6 +82,9 @@ int PlaneManager::remove(const Plane &planeToRemove) {
         return 0;
     else {
         this->myPlanes.erase(myPlanes.find(planeToRemove));
+        for(unsigned i = 0; i < planeToRemove.getListOfFlights().size(); i++) {
+            planeToRemove.getListOfFlights().erase(planeToRemove.getListOfFlights().begin() + i);
+        }
         return 1;
     }
 }

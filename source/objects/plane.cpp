@@ -13,6 +13,10 @@ Plane::Plane(unsigned planeCapacity, string type, string planeRegister, unsigned
     instances++;
 }
 
+Plane::Plane(unsigned int planeId) {
+    this->id=planeId;
+}
+
 /**
  * @param planeRegister the plane's register
  */
