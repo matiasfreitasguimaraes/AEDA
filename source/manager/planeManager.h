@@ -21,7 +21,8 @@ public:
     int remove(const Plane &planeToRemove);
 
     ///get atributtes
-    set<Plane> get();
+    set<Plane>& get();
+    void setPlanes(set<Plane> updatedPlanes);
 
     bool find(Plane plane);
 };

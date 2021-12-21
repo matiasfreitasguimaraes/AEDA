@@ -67,6 +67,8 @@ ostream& operator<<(ostream &out, const Plane &plane) {
     out << "Plane's register: " << plane.getRegis() << endl;
     out << "Plane type: " << plane.getPlaneType() << endl;
     out << "Plane's list of flights:" << endl;
+    for(Flight flight: plane.getListOfFlights())
+        out << flight << endl;
     return out;
 }
 
@@ -104,8 +106,8 @@ queue<MaintenanceService> Plane::getScheduledServices() const {
  * @brief sets the list of flights of a plane
  * @param flights the new list of flights
  */
-void Plane::setListOfFlights(vector<Flight> flights) {
-    this->listOfFlights = flights;
+void Plane::addFlight(Flight flight) {
+    listOfFlights.push_back(flight);
 }
 
 /**

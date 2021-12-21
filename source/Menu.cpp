@@ -10,6 +10,7 @@ Menu::Menu(const string &planeInput, const string &flightInput, const string &lu
     flightM.read(flightFileR);
     luggageM.read(luggageCarFileR);
     airportM.read(airportFileR);
+    assignFlightsToPlanes();
     cout << menuTutorial;
 }
 
@@ -447,13 +448,13 @@ Menu::~Menu() {
  * @brief menu providing options for the user to check the flights in a specific order
  */
 void Menu::listingMenu() {
-    unsigned choice;
+
     cout << "Choose a listing option:\n";
     cout << "1 - Next flight to departure\n";
     cout << "2 - First flight to arrive to its destination\n";
     cout << "3 - Flight with the highest number of available tickets\n";
 
-    choice = intInput(0, 3, invalidInput);
+    option = intInput(0, 3, invalidInput);
     auto compare = [](const Flight &f1, const Flight &f2) { return f1.getDepartureDate() < f2.getDepartureDate(); };
     auto compare2 = [](const Flight &f1, const Flight &f2) { return f1.getArrivalDate() < f2.getArrivalDate(); };
     auto compare3 = [](const Flight &f1, const Flight &f2) {
@@ -464,7 +465,7 @@ void Menu::listingMenu() {
     set<Flight, decltype(compare3)> flightWithMoreTicketsAvailable(compare3);
 
 
-    switch (choice) {
+    switch (option) {
         case 1:
             for (Flight flight: flightM.get()) {
                 nextFlightToDeparture.insert(flight);
@@ -738,4 +739,21 @@ int Menu::runPlaneEditingMenu() {
     if(option == -1)
         return -1;
     return 0;
+}
+
+/**
+ * @brief assigns flights to planes. If a flight has the same ID as a plane, than that flight belongs to that plane
+ */
+void Menu::assignFlightsToPlanes() {
+    vector<Flight> temp;
+    set<Plane> helper;
+
+    for(Plane plane: planeM.get()) {
+        for(const Flight &flight: flightM.get()) {
+            if(flight.getFlightId() == plane.getId())
+                plane.addFlight(flight);
+        }
+        helper.insert(plane);
+    }
+    planeM.setPlanes(helper);
 }

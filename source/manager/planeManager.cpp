@@ -98,10 +98,18 @@ void PlaneManager::show() {
 /**
  * @return the set of planes
  */
-set<Plane> PlaneManager::get() {
+set<Plane>& PlaneManager::get() {
     return myPlanes;
 }
 
+/**
+ * @param plane instance of Plane
+ * @return true if the plane if found, false otherwise
+ */
 bool PlaneManager::find(Plane plane) {
     return (myPlanes.find(plane) != myPlanes.end());
+}
+
+void PlaneManager::setPlanes(set<Plane> updatedPlanes) {
+    myPlanes = updatedPlanes;
 }

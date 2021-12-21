@@ -118,6 +118,7 @@ public:
     int runFlightSetManagerMenu();
     int runPlaneManagerMenu();
     int runPlaneEditingMenu();
+    void assignFlightsToPlanes();
 };
 
 

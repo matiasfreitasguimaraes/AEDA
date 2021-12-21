@@ -32,7 +32,7 @@ public:
     vector<Flight> getListOfFlights() const;
     queue<MaintenanceService> getPastServices() const;
     queue<MaintenanceService> getScheduledServices() const;
-    void setListOfFlights(vector<Flight> flights);
+    void addFlight(Flight flight);
     void addPastService(MaintenanceService &service);
     void addScheduledService(MaintenanceService scheduledService);
     bool removeScheduledService(MaintenanceService serviceToRemove);
