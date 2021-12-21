@@ -58,9 +58,9 @@ void Airport::removeGT(GroundTransport GT) {
  * @param GTName ground transport's name to be returned
  * @return the ground transport with name GTName
  */
-GroundTransport Airport::getGT(string GTName) {
+GroundTransport& Airport::getGT(string GTName) {
     set<GroundTransport>::iterator iter = groundTransport.find(GroundTransport(GTName));
-    return *iter;
+    return const_cast<GroundTransport &>(*iter);
 }
 
 /**

@@ -14,6 +14,7 @@ private:
     unsigned int day;
     unsigned int hour;
     unsigned int minute;
+    string dateCode;
 public:
     DateTime();
     DateTime(unsigned int h, unsigned int min);

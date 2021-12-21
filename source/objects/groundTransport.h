@@ -27,6 +27,7 @@ public:
     void showSched();
     void addToSchedule(DateTime newDate);
     void removeFromSchedule(DateTime date);
+    bool findInSchedule(DateTime date);
     friend ostream& operator<<(ostream &out, const GroundTransport &groundTransport);
     bool operator<(const GroundTransport &rhs) const;
     bool operator==(const GroundTransport &rhs) const;

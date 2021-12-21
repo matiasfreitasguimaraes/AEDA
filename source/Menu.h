@@ -107,8 +107,8 @@ public:
     int run();
     int runAdminMenu();
     int runAirportManagerMenu();
-    int runScheduleOptionsMenu(set<DateTime> &GTDates);
     int runAirportEditingMenu(set<Airport> &airports, const string airportName);
+    int runScheduleOptionsMenu(set<Airport> &managerAirports, string airportName, string GTName);
     static int intInput(int min, int max, string errorMessage);
     void wait();
     bool canBuyTicket(Flight flight);
@@ -119,12 +119,6 @@ public:
     int runPlaneManagerMenu();
     int runPlaneEditingMenu();
     void assignFlightsToPlanes();
-    void addAirport();
-    void removeAirport();
-    void editAirportGT();
-    void checkGTSchedule(Airport airport);
-    void addAirportGT(set<Airport> airports, Airport airport, string airportName);
-    void removeAirportGT(set<Airport> airports, Airport airport, string airportName);
 };
 
 

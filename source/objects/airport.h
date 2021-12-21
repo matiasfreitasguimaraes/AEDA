@@ -19,7 +19,7 @@ public:
     void removeGT(GroundTransport GT);
     bool findGT(string GTName);
     void showGTs();
-    GroundTransport getGT(string name);
+    GroundTransport& getGT(string name);
     string getName();
     set<GroundTransport>& get();
     bool operator<(const Airport &rhs) const;
