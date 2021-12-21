@@ -82,7 +82,6 @@ int Menu::run() {
             buyTicket();
             break;
     }
-    wait();
     return -1;
 }
 
@@ -93,7 +92,6 @@ int Menu::run() {
 int Menu::runAdminMenu() {
     cout << adminMenu;
     option = intInput(0, 3, invalidInput);
-
     switch (option) {
         case 1:
             do {
@@ -226,7 +224,7 @@ int Menu::runAirportEditingMenu(set<Airport> &airports, string airportName) {
                     airport.addGT(GroundTransport(name, type, airDis));
                     airports.erase(airports.find(Airport(airportName)));
                     airports.insert(airport);
-                    cout << "Station added successfully!";
+                    cout << "Station added successfully!\n";
                     wait();
                 }
             }

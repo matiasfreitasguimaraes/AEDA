@@ -9,12 +9,11 @@ using namespace std;
 
 class DateTime {
 private:
-    unsigned int year;
-    unsigned int month;
-    unsigned int day;
-    unsigned int hour;
-    unsigned int minute;
-    string dateCode;
+    unsigned int year = 0;
+    unsigned int month = 0;
+    unsigned int day = 0;
+    unsigned int hour = 0;
+    unsigned int minute = 0;
 public:
     DateTime();
     DateTime(unsigned int h, unsigned int min);

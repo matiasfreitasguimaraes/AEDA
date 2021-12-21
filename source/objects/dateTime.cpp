@@ -2,9 +2,13 @@
 
 DateTime::DateTime() {}
 
-DateTime::DateTime(unsigned int h, unsigned int min) : year(0), month(0), day(0), hour(h), minute(min){}
+DateTime::DateTime(unsigned int h, unsigned int min) : hour(h), minute(min){
+    this->year = 0; this->month = 0; this->day = 0;
+}
 
-DateTime::DateTime(unsigned int y, unsigned int mon, unsigned int d) : year(y), month(mon), day(d), hour(0), minute(0) {}
+DateTime::DateTime(unsigned int y, unsigned int mon, unsigned int d) : year(y), month(mon), day(d) {
+    this->hour = 0; this->minute = 0;
+}
 
 DateTime::DateTime(unsigned int y, unsigned int mon, unsigned int d, unsigned int h, unsigned int min) : year(y), month(mon), day(d), hour(h), minute(min) {}
 

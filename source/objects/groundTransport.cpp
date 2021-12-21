@@ -99,7 +99,10 @@ set<DateTime> & GroundTransport::getSchedule() {
 }
 
 bool GroundTransport::findInSchedule(DateTime date) {
-    if (schedule.find(date) != schedule.end())
-        return true;
+    for (DateTime dat:schedule) {
+        if(dat == date){
+            return true;
+        }
+    }
     return false;
 }
