@@ -94,7 +94,6 @@ int Menu::run() {
 int Menu::runAdminMenu() {
     cout << adminMenu;
     option = intInput(0, 3, invalidInput);
-
     switch (option) {
         case 1:
             do {

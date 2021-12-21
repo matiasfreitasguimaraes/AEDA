@@ -53,38 +53,78 @@ endif(DOXYGEN_FOUND)
 project(airportTest)
 
 add_executable(airportTest testers/testAirport.cpp
+        source/manager/airportManager.cpp source/manager/airportManager.h
         source/objects/airport.cpp source/objects/airport.h
-        source/objects/dateTime.cpp source/objects/dateTime.h
-        source/objects/groundTransport.cpp source/objects/groundTransport.h
         source/objects/flight.cpp source/objects/flight.h
+        source/objects/maintenanceService.cpp source/objects/maintenanceService.h
         source/objects/passenger.cpp source/objects/passenger.h
-        testers/testLuggageCar.cpp
-        )
+        source/objects/plane.cpp source/objects/plane.h
+        source/objects/ticket.cpp source/objects/ticket.h
+        source/objects/groundTransport.cpp source/objects/groundTransport.h
+        source/objects/dateTime.cpp source/objects/dateTime.h
+        source/objects/luggageCar.h source/objects/luggageCar.cpp
+        source/Menu.cpp source/Menu.h source/manager/flightManager.h
+        source/manager/planeManager.cpp source/manager/planeManager.h
+        source/manager/flightManager.cpp source/manager/luggageCarManager.cpp
+        source/manager/luggageCarManager.h
+        source/objects/luggage.cpp source/objects/luggage.h)
+
 
 project(planeTest)
 
 add_executable(planeTest testers/testPlane.cpp
-        source/objects/groundTransport.cpp source/objects/groundTransport.h
+        source/manager/airportManager.cpp source/manager/airportManager.h
+        source/objects/airport.cpp source/objects/airport.h
+        source/objects/flight.cpp source/objects/flight.h
+        source/objects/maintenanceService.cpp source/objects/maintenanceService.h
+        source/objects/passenger.cpp source/objects/passenger.h
         source/objects/plane.cpp source/objects/plane.h
+        source/objects/ticket.cpp source/objects/ticket.h
+        source/objects/groundTransport.cpp source/objects/groundTransport.h
         source/objects/dateTime.cpp source/objects/dateTime.h
+        source/objects/luggageCar.h source/objects/luggageCar.cpp
+        source/Menu.cpp source/Menu.h source/manager/flightManager.h
         source/manager/planeManager.cpp source/manager/planeManager.h
-        source/objects/flight.cpp source/objects/flight.h)
+        source/manager/flightManager.cpp source/manager/luggageCarManager.cpp
+        source/manager/luggageCarManager.h
+        source/objects/luggage.cpp source/objects/luggage.h)
 
-project(groundTest)
-
-add_executable(groundTest
-        source/objects/groundTransport.cpp source/objects/groundTransport.h
-        source/objects/plane.cpp source/objects/plane.h
-        source/objects/dateTime.cpp source/objects/dateTime.h
-        source/objects/flight.cpp source/objects/flight.h)
 
 project(flightTest)
 
 add_executable(flightTest testers/testFlight.cpp
-        source/objects/groundTransport.cpp source/objects/groundTransport.h
+        source/manager/airportManager.cpp source/manager/airportManager.h
+        source/objects/airport.cpp source/objects/airport.h
+        source/objects/flight.cpp source/objects/flight.h
+        source/objects/maintenanceService.cpp source/objects/maintenanceService.h
+        source/objects/passenger.cpp source/objects/passenger.h
         source/objects/plane.cpp source/objects/plane.h
+        source/objects/ticket.cpp source/objects/ticket.h
+        source/objects/groundTransport.cpp source/objects/groundTransport.h
         source/objects/dateTime.cpp source/objects/dateTime.h
-        source/manager/flightManager.cpp source/manager/flightManager.h
-        source/objects/flight.cpp source/objects/flight.h)
+        source/objects/luggageCar.h source/objects/luggageCar.cpp
+        source/Menu.cpp source/Menu.h source/manager/flightManager.h
+        source/manager/planeManager.cpp source/manager/planeManager.h
+        source/manager/flightManager.cpp source/manager/luggageCarManager.cpp
+        source/manager/luggageCarManager.h
+        source/objects/luggage.cpp source/objects/luggage.h)
 
 
+project(luggageCarTest)
+
+add_executable(luggageCarTest testers/testLuggageCar.cpp
+        source/manager/airportManager.cpp source/manager/airportManager.h
+        source/objects/airport.cpp source/objects/airport.h
+        source/objects/flight.cpp source/objects/flight.h
+        source/objects/maintenanceService.cpp source/objects/maintenanceService.h
+        source/objects/passenger.cpp source/objects/passenger.h
+        source/objects/plane.cpp source/objects/plane.h
+        source/objects/ticket.cpp source/objects/ticket.h
+        source/objects/groundTransport.cpp source/objects/groundTransport.h
+        source/objects/dateTime.cpp source/objects/dateTime.h
+        source/objects/luggageCar.h source/objects/luggageCar.cpp
+        source/Menu.cpp source/Menu.h source/manager/flightManager.h
+        source/manager/planeManager.cpp source/manager/planeManager.h
+        source/manager/flightManager.cpp source/manager/luggageCarManager.cpp
+        source/manager/luggageCarManager.h
+        source/objects/luggage.cpp source/objects/luggage.h)
